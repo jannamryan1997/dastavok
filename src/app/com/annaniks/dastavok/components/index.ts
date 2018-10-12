@@ -1,0 +1,1 @@
+export * from "src/app/com/annaniks/dastavok/components/top/top.component";

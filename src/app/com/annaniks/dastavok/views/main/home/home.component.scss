@@ -1,0 +1,98 @@
+.home-content {
+    border: 1px solid #707070;
+    .content {
+        border: 1px solid red;
+        .left-content {
+            max-width: 287px;
+            .logo {
+                height: 79px;
+                object-fit: contain;
+                font-family: Henriette;
+                font-size: 60px;
+                font-weight: bold;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.13;
+                letter-spacing: normal;
+                text-align: left;
+                color: #87bd3c;
+                padding: 11px;
+            }
+            .menu {
+                object-fit: contain;
+                border-radius: 4px;
+                border: solid 1px #707070;
+                background-color: #444444;
+                margin-top: 15px;
+                .resturant-manu {
+                    height: 40px;
+                    font-size: 15px;
+                    font-weight: bold;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.13;
+                    letter-spacing: 2px;
+                    text-align: left;
+                    color: #ffffff;
+                    margin-top: 30px;
+                    border-bottom: solid 2px #707070;
+                }
+            }
+        }
+        .right-content {
+            border: 1px solid black;
+            .shop,.restorant,.all {
+                height: 75px;
+                object-fit: contain;
+                border-radius: 4px;
+                border: solid 2px #a4a4a4;
+                background-color: #ffffff;
+                .text_1,.text_3{
+                    object-fit: contain;
+                    font-size: 20px;
+                    font-weight: bold;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.35;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: #191919;
+                }
+                
+            }
+            .restorant{
+                background: #87bd3c;
+               
+            }
+            .shop{
+                border-right: none;
+            }
+            .all{
+               border-left: none; 
+            }
+            .text_2{
+                object-fit: contain;
+                font-size: 20px;
+                font-weight: bold;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.35;
+                letter-spacing: normal;
+                text-align: left;
+                color: white;
+            }
+            .search{
+                width: 46.5px;
+                height: 41px;
+                object-fit: contain;
+                background: #87bd3c;
+            }
+            .slider{
+                margin-top: 30px;
+                height: 476px;
+                object-fit: contain;
+                border-radius: 4px;
+            }
+        }
+    }
+}

@@ -1,0 +1,38 @@
+<div class="home-content" full-width display-flex>
+    <div class="ui-g content" min-width margin-auto>
+        <div class="ui-g-3 left-content">
+            <div class="logo" full-width text-align >
+                <span >LOGO</span>
+            </div>
+            <div class="menu">
+                <div  *ngFor="let item of arr;let ind=index" class="resturant-manu" margin-auto  middle-width>
+                    <span>{{item.name}}{{ind+1}}</span>
+                  
+                </div>
+            </div>
+        </div>
+        <div class="ui-g-7 right-content">
+            <div class="ui-g-12 top">
+                <div class=" ui-g-4 shop" display-flex >
+                    <span class="text_1" margin-auto>SHOP</span>
+                </div>
+                <div class=" ui-g-4 restorant" display-flex >
+                        <span class="text_2"  margin-auto>RESTRANT</span>
+                    </div>
+                    <div class=" ui-g-4 all" display-flex >
+                            <span class="text_3"  margin-auto font-family>ALL</span>
+                        </div>
+            </div>
+            <div class="ui-g-12"  display-flex >
+                <input class="ui-g-9" placeholder="Search Product Hear" >
+                <div class="ui-g-3 search"></div>
+            </div>
+            <div class="ui-g-12 slider"  display-flex>
+                <div class="img" >
+                        <img src="assets/images/frukt.jpg"  full-width full-height>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</div>
