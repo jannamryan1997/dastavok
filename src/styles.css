@@ -4,4 +4,9 @@
 
 body{
     min-width: 900px;
+    margin: 0;
+}
+
+*{
+    outline: none;
 }

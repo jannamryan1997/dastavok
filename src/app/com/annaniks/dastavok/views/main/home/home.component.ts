@@ -1,36 +1,15 @@
 import {Component, OnInit} from "@angular/core" 
+import { MenuItemsService } from "../../../services";
 
 @Component({
+    selector:"app-home",
     templateUrl:"home.component.html",
     styleUrls:["home.component.scss"]
 })
 
 export class HomeComponent implements OnInit{
 
-    public arr:Array<any>=[
-        {name:"Resturant_"},
-        {name:"Resturant_"},
-        {name:"Resturant_"},
-        {name:"Resturant_"},
-        {name:"Resturant_"},
-        {name:"Resturant_"},
-        {name:"Resturant_"},
-        {name:"Resturant_"},
-        {name:"Resturant_"},
-        {name:"Resturant_"},
-        {name:"Resturant_"},
-        {name:"Resturant_"},
-        {name:"Resturant_"},
-        {name:"Resturant_"},
-        {name:"Resturant_"},
-        {name:"Resturant_"},
-        {name:"Resturant_"},
-        {name:"Resturant_"},
-        {name:"Resturant_"},
-        {name:"Resturant_"},
-    ]
-
-    constructor(){} 
+    constructor(public menuItemsService:MenuItemsService){} 
 
     ngOnInit(){}
 }

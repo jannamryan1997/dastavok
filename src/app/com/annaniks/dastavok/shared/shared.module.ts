@@ -1,13 +1,13 @@
-import { NgModule} from "@angular/core"
-import { TopComponent } from "../components";
+import { NgModule } from "@angular/core"
+import { TopbarComponent } from "../components";
 import { CommonModule } from "@angular/common";
-
+import { RouterModule } from "@angular/router"
 @NgModule({
-declarations:[TopComponent],
-imports:[CommonModule],
-exports:[TopComponent,CommonModule],
+    declarations: [TopbarComponent],
+    imports: [CommonModule, RouterModule],
+    exports: [TopbarComponent, CommonModule],
 })
 
-export class SharedModule{
+export class SharedModule {
 
 }

@@ -1,0 +1,26 @@
+.left-menu{
+    width: 287px;
+    object-fit: contain;
+    border-radius: 4px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    .logo{
+        margin-left: 26.5px;
+    }
+    .menu_content {
+        background-color: #444444;
+        .menu_item {
+            padding-top: 36.5px;
+            margin-left: 26.5px;
+            width: 234px;
+            object-fit: contain;
+            border-bottom: solid 2px #707070;
+            justify-content: space-between;
+            cursor: pointer;
+            &:first-child{
+                padding-top: 46px;
+            }
+        }
+    }
+}
