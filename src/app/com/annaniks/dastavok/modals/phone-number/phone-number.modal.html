@@ -1,0 +1,21 @@
+<div class="phone_content" full-width>
+    <div class="phone_wrapper">
+        <form [formGroup]="phoneNumberForm">
+            <div class="input_content" full-width display-flex>
+                <div class="left_icon" full-height display-flex>
+                    <i class="material-icons" margin-auto>
+                        call
+                    </i>
+                </div>
+                <input type="text" class="input" formControlName="phonenumber">
+            </div>
+            <div class="buttons_wrapper" display-flex>
+                <div class="buttons_items" margin-auto full-height>
+                    <button class="back_button" full-height font-weight-bold (click)="closePhoneModal()">BACK</button>
+                    <button class="next_button" full-height font-weight-bold color-white (click)="openRegistrationModal()">NEXT</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

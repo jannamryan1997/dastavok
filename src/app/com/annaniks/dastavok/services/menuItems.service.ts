@@ -12,7 +12,7 @@ export class MenuItemsService {
     private _homeContentItems: Array<MenuItem> = [
         { label: "SHOP", routerLink: "#" },
         { label: "RESTRANT", routerLink: "/home/restaurant" },
-        { label: "ALL", routerLink: "#" }
+        { label: "ALL", routerLink: "#" },
 
     ]
 

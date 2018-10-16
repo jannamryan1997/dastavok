@@ -1,0 +1,34 @@
+<div class="topbar_wrapper" full-width display-flex full-height>
+    <div class="topbar_content" margin-auto width-75>
+        <form [formGroup]="loginForm">
+            <div class="user_name" full-width display-flex>
+                <div class="user_name_icons" full-height display-flex>
+                    <i class="material-icons" margin-auto>
+                        person
+                    </i>
+                </div>
+                <input full-height class="user_name_input" placeholder="User Name" formControlName="userName">
+
+            </div>
+            <!-- <span *ngIf="loginForm.get('userName').hasError('required') && loginForm.get('userName').touched">это обязательное поле</span> -->
+            <div class="password" full-width display-flex>
+                <div class="password_icons" full-height display-flex>
+                    <i class="material-icons" margin-auto>
+                        vpn_key
+                    </i>
+                </div>
+                <input full-height class="password_input" placeholder="Password" formControlName="password">
+            </div>
+            <!-- <span *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').touched">это обязательное поле</span> -->
+            <div class="forget_password" full-width display-flex>
+                <span>Forget Password?</span>
+            </div>
+            <div class="login_content" full-width display-flex>
+                <div class="login" margin-auto color-white text-align-center full-height font-weight-bold display-flex>
+                    <span margin-auto (click)="openVerificationModal()">LOGIN</span>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

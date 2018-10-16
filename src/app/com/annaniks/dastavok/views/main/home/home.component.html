@@ -7,7 +7,7 @@
             </div>
         </div>
         <div class="search-content" full-width display-flex>
-            <div class="search_wrapper"display-flex>
+            <div class="search_wrapper" display-flex>
                 <input class="search-input" placeholder="Search Product Hear" full-width>
                 <div class="search" display-flex>
                     <i class="material-icons" margin-auto color-white>
@@ -17,11 +17,27 @@
             </div>
             <div class="trash"></div>
         </div>
-
+        <div class="slider" full-width display-flex position-relative>
+            <img class="slider_images" src="assets/images/slider.png" full-width full-height>
+            <div class="shop_now" display-flex color-white font-weight-bold text-align-center position-absalute
+                margin-side-auto>
+                <span margin-auto>SHOP NOW</span>
+            </div>
+            <div class="left_icon" position-absalute color-white>
+                <i class="material-icons">
+                    keyboard_arrow_left
+                </i>
+            </div>
+            <div class="right_icon" position-absalute color-white>
+                <i class="material-icons">
+                    keyboard_arrow_right
+                </i>
+            </div>
+        </div>
     </div>
-
     <app-menu></app-menu>
     <div class="container">
         <router-outlet></router-outlet>
     </div>
+    
 </div>

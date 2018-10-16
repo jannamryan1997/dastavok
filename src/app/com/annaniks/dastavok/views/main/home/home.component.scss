@@ -54,6 +54,45 @@
         border: 1px solid black;
         height: 41px;
     }
+    .slider {
+        width: 70%;
+        margin-top: 48px;
+        height: 476px;
+        .shop_now {
+            width: 178.5px;
+            height: 46.5px;
+            object-fit: contain;
+            border-radius: 4px;
+            background: #87bd3c;
+            left: 0;
+            right: 0;
+            bottom: 103.3px;
+            cursor: pointer;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            -ms-border-radius: 4px;
+            -o-border-radius: 4px;
+}
+        .left_icon {
+            left: 0;
+            right: 0;
+            bottom: 214.8px;
+            cursor: pointer;
+            i {
+                font-size: 40px;
+                cursor: pointer;
+            }
+        }
+        .right_icon {
+            right: 0;
+            bottom: 214.8px;
+            cursor: pointer;
+            i {
+                font-size: 40px;
+                cursor: pointer;
+            }
+        }
+    }
 }
 
 .item_Active {
@@ -64,3 +103,5 @@
 .container {
     margin-left: 295px
 }
+
+

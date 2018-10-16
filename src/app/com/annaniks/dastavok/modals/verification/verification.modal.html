@@ -1,0 +1,22 @@
+<div class="topbar_wrapper" full-width full-height display-flex>
+
+    <div class="topbar_content">
+        <form [formGroup]="verificationForm">
+            <div class="items">
+
+                <input class="item_label" formControlName="control_1">
+                <input class="item_label" formControlName="control_2">
+                <input class="item_label" formControlName="control_3">
+                <input class="item_label" formControlName="control_4">
+
+            </div>
+            <div class="text_content" margin-auto>
+                <span>Enter the verification code <b color-orange>01:00</b></span>
+            </div>
+            <div class="buttons_wrapper">
+                <button class="back_button" font-weight-bold text-align-center (click)="closeVerification()">BACK</button>
+                <button class="next_button" font-weight-bold text-align-center color-white [disabled]="verificationForm.invalid" (click)="openPhoneNumberModal()">NEXT</button>
+            </div>
+        </form>
+    </div>
+</div>
