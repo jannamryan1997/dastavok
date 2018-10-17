@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core"
 import { MenuItemsService } from "../../services";
-import { MatDialog, MatDialogRef } from "@angular/material";
-import { LoginModal } from "../../modals";
+import { MatDialog } from "@angular/material";
 
 @Component({
     selector: 'app-topbar',
@@ -10,17 +9,8 @@ import { LoginModal } from "../../modals";
 })
 
 export class TopbarComponent implements OnInit {
-    constructor(public menuItemsService: MenuItemsService, private dialog: MatDialog) { }
 
-    ngOnInit() {
+    constructor(public menuItemsService: MenuItemsService) { }
 
-    }
-
-    openDialogLogin(): void {
-        const dialogRef = this.dialog.open(LoginModal, {
-            width: "686px",
-            height: "444px"
-        })
-
-    }
+    ngOnInit() { }
 }

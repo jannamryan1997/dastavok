@@ -1,4 +1,5 @@
-<div class="home_content" full-width position-relative>
+<div class="home_content" full-width position-relative display-flex>
+    <app-menu></app-menu>
     <div class="choose_bar">
         <div class="choose_bar_container" display-flex full-height width-fit>
             <div class="choose_bar_item" display-flex *ngFor="let item of menuItemsService.getHomeContentItems()"
@@ -17,7 +18,7 @@
             </div>
             <div class="trash"></div>
         </div>
-        <div class="slider" full-width display-flex position-relative>
+        <!-- <div class="slider" full-width display-flex position-relative>
             <img class="slider_images" src="assets/images/slider.png" full-width full-height>
             <div class="shop_now" display-flex color-white font-weight-bold text-align-center position-absalute
                 margin-side-auto>
@@ -33,11 +34,9 @@
                     keyboard_arrow_right
                 </i>
             </div>
-        </div>
+        </div> -->
     </div>
-    <app-menu></app-menu>
     <div class="container">
         <router-outlet></router-outlet>
     </div>
-    
 </div>

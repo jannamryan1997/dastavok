@@ -1,13 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+
 @import 'src/app/com/annaniks/styles/variables.scss';
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-
-body{
+@import 'src/app/com/annaniks/styles/fonts.scss';
+body {
     min-width: 900px;
     margin: 0;
 }
 
-*{
+* {
     outline: none;
 }
 

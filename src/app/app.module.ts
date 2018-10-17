@@ -1,12 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import {RouterModule,Routes} from "@angular/router";
+import { RouterModule, Routes } from "@angular/router";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
-const router:Routes=[
-  {path:"",loadChildren:"./com/annaniks/dastavok/views/main/main.module#MainModule"},
+const router: Routes = [
+  { path: "", loadChildren: "./com/annaniks/dastavok/views/main/main.module#MainModule" },
 
 ]
 
