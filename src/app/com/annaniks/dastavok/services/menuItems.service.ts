@@ -6,12 +6,12 @@ import { MenuItem } from "../models/models";
 export class MenuItemsService {
     private _menuItems: Array<MenuItem> = [
         { label: "HOME", routerLink: "/home" },
-        { label: "CONTACT", routerLink: "#" }
+        { label: "CONTACT", routerLink: "/contact" }
     ]
 
     private _homeContentItems: Array<MenuItem> = [
         { label: "SHOP", routerLink: "#" },
-        { label: "RESTRANT", routerLink: "/home/restaurant" },
+        { label: "RESTRANT", routerLink: "/home/information" },
         { label: "ALL", routerLink: "#" },
 
     ]

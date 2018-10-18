@@ -1,0 +1,157 @@
+.slider_content {
+    margin-top: 48px;
+    .slider_container {
+        height: 476px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    .leftRs {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto 0;
+        width: fit-content;
+        height: fit-content;
+        user-select: none;
+        cursor: pointer;
+        i {
+            font-size: 50px;
+        }
+    }
+    .rightRs {
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        user-select: none;
+        cursor: pointer;
+        margin: auto 0;
+        width: fit-content;
+        height: fit-content;
+        i {
+            font-size: 50px;
+        }
+    }
+    .shop_now {
+        font-size: 17px;
+        width: 178.5px;
+        height: 46.7px;
+        border-radius: 4px;
+        background-color: #87bd3c;
+        border: none;
+        text-decoration: none;
+        display: inline-block;
+        left: 0;
+        right: 0;
+        bottom: 103.3px;
+        margin: auto;
+    }
+    .bottom_slider {
+        margin: 0 auto;
+        width: 202px;
+        height: 214px;
+        object-fit: contain;
+        border: solid 1px #707070;
+        .slider_image {
+            height: 137px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .bottom_text {
+            font-size: 15px;
+            .listen {
+                list-style: none;
+                padding: 0;
+                margin-left: 16px;
+                .item_text_one {
+                    border: none;
+                }
+                .item_carency {
+                    margin-left: 85px;
+                }
+                .item_text_two {
+                    font-size: 10px;
+                    border: none;
+                }
+                .item_star {
+                    border: none;
+                    i {
+                        font-size: 12px;
+                        color: #ff6f00;
+                    }
+                }
+            }
+        }
+    }
+    .leftRs_config {
+        display: block !important;
+        color: #444444;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto 0;
+        width: fit-content;
+        height: fit-content;
+        user-select: none;
+        cursor: pointer;
+        i {
+            font-size: 50px;
+        }
+    }
+    .rightRs_config {
+        color: #444444;
+        display: block !important;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto 0;
+        width: fit-content;
+        height: fit-content;
+        user-select: none;
+        i {
+            font-size: 50px;
+        }
+    }
+}
+
+:host::ng-deep .ngxcarouselPointDefault {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 21.88px;
+}
+
+:host::ng-deep .active {
+    background-color: #87bd3c !important;
+}
+
+:host::ng-deep li {
+    background-color: transparent !important;
+    border: 2px solid darkgrey;
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+}
+
+.second_slider {
+    ngx-carousel {
+        ngx-item {
+            width: fit-content;
+            margin-left: 59px;
+            &:first-child {
+                margin-left: 101px
+            }
+        }
+    }
+}

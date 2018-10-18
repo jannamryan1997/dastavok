@@ -1,9 +1,12 @@
 import {NgModule} from "@angular/core"
 import {RouterModule,Routes} from "@angular/router"
-import { HomeComponent } from "./home.component";
+import { HomeView } from "./home.view";
+
+
 const router:Routes=[
-    {path:"",component:HomeComponent,children:[
-        {path:"restaurant",loadChildren:"src/app/com/annaniks/dastavok/views/main/home/restaurant/restaurant.module#RestaurantModule"}
+    {path:"",component:HomeView,children:[
+        {path:"restaurant",loadChildren:"src/app/com/annaniks/dastavok/views/main/home/restaurant/restaurant.module#RestaurantModule"},
+        {path:"information",loadChildren:"src/app/com/annaniks/dastavok/views/main/home/information/information.module#InformationModule"}
     ]
 }
 ]

@@ -4,10 +4,12 @@
     border-radius: 4px;
     .logo {
         margin-left: 26.5px;
+        margin-top: 13px;
     }
     .menu_content {
         background-color: #444444;
         border-radius: 4px;
+        margin-top: 18px;
         -webkit-border-radius: 4px;
         -moz-border-radius: 4px;
         -ms-border-radius: 4px;
@@ -22,6 +24,10 @@
             cursor: pointer;
             &:first-child {
                 padding-top: 46px;
+            }
+
+            &:last-child{
+                padding-bottom: 46px;
             }
         }
     }

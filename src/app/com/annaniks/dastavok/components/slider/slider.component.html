@@ -1,0 +1,61 @@
+<div class="slider_content" full-width [ngSwitch]="sliderMode">
+    <div position-relative *ngSwitchCase="1">
+        <ngx-carousel [inputs]="carouselConfig">
+            <ngx-item *ngFor="let item of items" NgxCarouselItem>
+                <div class="slider_container" [ngStyle]="{'background-image':'url('+item.title+')'}">
+                </div>
+
+            </ngx-item>
+
+            <div NgxCarouselPrev class="leftRs" color-white>
+                <i class="material-icons">
+                    keyboard_arrow_left
+                </i>
+            </div>
+            <div NgxCarouselNext class="rightRs" color-white><i class="material-icons">
+                    keyboard_arrow_right
+                </i></div>
+        </ngx-carousel>
+        <button class="shop_now" color-white font-family-Open-Sans font-weight-bold displey-flex text-align-center
+            position-absalute>
+            <span>SHOP NOW</span>
+        </button>
+    </div>
+    <div *ngSwitchCase="2" class="second_slider">
+        <ngx-carousel [inputs]="carouselConfig2">
+            <ngx-item *ngFor="let item of items" NgxCarouselItem style="width:fit-content">
+                <div class="bottom_slider">
+                    <div class="slider_image" [ngStyle]="{'background-image':'url('+item.title+')'}"></div>
+                    <div class="bottom_text" display-flex>
+                        <ul class="listen">
+                            <li class="item_text_one" font-weight-bold font-family-Roboto>{{item.label}}
+                                <span class="item_carency"font-weight-bold font-family-Roboto>15$</span>
+                            </li>
+                            <li class="item_text_two" font-weight-bold font-family-Roboto>{{item.text}}</li>
+                            <li class="item_star"><i class="material-icons" *ngFor="let item of items_star">
+                                    star
+                                </i></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </ngx-item>
+
+            <div NgxCarouselPrev class="leftRs_config">
+                <i class="material-icons">
+                    keyboard_arrow_left
+                </i>
+            </div>
+            <div NgxCarouselNext class="rightRs_config" ><i class="material-icons">
+                    keyboard_arrow_right
+                </i></div>
+        </ngx-carousel>
+
+
+    </div>
+
+
+
+
+
+</div>

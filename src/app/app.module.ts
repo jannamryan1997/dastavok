@@ -1,14 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { RouterModule, Routes } from "@angular/router";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from './app.routing.module';
 
 
-const router: Routes = [
-  { path: "", loadChildren: "./com/annaniks/dastavok/views/main/main.module#MainModule" },
-
-]
 
 @NgModule({
   declarations: [
@@ -17,7 +13,7 @@ const router: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(router),
+    AppRoutingModule,
     BrowserAnimationsModule,
 
   ],

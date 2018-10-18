@@ -1,0 +1,26 @@
+<div class="home_content" full-width position-relative display-flex>
+    <app-menu></app-menu>
+    <div class="container">
+        <div class="choose_bar">
+            <div class="choose_bar_container" display-flex full-height width-fit>
+                <div class="choose_bar_item" display-flex *ngFor="let item of menuItemsService.getHomeContentItems()"
+                    routerLink="{{item.routerLink}}" routerLinkActive="item_Active">
+                    <p class="item_label" margin-auto font-weight-bold font-family-Open-Sans>{{item.label}}</p>
+                </div>
+            </div>
+            <div class="search-content" full-width display-flex>
+                <div class="search_wrapper" display-flex>
+                    <input class="search-input" placeholder="Search Product Hear" full-width>
+                    <div class="search" display-flex>
+                        <i class="material-icons" margin-auto color-white>
+                            search
+                        </i>
+                    </div>
+                </div>
+                <div class="trash"></div>
+            </div>
+        </div>
+
+        <router-outlet></router-outlet>
+    </div>
+</div>

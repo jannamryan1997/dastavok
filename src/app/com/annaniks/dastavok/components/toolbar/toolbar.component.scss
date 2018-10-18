@@ -1,0 +1,41 @@
+.toolbar_container {
+    height: 66px;
+    width: 1220px;
+    .lenguage_content {
+        margin-top: 17px;
+        width: 124px;
+        height: 24px;
+        margin-left: auto;
+        i {
+            font-size: 25px;
+        }
+        .flags {
+            width: 27px;
+            height: 15px;
+            border-radius: 1px;
+        }
+        .language {
+            width: 66px;
+            font-size: 20px;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.2;
+            letter-spacing: normal;
+            text-align: left;
+            color: #191919;
+        }
+    }
+    .login_content {
+        margin-top: 17px;
+        width: 124px;
+        height: 24px;
+        margin-left: 66px;
+        .login {
+            width: 202px;
+            height: 250px;
+            box-shadow: -4px 4px 6px 0 rgba(0, 0, 0, 0.16);
+            background-color: #ffffff;
+            z-index: 1;
+        }
+    }
+}

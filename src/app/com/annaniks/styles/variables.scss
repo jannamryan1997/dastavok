@@ -30,37 +30,56 @@
 *[background-color-gray]{
     background: #444444;
 }
+
 *[color-white]{
     color: white;
 }
+
 *[color-orange]{
     color: #ff6f00;
+}
+*[color-black]{
+    color: black;
 }
 
 *[no-margin]{
     margin: 0 !important;
 }
+
 *[no-margin-bottom]{
     margin-bottom: 0 !important;
 }
+
 *[no-padding] {
     padding: 0 !important;
 }
+
 *[font-weight-light] {
     font-weight: 200;
 }
+
 *[font-weight-bold] {
     font-weight: bold;
 }
-*[font-family-Henriette] {
-    font-family:'Henriette';
+
+*[font-family-Open-Sans]{
+    font-family: 'Open Sans';
 }
+
+*[font-family-Roboto]{
+    font-family: 'Roboto';
+}
+
 *[font-family-Oswald]{
     font-family: "Oswald"
 }
+
 *[position-relative]{
     position: relative;
 }
 *[position-absalute]{
     position: absolute;
+}
+*[align-items-center]{
+    align-items: center;
 }

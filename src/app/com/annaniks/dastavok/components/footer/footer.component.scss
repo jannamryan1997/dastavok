@@ -4,4 +4,101 @@
     object-fit: contain;
     border: solid 1px #707070;
     background-color: #444444;
+    .footer_conteiner {
+        width: 1220px;
+        .logo_content {
+            width: 202px;
+            padding: 0;
+            margin-top: 3px;
+            color: #919191;
+            line-height: 14px;
+            font-size: 12px;
+        }
+        .image {
+            height: 96px;
+        }
+    }
+    .text_content {
+        margin-top: 51px;
+        .text_item {
+            font-size: 15px;
+            margin-left: 106px;
+            &:first-child {
+                margin-left: 101px;
+            }
+        }
+    }
+    .footer_item {
+        margin-top: 51px;
+        margin-left: 101px;
+        width: 96px;
+        font-size: 15px;
+        cursor: pointer;
+        .text_item {
+            cursor: pointer;
+            margin-top: 16px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.17;
+            letter-spacing: normal;
+            text-align: left;
+            color: #919191;
+            font-size: 12px;
+            margin-bottom: 0px;
+        }
+        .text_items {
+            cursor: pointer;
+            margin-top: 8px;
+            margin-bottom: 0px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.17;
+            letter-spacing: normal;
+            text-align: left;
+            color: #919191;
+            font-size: 12px;
+        }
+    }
+    .footer_item_categories {
+        cursor: pointer;
+        margin-top: 51px;
+        margin-left: 106px;
+        width: 96px;
+        font-size: 15px;
+        .text_item {
+            cursor: pointer;
+            margin-top: 16px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.17;
+            letter-spacing: normal;
+            text-align: left;
+            color: #919191;
+            font-size: 12px;
+            margin-bottom: 0px;
+            i{
+                font-size: 9px;
+            }
+        }
+        .text_items {
+            cursor: pointer;
+            margin-top: 8px;
+            margin-bottom: 0px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.17;
+            letter-spacing: normal;
+            text-align: left;
+            color: #919191;
+            font-size: 12px;
+            i{
+                font-size: 9px;
+            }
+           
+        }
+    }
 }
