@@ -1,6 +1,100 @@
 <div class="contact_content" full-width>
     <div class="contact_conteiner" display-flex margin-auto>
-        <div class="left_content"></div>
+        <div class="left_content">
+            <div class="text_items">
+                <p class="text_item_one" font-weight-bold font-family-Open-Sans>Reach out to us!</p>
+                <span class="text_item_two" font-weight-bold font-family-Roboto>Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Tempora autem
+                    labore reiciendis corporis impedit facere saepe enim, vero porro quas, neque molestiae. Placeat
+                    asperiores magnam iste blanditiis facere culpa quis.</span>
+            </div>
+            <div class="input_items">
+                <form [formGroup]="userForm">
+                    <div class="form_group">
+                        <input class="first_name_input" placeholder="First Name" full-width font-family-Roboto
+                            formControlName="first_name">
+                    </div>
+                    <div class="form_group">
+                        <input class="last_name_input" placeholder="Last Name" full-width font-family-Roboto
+                            formControlName="last_name">
+                    </div>
+                    <div class="form_group">
+                        <input class="email" placeholder="Email" full-width font-family-Roboto formControlName="email">
+                    </div>
+                    <div class="form_group">
+                        <input class="phone_number" placeholder="Phone Number" full-width font-family-Roboto
+                            formControlName="phone_number">
+                    </div>
+                    <div class="form_group">
+                        <textarea class="messages" placeholder="Messages" full-width font-family-Roboto formControlName="messages"></textarea>
+                    </div>
+                    <button class="submit_button" text-align-center display-flex [disabled]="userForm.invalid">
+                        <span color-white font-family-Open-Sans font-weight-bold margin-auto [ngClass]="{'disable':userForm.invalid}">Submit</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="right_content">
+            <div class="text_items">
+                <p class="text_item_one" font-weight-bold font-family-Open-Sans>Reach out to us!</p>
+                <span class="text_item_two" font-weight-bold font-family-Roboto>Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Tempora autem
+                    labore reiciendis corporis impedit facere saepe enim, vero porro quas, neque molestiae. Placeat
+                    asperiores magnam iste blanditiis facere culpa quis.</span>
+            </div>
+            <div class="customer_info" display-flex align-items-center>
+                <div class="img_info">
+                    <img class="img" src="assets/images/user.png" full-width full-height>
+                </div>
+                <div class="data">
+                    <p class="data_first_name" font-family-Open-Sans font-weight-bold>Claudio Pierantonio</p>
+                    <p class="data_last_name" font-family-Roboto>Customer Care</p>
+                    <p class="data_phone_number" font-weight-bold font-family-Roboto>+216(0)40 3263 4753</p>
+                </div>
+            </div>
+            <div class="customer_info_item" display-flex align-items-center>
+                <div class="img_info">
+                    <img class="img" src="assets/images/user.png" full-width full-height>
+                </div>
+                <div class="data">
+                    <p class="data_first_name" font-family-Open-Sans font-weight-bold>Noelfa Rosemberg</p>
+                    <p class="data_last_name" font-family-Roboto>Customer Care Lead</p>
+                    <p class="data_phone_number" font-weight-bold font-family-Roboto>+216(0)40 3263 4753</p>
+
+                </div>
+
+
+            </div>
+            <div class="text_other">
+                <span class="text_other_item" font-family-Open-Sans font-weight-bold>Others ways to connect</span>
+            </div>
+            <div class="contact">
+                <div class="fb_contact" display-flex lign-items-center>
+                    <div class="img_contact">
+                        <img src="assets/images/fb.png" full-height>
+                    </div>
+                    <div class="contact_text">
+                        <span font-family-Roboto>Lorem ipsum dolor sit amet consectetur
+                            adipisicing
+                            elit. Ipsum nisi
+                            explicabo modi, impedit eos iure vel exercitationem repellat consequatur obcaecati nobis
+                            laudantium nihil, praesentium libero sed doloribus aperiam adipisci ratione?</span>
+                    </div>
+                </div>
+                <div class="twinter_content" display-flex lign-items-center>
+                    <div class="img_contact">
+                        <img src="assets/images/twinter.png" full-height>
+                    </div>
+                    <div class="contact_text">
+                        <span font-family-Roboto>Lorem ipsum dolor sit amet consectetur
+                            adipisicing
+                            elit. Ipsum nisi
+                            explicabo modi, impedit eos iure vel exercitationem repellat consequatur obcaecati nobis
+                            laudantium nihil, praesentium libero sed doloribus aperiam adipisci ratione?</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 </div>

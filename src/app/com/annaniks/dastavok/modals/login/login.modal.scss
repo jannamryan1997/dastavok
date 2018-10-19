@@ -3,7 +3,7 @@
     height: 42px;
     border-radius: 4px;
     box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-    border: solid 1px #707070;
+   // border: solid 1px #707070;
     background-color: #ffffff;
     .user_name_input {
         width: calc(100% - 47.3px);
@@ -23,7 +23,7 @@
     height: 42px;
     border-radius: 4px;
     box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-    border: solid 1px #707070;
+  //  border: solid 1px #707070;
     background-color: #ffffff;
     .password_icons {
         width: 47.3px;
@@ -63,5 +63,12 @@
         box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
         background-color: #87bd3c;
         cursor: pointer;
+        border: none;
+        display:inline-block;
+        text-decoration: none;
     }
+}
+
+.opacity{
+    opacity: 0.5;
 }

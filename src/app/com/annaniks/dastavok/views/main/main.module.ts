@@ -4,16 +4,16 @@ import { MainComponent } from "./main.view";
 import { SharedModule } from "../../shared/shared.module";
 import { MenuItemsService } from "../../services";
 import { FooterComponent } from "../../components/footer/footer.component";
-import { LoginModal, VerificationModal,PhoneNumberModal,RegistrarionModals } from "../../modals";
+import { LoginModal, VerificationModal,PhoneNumberModal,NewPasswordModal} from "../../modals";
 
 
 
 @NgModule({
 
-    declarations: [MainComponent, FooterComponent, VerificationModal, LoginModal,PhoneNumberModal,RegistrarionModals],
+    declarations: [MainComponent, FooterComponent, VerificationModal, LoginModal,PhoneNumberModal,NewPasswordModal],
     imports: [MainRoutingModule, SharedModule],
     providers: [MenuItemsService],
-    entryComponents: [VerificationModal, LoginModal,PhoneNumberModal,RegistrarionModals],
+    entryComponents: [VerificationModal, LoginModal,PhoneNumberModal,NewPasswordModal],
     exports: [],
 })
 

@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core"
 import { MatDialogRef, MatDialog } from "@angular/material";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { PhoneNumberModal } from "../phone-number/phone-number.modal";
+import { NewPasswordModal } from "../newPassword/newPassword.modal";
+
 
 
 
@@ -36,9 +37,9 @@ export class VerificationModal implements OnInit {
         this.dialoRef.close();
     }
 
-    public openPhoneNumberModal(): void {
+   public openNewPasswordModal(): void {
 
-        const dialoRef = this.dialog.open(PhoneNumberModal, {
+        const dialoRef = this.dialog.open(NewPasswordModal, {
             width: "686px",
             height: "444px",
             panelClass: ['no-padding']

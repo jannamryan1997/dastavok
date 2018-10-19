@@ -11,7 +11,7 @@ export class MenuItemsService {
 
     private _homeContentItems: Array<MenuItem> = [
         { label: "SHOP", routerLink: "#" },
-        { label: "RESTRANT", routerLink: "/home/information" },
+        { label: "COMPANY", routerLink: "/home/information" },
         { label: "ALL", routerLink: "#" },
 
     ]

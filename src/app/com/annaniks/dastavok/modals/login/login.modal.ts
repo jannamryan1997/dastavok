@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core"
 import { MatDialog } from '@angular/material';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { VerificationModal } from "../verification/verification.modal";
+import { PhoneNumberModal } from "..";
+
 
 
 @Component({
@@ -25,8 +26,8 @@ export class LoginModal implements OnInit {
             "password": ["", Validators.required]
         })
     }
-    public openVerificationModal(): void {
-        const dialogRef = this.dialog.open(VerificationModal, {
+    public openPhoneNumberModal(): void {
+        const dialogRef = this.dialog.open(PhoneNumberModal, {
             width: "686px",
             height: "444px",
             panelClass: ['no-padding']

@@ -1,41 +1,74 @@
-.toolbar_container {
-    height: 66px;
-    width: 1220px;
-    .lenguage_content {
-        margin-top: 17px;
-        width: 124px;
-        height: 24px;
-        margin-left: auto;
-        i {
-            font-size: 25px;
+.toolbar_content {
+    .toolbar_container {
+        height: 66px;
+        width: 1220px;
+        .lenguage_content {
+            margin-top: 17px;
+            width: 124px;
+            height: 24px;
+            margin-left: auto;
+            i {
+                font-size: 25px;
+            }
+            .flags {
+                width: 27px;
+                height: 15px;
+                border-radius: 1px;
+            }
+            .language {
+                width: 66px;
+                font-size: 20px;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.2;
+                letter-spacing: normal;
+                text-align: left;
+                color: #191919;
+            }
         }
-        .flags {
-            width: 27px;
-            height: 15px;
-            border-radius: 1px;
-        }
-        .language {
-            width: 66px;
-            font-size: 20px;
-            font-style: normal;
-            font-stretch: normal;
-            line-height: 1.2;
-            letter-spacing: normal;
-            text-align: left;
-            color: #191919;
-        }
-    }
-    .login_content {
-        margin-top: 17px;
-        width: 124px;
-        height: 24px;
-        margin-left: 66px;
-        .login {
-            width: 202px;
-            height: 250px;
-            box-shadow: -4px 4px 6px 0 rgba(0, 0, 0, 0.16);
-            background-color: #ffffff;
-            z-index: 1;
+        .login_content {
+            margin-top: 17px;
+            width: 124px;
+            height: 24px;
+            margin-left: 66px;
+            .login_signin {
+                cursor: pointer;
+            }
+            .login {
+                width: 202px;
+                height: 250px;
+                box-shadow: -4px 4px 6px 0 rgba(0, 0, 0, 0.16);
+                background-color: #ffffff;
+                z-index: 1;
+                top: 66px;
+                .buttons_items {
+                    margin-left: 29px;
+                    margin-top: 81px;
+                    .login_button {
+                        font-size: 12px;
+                        width: 143.8px;
+                        height: 42px;
+                        border-radius: 4px;
+                        background-color: #87bd3c;
+                        text-decoration: none;
+                        display: inline-block;
+                        border: none;
+                        cursor: pointer;
+                    }
+                    .registration_button {
+                        margin-top: 42px;
+                        font-size: 12px;
+                        width: 143.8px;
+                        height: 42px;
+                        border-radius: 4px;
+                        background-color: #ff6f00;
+                        text-decoration: none;
+                        display: inline-block;
+                        border: none;
+                        cursor: pointer;
+                    }
+                }
+            }
         }
     }
 }

@@ -24,10 +24,10 @@
                 <span>Forget Password?</span>
             </div>
             <div class="login_content" full-width display-flex>
-                <div class="login" margin-auto color-white text-align-center full-height font-weight-bold display-flex>
-                    <span margin-auto (click)="openVerificationModal()">LOGIN</span>
+                <button class="login" margin-auto color-white text-align-center full-height font-weight-bold display-flex [disabled]="loginForm.invalid" [ngClass]="{'opacity':loginForm.invalid}">
+                    <span margin-auto (click)="openPhoneNumberModal()">LOGIN</span>
 
-                </div>
+                </button>
             </div>
         </form>
     </div>

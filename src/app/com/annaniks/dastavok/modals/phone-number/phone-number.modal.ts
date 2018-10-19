@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import {MatDialog,MatDialogRef} from "@angular/material";
-import { RegistrarionModals } from "../registration/registration.modal";
 import {FormGroup,FormBuilder,Validators} from "@angular/forms"
+import { VerificationModal } from "..";
 @Component({
     selector: "app-phonenumber",
     templateUrl: "phone-number.modal.html",
@@ -28,8 +28,8 @@ this.phoneNumberForm=new FormBuilder().group({
         this.dialogRef.close();
     }
 
-    public openRegistrationModal():void{
-        const dialogRef=this.dialog.open(RegistrarionModals,{
+    public openVerificationModal():void{
+        const dialogRef=this.dialog.open(VerificationModal,{
             width: "686px",
             height: "444px",
             panelClass: ['no-padding']
