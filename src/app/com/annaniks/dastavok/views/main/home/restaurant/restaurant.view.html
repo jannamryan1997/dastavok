@@ -1,0 +1,38 @@
+<div class="restaurant_content" full-width>
+    <div class="path_content" display-flex align-items-center>
+        <span class="text_content" routerLink="/home/information">Home<i class="material-icons">
+                navigate_next
+            </i></span>
+        <span class="text_content" routerLink="/home/restaurant">Restaurant <i class="material-icons">
+                navigate_next
+            </i></span>
+
+    </div>
+    <div class="restaurant_wraper" position-relative>
+        <div class="text_wraper" position-absalute>
+            <p class="text_item_one" color-white font-weight-bold font-family-Open-Sans>Restaurant_1</p>
+            <span class="text_item_two" font-family-Roboto>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Autem, expedita, dict
+                Molestias nemo molestiae ipsa amet voluptates.</span>
+        </div>
+
+    </div>
+    <div class="menu_content" margin-auto>
+        <div *ngFor="let item of mealItem">
+            <div class="line-count" full-width></div>
+            <div class="meal_content" margin-auto>
+                <div class="meal_images" [ngStyle]="{'background-image':'url('+item.img+')'}" position-relative>
+                    <span class="text_title" position-absalute font-weight-bold>{{item.title}}</span>
+                    <span class="text-about" position-absalute font-weight-bold>{{item.about}}</span>
+                </div>
+                <div class="meal_text">
+                    <p class="meal_text_item_one" color-black color-white font-weight-bold font-family-Roboto>{{item.label}}</p>
+                    <span class="meal_text_item_two" font-family-Roboto>{{item.text}}</span>
+
+                </div>
+
+            </div>
+            <!--div class="line-count" full-width></div-->
+        </div>
+    </div>
+</div>

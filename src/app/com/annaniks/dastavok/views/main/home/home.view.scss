@@ -95,6 +95,13 @@
                 }
             }
         }
+        .trash_conteiner {
+            margin-left: 59.9px;
+            margin-top: 10.1px;
+            .i {
+                font-size: 27px;
+            }
+        }
     }
 }
 
@@ -107,10 +114,9 @@
     margin-left: 16px
 }
 
-
-  input::placeholder{
+input::placeholder {
     color: #b5b5b5;
     margin-top: 12px;
     font-size: 12px;
-  padding-left: 51px;
-  }
+    padding-left: 51px;
+}

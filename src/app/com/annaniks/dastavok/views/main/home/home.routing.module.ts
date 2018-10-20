@@ -6,7 +6,8 @@ import { HomeView } from "./home.view";
 const router:Routes=[
     {path:"",component:HomeView,children:[
         {path:"company",loadChildren:"src/app/com/annaniks/dastavok/views/main/home/company/company.module#CompanyModule"},
-        {path:"information",loadChildren:"src/app/com/annaniks/dastavok/views/main/home/information/information.module#InformationModule"}
+        {path:"information",loadChildren:"src/app/com/annaniks/dastavok/views/main/home/information/information.module#InformationModule"},
+        {path:"restaurant",loadChildren:"src/app/com/annaniks/dastavok/views/main/home/restaurant/restaurant.module#RestaurantModule"}
     ]
 }
 ]

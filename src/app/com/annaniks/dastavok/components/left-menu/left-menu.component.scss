@@ -25,10 +25,13 @@
             &:first-child {
                 padding-top: 46px;
             }
-
-            &:last-child{
+            &:last-child {
                 padding-bottom: 46px;
             }
         }
     }
+}
+
+.item_active{
+    background-color: #87bd3c;
 }
