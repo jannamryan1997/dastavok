@@ -1,8 +1,14 @@
+.top_content {
+    height: 115px;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+    background-color: #ffffff;
+}
+
 .phone_wrapper {
     width: 391.3px;
     margin: 0 auto;
     .input_content {
-        margin-top: 201px;
+        margin-top: 86px;
         height: 42px;
         border-radius: 4px;
         box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
@@ -26,9 +32,8 @@
     }
     .buttons_wrapper {
         margin-top: 95px;
-        height: 42px;
-     //   box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-      //  border: solid 1px #707070;
+        height: 42px; //   box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+        //  border: solid 1px #707070;
         .back_button {
             display: inline-block;
             cursor: pointer;
@@ -51,4 +56,8 @@
             background-color: #87bd3c;
         }
     }
+}
+
+.opacity{
+    opacity: 0.5;
 }

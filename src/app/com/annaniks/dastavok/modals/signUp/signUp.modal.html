@@ -1,0 +1,30 @@
+<div class="signUp_content" full-width>
+    <div class="top_content" full-width></div>
+    <div class="middle_content" width-75 margin-auto>
+        <form [formGroup]="signUpForm">
+            <div class="form_group">
+                <input class="user_name" placeholder="Enter user_name" full-width formControlName="user_name">
+            </div>
+            <div class="form_group">
+                <input class="full_name" placeholder="Enter full_name" full-width formControlName="full_name">
+            </div>
+            <div class="form_group">
+                <input class="password" placeholder="Enter your password" full-width formControlName="password">
+            </div>
+            <div class="form_group">
+                <input class="confirm_password" placeholder="Confirm your password" full-width formControlName="confirm_password">
+            </div>
+            <div class="button_items" display-flex>
+                <div margin-auto>
+                    <button class="back_button" text-align-center>
+                        <span font-weight-bold (click)="backVerificationModal()">BACK</span>
+                    </button>
+                    <button class="next_button" text-align-center [disabled]="signUpForm.invalid" [ngClass]="{'opacity':signUpForm.invalid}" (click)="signUpClient()">
+                        <span font-weight-bold color-white>NEXT</span>
+                    </button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

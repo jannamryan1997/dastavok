@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core"
 import { MatDialog } from "@angular/material";
-import { LoginModal } from "../../modals";
+import { LoginModal, PhoneNumberModal } from "../../modals";
 
 @Component({
     selector: "app-toolbar",
@@ -28,4 +28,13 @@ export class ToolbarComponent implements OnInit {
             panelClass: ['no-padding']
         })
     }
+
+    public openPhoneNumberModal(): void {
+        const dialogRef = this.dialog.open(PhoneNumberModal, {
+            width: "686px",
+            height: "444px",
+            panelClass: ['no-padding']
+        })
+    }
+
 }

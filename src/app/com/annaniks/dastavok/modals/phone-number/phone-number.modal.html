@@ -1,4 +1,5 @@
 <div class="phone_content" full-width>
+    <div class="top_content" full-width></div>
     <div class="phone_wrapper">
         <form [formGroup]="phoneNumberForm">
             <div class="input_content" full-width display-flex>
@@ -12,7 +13,8 @@
             <div class="buttons_wrapper" display-flex>
                 <div class="buttons_items" margin-auto full-height>
                     <button class="back_button" full-height font-weight-bold (click)="closePhoneModal()">BACK</button>
-                    <button class="next_button" full-height font-weight-bold color-white (click)="openVerificationModal()">NEXT</button>
+                    <button class="next_button" full-height font-weight-bold color-white (click)="postPhoneNumber()"
+                        [disabled]="phoneNumberForm.invalid" [ngClass]="{'opacity':phoneNumberForm.invalid}">NEXT</button>
 
                 </div>
             </div>

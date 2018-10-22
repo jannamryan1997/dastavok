@@ -1,0 +1,74 @@
+.top_content {
+    height: 115px;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+    background-color: #ffffff;
+}
+
+.middle_content {
+    margin-top: 74px;
+    .user_name,
+    .full_name,
+    .password,
+    .confirm_password {
+        height: 42px;
+        border-radius: 4px;
+        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+        border: solid 1px #707070;
+        background-color: #ffffff;
+    }
+    .full_name,
+    .password,
+    .confirm_password {
+        margin-top: 25px;
+    }
+    .button_items {
+        margin-top: 86px;
+        .back_button {
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+            width: 143.8px;
+            height: 42px;
+            box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+            border: solid 1px #707070;
+            background-color: #ffffff;
+            font-size: 12px;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.33;
+            letter-spacing: normal;
+            color: #676767;
+            cursor: pointer;
+        }
+        .next_button {
+            width: 143.8px;
+            height: 42px;
+            box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+            background-color: #ff6f00;
+            font-size: 12px;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.33;
+            letter-spacing: normal;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+        }
+    }
+}
+
+input::placeholder {
+    font-size: 12px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: left;
+    color: #aeaeae;
+}
+
+.opacity {
+    opacity: 0.5;
+}

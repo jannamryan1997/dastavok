@@ -1,7 +1,9 @@
 import { Component, OnInit } from "@angular/core"
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { PhoneNumberModal } from "..";
+import { SignUpService } from "../../services/signUp.service";
+import { Router } from "@angular/router";
+
 
 
 
@@ -14,7 +16,7 @@ import { PhoneNumberModal } from "..";
 export class LoginModal implements OnInit {
     public loginForm: FormGroup;
 
-    constructor(public dialog: MatDialog) { }
+    constructor(public dialog: MatDialog, private dialogRef:MatDialogRef<LoginModal>, private signUpService:SignUpService,private router:Router) { }
 
     ngOnInit() {
         this._formBuilder()
@@ -22,15 +24,25 @@ export class LoginModal implements OnInit {
 
     private _formBuilder() {
         this.loginForm = new FormBuilder().group({
-            "userName": ["", Validators.required],
-            "password": ["", Validators.required]
+            userName: ["", Validators.required],
+            password: ["", Validators.required]
         })
     }
-    public openPhoneNumberModal(): void {
-        const dialogRef = this.dialog.open(PhoneNumberModal, {
-            width: "686px",
-            height: "444px",
-            panelClass: ['no-padding']
+
+    public loginClient(){
+        this.signUpService.loginClient({
+            "userName":this.loginForm.value.userName,
+            "password":this.loginForm.value.password
+        }).subscribe((data)=>{
+            this.dialogRef.close()
+            this.router.navigate(["/home/restaurant"])
+            console.log(data);
+            
+        },
+        err=>{
+            console.log(err);
+            
         })
     }
+
 }

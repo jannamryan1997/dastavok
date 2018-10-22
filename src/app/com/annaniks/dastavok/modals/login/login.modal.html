@@ -24,8 +24,9 @@
                 <span>Forget Password?</span>
             </div>
             <div class="login_content" full-width display-flex>
-                <button class="login" margin-auto color-white text-align-center full-height font-weight-bold display-flex [disabled]="loginForm.invalid" [ngClass]="{'opacity':loginForm.invalid}">
-                    <span margin-auto (click)="openPhoneNumberModal()">LOGIN</span>
+                <button class="login" margin-auto color-white text-align-center full-height font-weight-bold display-flex [disabled]="loginForm.invalid" [ngClass]="{'opacity':loginForm.invalid}"
+                (click)="loginClient()"> 
+                    <span margin-auto>LOGIN</span>
 
                 </button>
             </div>

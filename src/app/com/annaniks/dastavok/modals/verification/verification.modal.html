@@ -1,5 +1,5 @@
-<div class="topbar_wrapper" full-width full-height display-flex>
-
+<div class="topbar_wrapper" full-width full-height>
+    <div class="top_content"></div>
     <div class="topbar_content">
         <form [formGroup]="verificationForm">
             <div class="items">
@@ -14,8 +14,10 @@
                 <span>Enter the verification code <b color-orange>01:00</b></span>
             </div>
             <div class="buttons_wrapper">
+            
                 <button class="back_button" font-weight-bold text-align-center (click)="closeVerification()">BACK</button>
-                <button class="next_button" font-weight-bold text-align-center color-white [disabled]="verificationForm.invalid" (click)="openNewPasswordModal()">NEXT</button>
+                <button class="next_button" font-weight-bold text-align-center color-white [disabled]="verificationForm.invalid"
+                    (click)="postVerification()" [ngClass]="{'opacity':verificationForm.invalid}">NEXT</button>
             </div>
         </form>
     </div>
