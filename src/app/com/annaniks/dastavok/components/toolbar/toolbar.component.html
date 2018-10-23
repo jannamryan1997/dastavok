@@ -10,24 +10,46 @@
             </i>
         </div>
         <div class="login_content" display-flex position-releative>
-            <div class="login_signin" full-height display-flex align-items-center (click)="showLoginSignup()">
-                <i class="material-icons">
-                    person
-                </i>
-                <span font-weight-bold font-family-Roboto>Login/sign in</span>
-            </div>
-           
-                <div class="login" position-absalute *ngIf="showlogin">
+            <div class="login_signin" full-height display-flex align-items-center *ngIf="!signUpService.isAuthorized"
+                (clickOutside)="onClickedOutside($event)">
+                <div (click)="showLoginSignup()" display-flex align-items-center>
+                    <i class="material-icons">
+                        person
+                    </i>
+                    <span font-weight-bold font-family-Roboto>Login/sign in</span>
+                </div>
+                <div class="login" position-absalute [ngClass]="{'showUserProfile':showlogin,'hideUserProfile':!showlogin}">
                     <div class="buttons_items">
                         <button class="login_button" text-align-center>
                             <span color-white font-weight-bold font-family-Roboto (click)="openLoginModal()">LOGIN</span>
                         </button>
                         <button class="registration_button">
-                            <span  color-white font-weight-bold font-family-Roboto (click)="openPhoneNumberModal()">Registration</span>
+                            <span color-white font-weight-bold font-family-Roboto (click)="openPhoneNumberModal()">Registration</span>
                         </button>
                     </div>
                 </div>
-        
+            </div>
+            <div class="user_data" full-height display-flex align-items-center position-releative *ngIf="signUpService.isAuthorized">
+                <div class="user_image"></div>
+                <div display-flex align-items-center>
+                    <span class="user_name" font-weight-bold font-family-Roboto>{{signUpService?.userInfo.userName}}</span>
+                    <span class="user_name" font-weight-bold font-family-Roboto>{{signUpService?.userInfo.fullName}}</span>
+                    <i class="material-icons" (click)="showUserProfile()">
+                        keyboard_arrow_down
+                    </i>
+                </div>
+                <div class="user_profile" position-absalute (clickOutside)="onClickedOutsideShowUserProfile($event)">
+                    <div class="user_singIn">
+                        <span class="user_text" font-family-Roboto font-weight-bold>User profile</span>
+                        <div class="line_content"></div>
+                        <div class="text_signup" font-family-Roboto font-weight-bold>Sign up</div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
         </div>
 
     </div>

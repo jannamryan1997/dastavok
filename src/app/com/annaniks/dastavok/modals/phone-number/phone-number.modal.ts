@@ -1,9 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { MatDialog, MatDialogRef } from "@angular/material";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms"
-import { VerificationModal } from "..";
+import { VerificationModal } from "../verification/verification.modal";
 import { SignUpService } from "../../services/signUp.service";
 import { CookieService } from 'angular2-cookie/services/cookies.service';
+import { PhoneVerification, ServerResponse } from "../../models/models";
 
 @Component({
     selector: "app-phonenumber",
@@ -19,6 +20,7 @@ export class PhoneNumberModal implements OnInit {
 
     ngOnInit() {
         this._formBuilder();
+        
     }
 
     private _formBuilder() {
@@ -47,8 +49,8 @@ export class PhoneNumberModal implements OnInit {
     postPhoneNumber() {
         this.signUpService.clientPhoneNumber({
             "phoneNumber": this.phoneNumberForm.value.phonenumber
-        }).subscribe((data: any) => {
-            this.cookieService.put('token', data.data.token)
+        }).subscribe((data:ServerResponse<PhoneVerification>) => {
+            this.cookieService.put('token', data.data.token);
             this.openVerificationModal();
             console.log(data);
 

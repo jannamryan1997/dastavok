@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { SignUpService } from "../../services/signUp.service";
 import { Router } from "@angular/router";
+import { ServerResponse, LoginResponse } from "../../models/models";
 
 
 
@@ -33,7 +34,7 @@ export class LoginModal implements OnInit {
         this.signUpService.loginClient({
             "userName":this.loginForm.value.userName,
             "password":this.loginForm.value.password
-        }).subscribe((data)=>{
+        }).subscribe((data:ServerResponse<LoginResponse>)=>{
             this.dialogRef.close()
             this.router.navigate(["/home/restaurant"])
             console.log(data);

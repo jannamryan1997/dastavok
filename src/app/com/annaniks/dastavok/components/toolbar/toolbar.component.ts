@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core"
 import { MatDialog } from "@angular/material";
 import { LoginModal, PhoneNumberModal } from "../../modals";
+import { SignUpService } from "../../services/signUp.service";
 
 @Component({
     selector: "app-toolbar",
@@ -9,15 +10,21 @@ import { LoginModal, PhoneNumberModal } from "../../modals";
 })
 
 export class ToolbarComponent implements OnInit {
-
+      
     public showlogin: boolean = false;
+    public showUserProfileDisplay:boolean=false;
 
-    constructor(private dialog: MatDialog) { }
+    constructor(private dialog: MatDialog,public signUpService:SignUpService) { }
 
-    ngOnInit() { }
+    ngOnInit() {
+
+    }
 
     public showLoginSignup() {
-        this.showlogin = !this.showlogin;
+        setTimeout(() => {
+            this.showlogin =  !this.showlogin ;
+        },1)
+
     }
 
 
@@ -35,6 +42,22 @@ export class ToolbarComponent implements OnInit {
             height: "444px",
             panelClass: ['no-padding']
         })
+    }
+
+    public onClickedOutside(e: Event) {
+        this.showlogin = false;
+    }
+
+    public showUserProfile(){
+        setTimeout(()=>{
+            this.showUserProfileDisplay=true;
+        },1)
+
+    }
+
+
+  public  onClickedOutsideShowUserProfile(){
+    this.showUserProfileDisplay=false;
     }
 
 }

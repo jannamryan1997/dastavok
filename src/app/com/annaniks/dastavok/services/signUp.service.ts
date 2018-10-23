@@ -1,11 +1,14 @@
 import { Injectable } from "@angular/core"
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { CookieService } from "angular2-cookie/services/cookies.service";
+import { map } from "rxjs/operators";
+import { User, ServerResponse, LoginResponse } from "../models/models";
 
 @Injectable()
 
 export class SignUpService {
-
+    public userInfo: User;
+    public isAuthorized:boolean=false;
     private baseURL: string = "http://192.168.0.117:3000/"
 
     constructor(private httpClient: HttpClient, private cookieService: CookieService) { }
@@ -22,8 +25,6 @@ export class SignUpService {
             'Content-type': 'application/json',
             'token': token
         })
-        console.log(token);
-
         return this.httpClient.post(this.baseURL + "client/phone/verify", body, { headers })
 
     }
@@ -37,8 +38,15 @@ export class SignUpService {
         return this.httpClient.post(this.baseURL + "client", body, { headers })
     }
 
-    public loginClient(body){
-        return this.httpClient.post(this.baseURL+"client/login",body)
+    public loginClient(body) {
+        return this.httpClient.post(this.baseURL + "client/login", body)
+            .pipe(
+                map((data: ServerResponse<LoginResponse>) => {
+                    this.userInfo = data.data.data;
+                    this.isAuthorized=true;
+                    return data;
+                })
+            )
     }
 
 }
