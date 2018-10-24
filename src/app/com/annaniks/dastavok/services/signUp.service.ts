@@ -49,4 +49,16 @@ export class SignUpService {
             )
     }
 
+    public forgetPasswordPhoneNumber(body){
+        return this.httpClient.post(this.baseURL+"client/forget/stepone",body)
+    }
+    public forgetPasswordVerification(body){
+        let token=this.cookieService.get('forgot_token')
+        let headers = new HttpHeaders({
+            'Content-type': 'application/json',
+            'token': token
+        })
+        return this.httpClient.post(this.baseURL+"client/forget/steptwo",body,{headers})
+    }
+
 }

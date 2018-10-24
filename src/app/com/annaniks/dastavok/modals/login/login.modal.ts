@@ -4,6 +4,8 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { SignUpService } from "../../services/signUp.service";
 import { Router } from "@angular/router";
 import { ServerResponse, LoginResponse } from "../../models/models";
+import { NewPasswordModals } from "../new-passwors/new-password.modal";
+import { PhoneNumberModal } from "../phone-number/phone-number.modal";
 
 
 
@@ -17,7 +19,7 @@ import { ServerResponse, LoginResponse } from "../../models/models";
 export class LoginModal implements OnInit {
     public loginForm: FormGroup;
 
-    constructor(public dialog: MatDialog, private dialogRef:MatDialogRef<LoginModal>, private signUpService:SignUpService,private router:Router) { }
+    constructor(public dialog: MatDialog, private dialogRef: MatDialogRef<LoginModal>, private signUpService: SignUpService, private router: Router) { }
 
     ngOnInit() {
         this._formBuilder()
@@ -30,19 +32,34 @@ export class LoginModal implements OnInit {
         })
     }
 
-    public loginClient(){
+    public loginClient() {
         this.signUpService.loginClient({
-            "userName":this.loginForm.value.userName,
-            "password":this.loginForm.value.password
-        }).subscribe((data:ServerResponse<LoginResponse>)=>{
+            "userName": this.loginForm.value.userName,
+            "password": this.loginForm.value.password
+        }).subscribe((data: ServerResponse<LoginResponse>) => {
             this.dialogRef.close()
             this.router.navigate(["/home/restaurant"])
             console.log(data);
-            
+
         },
-        err=>{
-            console.log(err);
-            
+            err => {
+                console.log(err);
+
+            })
+    }
+
+    public onClickForgotPassword():void {
+        this._openPhoneNumberModal();
+    }
+
+    private _openPhoneNumberModal(): void {
+        const dialogRef = this.dialog.open(PhoneNumberModal, {
+            width: "686px",
+            height: "444px",
+            panelClass: ['no-padding'],
+            data:{
+                key:'forgot_password'
+            }
         })
     }
 

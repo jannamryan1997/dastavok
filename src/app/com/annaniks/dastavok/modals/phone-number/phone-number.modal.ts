@@ -1,10 +1,11 @@
-import { Component, OnInit } from "@angular/core";
-import { MatDialog, MatDialogRef } from "@angular/material";
+import { Component, OnInit, Inject } from "@angular/core";
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms"
 import { VerificationModal } from "../verification/verification.modal";
 import { SignUpService } from "../../services/signUp.service";
 import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { PhoneVerification, ServerResponse } from "../../models/models";
+import { DialogData } from "..";
 
 @Component({
     selector: "app-phonenumber",
@@ -16,11 +17,11 @@ export class PhoneNumberModal implements OnInit {
 
     public phoneNumberForm: FormGroup;
 
-    constructor(private dialogRef: MatDialogRef<PhoneNumberModal>, public dialog: MatDialog, private signUpService: SignUpService, private cookieService: CookieService) { }
+    constructor(@Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<PhoneNumberModal>, public dialog: MatDialog, private signUpService: SignUpService, private cookieService: CookieService) { }
 
     ngOnInit() {
         this._formBuilder();
-        
+
     }
 
     private _formBuilder() {
@@ -33,35 +34,51 @@ export class PhoneNumberModal implements OnInit {
         this.dialogRef.close();
     }
 
-    public openVerificationModal(): void {
+    public openVerificationModal(key: string): void {
         const dialogRef = this.dialog.open(VerificationModal, {
             width: "686px",
             height: "444px",
             panelClass: ['no-padding'],
             data: {
-                phone: this.phoneNumberForm.value.phonenumber
+                phone: this.phoneNumberForm.value.phonenumber,
+                key: key
             }
+
         })
 
 
     }
 
     postPhoneNumber() {
-        this.signUpService.clientPhoneNumber({
-            "phoneNumber": this.phoneNumberForm.value.phonenumber
-        }).subscribe((data:ServerResponse<PhoneVerification>) => {
-            this.cookieService.put('token', data.data.token);
-            this.openVerificationModal();
-            console.log(data);
+        if (this.data.key == "registration") {
 
-        }),
-            err => {
-                console.log(err);
+            this.signUpService.clientPhoneNumber({
+                "phoneNumber": this.phoneNumberForm.value.phonenumber
+            }).subscribe((data: ServerResponse<PhoneVerification>) => {
+                this.cookieService.put('token', data.data.token);
+                this.openVerificationModal('registration');
+            }),
+                err => {
+                    console.log(err);
+}
+        }
+        if (this.data.key === 'forgot_password') {
 
-            }
-        console.log(this.phoneNumberForm.value.phonenumber);
+
+            this.signUpService.forgetPasswordPhoneNumber({
+                "phoneNumber": this.phoneNumberForm.value.phonenumber
+            }).subscribe((data: ServerResponse<PhoneVerification>) => {
+                this.cookieService.put('forgot_token', data.data.token)
+                this.openVerificationModal('forgot_password');
+            },
+                err => {
+                    console.log(err);
+
+                })
+        }
     }
 
-
-
 }
+
+
+

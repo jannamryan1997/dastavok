@@ -20,12 +20,12 @@
                 <input full-height class="password_input" placeholder="Password" formControlName="password">
             </div>
             <!-- <span *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').touched">это обязательное поле</span> -->
-            <div class="forget_password" full-width display-flex>
+            <div class="forget_password" full-width display-flex (click)="onClickForgotPassword()">
                 <span>Forget Password?</span>
             </div>
             <div class="login_content" full-width display-flex>
-                <button class="login" margin-auto color-white text-align-center full-height font-weight-bold display-flex [disabled]="loginForm.invalid" [ngClass]="{'opacity':loginForm.invalid}"
-                (click)="loginClient()"> 
+                <button class="login" margin-auto color-white text-align-center full-height font-weight-bold
+                    display-flex [disabled]="loginForm.invalid" [ngClass]="{'opacity':loginForm.invalid}" (click)="loginClient()">
                     <span margin-auto>LOGIN</span>
 
                 </button>

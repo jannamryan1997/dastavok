@@ -40,7 +40,10 @@ export class ToolbarComponent implements OnInit {
         const dialogRef = this.dialog.open(PhoneNumberModal, {
             width: "686px",
             height: "444px",
-            panelClass: ['no-padding']
+            panelClass: ['no-padding'],
+            data:{
+                key:'registration'
+            }
         })
     }
 

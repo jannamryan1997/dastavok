@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { SignUpModal } from "../signUp/signUp.modal";
 import { SignUpService } from "../../services/signUp.service";
 import { CookieService } from "angular2-cookie/services/cookies.service";
+import { NewPasswordModals } from "../new-passwors/new-password.modal";
 
 @Component({
     selector: "app-verification",
@@ -48,24 +49,52 @@ export class VerificationModal implements OnInit {
             panelClass: ['no-padding']
         })
     }
+    public openNewPasswordModal(): void {
+        const dialoRef = this.dialog.open(NewPasswordModals, {
+            width: "686px",
+            height: "631.1px",
+            panelClass: ['no-padding']
+        })
+    }
     postVerification() {
         this.controlsItems = this.verificationForm.value.control_1 + this.verificationForm.value.control_2 +
             this.verificationForm.value.control_3 + this.verificationForm.value.control_4;
-
-        this.signUpService.clientVerification({
-            //   "token":this.cookieService.get("token"),
-            "phoneNumber": this.data.phone,
-            "verifyCode": parseInt(this.controlsItems)
-        }).subscribe((data:any) => {
-            this.cookieService.put("verificationtoken",data["data"].token)
+        if (this.data.key == "registration") {
 
 
-            this.openSignUpModalModal();
-            console.log(data);
+            this.signUpService.clientVerification({
+                "phoneNumber": this.data.phone,
+                "verifyCode": parseInt(this.controlsItems)
+            }).subscribe((data: any) => {
+                this.cookieService.put("verificationtoken", data.data.token)
 
-        }, (err) => {
-            console.log(err);
 
-        })
+                this.openSignUpModalModal();
+                console.log(data);
+
+            }, (err) => {
+                console.log(err);
+
+            })
+        }
+        if (this.data.key == "forgot_password") {
+            console.log("forget");
+
+            this.signUpService.forgetPasswordVerification({
+                "phoneNumber": this.data.phone,
+                "verifyCode": +(this.controlsItems)
+            }).subscribe((data: any) => {
+                this.cookieService.put("forgot_token", data.data.token)
+                this.openNewPasswordModal();
+                console.log(data);
+
+            },
+                err => {
+                    console.log(err);
+
+                })
+
+        }
     }
+
 }
