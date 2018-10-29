@@ -18,13 +18,13 @@
                     </i>
                     <span font-weight-bold font-family-Roboto>Login/sign in</span>
                 </div>
-                <div class="login" position-absalute [ngClass]="{'showUserProfile':showlogin,'hideUserProfile':!showlogin}">
+                <div class="login" position-absolute [ngClass]="{'showUserProfile':showlogin,'hideUserProfile':!showlogin}">
                     <div class="buttons_items">
-                        <button class="login_button" text-align-center>
-                            <span color-white font-weight-bold font-family-Roboto (click)="openLoginModal()">LOGIN</span>
+                        <button class="login_button" text-align-center (click)="openLoginModal()">
+                            <span color-white font-weight-bold font-family-Roboto>LOGIN</span>
                         </button>
-                        <button class="registration_button">
-                            <span color-white font-weight-bold font-family-Roboto (click)="openPhoneNumberModal()">Registration</span>
+                        <button class="registration_button" (click)="openPhoneNumberModal()">
+                            <span color-white font-weight-bold font-family-Roboto>Registration</span>
                         </button>
                     </div>
                 </div>
@@ -38,9 +38,9 @@
                         keyboard_arrow_down
                     </i>
                 </div>
-                <div class="user_profile" position-absalute (clickOutside)="onClickedOutsideShowUserProfile($event)">
+                <div class="user_profile" position-absolute [ngClass]="{'showUserProfile':showUserProfileDisplay,'hideUserProfile':!showUserProfileDisplay}">
                     <div class="user_singIn">
-                        <span class="user_text" font-family-Roboto font-weight-bold>User profile</span>
+                        <span class="user_text" font-family-Roboto font-weight-bold routerLink="/profile">User profile</span>
                         <div class="line_content"></div>
                         <div class="text_signup" font-family-Roboto font-weight-bold>Sign up</div>
                     </div>

@@ -3,9 +3,9 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { SignUpService } from "../../services/signUp.service";
 import { Router } from "@angular/router";
-import { ServerResponse, LoginResponse } from "../../models/models";
-import { NewPasswordModals } from "../new-passwors/new-password.modal";
+import { ServerResponse, LoginResponse, User } from "../../models/models";
 import { PhoneNumberModal } from "../phone-number/phone-number.modal";
+import { CookieService } from "angular2-cookie/services/cookies.service";
 
 
 
@@ -19,7 +19,7 @@ import { PhoneNumberModal } from "../phone-number/phone-number.modal";
 export class LoginModal implements OnInit {
     public loginForm: FormGroup;
 
-    constructor(public dialog: MatDialog, private dialogRef: MatDialogRef<LoginModal>, private signUpService: SignUpService, private router: Router) { }
+    constructor(public dialog: MatDialog, private dialogRef: MatDialogRef<LoginModal>, private signUpService: SignUpService, private router: Router, private _cookieService: CookieService) { }
 
     ngOnInit() {
         this._formBuilder()
@@ -27,8 +27,8 @@ export class LoginModal implements OnInit {
 
     private _formBuilder() {
         this.loginForm = new FormBuilder().group({
-            userName: ["", Validators.required],
-            password: ["", Validators.required]
+            userName: ["janna", Validators.required],
+            password: ["123456", Validators.required]
         })
     }
 
@@ -40,7 +40,10 @@ export class LoginModal implements OnInit {
             this.dialogRef.close()
             this.router.navigate(["/home/restaurant"])
             console.log(data);
-
+            this._cookieService.put("refreshToken", data.data.refreshToken)
+            this._cookieService.put('accessToken', data.data.token)
+            this._cookieService.put("user_Name",data.data.data.userName)
+            this._cookieService.put("full_name",data.data.data.fullName)
         },
             err => {
                 console.log(err);
@@ -48,7 +51,7 @@ export class LoginModal implements OnInit {
             })
     }
 
-    public onClickForgotPassword():void {
+    public onClickForgotPassword(): void {
         this._openPhoneNumberModal();
     }
 
@@ -57,8 +60,8 @@ export class LoginModal implements OnInit {
             width: "686px",
             height: "444px",
             panelClass: ['no-padding'],
-            data:{
-                key:'forgot_password'
+            data: {
+                key: 'forgot_password'
             }
         })
     }

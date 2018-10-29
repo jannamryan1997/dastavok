@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core"
 import { MenuItemsService } from "../../services";
-import { MatDialog } from "@angular/material";
 
 @Component({
     selector: 'app-topbar',

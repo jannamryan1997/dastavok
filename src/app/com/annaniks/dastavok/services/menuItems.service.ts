@@ -6,7 +6,7 @@ import { MenuItem } from "../models/models";
 export class MenuItemsService {
     private _menuItems: Array<MenuItem> = [
         { label: "HOME", routerLink: "/home" },
-        { label: "CONTACT", routerLink: "/contact" }
+        { label: "CONTACT", routerLink: "/contact" },
     ]
 
     private _homeContentItems: Array<MenuItem> = [

@@ -1,36 +1,17 @@
-import {Component, OnInit} from "@angular/core"
+import { Component, OnInit } from "@angular/core"
 
 @Component({
-    selector:"app-menu",
-    templateUrl:"left-menu.component.html",
-    styleUrls:["left-menu.component.scss"]
+    selector: "app-menu",
+    templateUrl: "left-menu.component.html",
+    styleUrls: ["left-menu.component.scss"]
 })
 
-export class LeftMenuComponent implements OnInit{
-public menuItem:Array<object>=[
-    {label:"Restrant_",routerLink:"/home/restaurant"},
-    {label:"Restrant_",routerLink: "#"},
-    {label:"Restrant_",routerLink: "#"},
-    {label:"Restrant_",routerLink: "#"},
-    {label:"Restrant_",routerLink: "#"},
-    {label:"Restrant_",routerLink: "#"},
-    {label:"Restrant_",routerLink: "#"},
-    {label:"Restrant_",routerLink: "#"},
-    {label:"Restrant_",routerLink: "#"},
-    {label:"Restrant_",routerLink: "#"},
-    {label:"Restrant_",routerLink: "#"},
-    {label:"Restrant_",routerLink: "#"},
-    {label:"Restrant_",routerLink: "#"},
-    {label:"Restrant_",routerLink: "#"},
-    {label:"Restrant_",routerLink: "#"},
-    {label:"Restrant_",routerLink: "#"},
-    {label:"Restrant_",routerLink: "#"},
-    {label:"Restrant_",routerLink: "#"},
-
-    
-]
-    constructor(){}
-    ngOnInit(){
-
+export class LeftMenuComponent implements OnInit {
+    public menuItem: Array<object> = []
+    constructor() { }
+    ngOnInit() {
+        for (let i = 1; i < 35; i++) {
+            this.menuItem.push({ label: "Restrant_" + i, routerLink: "/home/restaurant/" + i })
+        }
     }
 }

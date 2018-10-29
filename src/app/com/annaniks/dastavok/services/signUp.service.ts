@@ -8,12 +8,10 @@ import { User, ServerResponse, LoginResponse } from "../models/models";
 
 export class SignUpService {
     public userInfo: User;
-    public isAuthorized:boolean=false;
+    public isAuthorized: boolean = false;
     private baseURL: string = "http://192.168.0.117:3000/"
 
     constructor(private httpClient: HttpClient, private cookieService: CookieService) { }
-
-
 
     public clientPhoneNumber(body) {
         return this.httpClient.post(this.baseURL + "client/phone", body)
@@ -43,22 +41,32 @@ export class SignUpService {
             .pipe(
                 map((data: ServerResponse<LoginResponse>) => {
                     this.userInfo = data.data.data;
-                    this.isAuthorized=true;
+                    this.isAuthorized = true;
                     return data;
                 })
             )
     }
 
-    public forgetPasswordPhoneNumber(body){
-        return this.httpClient.post(this.baseURL+"client/forget/stepone",body)
+    public forgetPasswordPhoneNumber(body) {
+        return this.httpClient.post(this.baseURL + "client/forget/stepone", body)
     }
-    public forgetPasswordVerification(body){
-        let token=this.cookieService.get('forgot_token')
+
+    public forgetPasswordVerification(body) {
+        let token = this.cookieService.get('forgot_token')
         let headers = new HttpHeaders({
             'Content-type': 'application/json',
             'token': token
         })
-        return this.httpClient.post(this.baseURL+"client/forget/steptwo",body,{headers})
+        return this.httpClient.post(this.baseURL + "client/forget/steptwo", body, { headers })
+    }
+
+    public newPassword(body) {
+        let token = this.cookieService.get('verification_token')
+        let headers = new HttpHeaders({
+            'Content-type': 'application/json',
+            'token': token
+        })
+        return this.httpClient.put(this.baseURL + "client/forget/stepthree", body, { headers })
     }
 
 }

@@ -99,7 +99,7 @@
                     height: 334px;
                     background: white;
                     z-index: 1;
-                    top: px;
+                    top: 30px;
                     .user_singIn {
                         margin-left: 16px;
                         .user_text {
@@ -140,10 +140,13 @@
 
 .showUserProfile {
     opacity: 1;
+    z-index: 1;
     top: 66px !important;
     transition: all 0.5s;
 }
 
 .hideUserProfile {
     opacity: 0;
+    z-index: -1;
+    user-select: none;
 }

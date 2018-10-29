@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core"
 import { MenuItemsService } from "../../../services";
+import { Router } from "@angular/router";
 
 @Component({
     selector: "app-home",
@@ -9,10 +10,11 @@ import { MenuItemsService } from "../../../services";
 
 export class HomeView implements OnInit {
 
-    constructor(public menuItemsService: MenuItemsService) {
-   
-
+    constructor(public menuItemsService: MenuItemsService,private router:Router) {
+       // console.log(this.router.url.split('/'));
+     
     }
+
 
     ngOnInit() { }
 }

@@ -1,52 +1,60 @@
-*[full-width]{
+*[full-width] {
     width: 100%;
 }
-*[width-90]{
+
+*[width-90] {
     width: 90%;
 }
-*[width-75]{
+
+*[width-75] {
     width: 75%;
 }
-*[width-fit]{
+
+*[width-fit] {
     width: fit-content
 }
-*[full-height]{
+
+*[full-height] {
     height: 100%;
 }
-*[display-flex]{
+
+*[display-flex] {
     display: flex;
 }
 
-*[margin-auto]{
+*[margin-auto] {
     margin: auto;
 }
-*[margin-side-auto]{
+
+*[margin-side-auto] {
     margin: 0 auto;
 }
 
-*[text-align-center]{
+*[text-align-center] {
     text-align: center;
 }
-*[background-color-gray]{
+
+*[background-color-gray] {
     background: #444444;
 }
 
-*[color-white]{
+*[color-white] {
     color: white;
 }
 
-*[color-orange]{
+*[color-orange] {
     color: #ff6f00;
 }
-*[color-black]{
+
+*[color-black] {
     color: black;
 }
 
-*[no-margin]{
+*[no-margin] {
     margin: 0 !important;
 }
 
-*[no-margin-bottom]{
+*[no-margin-bottom] {
     margin-bottom: 0 !important;
 }
 
@@ -62,27 +70,41 @@
     font-weight: bold;
 }
 
-*[font-family-Open-Sans]{
+*[font-family-Open-Sans] {
     font-family: 'Open Sans';
 }
 
-*[font-family-Roboto]{
+*[font-family-Roboto] {
     font-family: 'Roboto';
 }
 
-*[font-family-Oswald]{
+*[font-family-Oswald] {
     font-family: "Oswald"
 }
 
-*[position-relative]{
+*[position-relative] {
     position: relative;
 }
-*[position-absalute]{
+
+*[position-absolute] {
     position: absolute;
 }
-*[align-items-center]{
+
+*[align-items-center] {
     align-items: center;
 }
-*[uppercase]{
+
+*[uppercase] {
     text-transform: uppercase;
+}
+
+*[cursor-pointer] {
+    cursor: pointer;
+}
+
+*[flex-wrap-wrap] {
+    flex-wrap: wrap
+}
+*[justify-content-space-between]{
+    justify-content:space-between;
 }

@@ -1,0 +1,69 @@
+<div class="profile_content">
+    <div class="profile_container" display-flex>
+        <div class="img_content"></div>
+        <div class="text_content">
+            <p class="text_name" font-weight-bold font-family-Open-Sans>George Washington</p>
+            <div class="user_room" display-flex align-items-center>
+                <i class="material-icons">
+                    room
+                </i>
+                <p font-weight-bold font-family-Roboto class="text_item">Chicago</p>
+            </div>
+            <div class="user_call" display-flex align-items-center>
+                <i class="material-icons">
+                    call
+                </i>
+                <p class="text_number" font-weight-bold font-family-Roboto> +216(0)40 3629 4576</p>
+            </div>
+        </div>
+        <div class="add_content" (click)="openUserUpdateModal()">
+            <button class="button_content" full-width full-height display-flex>
+                <span font-family-Open-Sans margin-auto>add</span>
+            </button>
+        </div>
+
+    </div>
+    <div [ngSwitch]="tab">
+        <div class="tabs_content" full-width display-flex>
+            <div class="notification" full-height display-flex [ngClass]="{'active_tab':tab==1}" (click)="showNotification()"
+                cursor-pointer>
+                <span class="tab_label" margin-auto [ngClass]="{'active_tab_text':tab==1}">Notification</span>
+            </div>
+            <div class="notification" full-height display-flex [ngClass]="{'active_tab':tab==2}" cursor-pointer (click)="showOrderHistory()">
+                <span class="tab_label" margin-auto [ngClass]="{'active_tab_text':tab==2}">Order History</span>
+            </div>
+            <div class="notification" full-height display-flex>
+                <span class="tab_label" margin-auto>Track Delivery</span>
+            </div>
+        </div>
+        <div *ngSwitchCase="1">
+            <app-notification-list>
+                <app-notification-list-item *ngFor="let item of items_notification" [label]="item.label" [data]="item.data"></app-notification-list-item>
+            </app-notification-list>
+        </div>
+        <div *ngSwitchCase="2">
+
+            <div class="order_content" margin-auto>
+                <div class="order_data">
+                    <div class="icon_content" display-flex margin-auto>
+                        <i class="material-icons">
+                            event_available
+                        </i>
+                    </div>
+                    <p class="text" full-width>Looks like you haven't taken a order yet.</p>
+                    <p class="text_item" margin-auto>Lets make history together.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="deliver_items" full-width>
+        <div class="text_item">
+            <p class="text_restrant" font-family-Roboto>Restrant_1
+            </p>
+            <p class="text"  font-family-Roboto>Cost of delivery</p>
+            <p class="text"  font-family-Roboto>the price of goodes</p>
+            <p class="text"  font-family-Roboto>Total Coast</p>
+        </div>
+
+    </div> -->
+</div>

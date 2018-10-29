@@ -9,7 +9,7 @@
 
     </div>
     <div class="restaurant_wraper" position-relative>
-        <div class="text_wraper" position-absalute>
+        <div class="text_wraper" position-absolute>
             <p class="text_item_one" color-white font-weight-bold font-family-Open-Sans>Restaurant_1</p>
             <span class="text_item_two" font-family-Roboto>Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Autem, expedita, dict
@@ -22,11 +22,11 @@
             <div class="line-count" full-width></div>
             <div class="meal_content" margin-auto>
                 <div class="meal_images" [ngStyle]="{'background-image':'url('+item.img+')'}" position-relative>
-                    <span class="text_title" position-absalute font-weight-bold>{{item.title}}</span>
-                    <span class="text-about" position-absalute font-weight-bold>{{item.about}}</span>
+                    <span class="text_title" position-absolute font-weight-bold>{{item.title}}</span>
+                    <span class="text-about" position-absolute font-weight-bold>{{item.about}}</span>
                 </div>
-                <div class="meal_text">
-                    <p class="meal_text_item_one" color-black color-white font-weight-bold font-family-Roboto>{{item.label}}</p>
+                <div class="meal_text" >
+                    <p class="meal_text_item_one" color-black color-white font-weight-bold font-family-Roboto  [routerLink]="item.router">{{item.label}}</p>
                     <span class="meal_text_item_two" font-family-Roboto>{{item.text}}</span>
 
                 </div>

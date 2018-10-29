@@ -3,11 +3,13 @@
         <img src="assets/images/logo.png">
     </div>
     <div class="menu_content">
-        <div class="menu_item" display-flex color-white *ngFor="let item of menuItem;let ind=index" routerLink="{{item.routerLink}}">
-            <span font-weight-bold font-family-Roboto  >{{item.label}}{{ind+1}}</span>
-            <i class="material-icons">
-                keyboard_arrow_right
-            </i>
+        <div class="menu_item" color-white *ngFor="let item of menuItem;let ind=index">
+            <div routerLink="{{item.routerLink}}" routerLinkActive="item_active" full-width display-flex>
+                <span font-weight-bold font-family-Roboto>{{item.label}}</span>
+                <i class="material-icons">
+                    keyboard_arrow_right
+                </i>
+            </div>
         </div>
     </div>
 </div>

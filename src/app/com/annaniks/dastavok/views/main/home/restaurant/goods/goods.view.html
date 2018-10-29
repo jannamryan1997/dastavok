@@ -1,0 +1,9 @@
+<div class="salads_content" full-width>
+    <div class="salads_main" full-width>
+    </div>
+    <div full-width class="good">
+        <app-goods-list>
+            <app-goods-list-item *ngFor="let item of salatsItem" [goodInfo]="item"></app-goods-list-item>
+        </app-goods-list>
+    </div>
+</div>

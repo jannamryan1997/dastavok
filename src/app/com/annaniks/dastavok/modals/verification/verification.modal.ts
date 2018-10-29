@@ -84,7 +84,9 @@ export class VerificationModal implements OnInit {
                 "phoneNumber": this.data.phone,
                 "verifyCode": +(this.controlsItems)
             }).subscribe((data: any) => {
-                this.cookieService.put("forgot_token", data.data.token)
+                this.cookieService.remove("forgot_token")
+                this.cookieService.put("verification_token", data.data.token)
+
                 this.openNewPasswordModal();
                 console.log(data);
 
