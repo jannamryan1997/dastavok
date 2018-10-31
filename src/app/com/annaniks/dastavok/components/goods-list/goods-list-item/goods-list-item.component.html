@@ -1,7 +1,7 @@
 <div class="good_item">
     <div class="item_img" [ngStyle]="{'background-image':'url('+goodInfo?.image+')'}"></div>
     <div class="item_text" >
-        <p class="label_text" font-weight-bold font-family-Roboto>{{goodInfo?.label}}</p>
+        <p class="label_text" font-weight-bold font-family-Roboto routerLink="{{goodInfo?.router}}">{{goodInfo?.label}}</p>
         <div display-flex justify-content-space-between align-items-center>
             <p class="title_text" font-family-Roboto>{{goodInfo?.title}}</p>
             <span class="money_text" font-weight-bold font-family-Roboto>{{goodInfo?.money}}</span>

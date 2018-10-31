@@ -1,0 +1,17 @@
+<div class="payment_content" full-width>
+    <div class="payment_conteiner">
+        <div class="logo">
+            <img src="assets/images/log.png" full-width full-height>
+        </div>
+<div [ngSwitch]="tab">
+        <div class="payment_tab">
+            <div class="tab_content" display-flex justify-content-space-between full-width>
+                <div class="checkout_item"  full-height  display-flex><span margin-auto (click)="openChackOut()">Checkout</span></div>
+                <div class="payment_item"  full-height  display-flex><span margin-auto>Payment</span></div>
+                <div class="done_item"  full-height  display-flex><span margin-auto>Done</span></div>
+            </div>
+     
+        </div>
+        </div>
+    </div>
+</div>

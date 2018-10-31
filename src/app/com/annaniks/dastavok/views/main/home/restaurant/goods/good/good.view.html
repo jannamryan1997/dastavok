@@ -1,0 +1,135 @@
+<div class="good_content" full-width>
+    <div class="good_conteiner" full-width display-flex>
+        <div class="left_content">
+            <div class="image_content" full-width [ngStyle]="{'background-image':'url('+activeImage+')'}"></div>
+            <div display-flex>
+                <div class="image_items" *ngFor="let item of goodItems" [ngStyle]="{'background-image':'url('+item.image+')'}" (click)="setActiveImage(item.image)"></div>
+            </div>
+
+        </div>
+        <div class="right_content">
+            <p class="text_item" font-family-Roboto font-weight-bold>Sezar</p>
+            <div class="star_items">
+                <i class="material-icons" *ngFor="let item of [0,0,0,0,0]">
+                    star
+                </i>
+                <p class="text" font-family-Roboto>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic ad est
+                    provident
+                    suscipit! Exercitationem modi perspiciatis praesentium debitis deleniti dolorem, libero, aliquid
+                    tempore, quae adipisci ab nobis! Illo, est culpa.</p>
+            </div>
+            <div class="line_content"></div>
+            <div class="price_content" display-flex justify-content-space-between>
+                <p class="price_text" font-family-Roboto>price</p>
+                <p class="mony_text" font-family-Roboto>10$</p>
+            </div>
+            <div class="under_line_content"></div>
+            <div class="quarity_content" display-flex justify-content-space-between>
+                <p class="price_text" font-family-Roboto>quarity</p>
+                <div class="quarity_item" display-flex>
+                    <p class="remove" font-family-Roboto (click)="countremove()">{{remove}}</p>
+                    <p class="count_text" font-family-Roboto> {{quarity}} </p>
+                    <p class="add" font-family-Roboto (click)="countdAdd()">{{add}}</p>
+                </div>
+            </div>
+            <div class="button_item" display-flex>
+                <div margin-auto>
+                    <button class="left_button" color-white font-family-Open-Sans margin-auto routerLink="cart"><span>CART</span></button>
+                    <button class="right_button" color-white font-family-Open-Sans margin-auto><span>BUY</span></button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div [ngSwitch]="tab">
+        <div class="tab_content" display-flex justify-content-space-between>
+
+            <div class="tab_item" display-flex (click)="openDescription()" [ngClass]="{'active_tab':tab==1}">
+                <span margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==1}">DESCRIPTION</span>
+            </div>
+
+
+            <div class="tab_item" display-flex (click)="openReview()" [ngClass]="{'active_tab':tab==2}">
+                <span margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==2}">REVIEW</span>
+            </div>
+
+
+            <div class="tab_item" display-flex (click)="openIngredient()" [ngClass]="{'active_tab':tab==3}">
+                <span margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==3}">INGREDIENT</span>
+            </div>
+
+        </div>
+        <div *ngSwitchCase="1">
+            <div class="description_content">
+                <p class="description_text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat molestiae
+                    recusandae autem atque
+                    animi veniam optio excepturi unde deserunt. Itaque porro sequi eos velit distinctio saepe possimus,
+                    culpa deserunt corporis!</p>
+            </div>
+        </div>
+        <div *ngSwitchCase="2">
+            <div class="review_content">
+                <div class="review_top">
+                    <div class="review_top_item">
+                        <div class="text_item">
+                            <div  display-flex>
+                                <p class="reiting_count" font-family-Open-Sans>4.5</p>
+                            <div class="star_item">
+                                <i class="material-icons" *ngFor="let item of [0,0,0,0,0]">
+                                    star
+                                </i>
+                            </div>
+                            </div>
+                            <div class="reiting_text">
+                                    <p class="text" font-family-Roboto>- 0.0 No movment negarding your raiting</p>
+                                </div>
+                        </div>
+                        
+
+
+                    </div>
+                </div>
+                <div class="review_item" *ngFor="let item of reviewItem">
+                    <div class="review_conteiner" display-flex>
+                        <div class="review_image"></div>
+                        <div class="stars_items">
+                            <i class="material-icons" *ngFor="let item of [0,0,0,0,0]">
+                                star
+                            </i>
+                            <div class="review_text" display-flex justify-content-space-between>
+                                <p class="review_text_item">{{item.title}}</p>
+                                <p class="data_item">{{item.data}}</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div *ngSwitchCase="3">
+            <div class="ingredient_content">
+                <div class="ingredient_conteiner" *ngFor="let item of ingredientItems">
+                    <div class="ingredient_items" display-flex justify-content-space-between>
+                        <p class="item_text" font-family-Roboto>{{item.label}}</p>
+                        <p class="money_item" font-family-Roboto>{{item.mony}}</p>
+                        <div class="selector_item">
+                            <select full-width full-height>
+                                <option>None</option>
+                                <option>More</option>
+                                <option>Machium</option>
+                                <option>Fiew</option>
+
+                            </select>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

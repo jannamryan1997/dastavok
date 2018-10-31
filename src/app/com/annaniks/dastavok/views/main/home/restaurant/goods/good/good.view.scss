@@ -1,0 +1,337 @@
+.good_content {
+    margin-top: 24.2px;
+    .good_conteiner {
+        .left_content {
+            width: 350.8px;
+            .image_content {
+                height: 241.9px;
+                box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            .image_items {
+                margin-top: 28.5px;
+                height: 78px;
+                width: 100px;
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                cursor: pointer;
+                margin-left: 25px;
+                border-radius: 4px;
+                box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+                &:first-child {
+                    margin-left: 0px;
+                }
+            }
+        }
+        .right_content {
+            margin-left: 84px;
+            .text_item {
+                font-size: 25px;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.2;
+                letter-spacing: normal;
+                text-align: left;
+                color: #191919;
+                margin-bottom: 0px;
+                margin-top: 0px;
+            }
+            .star_items {
+                i {
+                    font-size: 16px;
+                    color: #ff6f00;
+                }
+                .text {
+                    font-size: 15px;
+                    font-weight: normal;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.2;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: #706f6f;
+                    margin-bottom: 0px;
+                    margin-top: 0px;
+                }
+            }
+            .line_content {
+                width: 456px;
+                height: 0;
+                border: solid 1px #bbbbbb;
+                margin-top: 7.5px;
+            }
+            .price_content {
+                width: 456px;
+                .price_text {
+                    font-size: 20px;
+                    font-weight: normal;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.2;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: #191919;
+                }
+                .mony_text {
+                    font-size: 20px;
+                    font-weight: bold;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.2;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: #191919;
+                }
+            }
+            .under_line_content {
+                width: 456px;
+                height: 0;
+                border: solid 1px #bbbbbb;
+            }
+            .quarity_content {
+                width: 456px;
+                .price_text {
+                    font-size: 20px;
+                    font-weight: normal;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.2;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: #191919;
+                }
+                .count_text,
+                .remove,
+                .add {
+                    font-size: 20px;
+                    font-weight: bold;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.2;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: #191919;
+                }
+                .remove,
+                .add {
+                    cursor: pointer;
+                }
+            }
+            .button_item {
+                margin-top: 23px;
+                .left_button {
+                    width: 228px;
+                    height: 65px;
+                    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+                    border: solid 1px #707070;
+                    border: none;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 20px;
+                    font-weight: bold;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.35;
+                    letter-spacing: normal;
+                    background: #87bd3c;
+                    cursor: pointer;
+                }
+                .right_button {
+                    width: 228px;
+                    height: 65px;
+                    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+                    border: solid 1px #707070;
+                    border: none;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 20px;
+                    font-weight: bold;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.35;
+                    letter-spacing: normal;
+                    background: #ff6f00;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .tab_content {
+        height: 55px;
+        width: 893px;
+        border-radius: 4px;
+        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+        border: solid 2px #a4a4a4;
+        margin-top: 74px;
+        .tab_item {
+            width: 33.333333%;
+            font-size: 20px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.35;
+            letter-spacing: normal;
+            text-align: left;
+            color: #444444;
+            cursor: pointer;
+        }
+    }
+    .description_content {
+        margin-top: 48px;
+        margin-left: 101px;
+        font-family: 'Roboto';
+        font-size: 20px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.2;
+        letter-spacing: normal;
+        text-align: left;
+        color: #706f6f;
+        .description_text {
+            width: 707px;
+            margin-bottom: 0px;
+            margin-top: 0px;
+        }
+    }
+    .review_content {
+        .review_top {
+            margin-left: 101px;
+            margin-top: 61px;
+            .review_top_item {
+                .text_item {
+                    margin-top: 26px;
+                    font-size: 65px;
+                    font-weight: normal;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.12;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: #444444;
+                    .reiting_count {
+                        margin-bottom: 0px;
+                        margin-top: 8px;
+                    }
+                    .star_item {
+                        margin-left: 30px;
+                        i {
+                            font-size: 16px;
+                            color: #ff6f00;
+                        }
+                    }
+                    .reiting_text {
+                        font-size: 15px;
+                        font-weight: normal;
+                        font-style: normal;
+                        font-stretch: normal;
+                        line-height: 1.2;
+                        letter-spacing: normal;
+                        text-align: left;
+                        color: #706f6f;
+                        .text {
+                            margin-bottom: 0px;
+                            margin-top: 20px;
+                            width: 251px;
+                        }
+                    }
+                }
+            }
+        }
+        .review_item {
+            margin-top: 47px;
+            &:first-child {
+                margin-top: 498px;
+            }
+        }
+        .review_conteiner {
+            .review_image {
+                width: 85px;
+                height: 85px;
+                border-radius: 4px;
+                background-image: url("/assets/images/user.jpg");
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            .stars_items {
+                margin-left: 16px;
+                margin-top: 19px;
+                i {
+                    font-size: 16px;
+                    color: #ff6f00;
+                }
+                .review_text {
+                    font-family: 'Roboto';
+                    font-size: 15px;
+                    font-weight: normal;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.2;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: #706f6f;
+                    .review_text_item {
+                        width: 687px;
+                        margin-bottom: 0px;
+                        margin-top: 0px;
+                    }
+                    .data_item {
+                        margin-left: 20px;
+                        margin-bottom: 0px;
+                        margin-top: 0px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.ingredient_content {
+    margin-top: 103px;
+    .ingredient_conteiner {
+        margin-left: 101px;
+        margin-top: 70px;
+        &:first-child {
+            margin-top: 155px;
+        }
+        .ingredient_items {
+            font-size: 20px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.2;
+            letter-spacing: normal;
+            text-align: left;
+            color: #444444;
+            .item_text {
+                margin-bottom: 0px;
+                margin-top: 0px;
+            }
+            .money_item {
+                margin-left: 291px;
+                margin-bottom: 0px;
+                margin-top: 0px;
+            }
+            .selector_item {
+                width: 218px;
+                height: 45px;
+                border-radius: 4px;
+                box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+                border: solid 2px #a4a4a4;
+                background-color: white;
+            }
+        }
+    }
+}
+
+.active_tab {
+    background: #87bd3c;
+}
+
+.text_active_tab {
+    color: white;
+}

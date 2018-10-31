@@ -1,0 +1,33 @@
+.payment_content {
+    .payment_conteiner {
+        margin-top: 13px;
+        .logo {
+            width: 202px;
+            height: 96px;
+            margin-left: 16px;
+        }
+        .payment_tab {
+            margin-top: 7px;
+            .tab_content {
+                height: 75px;
+                border-radius: 4px;
+                box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+                border: solid 1px var(--warm-grey);
+                background-color: var(--white);
+                .checkout_item,.payment_item,.done_item{
+                    background-color: #87bd3c;
+                    font-family: 'OpenSans';
+                    font-size: 20px;
+                    font-weight: bold;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.35;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: white;
+                    width: 33.333333%;
+                }
+            }
+        }
+    }
+}
