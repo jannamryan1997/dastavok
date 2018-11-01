@@ -3,15 +3,82 @@
         <div class="logo">
             <img src="assets/images/log.png" full-width full-height>
         </div>
-<div [ngSwitch]="tab">
-        <div class="payment_tab">
-            <div class="tab_content" display-flex justify-content-space-between full-width>
-                <div class="checkout_item"  full-height  display-flex><span margin-auto (click)="openChackOut()">Checkout</span></div>
-                <div class="payment_item"  full-height  display-flex><span margin-auto>Payment</span></div>
-                <div class="done_item"  full-height  display-flex><span margin-auto>Done</span></div>
+        <div [ngSwitch]="tab">
+            <div class="payment_tab">
+                <div class="tab_content" display-flex justify-content-space-between full-width>
+                    <div class="checkout_item" full-height display-flex [ngClass]="{'active_tab':tab==1}">
+                        <span margin-auto font-family-Open-Sans (click)="openChackOut()" [ngClass]="{'active_tab_text':tab==1}"
+                            font-weight-bold>Checkout</span></div>
+                    <div class="payment_item" full-height display-flex [ngClass]="{'active_tab':tab==2}"><span
+                            margin-auto font-family-Open-Sans font-weight-bold [ngClass]="{'active_tab_text':tab==2}">Payment</span></div>
+                    <div class="done_item" full-height display-flex [ngClass]="{'active_tab':tab==3}"><span margin-auto
+                            [ngClass]="{'active_tab_text':tab==3}" font-weight-bold font-family-Open-Sans>Done</span></div>
+                </div>
+
             </div>
-     
+            <div *ngSwitchCase="1">
+                <div class="payment_tab_content" margin-auto>
+                    <p class="payment_tab_text" font-weight-bold font-family-Open-Sans>Please fill in the shipping
+                        address</p>
+                    <form [formGroup]="paymentForm" position-relative class="form">
+                        <div class="form_group">
+                            <span position-absolute class="address_text" font-family-Roboto>Address:</span>
+                            <input full-width class="input_content">
+                        </div>
+                        <div class="form_group">
+                            <span position-absolute class="address_text" font-family-Roboto>Apartment:</span>
+                            <input full-width class="input_content">
+                        </div>
+                        <div class="form_group">
+                            <span position-absolute class="address_text" font-family-Roboto>Domaphore:</span>
+                            <input full-width class="input_content">
+                        </div>
+                        <div class="form_group">
+                            <span position-absolute class="address_text" font-family-Roboto>Lift:</span>
+                            <input full-width class="input_content">
+                        </div>
+                        <div class="form_group">
+                            <span position-absolute class="address_text" font-family-Roboto>Comment:</span>
+                            <textarea full-width class="textarea_content"></textarea>
+                        </div>
+                        <div class="button_item" display-flex>
+                            <button class="save_button" display-flex (click)="openPayment()"><span margin-auto
+                                    color-white font-weight-bold font-family-Open-Sans>SAVE</span></button>
+                            <button class="cancel_button" display-flex routerLink="/home/information"><span margin-auto
+                                    color-white font-weight-bold font-family-Open-Sans>CANCEL</span></button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+            <div *ngSwitchCase="2">
+                <div class="payment_content" margin-auto>
+                    <div class="payment_data">
+                        <div class="data_top"></div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!--div *ngSwitchCase="3">
+                <div class="done_content">
+                    <div class="done_conteiner">
+                        <p class="done_text" font-family-Roboto font-weight-bold>Your Order has been successfully
+                            completed</p>
+                        <div class="button_item" display-flex>
+                            <div margin-left-auto>
+                                <button class="go_main" display-flex routerLink="/home/information"><span color-white
+                                        font-weight-bold font-family-Roboto margin-auto>Go main page</span></button>
+                                <button class="go_more" display-flex routerLink="/profile"><span color-white
+                                        font-weight-bold font-family-Roboto margin-auto>Go more detalis</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div-->
         </div>
-        </div>
+
     </div>
 </div>

@@ -1,14 +1,20 @@
 <div class="toolbar_content" full-width>
     <div class="toolbar_container" display-flex margin-auto>
-        <div class="lenguage_content" display-flex align-items-center>
+        <div class="lenguage_content" display-flex align-items-center position-releative  (click)="showLanguage()" (clickOutside)="onClickedOutsideLenguage($event)">
+            
             <div class="flags">
                 <img src="assets/images/flag.jpg" full-width full-height>
             </div>
-            <span class="language" font-weight-bold font-family-Roboto>English</span>
-            <i class="material-icons">
+            <span class="language_text" font-weight-bold font-family-Roboto>English</span>
+            <i class="material-icons icon">
                 keyboard_arrow_down
             </i>
+            <div class="language" position-absolute [ngClass]="{'showLanguage':showLenguage,'hideLanguage':!showLenguage}"  >
+                <div class="language_top"></div>
+            </div>
         </div>
+       
+
         <div class="login_content" display-flex position-releative>
             <div class="login_signin" full-height display-flex align-items-center *ngIf="!signUpService.isAuthorized"
                 (clickOutside)="onClickedOutside($event)">

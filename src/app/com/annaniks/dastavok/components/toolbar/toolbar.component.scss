@@ -15,7 +15,7 @@
                 height: 15px;
                 border-radius: 1px;
             }
-            .language {
+            .language_text {
                 width: 66px;
                 font-size: 20px;
                 font-style: normal;
@@ -24,6 +24,23 @@
                 letter-spacing: normal;
                 text-align: left;
                 color: #191919;
+            }
+            .icon{
+                cursor: pointer;
+            }
+            .language{
+                width: 178px;
+                height: 130px;
+                box-shadow: -4px 4px 6px 0 rgba(0, 0, 0, 0.16);
+                background-color: white;
+                top: 30px;
+               // bottom: 0;
+                z-index: 1;
+                .language_top{
+                    margin-left: 36px;
+                    margin-top: 18px;
+                    
+                }
             }
         }
         .login_content {
@@ -146,6 +163,17 @@
 }
 
 .hideUserProfile {
+    opacity: 0;
+    z-index: -1;
+    user-select: none;
+}
+.showLanguage{
+    opacity: 1;
+    z-index: 1;
+    top: 66px !important;
+    transition: all 0.5s;
+}
+.hideLanguage{
     opacity: 0;
     z-index: -1;
     user-select: none;

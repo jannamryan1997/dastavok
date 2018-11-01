@@ -1,23 +1,37 @@
-import {Component, OnInit} from "@angular/core"
-
+import { Component, OnInit } from "@angular/core"
+import { Validators, FormGroup, FormBuilder } from "@angular/forms"
 @Component({
-    selector:"app-payment",
-    templateUrl:"payment.view.html",
-    styleUrls:["payment.view.scss"]
+    selector: "app-payment",
+    templateUrl: "payment.view.html",
+    styleUrls: ["payment.view.scss"]
 })
 
-export class PaymentView implements OnInit{
+export class PaymentView implements OnInit {
 
-    public tab:number=1;
-    
-    constructor(){}
+    public tab: number = 1;
+    public paymentForm: FormGroup;
 
-    ngOnInit(){}
+    constructor() { }
 
-    public openChackOut(){
-        this.tab=1;
+    ngOnInit() {
+        this._formBuilder()
     }
-    public openPayment(){
-        this.tab=2;
+
+    public openChackOut() {
+        this.tab = 1;
+    }
+    public openPayment() {
+        this.tab = 2;
+    }
+
+    public openDone() {
+        this.tab = 3;
+    }
+
+    private _formBuilder() {
+        this.paymentForm = new FormBuilder().group({
+            address:[null],
+            appartment:[null]
+        })
     }
 }

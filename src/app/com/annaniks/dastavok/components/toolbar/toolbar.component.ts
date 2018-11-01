@@ -14,11 +14,12 @@ export class ToolbarComponent implements OnInit {
 
     public showlogin: boolean = false;
     public showUserProfileDisplay: boolean = false;
+    public showLenguage: boolean = false;
 
     constructor(private dialog: MatDialog, public signUpService: SignUpService, private _apiService: ApiService) { }
 
     ngOnInit() {
-       // this._getUserInfo()
+        // this._getUserInfo()
     }
 
     public showLoginSignup() {
@@ -56,6 +57,15 @@ export class ToolbarComponent implements OnInit {
 
         this.showUserProfileDisplay = !this.showUserProfileDisplay;
 
+    }
+    public showLanguage() {
+        setTimeout(() => {
+            this.showLenguage = !this.showLenguage;
+        }, 1)
+    }
+
+    public onClickedOutsideLenguage(e:Event){
+        this.showLenguage=false;
     }
 
     private _getUserInfo() {
