@@ -35,15 +35,16 @@ export class LoginModal implements OnInit {
     public loginClient() {
         this.signUpService.loginClient({
             "userName": this.loginForm.value.userName,
-            "password": this.loginForm.value.password
+            "password": this.loginForm.value.password,
+
         }).subscribe((data: ServerResponse<LoginResponse>) => {
             this.dialogRef.close()
             this.router.navigate(["/home/restaurant"])
             console.log(data);
             this._cookieService.put("refreshToken", data.data.refreshToken)
             this._cookieService.put('accessToken', data.data.token)
-            this._cookieService.put("user_Name",data.data.data.userName)
-            this._cookieService.put("full_name",data.data.data.fullName)
+            this._cookieService.put("user_Name", data.data.data.userName)
+            this._cookieService.put("full_name", data.data.data.fullName)
         },
             err => {
                 console.log(err);

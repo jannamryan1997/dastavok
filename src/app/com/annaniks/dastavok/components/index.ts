@@ -8,3 +8,6 @@ export * from "src/app/com/annaniks/dastavok/components/goods-list/goods-list-it
 export * from "src/app/com/annaniks/dastavok/components/goods-list/goods-list.component";
 export * from "src/app/com/annaniks/dastavok/components/card-list/card-list-item/card-list-item.component";
 export * from "src/app/com/annaniks/dastavok/components/card-list/card-list.component";
+export * from "src/app/com/annaniks/dastavok/components/payment-tabs/payment-tab/payment-tab.component";
+export * from "src/app/com/annaniks/dastavok/components/payment-tabs/checkout-tab/checkout-tab.component";
+export * from "src/app/com/annaniks/dastavok/components/payment-tabs/done-tab/done-tab.component";

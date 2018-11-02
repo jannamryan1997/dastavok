@@ -1,0 +1,93 @@
+.payment_tab_content {
+    width: 791px;
+    margin-top: 55px;
+    .payment_tab_text {
+        font-size: 20px;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.1;
+        letter-spacing: normal;
+        text-align: left;
+        color: #444444;
+        margin-bottom: 0px;
+        margin-top: 0px;
+    }
+    .form {
+        margin-top: 79px;
+        .form_group {
+            margin-top: 23.5px;
+        }
+        .address_text {
+            font-size: 20px;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.2;
+            letter-spacing: normal;
+            text-align: left;
+            color: #ff6f00;
+        }
+        .input_content {
+            border-bottom: 1px solid grey;
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            text-align: right;
+            font-family: 'Roboto';
+            font-size: 20px;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.2;
+            letter-spacing: normal;
+            color: #8b8b8b;
+            padding-left: 80px;
+        }
+        .textarea_content {
+            border-bottom: 1px solid grey;
+            text-align: right;
+            font-family: 'Roboto';
+            font-size: 20px;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.2;
+            letter-spacing: normal;
+            color: #8b8b8b;
+            padding-left: 92px;
+            height: 168px;
+        }
+        .button_item {
+            margin-top: 25px;
+            justify-content: flex-end;
+            .save_button {
+                width: 143.8px;
+                height: 42px;
+                box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+                background-color: #87bd3c;
+                font-size: 12px;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.42;
+                letter-spacing: normal;
+                text-align: left;
+                border: none;
+                cursor: pointer;
+            }
+            .cancel_button {
+                width: 143.8px;
+                height: 42px;
+                box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+                background-color: #ff6f00;
+                font-size: 12px;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.42;
+                letter-spacing: normal;
+                text-align: left;
+                border: none;
+                cursor: pointer;
+            }
+        }
+    }
+}

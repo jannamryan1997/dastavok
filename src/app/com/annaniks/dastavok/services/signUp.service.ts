@@ -14,7 +14,7 @@ export class SignUpService {
     constructor(private httpClient: HttpClient, private cookieService: CookieService) { }
 
     public clientPhoneNumber(body) {
-        return this.httpClient.post(this.baseURL + "client/phone", body)
+        return this.httpClient.post(this.baseURL + "freeclient/phone", body)
     }
 
     public clientVerification(body) {
@@ -23,7 +23,7 @@ export class SignUpService {
             'Content-type': 'application/json',
             'token': token
         })
-        return this.httpClient.post(this.baseURL + "client/phone/verify", body, { headers })
+        return this.httpClient.post(this.baseURL + "freeclient/phone/verify", body, { headers })
 
     }
 
@@ -37,7 +37,7 @@ export class SignUpService {
     }
 
     public loginClient(body) {
-        return this.httpClient.post(this.baseURL + "client/login", body)
+        return this.httpClient.post(this.baseURL + "freeclient/login", body)
             .pipe(
                 map((data: ServerResponse<LoginResponse>) => {
                     this.userInfo = data.data.data;
@@ -48,7 +48,7 @@ export class SignUpService {
     }
 
     public forgetPasswordPhoneNumber(body) {
-        return this.httpClient.post(this.baseURL + "client/forget/stepone", body)
+        return this.httpClient.post(this.baseURL + "freeclient/forget/stepone", body)
     }
 
     public forgetPasswordVerification(body) {
@@ -57,7 +57,7 @@ export class SignUpService {
             'Content-type': 'application/json',
             'token': token
         })
-        return this.httpClient.post(this.baseURL + "client/forget/steptwo", body, { headers })
+        return this.httpClient.post(this.baseURL + "freeclient/forget/steptwo", body, { headers })
     }
 
     public newPassword(body) {
@@ -66,7 +66,7 @@ export class SignUpService {
             'Content-type': 'application/json',
             'token': token
         })
-        return this.httpClient.put(this.baseURL + "client/forget/stepthree", body, { headers })
+        return this.httpClient.put(this.baseURL + "freeclient/forget/stepthree", body, { headers })
     }
 
 }

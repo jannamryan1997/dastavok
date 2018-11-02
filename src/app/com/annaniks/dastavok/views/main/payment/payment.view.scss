@@ -30,99 +30,6 @@
                 }
             }
         }
-        .payment_tab_content {
-            width: 791px;
-            margin-top: 55px;
-            .payment_tab_text {
-                font-size: 20px;
-                font-style: normal;
-                font-stretch: normal;
-                line-height: 1.1;
-                letter-spacing: normal;
-                text-align: left;
-                color: #444444;
-                margin-bottom: 0px;
-                margin-top: 0px;
-            }
-            .form {
-                margin-top: 79px;
-                .form_group {
-                    margin-top: 23.5px;
-                }
-                .address_text {
-                    font-size: 20px;
-                    font-weight: normal;
-                    font-style: normal;
-                    font-stretch: normal;
-                    line-height: 1.2;
-                    letter-spacing: normal;
-                    text-align: left;
-                    color: #ff6f00;
-                }
-                .input_content {
-                    border-bottom: 1px solid grey;
-                    border-left: none;
-                    border-right: none;
-                    border-top: none;
-                    text-align: right;
-                    font-family: 'Roboto';
-                    font-size: 20px;
-                    font-weight: normal;
-                    font-style: normal;
-                    font-stretch: normal;
-                    line-height: 1.2;
-                    letter-spacing: normal;
-                    color: #8b8b8b;
-                    padding-left: 80px;
-                }
-                .textarea_content {
-                    border-bottom: 1px solid grey;
-                    text-align: right;
-                    font-family: 'Roboto';
-                    font-size: 20px;
-                    font-weight: normal;
-                    font-style: normal;
-                    font-stretch: normal;
-                    line-height: 1.2;
-                    letter-spacing: normal;
-                    color: #8b8b8b;
-                    padding-left: 92px;
-                    height: 168px;
-                }
-                .button_item {
-                    margin-top: 25px;
-                    justify-content: flex-end;
-                    .save_button {
-                        width: 143.8px;
-                        height: 42px;
-                        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-                        background-color: #87bd3c;
-                        font-size: 12px;
-                        font-style: normal;
-                        font-stretch: normal;
-                        line-height: 1.42;
-                        letter-spacing: normal;
-                        text-align: left;
-                        border: none;
-                        cursor: pointer;
-                    }
-                    .cancel_button {
-                        width: 143.8px;
-                        height: 42px;
-                        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-                        background-color: #ff6f00;
-                        font-size: 12px;
-                        font-style: normal;
-                        font-stretch: normal;
-                        line-height: 1.42;
-                        letter-spacing: normal;
-                        text-align: left;
-                        border: none;
-                        cursor: pointer;
-                    }
-                }
-            }
-        }
         .payment_content {
             width: 994px;
             margin-top: 72px;
@@ -134,62 +41,225 @@
                 border: solid 1px grey;
                 background-color: white;
                 .data_top {
-                    width: 44px;
+                    width: 0;
+                    height: 0;
+                    border-top: 44px solid #87bd3c;
+                    border-right: 42px solid transparent; // box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+                    i {
+                        color: white;
+                    }
+                }
+                .left_content {
+                    margin-left: 16px;
+                    .radius {
+                        width: 17.5px;
+                        height: 17.5px;
+                        border: solid 1px grey;
+                        background-color: white;
+                        border-radius: 50%;
+                        margin-left: 4px;
+                        .radius_item {
+                            width: 8.1px;
+                            height: 8.1px;
+                            background-color: #87bd3c;
+                            border-radius: 50%;
+                        }
+                    }
+                    .icon_room {
+                        width: 12.3px;
+                        height: 17.5px;
+                        color: #444444;
+                        margin-top: 15px;
+                    }
+                    .icon_call {
+                        width: 12.3px;
+                        height: 17.5px;
+                        color: #444444;
+                        margin-top: 15px;
+                    }
+                    .icon_create {
+                        width: 15.7px;
+                        height: 15.7px;
+                        color: #87bd3c;
+                        margin-top: 30px;
+                    }
+                }
+                .right_content {
+                    margin-left: 39px;
+                    .text_name,
+                    .text_room,
+                    .text_call,
+                    .text_edit {
+                        margin-top: 0px;
+                        margin-bottom: 0px;
+                        font-size: 15px;
+                        font-weight: normal;
+                        font-style: normal;
+                        font-stretch: normal;
+                        line-height: 1.2;
+                        letter-spacing: normal;
+                        text-align: left;
+                        color: #444444;
+                    }
+                    .text_room,
+                    .text_call,
+                    .text_edit {
+                        margin-top: 20px;
+                    }
+                    .text_edit {
+                        margin-top: 32px;
+                    }
+                }
+            }
+            .paynment_middle {
+                margin-top: 25px;
+                .add_icon {
+                    font-size: 18px;
+                    color: #ff6f00;
+                    cursor: pointer;
+                }
+                .text_new_address {
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                    font-size: 15px;
+                    font-weight: normal;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.2;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: #444444;
+                }
+            }
+            .line {
+                width: 994px;
+                height: 0;
+                border: solid 1px grey;
+                margin-top: 68px;
+            }
+            .card_tab {
+                margin-top: 54px;
+                .card_text,
+                .cash_text {
+                    font-size: 20px;
+                    font-weight: normal;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.2;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: #8b8b8b;
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                }
+                .chackbox_cash {
+                    margin-left: 107px;
+                }
+            }
+            .card_item {
+                margin-top: 30px;
+                .item {
+                    width: 101px;
+                    height: 64px;
+                    border-radius: 4px;
+                    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+                    border: solid 1px var grey;
+                    background-position: center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    margin-left: 34px;
+                    &:first-child {
+                        margin-left: 0px;
+                    }
+                }
+            }
+            .input_form {
+                .form_group_item {
+                    width: 489px;
+                }
+                .form_group {
+                    margin-top: 25px;
+                }
+                margin-top: 60px;
+                .form_text {
+                    font-size: 20px;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.2;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: #444444;
+                }
+                .input_card_number {
+                    width: 489px;
                     height: 42px;
+                    border-radius: 4px;
                     box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-                    background-color: #87bd3c;
+                    border: solid 1px grey;
+                    background-color: white;
+                    margin-top: 25px;
                 }
-            }
-        }
-    } //////////////////////
-    .done_content {
-        .done_conteiner {
-            margin: 0 113px;
-            .done_text {
-                margin-top: 191px;
-                margin-bottom: 0px;
-                font-size: 30px;
-                font-style: normal;
-                font-stretch: normal;
-                line-height: 1.23;
-                letter-spacing: normal;
-                text-align: center;
-                color: #ff6f00;
-            }
-            .button_item {
-                margin-top: 374px;
-                padding-bottom: 61px;
-                .go_main {
-                    width: 287px;
-                    height: 65px;
-                    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-                    background-color: #87bd3c;
-                    border: none;
-                    text-align: center;
-                    text-decoration: none;
-                    display: inline-block;
+                .form_text_varieble,
+                .form_text_security,
+                .form_text_cardowner {
                     font-size: 20px;
                     font-style: normal;
                     font-stretch: normal;
                     line-height: 1.2;
                     letter-spacing: normal;
-                    cursor: pointer;
+                    text-align: left;
+                    color: #444444;
+                    margin-top: 25px;
                 }
-                .go_more {
-                    width: 287px;
-                    height: 65px;
+                .input_card_varieble,
+                .input_card_security,
+                .input_card_cardowner {
+                    width: 202px;
+                    height: 42px;
+                    border-radius: 4px;
                     box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-                    background-color: #ff6f00;
-                    border: none;
-                    text-align: center;
-                    text-decoration: none;
-                    display: inline-block;
+                    border: solid 1px grey;
+                    background-color: white;
+                    margin-top: 25px;
+                }
+            }
+            .save_content {
+                margin-top: 61px;
+                .save_text {
                     font-size: 20px;
+                    font-weight: normal;
                     font-style: normal;
                     font-stretch: normal;
                     line-height: 1.2;
                     letter-spacing: normal;
-                    cursor: pointer;
+                    text-align: left;
+                    color: #8b8b8b;
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                }
+                .line_content {
+                    width: 994px;
+                    height: 0;
+                    border: solid 1px grey;
+                    margin-top: 54px;
+                }
+                .button {
+                    margin-top: 116px;
+                    justify-content: flex-end;
+                    .button_confirm {
+                        width: 287px;
+                        height: 65px;
+                        border-radius: 4px;
+                        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+                        background-color: #ff6f00;
+                        font-size: 20px;
+                        font-style: normal;
+                        font-stretch: normal;
+                        line-height: 1.15;
+                        letter-spacing: normal;
+                        border: none;
+                        cursor: pointer;
+                    }
                 }
             }
         }

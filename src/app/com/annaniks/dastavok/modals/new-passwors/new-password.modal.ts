@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core"
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { SignUpService } from "../../services/signUp.service";
 import { ServerResponse } from "../../models/models";
@@ -14,7 +14,7 @@ export class NewPasswordModals implements OnInit {
 
     public newPasswordFormGroup: FormGroup;
 
-    constructor(public dialog: MatDialog, private _signUpService: SignUpService) { }
+    constructor(public dialog: MatDialog,private dialogRef: MatDialogRef<NewPasswordModals>,private _signUpService: SignUpService) { }
 
     ngOnInit() {
         this._formBuilder()
@@ -27,11 +27,11 @@ export class NewPasswordModals implements OnInit {
     }
 
     public newPassword() {
-        console.log("gfr");
 
         this._signUpService.newPassword({
             "password": this.newPasswordFormGroup.value.new_password
         }).subscribe((data: ServerResponse<Array<string>>) => {
+            this.dialogRef.close();
             console.log(data);
 
         },

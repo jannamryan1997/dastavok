@@ -86,7 +86,6 @@ export class VerificationModal implements OnInit {
             }).subscribe((data: any) => {
                 this.cookieService.remove("forgot_token")
                 this.cookieService.put("verification_token", data.data.token)
-
                 this.openNewPasswordModal();
                 console.log(data);
 

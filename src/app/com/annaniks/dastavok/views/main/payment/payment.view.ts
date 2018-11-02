@@ -10,11 +10,18 @@ export class PaymentView implements OnInit {
 
     public tab: number = 1;
     public paymentForm: FormGroup;
+    public cardPayment:boolean=true;
+    public cardItem: Array<object> = [
+        { image: "assets/images/mastercard.png" },
+        { image: "assets/images/Visa.svg.png" },
+        { image: "assets/images/maestro.png" },
+        { image: "assets/images/jcb.png" }
+    ]
 
     constructor() { }
 
     ngOnInit() {
-        this._formBuilder()
+      
     }
 
     public openChackOut() {
@@ -28,10 +35,16 @@ export class PaymentView implements OnInit {
         this.tab = 3;
     }
 
-    private _formBuilder() {
-        this.paymentForm = new FormBuilder().group({
-            address:[null],
-            appartment:[null]
-        })
+    public closePayment(){
+      this.cardPayment=false;
+      
     }
+    public showPayment(){
+        this.cardPayment=true;
+        
+      }
+
+
+
+
 }
