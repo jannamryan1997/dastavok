@@ -1,4 +1,4 @@
-import { Component } from "@angular/core"
+import { Component, OnInit, Input, EventEmitter, Output } from "@angular/core"
 
 @Component({
     selector: "app-done-tab",
@@ -6,6 +6,11 @@ import { Component } from "@angular/core"
     styleUrls: ["done-tab.component.scss"]
 })
 
-export class DoneTabComponent {
+export class DoneTabComponent implements OnInit {
+
+constructor(){}
+
+ngOnInit(){}
+  
 
 }

@@ -4,23 +4,23 @@
         <form [formGroup]="paymentForm" position-relative class="form">
             <div class="form_group">
                 <span position-absolute class="address_text" font-family-Roboto>Address:</span>
-                <input full-width class="input_content">
+                <input full-width class="input_content" formControlName="address">
             </div>
             <div class="form_group">
                 <span position-absolute class="address_text" font-family-Roboto>Apartment:</span>
-                <input full-width class="input_content">
+                <input full-width class="input_content" formControlName="apartment">
             </div>
             <div class="form_group">
                 <span position-absolute class="address_text" font-family-Roboto>Domaphore:</span>
-                <input full-width class="input_content">
+                <input full-width class="input_content" formControlName="Domaphore">
             </div>
             <div class="form_group">
                 <span position-absolute class="address_text" font-family-Roboto>Lift:</span>
-                <input full-width class="input_content">
+                <input full-width class="input_content" formControlName="lift">
             </div>
             <div class="form_group">
                 <span position-absolute class="address_text" font-family-Roboto>Comment:</span>
-                <textarea full-width class="textarea_content"></textarea>
+                <textarea full-width class="textarea_content" formControlName="comment"></textarea>
             </div>
             <div class="button_item" display-flex>
                 <button class="save_button" display-flex (click)="openPayment()"><span margin-auto

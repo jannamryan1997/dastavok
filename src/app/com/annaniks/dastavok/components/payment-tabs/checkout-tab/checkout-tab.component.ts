@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { Validators, FormBuilder, FormGroup } from "@angular/forms"
+
 
 
 @Component({
@@ -11,7 +12,8 @@ import { Validators, FormBuilder, FormGroup } from "@angular/forms"
 export class CheckoutTabComponent implements OnInit {
 
     public paymentForm: FormGroup;
-    @Input() paymentTab:number;
+    @Input() paymentTab: number;
+    @Output() changeTab: EventEmitter<number> = new EventEmitter<number>();
 
     constructor() { }
 
@@ -21,15 +23,16 @@ export class CheckoutTabComponent implements OnInit {
 
     private _formBuilder() {
         this.paymentForm = new FormBuilder().group({
-            address: [null],
-            appartment: [null]
+            address: ["", Validators.required],
+            apartment: ["", Validators.required],
+            Domaphore: ["", Validators.required],
+            lift: ["", Validators.required],
+            comment: ["", Validators.required]
         })
     }
 
-    public openPayment(){
-        this.paymentTab=2;
-        console.log("ug");
-        
+    public openPayment() {
+        this.changeTab.emit(this.paymentTab);
     }
 
 }

@@ -1,0 +1,100 @@
+<div class="payment_content" margin-auto>
+    <div class="payment_data">
+        <div class="data_top">
+        </div>
+        <div display-flex>
+            <div class="left_content">
+                <div class="radius" display-flex>
+                    <div class="radius_item" margin-auto></div>
+
+                </div>
+
+                <i class="material-icons icon_room">
+                    room
+                </i>
+                <i class="material-icons icon_call" display-flex>
+                    call
+                </i>
+
+                <i class="material-icons icon_create">
+                    create
+                </i>
+
+
+            </div>
+            <div class="right_content">
+                <p class="text_name" font-family-Roboto>George Vashington</p>
+                <p class="text_room" font-family-Roboto>St.Peterburg</p>
+                <p class="text_call" font-family-Roboto>+216(0)40 3629 4753</p>
+                <p class="text_edit" font-family-Roboto>Edite</p>
+            </div>
+        </div>
+    </div>
+    <div class="paynment_middle" display-flex>
+        <i class="material-icons add_icon">
+            add
+        </i>
+        <p font-family-Roboto class="text_new_address">Add new address</p>
+
+    </div>
+    <div class="line" full-width></div>
+    <div class="card_tab" display-flex>
+        <input type="checkbox" name="vehicle" value="Bike" (click)="showPayment()">
+        <p class="card_text" font-family-Roboto>Card</p>
+        <input type="checkbox" name="vehicl" value="Bik" class="chackbox_cash" (click)="closePayment()">
+        <p class="cash_text" font-family-Roboto>Pay in cash</p>
+
+    </div>
+    <div *ngIf="cardPayment">
+        <div class="card_item" display-flex>
+            <div class="item" *ngFor="let item of cardItem" [ngStyle]="{'background-image':'url('+item.image+')'}"></div>
+        </div>
+
+        <div class="input_form">
+            <div class="form_group">
+                <span class="form_text" font-family-Roboto font-weight-bold>Card number</span>
+                <input class="input_card_number" display-flex>
+            </div>
+            <div display-flex justify-content-space-between class="form_group_item">
+                <div class="form_group">
+                    <span class="form_text_varieble" font-family-Roboto font-weight-bold>Varieble</span>
+                    <input class="input_card_varieble" display-flex>
+                </div>
+
+                <div class="form_group">
+                    <span class="form_text_security" font-family-Roboto font-weight-bold>Security</span>
+                    <input class="input_card_security" display-flex>
+                </div>
+
+            </div>
+            <div display-flex justify-content-space-between class="form_group_item">
+                <div class="form_group">
+                    <span class="form_text_cardowner" font-family-Roboto font-weight-bold>Cardowner</span>
+                    <input class="input_card_cardowner" display-flex>
+                </div>
+                <div class="form_group">
+                    <span class="form_text_cardowner" font-family-Roboto font-weight-bold>Cardowner</span>
+                    <input class="input_card_cardowner" display-flex>
+                </div>
+            </div>
+        </div>
+        <div class="save_content">
+            <div display-flex>
+            
+                <input type="checkbox" name="vehicle" value="Bike">
+                <p class="save_text" font-family-Roboto>Save the card</p>
+             
+
+               
+            </div>
+            <div class="line_content"></div>
+
+            <div class="button" display-flex (click)="openDone()">
+                <button class="button_confirm" display-flex><span margin-auto color-white
+                        font-family-Roboto font-weight-bold>Confirm and pey</span></button>
+            </div>
+        </div>
+    </div>
+
+
+</div>
