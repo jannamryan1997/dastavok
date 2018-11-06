@@ -18,7 +18,9 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: 'BASE_URL', useValue: 'http://192.168.0.117:3000/'
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

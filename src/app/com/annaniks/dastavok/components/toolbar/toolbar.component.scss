@@ -159,19 +159,19 @@
     opacity: 1;
     z-index: 1;
     top: 66px !important;
-    transition: all 0.5s;
+    transition: top 0.5s, opacity 0.5s;
 }
 
 .hideUserProfile {
     opacity: 0;
-    z-index: -1;
+    z-index: -1 !important;
     user-select: none;
 }
 .showLanguage{
     opacity: 1;
     z-index: 1;
     top: 66px !important;
-    transition: all 0.5s;
+    transition: top 0.5s, opacity 0.5s;
 }
 .hideLanguage{
     opacity: 0;

@@ -17,22 +17,7 @@
         </div>
 
     </div>
-    <div class="menu_content" margin-auto>
-        <div *ngFor="let item of mealItem">
-            <div class="line-count" full-width></div>
-            <div class="meal_content" margin-auto>
-                <div class="meal_images" [ngStyle]="{'background-image':'url('+item.img+')'}" position-relative>
-                    <span class="text_title" position-absolute font-weight-bold>{{item.title}}</span>
-                    <span class="text-about" position-absolute font-weight-bold>{{item.about}}</span>
-                </div>
-                <div class="meal_text" >
-                    <p class="meal_text_item_one" color-black color-white font-weight-bold font-family-Roboto  [routerLink]="item.router">{{item.label}}</p>
-                    <span class="meal_text_item_two" font-family-Roboto>{{item.text}}</span>
-
-                </div>
-
-            </div>
-            <!--div class="line-count" full-width></div-->
-        </div>
-    </div>
+    <app-goodType-list>
+        <app-goodType-list-item *ngFor="let item of goodTypes" [goodTypeInfo]="item" (click)="onClickItem(item)"></app-goodType-list-item>
+    </app-goodType-list>
 </div>
