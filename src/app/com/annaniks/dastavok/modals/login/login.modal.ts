@@ -17,6 +17,7 @@ import { CookieService } from "angular2-cookie/services/cookies.service";
 })
 
 export class LoginModal implements OnInit {
+    public loading: boolean = false;
     public loginForm: FormGroup;
 
     constructor(public dialog: MatDialog, private dialogRef: MatDialogRef<LoginModal>, private signUpService: SignUpService, private router: Router, private _cookieService: CookieService) { }
@@ -27,24 +28,27 @@ export class LoginModal implements OnInit {
 
     private _formBuilder() {
         this.loginForm = new FormBuilder().group({
-            userName: ["janna", Validators.required],
-            password: ["123456", Validators.required]
+            userName: ["", Validators.required],
+            password: ["", Validators.required]
         })
     }
 
     public loginClient() {
+        this.loading = true;
+        this.loginForm.disable();
         this.signUpService.loginClient({
             "userName": this.loginForm.value.userName,
             "password": this.loginForm.value.password,
 
         }).subscribe((data: ServerResponse<LoginResponse>) => {
-            this.dialogRef.close()
-            this.router.navigate(["/home/restaurant"])
-            console.log(data);
+            this.loading = false;
             this._cookieService.put("refreshToken", data.data.refreshToken)
             this._cookieService.put('accessToken', data.data.token)
             this._cookieService.put("user_Name", data.data.data.userName)
             this._cookieService.put("full_name", data.data.data.fullName)
+            this.dialogRef.close()
+            this.router.navigate(["/home/restaurant"])
+            this.loginForm.enable();
         },
             err => {
                 console.log(err);

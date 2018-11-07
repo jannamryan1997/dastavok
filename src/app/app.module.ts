@@ -19,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [{
-    provide: 'BASE_URL', useValue: 'http://192.168.0.117:3000/'
+    provide: 'BASE_URL', useValue: 'http://192.168.0.118:3000/'
   }],
   bootstrap: [AppComponent]
 })

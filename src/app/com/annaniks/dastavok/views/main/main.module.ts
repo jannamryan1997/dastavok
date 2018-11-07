@@ -11,6 +11,7 @@ import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { ApiService } from "../../services/api.service";
 
 
+
 @NgModule({
 
     declarations: [MainComponent, FooterComponent, VerificationModal, LoginModal,PhoneNumberModal,SignUpModal,NewPasswordModals,UserUpdateModal],

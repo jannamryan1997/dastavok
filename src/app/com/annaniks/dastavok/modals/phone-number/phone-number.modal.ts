@@ -14,7 +14,7 @@ import { DialogData } from "..";
 })
 
 export class PhoneNumberModal implements OnInit {
-
+public loading:boolean=false;
     public phoneNumberForm: FormGroup;
 
     constructor(@Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<PhoneNumberModal>, public dialog: MatDialog, private signUpService: SignUpService, private cookieService: CookieService) { }

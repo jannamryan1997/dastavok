@@ -25,7 +25,7 @@ export class CheckoutTabComponent implements OnInit {
         this.paymentForm = new FormBuilder().group({
             address: ["", Validators.required],
             apartment: ["", Validators.required],
-            Domaphore: ["", Validators.required],
+            domaphore: ["", Validators.required],
             lift: ["", Validators.required],
             comment: ["", Validators.required]
         })

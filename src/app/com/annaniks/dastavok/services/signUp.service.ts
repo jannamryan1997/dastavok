@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core"
+import { Injectable, Inject } from "@angular/core"
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { CookieService } from "angular2-cookie/services/cookies.service";
 import { map } from "rxjs/operators";
@@ -9,9 +9,9 @@ import { User, ServerResponse, LoginResponse } from "../models/models";
 export class SignUpService {
     public userInfo: User;
     public isAuthorized: boolean = false;
-    private baseURL: string = "http://192.168.0.117:3000/"
 
-    constructor(private httpClient: HttpClient, private cookieService: CookieService) { }
+
+    constructor(@Inject('BASE_URL') private baseURL, private httpClient: HttpClient, private cookieService: CookieService) { }
 
     public clientPhoneNumber(body) {
         return this.httpClient.post(this.baseURL + "freeclient/phone", body)

@@ -23,9 +23,14 @@
             <div class="forget_password" full-width display-flex (click)="onClickForgotPassword()">
                 <span>Forget Password?</span>
             </div>
+
+            <app-loading [loading]="loading"></app-loading>
+
             <div class="login_content" full-width display-flex>
+
                 <button class="login" margin-auto color-white text-align-center full-height font-weight-bold
-                    display-flex [disabled]="loginForm.invalid" [ngClass]="{'opacity':loginForm.invalid}" (click)="loginClient()">
+                    display-flex [disabled]="loginForm.invalid || loading " [ngClass]="{'opacity':loginForm.invalid || loading}"
+                    (click)="loginClient()">
                     <span margin-auto>LOGIN</span>
 
                 </button>
