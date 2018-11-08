@@ -11,6 +11,9 @@ export * from "src/app/com/annaniks/dastavok/components/card-list/card-list.comp
 export * from "src/app/com/annaniks/dastavok/components/payment-tabs/payment-tab/payment-tab.component";
 export * from "src/app/com/annaniks/dastavok/components/payment-tabs/checkout-tab/checkout-tab.component";
 export * from "src/app/com/annaniks/dastavok/components/payment-tabs/done-tab/done-tab.component";
-export *from "src/app/com/annaniks/dastavok/components/goodType-list/goodType-list.component";
-export *from "src/app/com/annaniks/dastavok/components/goodType-list/goodType-list-item/goodType-list-item.component";
-export *from "src/app/com/annaniks/dastavok/components/loading/loading.component";
+export * from "src/app/com/annaniks/dastavok/components/goodType-list/goodType-list.component";
+export * from "src/app/com/annaniks/dastavok/components/goodType-list/goodType-list-item/goodType-list-item.component";
+export * from "src/app/com/annaniks/dastavok/components/loading/loading.component";
+export * from "src/app/com/annaniks/dastavok/components/profile-tab/shipping-addresses-tab/shipping-addresses-tab.component";
+export * from "src/app/com/annaniks/dastavok/components/delivery-list/delivery-list.component";
+export * from "src/app/com/annaniks/dastavok/components/delivery-list/delivery-list-item/delivery-list-item.component";

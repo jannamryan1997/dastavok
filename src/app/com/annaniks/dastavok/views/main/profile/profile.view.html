@@ -32,8 +32,8 @@
             <div class="notification" full-height display-flex [ngClass]="{'active_tab':tab==2}" cursor-pointer (click)="showOrderHistory()">
                 <span class="tab_label" margin-auto [ngClass]="{'active_tab_text':tab==2}">Order History</span>
             </div>
-            <div class="notification" full-height display-flex>
-                <span class="tab_label" margin-auto>Track Delivery</span>
+            <div class="notification" full-height display-flex [ngClass]="{'active_tab':tab==3}" cursor-pointer (click)="showTrackDelivery()">
+                <span class="tab_label" margin-auto [ngClass]="{'active_tab_text':tab==3}">Track Delivery</span>
             </div>
         </div>
         <div *ngSwitchCase="1">
@@ -55,15 +55,11 @@
                 </div>
             </div>
         </div>
+        
+    <div *ngSwitchCase="3">
+        <app-shipping-addresses-tab></app-shipping-addresses-tab>
     </div>
-    <!-- <div class="deliver_items" full-width>
-        <div class="text_item">
-            <p class="text_restrant" font-family-Roboto>Restrant_1
-            </p>
-            <p class="text"  font-family-Roboto>Cost of delivery</p>
-            <p class="text"  font-family-Roboto>the price of goodes</p>
-            <p class="text"  font-family-Roboto>Total Coast</p>
-        </div>
 
-    </div> -->
+    </div>
+
 </div>

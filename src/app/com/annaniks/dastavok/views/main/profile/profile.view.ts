@@ -9,8 +9,8 @@ import { MatDialog } from "@angular/material"
 })
 
 export class ProfileView implements OnInit {
- 
-    public tab:number=1;
+
+    public tab: number = 1;
 
     public items_notification: Array<object> = [
         {
@@ -41,12 +41,15 @@ export class ProfileView implements OnInit {
             panelClass: ['no-padding'],
         })
     }
-public showNotification(){
-    this.tab=1;
+    public showNotification() {
+        this.tab = 1;
 
-}
-public showOrderHistory(){
-    this.tab=2;
-}
+    }
+    public showOrderHistory() {
+        this.tab = 2;
+    }
+    public showTrackDelivery() {
+        this.tab = 3;
+    }
 
 }

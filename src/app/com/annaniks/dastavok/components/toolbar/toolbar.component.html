@@ -1,7 +1,8 @@
 <div class="toolbar_content" full-width>
     <div class="toolbar_container" display-flex margin-auto>
-        <div class="lenguage_content" display-flex align-items-center position-releative  (click)="showLanguage()" (clickOutside)="onClickedOutsideLenguage($event)">
-            
+        <div class="lenguage_content" display-flex align-items-center position-releative (click)="showLanguage()"
+            (clickOutside)="onClickedOutsideLenguage($event)">
+
             <div class="flags">
                 <img src="assets/images/flag.jpg" full-width full-height>
             </div>
@@ -9,11 +10,11 @@
             <i class="material-icons icon">
                 keyboard_arrow_down
             </i>
-            <div class="language" position-absolute [ngClass]="{'showLanguage':showLenguage,'hideLanguage':!showLenguage}"  >
+            <div class="language" position-absolute [ngClass]="{'showLanguage':showLenguage,'hideLanguage':!showLenguage}">
                 <div class="language_top"></div>
             </div>
         </div>
-       
+
 
         <div class="login_content" display-flex position-releative>
             <div class="login_signin" full-height display-flex align-items-center *ngIf="!signUpService.isAuthorized"
@@ -35,7 +36,7 @@
                     </div>
                 </div>
             </div>
-            <div class="user_data" full-height display-flex align-items-center position-releative *ngIf="signUpService.isAuthorized">
+            <div class="user_data" full-height display-flex align-items-center position-relative *ngIf="signUpService.isAuthorized">
                 <div class="user_image"></div>
                 <div display-flex align-items-center>
                     <!--span class="user_name" font-weight-bold font-family-Roboto>{{signUpService?.userInfo.userName}}</span-->
@@ -46,9 +47,11 @@
                 </div>
                 <div class="user_profile" position-absolute [ngClass]="{'showUserProfile':showUserProfileDisplay,'hideUserProfile':!showUserProfileDisplay}">
                     <div class="user_singIn">
-                        <span class="user_text" font-family-Roboto font-weight-bold routerLink="/profile">User profile</span>
+                        <span class="user_text" font-family-Roboto font-weight-bold routerLink="/profile"
+                            cursor-pointer>User profile</span>
                         <div class="line_content"></div>
-                        <div class="text_signup" font-family-Roboto font-weight-bold>Sign up</div>
+                        <div class="text_signup" font-family-Roboto font-weight-bold (click)="onClickLogOut()"
+                            cursor-pointer>Log out</div>
                     </div>
 
                 </div>

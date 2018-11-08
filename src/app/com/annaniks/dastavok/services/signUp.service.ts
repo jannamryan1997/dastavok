@@ -7,7 +7,7 @@ import { User, ServerResponse, LoginResponse } from "../models/models";
 @Injectable()
 
 export class SignUpService {
-    public userInfo: User;
+    public userInfo: User = new User();
     public isAuthorized: boolean = false;
 
 
@@ -68,5 +68,20 @@ export class SignUpService {
         })
         return this.httpClient.put(this.baseURL + "freeclient/forget/stepthree", body, { headers })
     }
+
+    public getUserInfo() {
+        let token = this.cookieService.get("token");
+        let headers = new HttpHeaders({
+            'Content-type': 'application/json',
+            'token': token
+        })
+        return this.httpClient.get(this.baseURL + "client", { headers }).pipe(
+            map((data: ServerResponse<User>) => {
+                this.userInfo = data.data
+            })
+        )
+    }
+
+
 
 }

@@ -105,10 +105,23 @@
 *[flex-wrap-wrap] {
     flex-wrap: wrap
 }
-*[justify-content-space-between]{
-    justify-content:space-between;
+
+*[justify-content-space-between] {
+    justify-content: space-between;
 }
 
-*[margin-left-auto]{
+*[margin-left-auto] {
     margin-left: auto;
+}
+
+*[float-right] {
+    float: right;
+}
+
+*[background-transparent] {
+    background-color: transparent !important;
+}
+
+*[background-white] {
+    background-color: white !important;
 }

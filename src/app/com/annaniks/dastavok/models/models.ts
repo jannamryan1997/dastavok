@@ -18,7 +18,7 @@ export interface PhoneVerification {
     token: string;
 }
 
-export interface User {
+export class User {
     address: string
     balance: number
     cardNumber: string
@@ -33,8 +33,27 @@ export interface User {
     refreshToken: string
     updatedAt: string
     userName: string
-    verifyCode: number
+    verifyCode: number;
+    image: string;
 
+    constructor() {
+        this.address = '';
+        this.balance = 0;
+        this.cardNumber = '';
+        this.createdAt = '';
+        this.cvv = '';
+        this.exprires = '';
+        this.fullName = '';
+        this.id = 0;
+        this.isVerified = false;
+        this.password = '';
+        this.phoneNumber = '';
+        this.refreshToken = '';
+        this.updatedAt = '';
+        this.userName = '';
+        this.verifyCode = 0;
+        this.image = '';
+    }
 }
 
 export interface GoodType {

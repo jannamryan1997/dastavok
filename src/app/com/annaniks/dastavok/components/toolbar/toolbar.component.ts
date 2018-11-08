@@ -3,6 +3,7 @@ import { MatDialog } from "@angular/material";
 import { LoginModal, PhoneNumberModal } from "../../modals";
 import { SignUpService } from "../../services/signUp.service";
 import { ApiService } from "../../services/api.service";
+import { CookieService } from "angular2-cookie/services/cookies.service";
 
 @Component({
     selector: "app-toolbar",
@@ -16,10 +17,13 @@ export class ToolbarComponent implements OnInit {
     public showUserProfileDisplay: boolean = false;
     public showLenguage: boolean = false;
 
-    constructor(private dialog: MatDialog, public signUpService: SignUpService, private _apiService: ApiService) { }
+    constructor(private dialog: MatDialog, public signUpService: SignUpService, private _cookieService: CookieService) { }
 
     ngOnInit() {
-        // this._getUserInfo()
+        if (this.signUpService.isAuthorized == true) {
+            this._getUserInfo();
+        }
+
     }
 
     public showLoginSignup() {
@@ -54,28 +58,31 @@ export class ToolbarComponent implements OnInit {
     }
 
     public showUserProfile() {
-
         this.showUserProfileDisplay = !this.showUserProfileDisplay;
-
     }
+
     public showLanguage() {
         setTimeout(() => {
             this.showLenguage = !this.showLenguage;
         }, 1)
     }
 
-    public onClickedOutsideLenguage(e:Event){
-        this.showLenguage=false;
+    public onClickedOutsideLenguage(e: Event) {
+        this.showLenguage = false;
     }
 
     private _getUserInfo() {
-        this._apiService.getUserInfo().subscribe((data) => {
-            console.log(data);
+        this.signUpService.getUserInfo().subscribe();
+    }
 
-        }, err => {
-            console.log(err);
+    public onClickLogOut(): void {
+        this._removeCookies();
+    }
 
-        })
+    private _removeCookies(): void {
+        this._cookieService.remove('token');
+        this._cookieService.remove('refreshToken');
+        window.location.reload();
     }
 
 

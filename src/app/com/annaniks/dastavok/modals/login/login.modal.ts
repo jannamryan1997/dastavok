@@ -42,18 +42,12 @@ export class LoginModal implements OnInit {
 
         }).subscribe((data: ServerResponse<LoginResponse>) => {
             this.loading = false;
-            this._cookieService.put("refreshToken", data.data.refreshToken)
-            this._cookieService.put('accessToken', data.data.token)
-            this._cookieService.put("user_Name", data.data.data.userName)
-            this._cookieService.put("full_name", data.data.data.fullName)
-            this.dialogRef.close()
-            this.router.navigate(["/home/restaurant"])
+            this._cookieService.put("refreshToken", data.data.refreshToken);
+            this._cookieService.put('token', data.data.token);
+            this.dialogRef.close();
+            this.router.navigate(["/home/information"]);
             this.loginForm.enable();
-        },
-            err => {
-                console.log(err);
-
-            })
+        })
     }
 
     public onClickForgotPassword(): void {
