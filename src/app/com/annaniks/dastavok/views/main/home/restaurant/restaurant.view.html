@@ -17,7 +17,11 @@
         </div>
 
     </div>
-    <app-goodType-list>
+    <!--app-goodType-list>
         <app-goodType-list-item *ngFor="let item of goodTypes" [goodTypeInfo]="item" (click)="onClickItem(item)"></app-goodType-list-item>
-    </app-goodType-list>
+    </app-goodType-list-->
+
+    <app-company-list>
+        <app-company-list-item  *ngFor="let items of restrantItem" [restrantItem]="items"></app-company-list-item>
+    </app-company-list>
 </div>

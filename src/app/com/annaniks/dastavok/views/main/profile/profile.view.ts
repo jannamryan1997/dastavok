@@ -1,6 +1,9 @@
 import { Component, OnInit } from "@angular/core"
 import { UserUpdateModal } from "../../../modals/user-update/user-update.modal";
 import { MatDialog } from "@angular/material"
+import { ProfileService } from "./profile.service";
+import { ServerResponse, User } from "../../../models/models";
+
 
 @Component({
     selector: "app-profile",
@@ -11,7 +14,7 @@ import { MatDialog } from "@angular/material"
 export class ProfileView implements OnInit {
 
     public tab: number = 1;
-
+     public clientData:User;
     public items_notification: Array<object> = [
         {
             label: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam provident atquedeleniti adipisci quam fugiat eveniet, debitis dolores laudantium delectus beatae earum dictainventore, illum laboriosam quaerat molestias reprehenderit assumenda ? ",
@@ -28,9 +31,10 @@ export class ProfileView implements OnInit {
     ]
 
 
-    constructor(private dialog: MatDialog) { }
+    constructor(private dialog: MatDialog,private _profileService: ProfileService) { }
 
     ngOnInit() {
+        this._clientGet();
 
     }
 
@@ -50,6 +54,16 @@ export class ProfileView implements OnInit {
     }
     public showTrackDelivery() {
         this.tab = 3;
+    }
+
+
+   private _clientGet() {
+        this._profileService.getClient()
+        .subscribe((data:ServerResponse<User>) => {
+            this.clientData=data.data;
+            console.log(this.clientData);
+
+        })
     }
 
 }

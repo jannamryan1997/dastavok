@@ -43,13 +43,13 @@
             <div class="line"></div>
         </div>
 
-        <div class="button_content" display-flex>
+        <div class="button_content" display-flex (click)="showMap()">
             <button class="button" display-flex><span font-family-Roboto margin-auto>view more detalis</span></button>
         </div>
 
         <div class="line"></div>
-        <div class="map_content">
-                <div id="map"></div>
+        <div class="map_content" margin-auto [ngStyle]="{'max-height':detailsinfoheigth}" id="1" [ngClass]="{'details-open' : showDetails, 'details-close' : !showDetails}">
+            <div class="flan" id="map"></div>
         </div>
 
 

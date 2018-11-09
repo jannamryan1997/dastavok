@@ -11,7 +11,12 @@ import { ServerResponse, GoodType } from "../../../../models/models";
 
 export class RestaurantView implements OnInit {
     public goodTypes: Array<GoodType> = [];
-
+    public restrantItem: Array<any> = [
+        {},
+        {},
+        {},
+        {}
+    ]
     constructor(private router: Router, private _restaurantService: RestaurantService) {
     }
 

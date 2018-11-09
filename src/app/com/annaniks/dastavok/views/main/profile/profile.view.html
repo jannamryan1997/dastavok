@@ -2,18 +2,18 @@
     <div class="profile_container" display-flex>
         <div class="img_content"></div>
         <div class="text_content">
-            <p class="text_name" font-weight-bold font-family-Open-Sans>George Washington</p>
+            <p class="text_name" font-weight-bold font-family-Open-Sans>{{clientData?.fullName}}</p>
             <div class="user_room" display-flex align-items-center>
                 <i class="material-icons">
                     room
                 </i>
-                <p font-weight-bold font-family-Roboto class="text_item">Chicago</p>
+                <p font-weight-bold font-family-Roboto class="text_item">{{clientData?.address}}</p>
             </div>
             <div class="user_call" display-flex align-items-center>
                 <i class="material-icons">
                     call
                 </i>
-                <p class="text_number" font-weight-bold font-family-Roboto> +216(0)40 3629 4576</p>
+                <p class="text_number" font-weight-bold font-family-Roboto> {{clientData?.phoneNumber}}</p>
             </div>
         </div>
         <div class="add_content" (click)="openUserUpdateModal()">
