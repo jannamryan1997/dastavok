@@ -1,5 +1,5 @@
 import { NgModule } from "@angular/core"
-import { TopbarComponent, ToolbarComponent, LoadingComponent } from "../components";
+import { TopbarComponent, ToolbarComponent, LoadingComponent,RatingComponent } from "../components";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router"
 import {MatDialogModule} from '@angular/material/dialog';
@@ -10,9 +10,9 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 @NgModule({
     entryComponents:[],
-    declarations: [TopbarComponent,ToolbarComponent,LoadingComponent],
+    declarations: [TopbarComponent,ToolbarComponent,LoadingComponent,RatingComponent],
     imports: [CommonModule, RouterModule,MatDialogModule,FormsModule,ReactiveFormsModule,ClickOutsideModule,ProgressSpinnerModule],
-    exports: [TopbarComponent, CommonModule,FormsModule,ReactiveFormsModule,ToolbarComponent,ClickOutsideModule,LoadingComponent],
+    exports: [TopbarComponent, CommonModule,FormsModule,ReactiveFormsModule,ToolbarComponent,RatingComponent,ClickOutsideModule,LoadingComponent],
 })
 
 export class SharedModule {

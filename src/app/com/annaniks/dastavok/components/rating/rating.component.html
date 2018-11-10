@@ -1,17 +1,8 @@
-<div class="rating" display-flex >
-<i class="material-icons star" (click)="raiting()">
-    star
-</i>
-<i class="material-icons star">
+<div class="rating" display-flex>
+    <i class="material-icons star" *ngFor="let item of starsItem,let ind=index" (click)="raiting(ind)" 
+    [ngClass]="{'star_active':currentIndex>ind}">
         star
     </i>
-    <i class="material-icons star">
-            star
-        </i>
-        <i class="material-icons star">
-                star
-            </i>
-            <i class="material-icons star">
-                    star
-                </i>
+
 </div>
+<!-- git add --all git commit -m "message" git push origin dev -->

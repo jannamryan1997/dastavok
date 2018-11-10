@@ -1,13 +1,14 @@
 import { NgModule } from "@angular/core"
 import { InformationView } from "./information.view";
 import { InformationRoutingModule } from "./information.routing.module";
-import { SliderComponent } from "../../../../components";
+import { SliderComponent, CompanyListComponent, CompanyListItemComponent } from "../../../../components";
 import { NgxCarouselModule } from 'ngx-carousel';
 import { CommonModule } from "@angular/common"
+import { SharedModule } from "../../../../shared/shared.module";
 
 @NgModule({
-    declarations: [InformationView, SliderComponent],
-    imports: [InformationRoutingModule, NgxCarouselModule, CommonModule],
+    declarations: [InformationView, SliderComponent, CompanyListComponent, CompanyListItemComponent],
+    imports: [InformationRoutingModule, NgxCarouselModule, CommonModule, SharedModule],
     exports: [],
 })
 
