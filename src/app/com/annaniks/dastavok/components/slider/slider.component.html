@@ -24,21 +24,21 @@
     <div *ngSwitchCase="2" class="second_slider">
         <ngx-carousel [inputs]="carouselConfig2">
             <ngx-item *ngFor="let item of items" NgxCarouselItem style="width:fit-content">
-                <div class="bottom_slider">
+                
+                <div class="slider_content">
                     <div class="slider_image" [ngStyle]="{'background-image':'url('+item.title+')'}"></div>
-                    <div class="bottom_text" display-flex>
-                        <ul class="listen">
-                            <li class="item_text_one" font-weight-bold font-family-Roboto>{{item.label}}
-                                <span class="item_carency"font-weight-bold font-family-Roboto>15$</span>
-                            </li>
-                            <li class="item_text_two" font-weight-bold font-family-Roboto>{{item.text}}</li>
-                            <li class="item_star"><i class="material-icons" *ngFor="let item of items_star">
-                                    star
-                                </i></li>
-                        </ul>
+                    <div class="slider_top">
+                        <div class="information_content" display-flex justify-content-space-between>
+                            <p class="information_name" font-weight-bold font-family-Roboto>{{item.label}}</p>
+                            <p class="carency" ont-weight-bold font-family-Roboto>15$</p>
+                        </div>
+                        <p class="information_text" ont-weight-bold font-family-Roboto>{{item.text}}</p>
+                        <app-rating [currentIndex]="starCount" [changeRating]="false" [starSize]="13" ></app-rating>
                     </div>
 
+
                 </div>
+                
             </ngx-item>
 
             <div NgxCarouselPrev class="leftRs_config">
@@ -46,7 +46,7 @@
                     keyboard_arrow_left
                 </i>
             </div>
-            <div NgxCarouselNext class="rightRs_config" ><i class="material-icons">
+            <div NgxCarouselNext class="rightRs_config"><i class="material-icons">
                     keyboard_arrow_right
                 </i></div>
         </ngx-carousel>

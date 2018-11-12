@@ -1,8 +1,10 @@
-<div class="company_content">
-    <div class="company_image"></div>
-    <div class="company_info">
-        <p class="company_name" font-family-Roboto font-weight-bold>Restrant</p>
-        <p class="company_description" font-family-Roboto font-weight-bold>Company to popular beliver</p>
-       <app-rating></app-rating>
+<div class="company">
+    <div class="company_content">
+        <div class="company_image"></div>
+        <div class="company_info">
+            <p class="company_name" font-family-Roboto font-weight-bold>Restrant</p>
+            <p class="company_description" font-family-Roboto font-weight-bold>Company to popular beliver</p>
+            <app-rating [currentIndex]="starCount" [changeRating]="false"></app-rating>
+        </div>
     </div>
 </div>

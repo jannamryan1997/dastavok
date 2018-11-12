@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core"
+import { Component, OnInit, Input } from "@angular/core"
+
 
 @Component({
     selector: "app-rating",
@@ -9,18 +10,18 @@ import { Component, OnInit } from "@angular/core"
 export class RatingComponent implements OnInit {
 
     public starsItem: Array<number> = [0, 0, 0, 0, 0]
-    public currentIndex: number;
-   
-
+    @Input() currentIndex;
+    @Input() changeRating: boolean;
+    @Input() starSize:number=16;
     constructor() { }
 
-    ngOnInit() {
-    }
+    ngOnInit() { }
 
-    public raiting(index: number) {
-        this.currentIndex=index;
-    }
 
+    public raiting(index) {
+        if (this.changeRating == true) {
+            this.currentIndex = index;
+        }
+        console.log(this.currentIndex)
+    }
 }
-
-

@@ -10,38 +10,44 @@ export class SliderComponent implements OnInit {
     @Input() public sliderMode: string;
     public carouselConfig: NgxCarousel;
     public carouselConfig2: NgxCarousel;
-    public carouselConfig3:NgxCarousel;
     public items: object[] = [];
-    public items_star:Array<any>=
-    [
-        {label:""},
-        {label:""},
-        {label:""},
-        {label:""},
-        {label:""}
-    ]
+    public starCount: number = 4;
+    public items_star: Array<any> =
+        [
+            { label: "" },
+            { label: "" },
+            { label: "" },
+            { label: "" },
+            { label: "" },
+        ]
 
     constructor() {
         this.items = [
             {
                 title: "/assets/images/slider.png",
                 label: "Burger",
-                text:"Contrary to popular beelife"
+                text: "Contrary to popular beelife"
 
             },
             {
                 title: "/assets/images/slider.png",
                 label: "Burger",
-                text:"Contrary to popular beelife"
+                text: "Contrary to popular beelife"
 
             },
             {
                 title: "/assets/images/slider.png",
                 label: "Burger",
-                text:"Contrary to popular beelife"
+                text: "Contrary to popular beelife"
+
+            },
+            {
+                title: "/assets/images/slider.png",
+                label: "Burger",
+                text: "Contrary to popular beelife"
 
             }
-    
+
 
         ]
 
@@ -57,7 +63,7 @@ export class SliderComponent implements OnInit {
             touch: true
         }
         this.carouselConfig2 = {
-            grid: { xs: 1, sm: 3, md: 3, lg: 3, all: 3 },
+            grid: { xs: 1, sm: 4, md: 4, lg: 4, all: 4 },
             slide: 1,
             speed: 400,
             interval: 10000,

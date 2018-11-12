@@ -10,6 +10,7 @@ import { ServerResponse, GoodType } from "../../../../models/models";
 })
 
 export class RestaurantView implements OnInit {
+    public starCount:number=4;
     public goodTypes: Array<GoodType> = [];
     public restrantItem: Array<any> = [
         {},

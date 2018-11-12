@@ -1,5 +1,6 @@
 .container {
     width: calc(100% - 287px);
+    margin-left: 287px;
     .choose_bar {
         margin-top: 23px;
         margin-bottom: 25px;
@@ -108,10 +109,6 @@
 .item_Active {
     color: white !important;
     background-color: #87bd3c !important;
-}
-
-.container {
-    margin-left: 16px
 }
 
 input::placeholder {

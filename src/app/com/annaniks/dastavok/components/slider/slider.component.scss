@@ -51,41 +51,52 @@
         bottom: 103.3px;
         margin: auto;
     }
-    .bottom_slider {
+    .slider_content {
         margin: 0 auto;
-        width: 202px;
-        height: 214px;
+        width: 129.4px;
+        height: 137.1px;
         object-fit: contain;
         border: solid 1px #707070;
         .slider_image {
-            height: 137px;
+            height: 87.7px;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
         }
-        .bottom_text {
-            font-size: 15px;
-            .listen {
-                list-style: none;
-                padding: 0;
-                margin-left: 16px;
-                .item_text_one {
-                    border: none;
+        .slider_top {
+            margin-left: 10px;
+            .information_content {
+                .information_name {
+                    font-size: 9px;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.22;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: #191919;
+                    margin-bottom: 0px;
                 }
-                .item_carency {
-                    margin-left: 85px;
+                .carency {
+                    font-size: 9px;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.22;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: #191919;
+                    margin-bottom: 0px;
                 }
-                .item_text_two {
-                    font-size: 10px;
-                    border: none;
-                }
-                .item_star {
-                    border: none;
-                    i {
-                        font-size: 12px;
-                        color: #ff6f00;
-                    }
-                }
+            }
+            .information_text {
+                font-size: 6px;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.33;
+                letter-spacing: normal;
+                text-align: left;
+                color: #191919;
+                margin-top: 0px;
+                margin-bottom: 0px;
             }
         }
     }
@@ -148,10 +159,10 @@
     ngx-carousel {
         ngx-item {
             width: fit-content;
-            margin-left: 59px;
-            &:first-child {
-                margin-left: 101px
-            }
+            margin-left: 66px;
         }
     }
+}
+.rating_star{
+    font-size: 2px;
 }

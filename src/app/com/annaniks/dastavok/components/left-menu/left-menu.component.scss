@@ -22,7 +22,6 @@
             margin-left: 26.5px;
             width: 234px;
             object-fit: contain;
-            border-bottom: solid 2px #707070;
             justify-content: space-between;
             cursor: pointer;
             &:first-child {
@@ -30,6 +29,15 @@
             }
             &:last-child {
                 padding-bottom: 46px;
+            }
+            .restaurant_name{
+                font-size: 15px;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.33;
+                letter-spacing: normal;
+                text-align: left;
+                color: #c5c5c5;
             }
         }
     }

@@ -1,18 +1,19 @@
-<div>
-    <div>
-        <app-slider [sliderMode]="1"></app-slider>
-    </div>
-    <div class="line_content" full-width display-flex>
-        <div class="text_content">
-            <span class="text" color-black font-weight-bold font-family-Open-Sans>SALE</span>
-        </div>
+<div full-width>
+    <app-slider [sliderMode]="1"></app-slider>
+    <div display-flex flex-wrap-wrap>
+        <app-menu></app-menu>
+        <div class="container">
+            <div class="line_content" full-width display-flex>
+                <div class="text_content">
+                    <span class="text" color-black font-weight-bold font-family-Open-Sans>SALE</span>
+                </div>
 
-        <div class="line"></div>
-    </div>
+                <div class="line"></div>
+            </div>
 
-    <app-slider [sliderMode]="2"></app-slider>
+            <app-slider [sliderMode]="2"></app-slider>
 
-    <!-- <div class="top_line_content" full-width display-flex>
+            <!-- <div class="top_line_content" full-width display-flex>
         <div class="text_content">
             <span class="text" color-black font-weight-bold font-family-Open-Sans>TOP</span>
         </div>
@@ -20,7 +21,10 @@
         <div class="line"></div>
     </div>
     <app-slider [sliderMode]="2"></app-slider> -->
-    <app-company-list>
-        <app-company-list-item *ngFor="let items of [0,0,0,0,0]" [restrantItem]="items"></app-company-list-item>
-    </app-company-list>
+            <app-company-list>
+                <app-company-list-item *ngFor="let items of [0,0,0,0,0]" [restrantItem]="items"></app-company-list-item>
+            </app-company-list>
+
+        </div>
+    </div>
 </div>

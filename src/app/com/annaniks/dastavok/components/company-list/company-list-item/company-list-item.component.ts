@@ -9,6 +9,7 @@ styleUrls:["company-list-item.component.scss"]
 
 export class CompanyListItemComponent implements OnInit{
     @Input() restrantItem:object=[];
+    public starCount:number=4;
     public carouselConfig: NgxCarousel;
 
     constructor(){
