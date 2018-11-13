@@ -1,18 +1,23 @@
-import {Component, OnInit,Input} from "@angular/core"
+import { Component, OnInit, Input } from "@angular/core"
 import { NgxCarousel } from "ngx-carousel";
+import { BriefCompany } from "../../../models/models";
+
+
+
 
 @Component({
-    selector:"app-company-list-item",
-templateUrl:"company-list-item.component.html",
-styleUrls:["company-list-item.component.scss"]
+    selector: "app-company-list-item",
+    templateUrl: "company-list-item.component.html",
+    styleUrls: ["company-list-item.component.scss"]
 })
 
-export class CompanyListItemComponent implements OnInit{
-    @Input() restrantItem:object=[];
-    public starCount:number=4;
+export class CompanyListItemComponent implements OnInit {
+    @Input() companyItem: BriefCompany;
+    public starCount: number = 4;
     public carouselConfig: NgxCarousel;
 
-    constructor(){
+
+    constructor() {
 
         this.carouselConfig = {
             grid: { xs: 1, sm: 3, md: 3, lg: 3, all: 3 },
@@ -26,11 +31,11 @@ export class CompanyListItemComponent implements OnInit{
             touch: true
         }
     }
+    ngOnInit() {
+  
+    }
 
 
-
-    
-    ngOnInit(){}
 
 
 

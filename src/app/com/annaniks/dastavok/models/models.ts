@@ -95,10 +95,23 @@ export interface Good {
 
 export interface Paginator<T> {
     data: T
-    metaData: Array<MetaData>;
+    metaData: MetaData;
 }
 
-interface MetaData {
+export interface MetaData {
     count: number;
     pages: number;
+}
+
+export interface BriefCompany {
+    address: string;
+    code: number;
+    createdAt:string;
+    description: string;
+    email: string;
+    id: number;
+    image: string;
+    name: string;
+    phoneNumber: string;
+    zipCode: number;
 }

@@ -1,6 +1,7 @@
 .payment_tab_content {
     width: 791px;
     margin-top: 55px;
+  
     .payment_tab_text {
         font-size: 20px;
         font-style: normal;
@@ -11,6 +12,10 @@
         color: #444444;
         margin-bottom: 0px;
         margin-top: 0px;
+    }
+    #map{
+        height: 300px;
+        width: 100%;
     }
     .form {
         margin-top: 79px;

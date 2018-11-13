@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core"
-import { CanActivate } from "@angular/router";
+import { CanActivate, ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from "@angular/router";
 import { Observable, of } from "rxjs";
 import { ApiService } from "../services/api.service";
 import { CookieService } from "angular2-cookie/services/cookies.service";
@@ -10,15 +10,26 @@ import { CookieService } from "angular2-cookie/services/cookies.service";
 
 export class AuthGuard implements CanActivate {
 
-    constructor(private _apiService: ApiService, private _cookieSerivce: CookieService) { }
+    constructor(private _apiService: ApiService, private _cookieSerivce: CookieService, private _router: Router) { }
 
-    canActivate(): boolean | Observable<boolean> | Promise<boolean> {
+    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> | Promise<boolean> {
+
         let token: string = this._cookieSerivce.get('token');
         if (token) {
-            return this._apiService.checkToken()
+
+            return this._apiService.checkToken();
+
         }
         else {
-            return true;
+
+            if (state.url == '/profile') {
+                this._router.navigate(['/home/information']);
+                return of(false);
+            }
+            else {
+                return of(true);
+            }
+
         }
     }
 

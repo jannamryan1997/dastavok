@@ -20,3 +20,4 @@ export * from "src/app/com/annaniks/dastavok/components/delivery-list/delivery-l
 export *from "src/app/com/annaniks/dastavok/components/company-list/restrant.component";
 export *from "src/app/com/annaniks/dastavok/components/company-list/company-list-item/company-list-item.component";
 export *from "src/app/com/annaniks/dastavok/components/rating/rating.component";
+export *from "src/app/com/annaniks/dastavok/components/paginator/paginator.component";

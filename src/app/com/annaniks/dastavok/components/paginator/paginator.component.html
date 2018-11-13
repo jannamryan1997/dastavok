@@ -1,0 +1,14 @@
+<div class="paginator_content">
+    <div class="paginator_conteiner" display-flex>
+        <div class="paginator_item" display-flex justify-content-space-between>
+            <i class="material-icons">
+                keyboard_arrow_left
+            </i>
+            <div class="item" font-family-Open-Sans font-weight-bold *ngFor="let item of pages;let ind=index" (click)="onClickPage(ind)">{{item}}</div>
+            <i class="material-icons">
+                keyboard_arrow_right
+            </i>
+        </div>
+    </div>
+
+</div>

@@ -1,5 +1,9 @@
 import { Component, OnInit } from "@angular/core"
-import { FormGroup, FormBuilder, Validators } from "@angular/forms"
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { ContactService } from "./contact.service";
+import { ServerResponse, User } from "../../../models/models";
+
+
 @Component({
     selector: "app-contact",
     templateUrl: "contact.view.html",
@@ -9,11 +13,13 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms"
 export class ContactView implements OnInit {
 
     public userForm: FormGroup;
+    public userInfo:User;
 
-    constructor() { }
+    constructor(private _ContactService:ContactService) { }
 
     ngOnInit() {
         this._formBuilder();
+        this._getUserInfo();
     }
 
     private _formBuilder() {
@@ -24,5 +30,14 @@ export class ContactView implements OnInit {
             "phone_number": ["", Validators.required],
             "messages": ["", Validators.required]
         })
+    }
+
+    private _getUserInfo(){
+this._ContactService.getUserInfo()
+.subscribe((data:ServerResponse<User>)=>{
+    this.userInfo=data.data;
+    console.log(data);
+    
+})
     }
 }

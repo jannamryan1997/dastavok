@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core"
-
+import { ServerResponse, Paginator, BriefCompany } from "src/app/com/annaniks/dastavok/models/models";
+import { InformationService } from "./information.service";
 
 @Component({
     selector: "app-information",
@@ -8,20 +9,21 @@ import { Component, OnInit } from "@angular/core"
 })
 
 export class InformationView implements OnInit {
-public case:string;
-    constructor() { }
+    public case: string;
+    public companyItem: BriefCompany;
+    constructor(private _informationService: InformationService) { }
 
     ngOnInit() {
-        this.case="1";
-        this.case="2";
-       
-     }
-
-    showTop(){
-       
+        this._getRestaurant();
     }
 
-    showunder(){
-        
+
+    private _getRestaurant() {
+        this._informationService.getFreeclientRestaurant(1, 10)
+            .subscribe((data: ServerResponse<Paginator<BriefCompany>>) => {
+                this.companyItem = data.data.data;
+                console.log(data);
+
+            })
     }
 }
