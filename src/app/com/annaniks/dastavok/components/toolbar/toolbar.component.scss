@@ -3,10 +3,7 @@
         height: 66px;
         width: 1220px;
         .lenguage_content {
-            margin-top: 17px;
-            width: 124px;
-            height: 24px;
-            margin-left: auto;
+            margin-right: 66px;
             i {
                 font-size: 25px;
             }
@@ -25,29 +22,23 @@
                 text-align: left;
                 color: #191919;
             }
-            .icon{
+            .icon {
                 cursor: pointer;
             }
-            .language{
+            .language {
                 width: 178px;
                 height: 130px;
                 box-shadow: -4px 4px 6px 0 rgba(0, 0, 0, 0.16);
                 background-color: white;
-                top: 30px;
-               // bottom: 0;
+                top: 30px; // bottom: 0;
                 z-index: 1;
-                .language_top{
+                .language_top {
                     margin-left: 36px;
                     margin-top: 18px;
-                    
                 }
             }
         }
         .login_content {
-            margin-top: 17px;
-            width: 124px;
-            height: 24px;
-            margin-left: 66px;
             .login_signin {
                 cursor: pointer;
                 i {
@@ -167,13 +158,15 @@
     z-index: -1 !important;
     user-select: none;
 }
-.showLanguage{
+
+.showLanguage {
     opacity: 1;
     z-index: 1;
     top: 66px !important;
     transition: top 0.5s, opacity 0.5s;
 }
-.hideLanguage{
+
+.hideLanguage {
     opacity: 0;
     z-index: -1;
     user-select: none;
