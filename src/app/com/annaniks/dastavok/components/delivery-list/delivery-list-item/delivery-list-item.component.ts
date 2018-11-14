@@ -15,11 +15,14 @@ export class DeliveryListItemComponent implements OnInit {
     private _marker;
     public showDetails: boolean = false;
     public detailsinfoheigth: string;
+    public directionsService = new google.maps.DirectionsService();
+    public directionsDisplay = new google.maps.DirectionsRenderer();
     constructor(private _profileService: ProfileService) { }
 
     ngOnInit() {
         this._initMap();
         this.setDetailsHeight();
+        this.calcRoute();
     }
 
     private _initMap() {
@@ -34,7 +37,7 @@ export class DeliveryListItemComponent implements OnInit {
 
 
         });
-
+        this.directionsDisplay.setMap(this._map)
     }
     private _addMarker(location) {
         if (this._marker && this._marker.setMap) {
@@ -60,6 +63,28 @@ export class DeliveryListItemComponent implements OnInit {
         else {
             this.detailsinfoheigth = '0px';
         }
+    }
+
+    calcRoute() {
+        var origin = new google.maps.LatLng(40.177200, 44.503490);
+        var destination = new google.maps.LatLng(40.7942, 43.84528);
+        var request = {
+            origin: origin,
+            destination: destination,
+            // Note that Javascript allows us to access the constant
+            // using square brackets and a string value as its
+            // "property."
+            travelMode: google.maps.TravelMode['DRIVING']
+        };
+        this.directionsService.route(request, (response, status) => {
+            console.log(status);
+
+            if (status == 'OK') {
+                console.log(response);
+
+                this.directionsDisplay.setDirections(response);
+            }
+        });
     }
 
 

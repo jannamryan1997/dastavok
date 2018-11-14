@@ -1,12 +1,12 @@
 .container {
-    width: calc(100% - 287px);
-    margin-left: 287px;
+    .logo {
+        margin-left: 26.5px;
+        margin-top: 13px;
+    }
     .choose_bar {
         margin-top: 23px;
         margin-bottom: 25px;
-        .logo {
-            width: 188px;
-        }
+        width: calc(100% - 287px);
         .choose_bar_container {
             height: 79px;
             border: 2px solid #a4a4a4;
@@ -15,7 +15,6 @@
             -moz-border-radius: 4px;
             -ms-border-radius: 4px;
             -o-border-radius: 4px;
-            width: 100%;
             .choose_bar_item {
                 background-color: #ffffff;
                 width: 33.333333333%;
@@ -102,6 +101,14 @@
             .i {
                 font-size: 27px;
             }
+        }
+    }
+    .content{
+        .logo{
+            width: 202px;
+        }
+        .choose_bar{
+            width: 893px;
         }
     }
 }
