@@ -17,5 +17,16 @@ export class ProfileService {
         })
         return this._httpClient.get(this.baseURL + "client", { headers })
     }
+
+    putClient(body) {
+        let token = this._cookieService.get('token');
+        let headers = new HttpHeaders({
+            'Content-type': 'application/json',
+            'token': token
+        })
+        console.log(token);
+
+        return this._httpClient.put(this.baseURL + "client", body, { headers })
+    }
 }
 

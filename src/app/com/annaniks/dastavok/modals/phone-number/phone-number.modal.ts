@@ -50,6 +50,8 @@ public loading:boolean=false;
     }
 
     postPhoneNumber() {
+        this.loading=true;
+        this.phoneNumberForm.disable();
         if (this.data.key == "registration") {
 
             this.signUpService.clientPhoneNumber({
@@ -68,8 +70,10 @@ public loading:boolean=false;
             this.signUpService.forgetPasswordPhoneNumber({
                 "phoneNumber": this.phoneNumberForm.value.phonenumber
             }).subscribe((data: ServerResponse<PhoneVerification>) => {
+                this.loading=false;
                 this.cookieService.put('forgot_token', data.data.token)
                 this.openVerificationModal('forgot_password');
+                this.phoneNumberForm.enable();
             },
                 err => {
                     console.log(err);

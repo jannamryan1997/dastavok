@@ -32,7 +32,7 @@ export class CompanyListItemComponent implements OnInit {
         }
     }
     ngOnInit() {
-  
+    
     }
 
 

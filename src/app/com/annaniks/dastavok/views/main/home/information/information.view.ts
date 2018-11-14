@@ -19,6 +19,7 @@ export class InformationView implements OnInit {
 
 
     private _getRestaurant() {
+      
         this._informationService.getFreeclientRestaurant(1, 10)
             .subscribe((data: ServerResponse<Paginator<BriefCompany>>) => {
                 this.companyItem = data.data.data;

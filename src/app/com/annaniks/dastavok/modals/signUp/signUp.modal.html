@@ -14,12 +14,13 @@
             <div class="form_group">
                 <input class="confirm_password" placeholder="Confirm your password" full-width formControlName="confirm_password">
             </div>
+            <app-loading [loading]="loading"></app-loading>
             <div class="button_items" display-flex>
                 <div margin-auto>
                     <button class="back_button" text-align-center>
                         <span font-weight-bold (click)="backVerificationModal()">BACK</span>
                     </button>
-                    <button class="next_button" text-align-center [disabled]="signUpForm.invalid" [ngClass]="{'opacity':signUpForm.invalid}" (click)="signUpClient()">
+                    <button class="next_button" text-align-center [disabled]="signUpForm.invalid || loading" [ngClass]="{'opacity':signUpForm.invalid || loading}" (click)="signUpClient()">
                         <span font-weight-bold color-white>NEXT</span>
                     </button>
                 </div>

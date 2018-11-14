@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core"
-import { ProfileService } from "../../../views/main/profile/profile.service";
+
+
 
 declare var google;
 
@@ -17,7 +18,7 @@ export class DeliveryListItemComponent implements OnInit {
     public detailsinfoheigth: string;
     public directionsService = new google.maps.DirectionsService();
     public directionsDisplay = new google.maps.DirectionsRenderer();
-    constructor(private _profileService: ProfileService) { }
+    constructor( ) { }
 
     ngOnInit() {
         this._initMap();

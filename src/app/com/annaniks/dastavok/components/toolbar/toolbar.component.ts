@@ -75,6 +75,10 @@ export class ToolbarComponent implements OnInit {
         this.signUpService.getUserInfo().subscribe();
     }
 
+    public onClickedOutsideUserProfile(){
+        this.showUserProfileDisplay=false;
+    }
+
     public onClickLogOut(): void {
         this._removeCookies();
     }
@@ -84,6 +88,7 @@ export class ToolbarComponent implements OnInit {
         this._cookieService.remove('refreshToken');
         window.location.reload();
     }
+
 
 
 

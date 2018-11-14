@@ -6,6 +6,7 @@ import { MenuItemsService } from "../../services";
 import { FooterComponent } from "../../components/footer/footer.component";
 import { LoginModal, VerificationModal, PhoneNumberModal, SignUpModal, NewPasswordModals, UserUpdateModal } from "../../modals";
 import { HttpClientModule } from "@angular/common/http"
+import { ProfileService } from "./profile/profile.service";
 
 
 
@@ -14,7 +15,7 @@ import { HttpClientModule } from "@angular/common/http"
 
     declarations: [MainComponent, FooterComponent, VerificationModal, LoginModal, PhoneNumberModal, SignUpModal, NewPasswordModals, UserUpdateModal],
     imports: [MainRoutingModule, SharedModule, HttpClientModule],
-    providers: [MenuItemsService],
+    providers: [MenuItemsService,ProfileService],
     entryComponents: [VerificationModal, LoginModal, PhoneNumberModal, SignUpModal, NewPasswordModals, UserUpdateModal],
     exports: [],
 })

@@ -13,11 +13,14 @@
             <div class="text_content" margin-auto>
                 <span>Enter the verification code <b color-orange>02:00</b></span>
             </div>
+            <div class="loading">
+                <app-loading [loading]="loading"></app-loading>
+            </div>
             <div class="buttons_wrapper">
-            
+
                 <button class="back_button" font-weight-bold text-align-center (click)="closeVerification()">BACK</button>
-                <button class="next_button" font-weight-bold text-align-center color-white [disabled]="verificationForm.invalid"
-                    (click)="postVerification()" [ngClass]="{'opacity':verificationForm.invalid}">NEXT</button>
+                <button class="next_button" font-weight-bold text-align-center color-white [disabled]="verificationForm.invalid || loading"
+                    (click)="postVerification()" [ngClass]="{'opacity':verificationForm.invalid || loading}">NEXT</button>
             </div>
         </form>
     </div>

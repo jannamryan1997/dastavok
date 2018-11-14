@@ -15,6 +15,7 @@ export interface DialogData {
 })
 export class SignUpModal implements OnInit {
     public signUpForm: FormGroup;
+    public loading:boolean=false;
     constructor(private dialogRef: MatDialogRef<SignUpModal>,
         @Inject(MAT_DIALOG_DATA) public data: DialogData, private signUpService: SignUpService, private router: Router) { }
 
@@ -37,11 +38,15 @@ export class SignUpModal implements OnInit {
     }
 
     signUpClient() {
+        this.loading=true;
+        this.signUpForm.disable();
         this.signUpService.signUpClient({
             "userName": this.signUpForm.value.user_name,
             "fullName": this.signUpForm.value.full_name,
             "password": this.signUpForm.value.password,
         }).subscribe((data) => {
+            this.loading=false;
+            this.signUpForm.enable();
             this.dialogRef.close();
             this.router.navigate(["/contact"])
             console.log(data);

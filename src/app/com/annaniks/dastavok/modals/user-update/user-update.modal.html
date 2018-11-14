@@ -16,7 +16,7 @@
                     </i>
 
                 </div>
-                <input class="input_content" placeholder="Name" full-height formControlName="user_name">
+                <input class="input_content" placeholder="fullName" full-height formControlName="full_name">
             </div>
             <div class="form_group" full-width display-flex>
                 <div class="icon_content" display-flex>
@@ -37,7 +37,7 @@
                 <input class="input_content" placeholder="Phone Number" full-height formControlName="phone_number">
             </div>
             <div class="button_item" display-flex>
-                <button class="button_content" margin-auto display-flex [disabled]="userUpdateGroup.invalid" [ngClass]="{'opacity':userUpdateGroup.invalid}">
+                <button class="button_content" margin-auto display-flex [disabled]="userUpdateGroup.invalid" [ngClass]="{'opacity':userUpdateGroup.invalid}" (click)="putClient()">
                     <span class="button_text" color-white font-family-Roboto margin-auto>SAVE</span>
                 </button>
             </div>
