@@ -4,14 +4,21 @@
             <div class="lenguage_content" display-flex align-items-center position-releative (click)="showLanguage()"
                 (clickOutside)="onClickedOutsideLenguage($event)">
                 <div class="flags">
-                    <img src="assets/images/flag.jpg" full-width full-height>
+                    <img src="assets/images/english.png" full-width full-height>
                 </div>
                 <span class="language_text" font-weight-bold font-family-Roboto>English</span>
                 <i class="material-icons icon">
                     keyboard_arrow_down
                 </i>
-                <div class="language" position-absolute [ngClass]="{'showLanguage':showLenguage,'hideLanguage':!showLenguage}">
-                    <div class="language_top"></div>
+                <div class="language" position-absolute full-width [ngClass]="{'showLanguage':showLenguage,'hideLanguage':!showLenguage}">
+                    <div class="language_top" width-75 *ngFor="let item of languageItem">
+                        <div class="language_conteiner" display-flex align-items-center>
+                            <div class="image" [ngStyle]="{'background-image':'url('+item.image+')'}"></div>
+                            <span class="language_text" font-weight-bold font-family-Roboto>{{item.name}}</span>
+                        </div>
+                        <div class="language_line"></div>
+
+                    </div>
                 </div>
             </div>
             <div class="login_content" display-flex position-releative>
@@ -34,7 +41,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="user_data" full-height display-flex align-items-center position-relative *ngIf="signUpService.isAuthorized"    (clickOutside)="onClickedOutsideUserProfile($event)">
+                <div class="user_data" full-height display-flex align-items-center position-relative *ngIf="signUpService.isAuthorized"
+                    (clickOutside)="onClickedOutsideUserProfile($event)">
                     <div class="user_image"></div>
                     <div display-flex align-items-center>
                         <!--span class="user_name" font-weight-bold font-family-Roboto>{{signUpService?.userInfo.userName}}</span-->

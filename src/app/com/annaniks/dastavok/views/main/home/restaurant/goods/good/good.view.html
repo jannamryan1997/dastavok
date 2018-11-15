@@ -1,9 +1,10 @@
-<div class="good_content" full-width>
+<div class="good_content" margin-control>
     <div class="good_conteiner" full-width display-flex>
         <div class="left_content">
             <div class="image_content" full-width [ngStyle]="{'background-image':'url('+activeImage+')'}"></div>
             <div display-flex>
-                <div class="image_items" *ngFor="let item of goodItems" [ngStyle]="{'background-image':'url('+item.image+')'}" (click)="setActiveImage(item.image)"></div>
+                <div class="image_items" *ngFor="let item of goodItems" [ngStyle]="{'background-image':'url('+item.image+')'}"
+                    (click)="setActiveImage(item.image)"></div>
             </div>
 
         </div>
@@ -27,15 +28,15 @@
             <div class="quarity_content" display-flex justify-content-space-between>
                 <p class="price_text" font-family-Roboto>quarity</p>
                 <div class="quarity_item" display-flex>
-                    <p class="remove" font-family-Roboto (click)="countremove()">{{remove}}</p>
+                    <p class="remove" font-family-Roboto (click)="countremove()">-</p>
                     <p class="count_text" font-family-Roboto> {{quarity}} </p>
-                    <p class="add" font-family-Roboto (click)="countdAdd()">{{add}}</p>
+                    <p class="add" font-family-Roboto (click)="countdAdd()">+</p>
                 </div>
             </div>
             <div class="button_item" display-flex>
                 <div margin-auto>
                     <button class="left_button" color-white font-family-Open-Sans margin-auto routerLink="cart"><span>CART</span></button>
-                    <button class="right_button" color-white font-family-Open-Sans margin-auto><span>BUY</span></button>
+                    <button class="right_button" color-white font-family-Open-Sans margin-auto (click)="onClickBuy()"><span>BUY</span></button>
                 </div>
 
             </div>
@@ -74,19 +75,19 @@
                 <div class="review_top">
                     <div class="review_top_item">
                         <div class="text_item">
-                            <div  display-flex>
+                            <div display-flex>
                                 <p class="reiting_count" font-family-Open-Sans>4.5</p>
-                            <div class="star_item">
-                                <i class="material-icons" *ngFor="let item of [0,0,0,0,0]">
-                                    star
-                                </i>
-                            </div>
+                                <div class="star_item">
+                                    <i class="material-icons" *ngFor="let item of [0,0,0,0,0]">
+                                        star
+                                    </i>
+                                </div>
                             </div>
                             <div class="reiting_text">
-                                    <p class="text" font-family-Roboto>- 0.0 No movment negarding your raiting</p>
-                                </div>
+                                <p class="text" font-family-Roboto>- 0.0 No movment negarding your raiting</p>
+                            </div>
                         </div>
-                        
+
 
 
                     </div>

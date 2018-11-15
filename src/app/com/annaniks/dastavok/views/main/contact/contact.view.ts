@@ -13,13 +13,12 @@ import { ServerResponse, User } from "../../../models/models";
 export class ContactView implements OnInit {
 
     public userForm: FormGroup;
-    public userInfo:User;
+    public userInfo: User;
 
-    constructor(private _ContactService:ContactService) { }
+    constructor(private _contactService: ContactService) { }
 
     ngOnInit() {
         this._formBuilder();
-        this._getUserInfo();
     }
 
     private _formBuilder() {
@@ -32,12 +31,4 @@ export class ContactView implements OnInit {
         })
     }
 
-    private _getUserInfo(){
-this._ContactService.getUserInfo()
-.subscribe((data:ServerResponse<User>)=>{
-    this.userInfo=data.data;
-    console.log(data);
-    
-})
-    }
 }

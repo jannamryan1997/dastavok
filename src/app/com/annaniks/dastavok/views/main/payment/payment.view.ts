@@ -1,5 +1,6 @@
 import { Component, OnInit, Output } from "@angular/core"
 import { Validators, FormGroup, FormBuilder } from "@angular/forms"
+import { ActivatedRoute } from "@angular/router";
 @Component({
     selector: "app-payment",
     templateUrl: "payment.view.html",
@@ -7,14 +8,18 @@ import { Validators, FormGroup, FormBuilder } from "@angular/forms"
 })
 
 export class PaymentView implements OnInit {
-
+    public orderInfo;
     public tab: number = 1;
+ 
     public paymentForm: FormGroup;
 
-
-
-
-    constructor() { }
+    constructor(private _activatedRoute: ActivatedRoute) {
+        this._activatedRoute.queryParams.subscribe((params) => {
+            this.orderInfo=JSON.parse(params.order);
+            console.log(JSON.parse(params.order));
+            
+        })
+    }
 
     ngOnInit() {
 

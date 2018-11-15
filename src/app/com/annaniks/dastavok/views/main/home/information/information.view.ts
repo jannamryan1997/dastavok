@@ -11,20 +11,28 @@ import { InformationService } from "./information.service";
 export class InformationView implements OnInit {
     public case: string;
     public companyItem: BriefCompany;
+    public count: number;
+    public pageLength: number = 10;
     constructor(private _informationService: InformationService) { }
 
     ngOnInit() {
-        this._getRestaurant();
+        this._getRestaurant(1, this.pageLength);
     }
 
 
-    private _getRestaurant() {
-      
-        this._informationService.getFreeclientRestaurant(1, 10)
+    private _getRestaurant(page, count) {
+
+        this._informationService.getFreeclientRestaurant(page, count)
             .subscribe((data: ServerResponse<Paginator<BriefCompany>>) => {
                 this.companyItem = data.data.data;
-                console.log(data);
+                this.count = data.data.metaData.count;
 
             })
+    }
+
+    public paginate(event) {
+        console.log(event);
+        this._getRestaurant(event.pageNumber, this.pageLength);
+
     }
 }

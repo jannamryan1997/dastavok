@@ -10,23 +10,34 @@ import { Good, ServerResponse, Paginator } from "src/app/com/annaniks/dastavok/m
 })
 
 export class GoodsView implements OnInit {
+    private _companyId: number;
+    private _goodTypeId: number;
+    public pageLength: number = 10;
     public goods: Array<Good> = [];
+    public count: number;
+
 
     constructor(private activatedRoute: ActivatedRoute, private _restaurantService: RestaurantService) {
         this.activatedRoute.params.subscribe((params) => {
-            console.log(params);
+            this._companyId = params.companyId;
+            this._goodTypeId = params.goodTypeId;
 
         })
     }
     ngOnInit() {
-        this._getGoods();
+        this._getGoods(this._companyId, this._goodTypeId, 1, this.pageLength);
     }
 
-    private _getGoods(): void {
-        this._restaurantService.getGoods(2, 2, 1, 10)
+    private _getGoods(companyId: number, goodTypeId: number, page, count): void {
+        this._restaurantService.getGoods(companyId, goodTypeId, page, count)
             .subscribe((data: ServerResponse<Paginator<Array<Good>>>) => {
                 this.goods = data.data.data;
+                this.count = data.data.metaData.count;
             })
 
+    }
+
+    paginate($event) {
+        this._getGoods(this._companyId, this._goodTypeId, $event.pageNumber, this.pageLength);
     }
 }

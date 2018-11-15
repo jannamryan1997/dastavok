@@ -8,7 +8,7 @@ import { SharedModule } from "../../../../shared/shared.module";
 import { InformationService } from "./information.service";
 
 @NgModule({
-    declarations: [InformationView, SliderComponent, CompanyListComponent, CompanyListItemComponent, LeftMenuComponent,PaginatorComponent],
+    declarations: [InformationView, SliderComponent, CompanyListComponent, CompanyListItemComponent, LeftMenuComponent],
     imports: [InformationRoutingModule, NgxCarouselModule, CommonModule, SharedModule],
     providers:[InformationService],
     exports: [],

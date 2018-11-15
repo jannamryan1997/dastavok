@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core"
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
     selector: "app-good",
@@ -8,10 +9,10 @@ import { Component, OnInit } from "@angular/core"
 
 export class GoodComponent implements OnInit {
     public quarity: number = 1;
-    public add: string = "+";
-    public remove: string = "-";
     public tab: number = 1;
-    public activeImage:string="/assets/images/sezar.jpg";
+    private _companyId: number;
+    private _goodId: number;
+    public activeImage: string = "/assets/images/sezar.jpg";
     public goodItems: Array<object> = [
         { image: "assets/images/sezar.jpg" },
         { image: "assets/images/salad.jpg" },
@@ -62,7 +63,13 @@ export class GoodComponent implements OnInit {
         },
     ]
 
-    constructor() { }
+    constructor(private _router: Router, private _activatedRoute: ActivatedRoute) {
+        this._activatedRoute.params.subscribe((params) => {
+            console.log(params);
+            this._companyId = params.companyId;
+            this._goodId = params.good;
+        })
+    }
 
     ngOnInit() { }
 
@@ -81,16 +88,27 @@ export class GoodComponent implements OnInit {
     public countdAdd() {
         this.quarity++;
     }
+
     public countremove() {
-       
         if (this.quarity == 1) {
-           return;
-
-
+            return;
         }
         this.quarity--;
     }
-    public setActiveImage(image){
-        this.activeImage=image;
+
+    public setActiveImage(image) {
+        this.activeImage = image;
+    }
+
+    public onClickBuy() {
+        let orderInfo = {
+            companyId: +this._companyId,
+            good:
+            {
+                id: +this._goodId,
+                count: +this.quarity
+            }
+        };
+        this._router.navigate(['/payment'], { queryParams: { order: JSON.stringify(orderInfo) } })
     }
 }

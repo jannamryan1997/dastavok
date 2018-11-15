@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { Validators, FormBuilder, FormGroup } from "@angular/forms"
+import { PaymentService } from "../../../views/main/payment/payment.service";
 
 declare var google;
 
@@ -14,17 +15,23 @@ export class CheckoutTabComponent implements OnInit {
     public paymentForm: FormGroup;
     private _map;
     private _marker;
+    private _latitude: number;
+    private _longitude: number;
     public directionsService = new google.maps.DirectionsService();
     public directionsDisplay = new google.maps.DirectionsRenderer();
     @Input() paymentTab: number;
+    @Input() companyId: number;
+    @Input() good: any;
     @Output() changeTab: EventEmitter<number> = new EventEmitter<number>();
 
-    constructor() { }
+    constructor(private _paymentService: PaymentService) { }
 
     ngOnInit() {
         this._formBuilder();
         this._initMap();
         this.calcRoute();
+        console.log(this.good);
+
     }
 
     private _formBuilder() {
@@ -48,8 +55,10 @@ export class CheckoutTabComponent implements OnInit {
         });
 
         google.maps.event.addListener(this._map, 'click', (event) => {
-            let lat = event.latLng.lat();
-            let long = event.latLng.lng();
+            this._latitude = event.latLng.lat();
+            this._longitude = event.latLng.lng();
+            console.log(this._latitude, this._longitude);
+
             this._addMarker(event.latLng)
 
 
@@ -83,14 +92,43 @@ export class CheckoutTabComponent implements OnInit {
         };
         this.directionsService.route(request, (response, status) => {
             console.log(status);
-            
+
             if (status == 'OK') {
                 console.log(response);
-                
+
                 this.directionsDisplay.setDirections(response);
             }
         });
     }
 
+    private _createOrder() {
+        this._paymentService.createOrder({
+            "name":"vika",
+            "address": {
+                "lat": this._latitude,
+                "lng": this._longitude,
+                "text": this.paymentForm.value.address,
+            },
+            "companyId": this.companyId,
+            "good": {
+                "id": this.good.id,
+                "count": this.good.count,
+                "toppings": [{
+                    "id": 1,
+                    "toppingValue": 0.75
+                  },
+                ]
+            }
+
+
+        }).subscribe((data) => {
+            this.openPayment();
+            console.log(data);
+
+        })
+    }
+    public onClickSave() {
+        this._createOrder()
+    }
 
 }

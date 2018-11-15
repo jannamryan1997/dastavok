@@ -1,21 +1,17 @@
-.paginator_content {
-    .paginator_conteiner {
-        justify-content: flex-end;
-        .paginator_item {
-            i {
-                font-size: 22px;
-                color: #444444;
-            }
-            .item {
-                font-size: 15px;
-                font-style: normal;
-                font-stretch: normal;
-                line-height: 1.33;
-                letter-spacing: normal;
-                text-align: left;
-                color: grey;
-                cursor: pointer;
-            }
-        }
+.paginator {
+    margin: 20px 0 20px auto;
+    width: fit-content;
+    max-width: 100%;
+    flex-wrap: wrap;
+    .page {
+        margin: 0 10px;
+        cursor: pointer;
+        user-select: none;
+    }
+    i {
+        user-select: none;
+    }
+    .active_page {
+        color: #87bd3c;
     }
 }

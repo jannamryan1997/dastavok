@@ -14,7 +14,7 @@ import { NewPasswordModals } from "../new-passwors/new-password.modal";
 
 export class VerificationModal implements OnInit {
     public verificationForm: FormGroup;
-    public loading:boolean=false;
+    public loading: boolean = false;
     private controlsItems: string;
     constructor(@Inject(MAT_DIALOG_DATA) private data: any, private dialoRef: MatDialogRef<VerificationModal>, private signUpService: SignUpService, private dialog: MatDialog,
         private cookieService: CookieService) { }
@@ -58,7 +58,7 @@ export class VerificationModal implements OnInit {
         })
     }
     postVerification() {
-        this.loading=true;
+        this.loading = true;
         this.verificationForm.disable();
         this.controlsItems = this.verificationForm.value.control_1 + this.verificationForm.value.control_2 +
             this.verificationForm.value.control_3 + this.verificationForm.value.control_4;
@@ -69,8 +69,8 @@ export class VerificationModal implements OnInit {
                 "phoneNumber": this.data.phone,
                 "verifyCode": parseInt(this.controlsItems)
             }).subscribe((data: any) => {
-                this.loading=false;
-        this.verificationForm.enable();
+                this.loading = false;
+                this.verificationForm.enable();
                 this.cookieService.put("verificationtoken", data.data.token)
 
 
@@ -85,7 +85,7 @@ export class VerificationModal implements OnInit {
         if (this.data.key == "forgot_password")
 
             this.signUpService.forgetPasswordVerification({
-                
+
                 "phoneNumber": this.data.phone,
                 "verifyCode": +(this.controlsItems)
             }).subscribe((data: any) => {
@@ -100,7 +100,6 @@ export class VerificationModal implements OnInit {
 
                 })
 
-        }
     }
-
 }
+

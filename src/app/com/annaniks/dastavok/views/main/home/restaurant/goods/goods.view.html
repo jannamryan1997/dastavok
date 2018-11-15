@@ -1,9 +1,10 @@
-<div class="salads_content" full-width>
+<div class="salads_content" margin-control>
     <div class="salads_main" full-width>
     </div>
     <div full-width class="good">
         <app-goods-list>
             <app-goods-list-item *ngFor="let item of goods" [goodInfo]="item"></app-goods-list-item>
         </app-goods-list>
+        <app-paginator [count]="count" [pageLength]="pageLength" (paginate)="paginate($event)"></app-paginator>
     </div>
 </div>

@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { ProfileService } from "../../views/main/profile/profile.service";
 
 
+
 @Component({
     selector: "app-userUpdate",
     templateUrl: "user-update.modal.html",
@@ -30,7 +31,7 @@ export class UserUpdateModal implements OnInit {
 
     public putClient() {
         this._profileService.putClient({
-            "fullName": this.userUpdateGroup.value.full_name;
+            "fullName": this.userUpdateGroup.value.full_name,
 
 
         }).subscribe((data) => {

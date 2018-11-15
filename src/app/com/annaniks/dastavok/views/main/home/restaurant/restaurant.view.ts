@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core"
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { RestaurantService } from "./restaurant.service";
 import { ServerResponse, GoodType } from "../../../../models/models";
 
@@ -10,42 +10,29 @@ import { ServerResponse, GoodType } from "../../../../models/models";
 })
 
 export class RestaurantView implements OnInit {
-    public starCount:number=4;
+    public starCount: number = 4;
     public goodTypes: Array<GoodType> = [];
-    public restrantItem: Array<any> = [
-        {},
-        {},
-        {},
-        {}
-    ]
-    constructor(private router: Router, private _restaurantService: RestaurantService) {
-    }
+    public companyId: number;
 
-    ngOnInit() {
-        this._getRestaurtants();
-        this._getGoodTypes();
-
-    }
-
-    private _getRestaurtants(): void {
-        this._restaurantService.getRestaurtants(1, 10).subscribe((data) => {
-            console.log(data);
-
+    constructor(private _router: Router, private _activatedRoute: ActivatedRoute, private _restaurantService: RestaurantService) {
+        this._activatedRoute.params.subscribe((params) => {
+            this.companyId = params.companyId;
         })
     }
 
-    private _getGoodTypes(): void {
-        this._restaurantService.getGoodTypes(2).subscribe((data: ServerResponse<Array<GoodType>>) => {
+    ngOnInit() {
+        this._getGoodTypes(this.companyId);
 
+    }
+
+    private _getGoodTypes(companyId: number): void {
+        this._restaurantService.getGoodTypes(companyId).subscribe((data: ServerResponse<Array<GoodType>>) => {
             this.goodTypes = data.data;
-            console.log(this.goodTypes);
-
         })
     }
 
     public onClickItem(goodType: GoodType) {
-        console.log(goodType);
-
+        this._router.navigate([goodType.id], { relativeTo: this._activatedRoute })
     }
 
 

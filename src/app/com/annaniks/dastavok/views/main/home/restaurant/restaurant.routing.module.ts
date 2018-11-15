@@ -4,7 +4,7 @@ import { RestaurantView } from "./restaurant.view";
 
 const restaurantRouter: Routes = [
     { path: "", component: RestaurantView },
-    { path: ":goodName", loadChildren: "src/app/com/annaniks/dastavok/views/main/home/restaurant/goods/goods.module#GoodsModule" }
+    { path: ":goodTypeId", loadChildren: "src/app/com/annaniks/dastavok/views/main/home/restaurant/goods/goods.module#GoodsModule" }
 ]
 @NgModule({
     imports: [RouterModule.forChild(restaurantRouter)],

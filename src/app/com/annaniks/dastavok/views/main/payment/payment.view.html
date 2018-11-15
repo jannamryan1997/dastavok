@@ -17,7 +17,7 @@
 
             </div>
             <div *ngSwitchCase="1">
-                <app-checkout-tab [paymentTab]="tab" (changeTab)="openPayment($event)"></app-checkout-tab>
+                <app-checkout-tab [paymentTab]="tab" (changeTab)="openPayment($event)" [companyId]="orderInfo.companyId" [good]="orderInfo.good"></app-checkout-tab>
 
             </div>
             <div *ngSwitchCase="2">

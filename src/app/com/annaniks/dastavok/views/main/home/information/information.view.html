@@ -24,7 +24,7 @@
             <app-company-list>
                 <app-company-list-item *ngFor="let companyItem of companyItem" [companyItem]="companyItem"  ></app-company-list-item>
             </app-company-list>
-            <app-paginator></app-paginator>
+            <app-paginator [count]="count" [pageLength]="pageLength" (paginate)="paginate($event)"></app-paginator>
         </div>
      
     </div>

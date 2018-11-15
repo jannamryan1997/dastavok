@@ -10,6 +10,8 @@ import { Router } from "@angular/router";
 
 export class HomeView implements OnInit {
 
+    public count:number=0;
+
     constructor(public menuItemsService: MenuItemsService,private router:Router) {
        // console.log(this.router.url.split('/'));
      

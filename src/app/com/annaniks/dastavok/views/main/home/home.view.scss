@@ -53,8 +53,28 @@
         }
         .trash {
             width: 30%;
-            border: 1px solid black;
+            border-radius: 4px;
+            border: solid 1px #a4a4a4;
+            border-left: none;
             height: 41px;
+            .count {
+                font-size: 23px;
+                font-weight: bold;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.35;
+                letter-spacing: normal;
+                text-align: left;
+                color: #191919;
+                margin-left: 20px;
+                margin-top: 3px
+            }
+            .icon {
+                color: #000000;
+                margin: auto;
+                font-size: 27px;
+                margin-left: 21px;
+            }
         }
         .slider {
             width: 70%;
@@ -103,11 +123,11 @@
             }
         }
     }
-    .content{
-        .logo{
+    .content {
+        .logo {
             width: 202px;
         }
-        .choose_bar{
+        .choose_bar {
             width: 893px;
         }
     }
