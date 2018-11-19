@@ -1,0 +1,96 @@
+<div class="registration_content" full-width>
+    <div class="step" [ngSwitch]="tab">
+
+
+        <div class="registration_top" full-width display-flex>
+            <div class="top_line" margin-auto display-flex>
+                <div class="step_one" display-flex>
+                    <i class="material-icons" margin-auto>
+                        call
+                    </i>
+                </div>
+                <div class="step_two" display-flex margin-auto>
+                    <i class="material-icons" margin-auto>
+                        verified_user
+                    </i>
+                </div>
+                <div class="step_three" display-flex>
+                    <i class="material-icons" margin-auto>
+                        person
+                    </i>
+                </div>
+            </div>
+
+        </div>
+        <div class="registration_conteiner">
+            <div class="phone_content" full-width *ngSwitchCase="1">
+                <div class="phone_wrapper">
+                    <form [formGroup]="phoneNumberForm">
+                        <div class="input_content" full-width display-flex>
+                            <div class="left_icon" full-height display-flex>
+                                <i class="material-icons" margin-auto>
+                                    call
+                                </i>
+                            </div>
+                            <input type="text" class="input" formControlName="phonenumber">
+                        </div>
+                        <app-loading [loading]="loading"></app-loading>
+                    </form>
+
+                </div>
+
+            </div>
+
+            <div class="verification_content" *ngSwitchCase="2">
+                <form [formGroup]="verificationForm">
+                    <div class="items">
+
+                        <input class="item_label" formControlName="control_1">
+                        <input class="item_label" formControlName="control_2">
+                        <input class="item_label" formControlName="control_3">
+                        <input class="item_label" formControlName="control_4">
+
+                    </div>
+                    <div class="text_content" margin-auto>
+                        <span>Enter the verification code <b color-orange>02:00</b></span>
+                    </div>
+                    <div class="load">
+                        <app-loading [loading]="loading"></app-loading>
+                    </div>
+
+                </form>
+            </div>
+            <div class="signUp_content" full-width *ngSwitchCase="3">
+                <div class="middle_content" width-75 margin-auto>
+                    <form [formGroup]="signUpForm">
+                        <div class="form_group">
+                            <input class="user_name" placeholder="Enter user_name" full-width formControlName="user_name">
+                        </div>
+                        <div class="form_group">
+                            <input class="full_name" placeholder="Enter full_name" full-width formControlName="full_name">
+                        </div>
+                        <div class="form_group">
+                            <input class="password" placeholder="Enter your password" full-width formControlName="password">
+                        </div>
+                        <div class="form_group">
+                            <input class="confirm_password" placeholder="Confirm your password" full-width
+                                formControlName="confirm_password">
+                        </div>
+                        <app-loading [loading]="loading"></app-loading>
+                        <div class="button_items" display-flex>
+
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="buttons_wrapper" display-flex>
+                <div class="butt_items" margin-auto>
+                    <button class="back_button" font-weight-bold text-align-center *ngIf="tab>=2" (click)="back()">BACK</button>
+                    <button class="next_button" font-weight-bold text-align-center color-white [disabled]="disabled || loading"
+                        (click)="nextStep()" [ngClass]="{'opacity':disabled || loading}">NEXT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

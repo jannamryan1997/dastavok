@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core"
 import { MatDialog } from "@angular/material";
-import { LoginModal, PhoneNumberModal } from "../../modals";
+import { LoginModal, PhoneNumberModal, RegistrationStep } from "../../modals";
 import { SignUpService } from "../../services/signUp.service";
-import { ApiService } from "../../services/api.service";
 import { CookieService } from "angular2-cookie/services/cookies.service";
+
 
 @Component({
     selector: "app-toolbar",
@@ -28,6 +28,13 @@ export class ToolbarComponent implements OnInit {
             this._getUserInfo();
         }
 
+    }
+    public openRegisterStep():void{
+        const dialogRef=this.dialog.open(RegistrationStep,{
+            width: "686px",
+            height: "444px",
+            panelClass: ['no-padding']
+        })
     }
 
     public showLoginSignup() {

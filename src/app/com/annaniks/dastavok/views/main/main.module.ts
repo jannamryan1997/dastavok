@@ -4,19 +4,18 @@ import { MainComponent } from "./main.view";
 import { SharedModule } from "../../shared/shared.module";
 import { MenuItemsService } from "../../services";
 import { FooterComponent } from "../../components/footer/footer.component";
-import { LoginModal, VerificationModal, PhoneNumberModal, SignUpModal, NewPasswordModals, UserUpdateModal } from "../../modals";
+import { LoginModal, VerificationModal, PhoneNumberModal, SignUpModal, NewPasswordModals, UserUpdateModal,AddressEditModal,RegistrationStep } from "../../modals";
 import { HttpClientModule } from "@angular/common/http"
 import { ProfileService } from "./profile/profile.service";
-
-
+import { PaymentService } from "./payment/payment.service";
 
 
 @NgModule({
 
-    declarations: [MainComponent, FooterComponent, VerificationModal, LoginModal, PhoneNumberModal, SignUpModal, NewPasswordModals, UserUpdateModal],
+    declarations: [MainComponent, FooterComponent, VerificationModal, LoginModal, PhoneNumberModal, SignUpModal, NewPasswordModals, UserUpdateModal,AddressEditModal,RegistrationStep],
     imports: [MainRoutingModule, SharedModule, HttpClientModule],
-    providers: [MenuItemsService,ProfileService],
-    entryComponents: [VerificationModal, LoginModal, PhoneNumberModal, SignUpModal, NewPasswordModals, UserUpdateModal],
+    providers: [MenuItemsService,ProfileService,PaymentService],
+    entryComponents: [VerificationModal, LoginModal, PhoneNumberModal, SignUpModal, NewPasswordModals, UserUpdateModal,AddressEditModal,RegistrationStep],
     exports: [],
 })
 

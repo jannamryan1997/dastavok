@@ -17,11 +17,11 @@
 
             </div>
             <div *ngSwitchCase="1">
-                <app-checkout-tab [paymentTab]="tab" (changeTab)="openPayment($event)" [companyId]="orderInfo.companyId" [good]="orderInfo.good"></app-checkout-tab>
-
+                <app-checkout-tab [paymentTab]="tab" (changeTab)="openPayment($event)" [companyId]="orderInfo.companyId"
+                    [good]="orderInfo.good" (addressValue)="getAddresValue($event)"></app-checkout-tab>
             </div>
             <div *ngSwitchCase="2">
-                <app-payment-tab [paymentTab]="tab" (changeTab)="openDone($event)"></app-payment-tab>
+                <app-payment-tab [paymentTab]="tab" (changeTab)="openDone($event)" [address]="addres"></app-payment-tab>
 
             </div>
             <div *ngSwitchCase="3">

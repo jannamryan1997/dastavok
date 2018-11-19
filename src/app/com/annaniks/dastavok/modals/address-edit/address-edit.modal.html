@@ -1,0 +1,40 @@
+
+<div class="conteiner" full-height margin-auto  display-flex>
+    <div class="input_items" width-75 margin-auto>
+        <form [formGroup]="userUpdateGroup">
+            <div class="form_group_name" full-width display-flex>
+                <div class="icon_content" display-flex>
+                    <i class="material-icons" margin-auto>
+                        person
+                    </i>
+
+                </div>
+                <input class="input_content" placeholder="fullName" full-height formControlName="full_name">
+            </div>
+            <div class="form_group" full-width display-flex>
+                <div class="icon_content" display-flex>
+                    <i class="material-icons" margin-auto>
+                        place
+                    </i>
+
+                </div>
+                <input class="input_content" placeholder="location" full-height formControlName="location">
+            </div>
+            <div class="form_group" full-width display-flex>
+                <div class="icon_content" display-flex>
+                    <i class="material-icons" margin-auto>
+                        call
+                    </i>
+
+                </div>
+                <input class="input_content" placeholder="Phone Number" full-height formControlName="phone_number">
+            </div>
+            <div class="button_item" display-flex (click)="putClient()">
+                <button class="button_content" margin-auto display-flex [disabled]="userUpdateGroup.invalid" [ngClass]="{'opacity':userUpdateGroup.invalid}">
+                    <span class="button_text" color-white font-family-Roboto margin-auto>SAVE</span>
+                </button>
+            </div>
+
+        </form>
+    </div>
+    </div>

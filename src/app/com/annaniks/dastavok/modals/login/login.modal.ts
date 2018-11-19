@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core"
-import { MatDialog, MatDialogRef } from '@angular/material';
+import { MatDialog, MatDialogRef, throwToolbarMixedModesError } from '@angular/material';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { SignUpService } from "../../services/signUp.service";
 import { Router } from "@angular/router";
@@ -47,7 +47,11 @@ export class LoginModal implements OnInit {
             this.dialogRef.close();
             this.router.navigate(["/home/information"]);
             this.loginForm.enable();
-        })
+        },
+            err => {
+                this.loading = false;
+                this.loginForm.enable();
+            })
     }
 
     public onClickForgotPassword(): void {

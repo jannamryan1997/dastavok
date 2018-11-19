@@ -18,7 +18,7 @@ export class SignUpService {
     }
 
     public clientVerification(body) {
-        let token = this.cookieService.get("token");
+        let token = this.cookieService.get("phone_token");
         let headers = new HttpHeaders({
             'Content-type': 'application/json',
             'token': token

@@ -1,0 +1,183 @@
+.registration_content {
+    .registration_top {
+        height: 115px;
+        object-fit: contain;
+        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+        background-color: white;
+        .top_line {
+            width: 349px;
+            height: 0px;
+            border: 1px solid #ff6f00;
+            .step_one {
+                width: 30px;
+                height: 30px;
+                border: 2px solid #ff6f00;
+                border-radius: 50%;
+                margin-top: -15px;
+                background-color: white;
+                justify-content: end;
+                margin-left: -12px;
+                i {
+                    font-size: 13px;
+                    color: #676767;
+                }
+            }
+            .step_two {
+                width: 30px;
+                height: 30px;
+                border: 2px solid #ff6f00;
+                border-radius: 50%;
+                margin-top: -15px;
+                background-color: white;
+                i {
+                    font-size: 13px;
+                    color: #676767;
+                }
+            }
+            .step_three {
+                width: 30px;
+                height: 30px;
+                border: 2px solid #ff6f00;
+                border-radius: 50%;
+                margin-top: -15px;
+                background-color: white;
+                margin-right: -2px;
+                i {
+                    font-size: 13px;
+                    color: #676767;
+                }
+            }
+        }
+    }
+    .registration_conteiner {
+        .phone_wrapper {
+            width: 391.3px;
+            margin: 0 auto;
+            .input_content {
+                margin-top: 86px;
+                height: 42px;
+                border-radius: 4px;
+                box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+                border: solid 1px #707070;
+                background-color: #ffffff;
+                .left_icon {
+                    width: 47.3px;
+                    height: 42px;
+                    border-bottom: solid 1px #707070;
+                    border-right: solid 1px #707070;
+                    background-color: #ffffff;
+                    i {
+                        font-size: 16px;
+                        color: #676767;
+                    }
+                }
+                .input {
+                    width: calc(100% - 47.3px);
+                    border: none;
+                }
+            }
+        }
+    }
+    .verification_content {
+        margin-left: 173px;
+        margin-top: 73px;
+        .item_label {
+            margin-left: 20.7px;
+            width: 68.3px;
+            height: 42px;
+            border-radius: 4px;
+            box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+            border: solid 1px #707070;
+            background-color: #ffffff;
+            &:first-child {
+                margin-left: 0px;
+            }
+        }
+        .text_content {
+            margin-top: 10px;
+            width: 186px;
+            height: 16px;
+            font-family: SegoeUI;
+            font-size: 12px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.33;
+            letter-spacing: normal;
+            text-align: left;
+            color: #aeaeae;
+        }
+    }
+}
+
+.load {
+    width: 64%;
+}
+
+.middle_content {
+    margin-top: 74px;
+    .user_name,
+    .full_name,
+    .password,
+    .confirm_password {
+        height: 42px;
+        border-radius: 4px;
+        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+        border: solid 1px #707070;
+        background-color: #ffffff;
+    }
+    .full_name,
+    .password,
+    .confirm_password {
+        margin-top: 25px;
+    }
+}
+
+input::placeholder {
+    font-size: 12px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: left;
+    color: #aeaeae;
+}
+
+.opacity {
+    opacity: 0.5;
+}
+
+.buttons_wrapper {
+    margin-top: 50px;
+    .back_button {
+        display: inline-block;
+        cursor: pointer;
+        border: none;
+        width: 143.8px;
+        height: 42px;
+        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+        border: solid 1px #707070;
+        background-color: #ffffff;
+        font-size: 12px;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.33;
+        letter-spacing: normal;
+        color: #676767;
+    }
+    .next_button {
+        display: inline-block;
+        cursor: pointer;
+        border: none;
+        width: 143.8px;
+        height: 42px;
+        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+        background-color: #ff6f00;
+        font-size: 12px;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.33;
+        letter-spacing: normal;
+    }
+}

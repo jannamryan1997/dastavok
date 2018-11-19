@@ -18,6 +18,9 @@ export interface PhoneVerification {
     token: string;
 }
 
+export interface Verification {
+    token: string;
+}
 export class User {
     address: string
     balance: number
@@ -106,7 +109,7 @@ export interface MetaData {
 export interface BriefCompany {
     address: string;
     code: number;
-    createdAt:string;
+    createdAt: string;
     description: string;
     email: string;
     id: number;
@@ -114,4 +117,22 @@ export interface BriefCompany {
     name: string;
     phoneNumber: string;
     zipCode: number;
+}
+
+export interface Restaurant {
+    code: number
+    description: string
+    email: string
+    id: number;
+    image: string;
+    name: string
+    phoneNumber: string;
+    review: number;
+    zipCode: number;
+    address: Address;
+}
+interface Address {
+    latitude: number,
+    longitude: number,
+    text: string,
 }

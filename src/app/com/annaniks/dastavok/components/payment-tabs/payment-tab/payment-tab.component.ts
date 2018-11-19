@@ -1,5 +1,8 @@
 import { Component, Input, EventEmitter, OnInit, Output } from "@angular/core"
-
+import { SignUpService } from "../../../services/signUp.service";
+import { User } from "../../../models/models";
+import { AddressEditModal } from "../../../modals";
+import { MatDialog } from "@angular/material"
 @Component({
     selector: "app-payment-tab",
     templateUrl: "payment-tab.component.html",
@@ -9,6 +12,8 @@ import { Component, Input, EventEmitter, OnInit, Output } from "@angular/core"
 export class PaymentTabComponent implements OnInit {
 
     public cardPayment: boolean = true;
+    @Input() address: string;
+    public userData: User = new User();
 
     public cardItem: Array<object> = [
         { image: "assets/images/mastercard.png" },
@@ -22,9 +27,23 @@ export class PaymentTabComponent implements OnInit {
 
 
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.userData = this._signUpService.userInfo;
+        console.log(this.userData);
+     
 
-    constructor() { }
+    }
+
+    constructor(private _signUpService: SignUpService, private _matDialog: MatDialog) { }
+
+    public openAddressModal(): void {
+        
+        const dialogRef = this._matDialog.open(AddressEditModal, {
+            width: "650px",
+           height: "650px",
+           panelClass: ['no-padding'],
+        })
+    }
 
     public openDone() {
         this.changeTab.emit(this.paymentTab)
@@ -38,4 +57,6 @@ export class PaymentTabComponent implements OnInit {
         this.cardPayment = true;
 
     }
+
+
 }

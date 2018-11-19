@@ -7,7 +7,8 @@ import { Component, OnInit } from "@angular/core"
 })
 
 export class LeftMenuComponent implements OnInit {
-    public menuItem: Array<object> = []
+    public menuItem: Array<object> = [];
+
     constructor() { }
     ngOnInit() {
         for (let i = 1; i < 35; i++) {

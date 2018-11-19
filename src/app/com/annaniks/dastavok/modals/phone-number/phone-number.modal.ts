@@ -57,7 +57,7 @@ public loading:boolean=false;
             this.signUpService.clientPhoneNumber({
                 "phoneNumber": this.phoneNumberForm.value.phonenumber
             }).subscribe((data: ServerResponse<PhoneVerification>) => {
-                this.cookieService.put('token', data.data.token);
+                this.cookieService.put('phone_token', data.data.token);
                 this.openVerificationModal('registration');
             }),
                 err => {

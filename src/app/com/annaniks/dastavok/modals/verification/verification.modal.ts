@@ -101,5 +101,7 @@ export class VerificationModal implements OnInit {
                 })
 
     }
+
+  
 }
 

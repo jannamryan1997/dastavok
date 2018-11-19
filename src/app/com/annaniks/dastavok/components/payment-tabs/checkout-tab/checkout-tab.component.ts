@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { Validators, FormBuilder, FormGroup } from "@angular/forms"
 import { PaymentService } from "../../../views/main/payment/payment.service";
 
+
 declare var google;
 
 @Component({
@@ -23,6 +24,7 @@ export class CheckoutTabComponent implements OnInit {
     @Input() companyId: number;
     @Input() good: any;
     @Output() changeTab: EventEmitter<number> = new EventEmitter<number>();
+    @Output() addressValue:EventEmitter<string>=new EventEmitter<string>();
 
     constructor(private _paymentService: PaymentService) { }
 
@@ -30,6 +32,7 @@ export class CheckoutTabComponent implements OnInit {
         this._formBuilder();
         this._initMap();
         this.calcRoute();
+        this._getOrderProcessing();
         console.log(this.good);
 
     }
@@ -46,6 +49,9 @@ export class CheckoutTabComponent implements OnInit {
 
     public openPayment() {
         this.changeTab.emit(this.paymentTab);
+    }
+    public getAddresValue(){
+        this.addressValue.emit(this.paymentForm.value.address); 
     }
 
     private _initMap() {
@@ -103,7 +109,7 @@ export class CheckoutTabComponent implements OnInit {
 
     private _createOrder() {
         this._paymentService.createOrder({
-            "name":"vika",
+            "name": "vika",
             "address": {
                 "lat": this._latitude,
                 "lng": this._longitude,
@@ -116,19 +122,34 @@ export class CheckoutTabComponent implements OnInit {
                 "toppings": [{
                     "id": 1,
                     "toppingValue": 0.75
-                  },
+                },
                 ]
             }
 
 
         }).subscribe((data) => {
             this.openPayment();
+            this.getAddresValue();
             console.log(data);
 
         })
     }
     public onClickSave() {
-        this._createOrder()
+        this._createOrder();
+      
     }
 
+    private _getOrderProcessing() {
+        this._paymentService.getOrderProcessing()
+        .subscribe((data) => {
+            console.log(data);
+
+        })
+    }
+   
+    onClickSavey(){
+    
+        this.openPayment();
+       
+    }
 }

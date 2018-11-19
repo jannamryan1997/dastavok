@@ -16,7 +16,12 @@ export class RestaurantService {
         return this._httpClient.get(this._baseUrl + 'freeclient/goodtypes/' + companyId)
     }
 
-    public getGoods(companyId:number,goodTypeId:number,page:number,limit:number) {
-        return this._httpClient.get(this._baseUrl+"freeclient/goods/"+companyId + "/"+goodTypeId+"?page="+ page + "&limit=" + limit)
-    } 
+    public getGoods(companyId: number, goodTypeId: number, page: number, limit: number) {
+        return this._httpClient.get(this._baseUrl + "freeclient/goods/" + companyId + "/" + goodTypeId + "?page=" + page + "&limit=" + limit)
+    }
+
+    public getRestaurantById(id) {
+        return this._httpClient.get(this._baseUrl + "freeclient/restaurant/" + id)
+    }
+
 }

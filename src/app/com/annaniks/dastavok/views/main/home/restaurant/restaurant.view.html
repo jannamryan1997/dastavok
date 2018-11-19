@@ -14,7 +14,7 @@
     </div>
     <div class="restaurant_wraper" position-relative>
         <div class="text_wraper" position-absolute>
-            <p class="text_item_one" color-white font-weight-bold font-family-Open-Sans>Restaurant_1</p>
+            <p class="text_item_one" color-white font-weight-bold font-family-Open-Sans>{{restaurant?.name}}</p>
             <span class="text_item_two" font-family-Roboto>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, expedita, dict Molestias nemo molestiae ipsa
                 amet voluptates.</span>
         </div>
@@ -23,6 +23,5 @@
     <app-goodType-list>
         <app-goodType-list-item *ngFor="let item of goodTypes" [goodTypeInfo]="item" (click)="onClickItem(item)" ></app-goodType-list-item>
     </app-goodType-list>
-
 
 </div>
