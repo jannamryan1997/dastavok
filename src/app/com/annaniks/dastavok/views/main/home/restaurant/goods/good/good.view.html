@@ -3,26 +3,24 @@
         <div class="left_content">
             <div class="image_content" full-width [ngStyle]="{'background-image':'url('+activeImage+')'}"></div>
             <div display-flex>
-                <div class="image_items" *ngFor="let item of goodItems" [ngStyle]="{'background-image':'url('+item.image+')'}"
-                    (click)="setActiveImage(item.image)"></div>
+                <div class="image_items" *ngFor="let item of goodImage" [ngStyle]="{'background-image':'url('+'http://192.168.0.111:4000/static/company/'+item+')'}"
+                    (click)="setActiveImage(item)"></div>
             </div>
 
         </div>
         <div class="right_content">
-            <p class="text_item" font-family-Roboto font-weight-bold>Sezar</p>
+            <p class="text_item" font-family-Roboto font-weight-bold>{{goodData?.name}}</p>
             <div class="star_items">
-                <i class="material-icons" *ngFor="let item of [0,0,0,0,0]">
+                <!-- <i class="material-icons" *ngFor="let item of [0,0,0,0,0]">
                     star
-                </i>
-                <p class="text" font-family-Roboto>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic ad est
-                    provident
-                    suscipit! Exercitationem modi perspiciatis praesentium debitis deleniti dolorem, libero, aliquid
-                    tempore, quae adipisci ab nobis! Illo, est culpa.</p>
+                </i> -->
+                <app-rating [currentIndex]="starCount" [changeRating]="false"></app-rating>
+                <p class="text" font-family-Roboto>{{goodData?.description}}</p>
             </div>
             <div class="line_content"></div>
             <div class="price_content" display-flex justify-content-space-between>
                 <p class="price_text" font-family-Roboto>price</p>
-                <p class="mony_text" font-family-Roboto>10$</p>
+                <p class="mony_text" font-family-Roboto>{{goodData?.price}}$</p>
             </div>
             <div class="under_line_content"></div>
             <div class="quarity_content" display-flex justify-content-space-between>
@@ -63,73 +61,14 @@
 
         </div>
         <div *ngSwitchCase="1">
-            <div class="description_content">
-                <p class="description_text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat molestiae
-                    recusandae autem atque
-                    animi veniam optio excepturi unde deserunt. Itaque porro sequi eos velit distinctio saepe possimus,
-                    culpa deserunt corporis!</p>
-            </div>
+            <app-description [descriptionData]="goodData?.description"></app-description>
         </div>
         <div *ngSwitchCase="2">
-            <div class="review_content">
-                <div class="review_top">
-                    <div class="review_top_item">
-                        <div class="text_item">
-                            <div display-flex>
-                                <p class="reiting_count" font-family-Open-Sans>4.5</p>
-                                <div class="star_item">
-                                    <i class="material-icons" *ngFor="let item of [0,0,0,0,0]">
-                                        star
-                                    </i>
-                                </div>
-                            </div>
-                            <div class="reiting_text">
-                                <p class="text" font-family-Roboto>- 0.0 No movment negarding your raiting</p>
-                            </div>
-                        </div>
-
-
-
-                    </div>
-                </div>
-                <div class="review_item" *ngFor="let item of reviewItem">
-                    <div class="review_conteiner" display-flex>
-                        <div class="review_image"></div>
-                        <div class="stars_items">
-                            <i class="material-icons" *ngFor="let item of [0,0,0,0,0]">
-                                star
-                            </i>
-                            <div class="review_text" display-flex justify-content-space-between>
-                                <p class="review_text_item">{{item.title}}</p>
-                                <p class="data_item">{{item.data}}</p>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
+            <app-review></app-review>
         </div>
         <div *ngSwitchCase="3">
-            <div class="ingredient_content">
-                <div class="ingredient_conteiner" *ngFor="let item of ingredientItems">
-                    <div class="ingredient_items" display-flex justify-content-space-between>
-                        <p class="item_text" font-family-Roboto>{{item.label}}</p>
-                        <p class="money_item" font-family-Roboto>{{item.mony}}</p>
-                        <div class="selector_item">
-                            <select full-width full-height>
-                                <option>None</option>
-                                <option>More</option>
-                                <option>Machium</option>
-                                <option>Fiew</option>
+            <app-ingredient *ngFor="let item of toppingData" [topping]="item"></app-ingredient>
 
-                            </select>
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 

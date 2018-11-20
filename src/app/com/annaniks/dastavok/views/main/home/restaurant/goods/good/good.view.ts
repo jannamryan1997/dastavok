@@ -1,5 +1,7 @@
-import { Component, OnInit } from "@angular/core"
+import { Component, OnInit, Inject } from "@angular/core"
 import { Router, ActivatedRoute } from "@angular/router";
+import { GoodService } from "./good.service";
+import { Good, ServerResponse, Topping } from "src/app/com/annaniks/dastavok/models/models";
 
 @Component({
     selector: "app-good",
@@ -8,62 +10,17 @@ import { Router, ActivatedRoute } from "@angular/router";
 })
 
 export class GoodComponent implements OnInit {
+    public starCount: number = 4;
     public quarity: number = 1;
     public tab: number = 1;
     private _companyId: number;
     private _goodId: number;
-    public activeImage: string = "/assets/images/sezar.jpg";
-    public goodItems: Array<object> = [
-        { image: "assets/images/sezar.jpg" },
-        { image: "assets/images/salad.jpg" },
-        { image: "assets/images/salads_1.jpg" }
-    ]
-    public ingredientItems: Array<object> = [
-        { label: "ingr_1", mony: "5$" },
-        { label: "ingr_1", mony: "5$" },
-        { label: "ingr_1", mony: "5$" },
-        { label: "ingr_1", mony: "5$" },
-        { label: "ingr_1", mony: "5$" },
-        { label: "ingr_1", mony: "5$" },
-        { label: "ingr_1", mony: "5$" },
-    ]
+    public activeImage: string;
+    public goodImage: Array<string>;
+    public goodData: Good;
+    public toppingData: Array<Topping>;
 
-    public reviewItem: Array<object> = [
-        {
-            image: "assets/images/uzer.jpg", title: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Facilis, perferendis iustperspiciatis molestias, aspernatur molestiae ipsum enim quis atque officia, a nemo animi.Quam totam placeat illum! Esse, iste tempora ?",
-            data: "04/10/18"
-        },
-        {
-            image: "assets/images/uzer.jpg", title: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Facilis, perferendis iustperspiciatis molestias, aspernatur molestiae ipsum enim quis atque officia, a nemo animi.Quam totam placeat illum! Esse, iste tempora ?",
-            data: "04/10/18"
-        },
-        {
-            image: "assets/images/uzer.jpg", title: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Facilis, perferendis iustperspiciatis molestias, aspernatur molestiae ipsum enim quis atque officia, a nemo animi.Quam totam placeat illum! Esse, iste tempora ?",
-            data: "04/10/18"
-        },
-        {
-            image: "assets/images/uzer.jpg", title: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Facilis, perferendis iustperspiciatis molestias, aspernatur molestiae ipsum enim quis atque officia, a nemo animi.Quam totam placeat illum! Esse, iste tempora ?",
-            data: "04/10/18"
-        },
-        {
-            image: "assets/images/uzer.jpg", title: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Facilis, perferendis iustperspiciatis molestias, aspernatur molestiae ipsum enim quis atque officia, a nemo animi.Quam totam placeat illum! Esse, iste tempora ?",
-            data: "04/10/18"
-        },
-        {
-            image: "assets/images/uzer.jpg", title: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Facilis, perferendis iustperspiciatis molestias, aspernatur molestiae ipsum enim quis atque officia, a nemo animi.Quam totam placeat illum! Esse, iste tempora ?",
-            data: "04/10/18"
-        },
-        {
-            image: "assets/images/uzer.jpg", title: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Facilis, perferendis iustperspiciatis molestias, aspernatur molestiae ipsum enim quis atque officia, a nemo animi.Quam totam placeat illum! Esse, iste tempora ?",
-            data: "04/10/18"
-        },
-        {
-            image: "assets/images/uzer.jpg", title: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Facilis, perferendis iustperspiciatis molestias, aspernatur molestiae ipsum enim quis atque officia, a nemo animi.Quam totam placeat illum! Esse, iste tempora ?",
-            data: "04/10/18"
-        },
-    ]
-
-    constructor(private _router: Router, private _activatedRoute: ActivatedRoute) {
+    constructor(@Inject('BASE_URL') private _baseUrl, private _router: Router, private _activatedRoute: ActivatedRoute, private _goodService: GoodService) {
         this._activatedRoute.params.subscribe((params) => {
             console.log(params);
             this._companyId = params.companyId;
@@ -71,10 +28,15 @@ export class GoodComponent implements OnInit {
         })
     }
 
-    ngOnInit() { }
+    ngOnInit() {
+
+
+        this._getGood();
+    }
 
     public openDescription() {
         this.tab = 1;
+
     }
 
     public openReview() {
@@ -97,7 +59,7 @@ export class GoodComponent implements OnInit {
     }
 
     public setActiveImage(image) {
-        this.activeImage = image;
+        this.activeImage = 'http://192.168.0.111:4000/static/company/' + image;
     }
 
     public onClickBuy() {
@@ -111,4 +73,25 @@ export class GoodComponent implements OnInit {
         };
         this._router.navigate(['/payment'], { queryParams: { order: JSON.stringify(orderInfo) } })
     }
+
+    private _getGood() {
+        this._goodService.getGood(this._goodId)
+            .subscribe((data: ServerResponse<Good>) => {
+                this.goodData = data.data;
+                this.toppingData = data.data.toppings;
+                if (data.data.thumbnail) {
+                    this.activeImage = 'http://192.168.0.111:4000/static/company/' + data.data.thumbnail;
+                }
+
+                if (data.data.images) {
+                    this.goodImage = data.data.images.split(",")
+                }
+
+                console.log(this.toppingData);
+
+                console.log(data);
+
+            })
+    }
+
 }

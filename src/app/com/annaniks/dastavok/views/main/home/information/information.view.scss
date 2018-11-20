@@ -1,5 +1,6 @@
 .container {
-    width: calc(100% - 287px);
+    width: calc(100% - 297px);
+    margin-left: 10px;
     .line_content {
         margin-top: 47px;
         .text_content {
@@ -9,10 +10,18 @@
         .line {
             margin: auto;
             margin-left: 38px;
-            width: 723px;
+            width: 784px;
             height: 0;
             border: solid 2px #c5c3c3;
         }
+    }
+    .under_line {
+        margin-left: 38px;
+        width: 784px;
+        height: 0;
+        border: solid 2px #c5c3c3;
+        margin: auto;
+        margin-top: 55px;
     }
     .bottom_slider {
         margin-top: 56px;

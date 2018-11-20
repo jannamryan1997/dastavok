@@ -17,7 +17,10 @@ export * from "src/app/com/annaniks/dastavok/components/loading/loading.componen
 export * from "src/app/com/annaniks/dastavok/components/profile-tab/shipping-addresses-tab/shipping-addresses-tab.component";
 export * from "src/app/com/annaniks/dastavok/components/delivery-list/delivery-list.component";
 export * from "src/app/com/annaniks/dastavok/components/delivery-list/delivery-list-item/delivery-list-item.component";
-export *from "src/app/com/annaniks/dastavok/components/company-list/restrant.component";
-export *from "src/app/com/annaniks/dastavok/components/company-list/company-list-item/company-list-item.component";
-export *from "src/app/com/annaniks/dastavok/components/rating/rating.component";
-export *from "src/app/com/annaniks/dastavok/components/paginator/paginator.component";
+export * from "src/app/com/annaniks/dastavok/components/company-list/restrant.component";
+export * from "src/app/com/annaniks/dastavok/components/company-list/company-list-item/company-list-item.component";
+export * from "src/app/com/annaniks/dastavok/components/rating/rating.component";
+export * from "src/app/com/annaniks/dastavok/components/paginator/paginator.component";
+export * from "src/app/com/annaniks/dastavok/components/good-tabs/description/description.component";
+export * from "src/app/com/annaniks/dastavok/components/good-tabs/reviw/review.component";
+export * from "src/app/com/annaniks/dastavok/components/good-tabs/ingredient/ingredient.component";

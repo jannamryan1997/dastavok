@@ -1,5 +1,6 @@
 .slider_content {
     margin-top: 48px;
+    margin-left: 30px;
     .slider_container {
         height: 476px;
         background-repeat: no-repeat;
@@ -13,7 +14,6 @@
         left: 0;
         bottom: 0;
         right: 0;
-        margin: auto 0;
         width: fit-content;
         height: fit-content;
         user-select: none;
@@ -54,7 +54,6 @@
     .slider_content {
         margin: 0 auto;
         width: 129.4px;
-        height: 137.1px;
         object-fit: contain;
         border: solid 1px #707070;
         .slider_image {

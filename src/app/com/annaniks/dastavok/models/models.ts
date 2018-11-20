@@ -136,3 +136,28 @@ interface Address {
     longitude: number,
     text: string,
 }
+
+export interface Good {
+    companyId: number,
+    createdAt: string,
+    description: string,
+    goodTypeId: number,
+    id: number,
+    images: string,
+    isDeal: boolean,
+    name: string,
+    price: number,
+    readyTime: number,
+    thumbnail: string,
+    toppings: Topping[];
+}
+
+export interface Topping {
+    createdAt: string
+    description: string;
+    goodId: number;
+    id: number;
+    name: string;
+    stepPrice: number;
+    updatedAt: string;
+}

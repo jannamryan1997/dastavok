@@ -30,7 +30,7 @@ export class RegistrationStep implements OnInit {
         this.phoneNumberForm = new FormBuilder().group({
             phonenumber: ["", Validators.required]
         })
-        this.disabled = this.phoneNumberForm.invalid;
+       
     }
 
     private _formBuilderVerification() {
@@ -70,7 +70,7 @@ export class RegistrationStep implements OnInit {
     }
 
     private _clientPhoneNumber() {
-        this.disabled = this.verificationForm.invalid;
+      
         this._signUpService.clientPhoneNumber({
             "phoneNumber": this.phoneNumberForm.value.phonenumber,
         }).subscribe((data: ServerResponse<PhoneVerification>) => {
@@ -81,7 +81,7 @@ export class RegistrationStep implements OnInit {
     }
 
     private _clientVerification() {
-        this.disabled = this.signUpForm.invalid;
+       
         this.controlsItems = this.verificationForm.value.control_1 + this.verificationForm.value.control_2 +
             this.verificationForm.value.control_3 + this.verificationForm.value.control_4;
         this._signUpService.clientVerification({
