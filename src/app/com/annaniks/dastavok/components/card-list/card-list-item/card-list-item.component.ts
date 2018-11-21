@@ -1,4 +1,5 @@
-import { Component, OnInit,Input } from "@angular/core"
+import { Component, OnInit, Input } from "@angular/core"
+
 
 @Component({
     selector: "app-card-list-item",
@@ -11,7 +12,8 @@ export class CardListItemComponent implements OnInit {
     public quarity: number = 1;
     public add: string = "+";
     public remove: string = "-";
-     @Input()cardInfo ={};
+    @Input() cardGoodsInfo = {};
+    @Input() cardGoodsImageItem:string;
 
     constructor() { }
 
@@ -30,4 +32,6 @@ export class CardListItemComponent implements OnInit {
     public addQuarity() {
         this.quarity++;
     }
+
+  
 }

@@ -28,8 +28,11 @@ export class RestaurantView implements OnInit {
     }
 
     private _getGoodTypes(companyId: number): void {
-        this._restaurantService.getGoodTypes(companyId).subscribe((data: ServerResponse<Array<GoodType>>) => {
+        this._restaurantService.getGoodTypes(companyId)
+        .subscribe((data: ServerResponse<Array<GoodType>>) => {
             this.goodTypes = data.data;
+            console.log(data);
+            
         })
     }
 

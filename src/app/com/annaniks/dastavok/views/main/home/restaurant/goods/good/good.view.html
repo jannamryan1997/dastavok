@@ -9,32 +9,33 @@
 
         </div>
         <div class="right_content">
-            <p class="text_item" font-family-Roboto font-weight-bold>{{goodData?.name}}</p>
+            <p class="text_item" font-family-Roboto font-weight-bold>{{good?.name}}</p>
             <div class="star_items">
                 <!-- <i class="material-icons" *ngFor="let item of [0,0,0,0,0]">
                     star
                 </i> -->
                 <app-rating [currentIndex]="starCount" [changeRating]="false"></app-rating>
-                <p class="text" font-family-Roboto>{{goodData?.description}}</p>
+                <p class="text" font-family-Roboto>{{good?.description}}</p>
             </div>
             <div class="line_content"></div>
             <div class="price_content" display-flex justify-content-space-between>
                 <p class="price_text" font-family-Roboto>price</p>
-                <p class="mony_text" font-family-Roboto>{{goodData?.price}}$</p>
+                <p class="mony_text" font-family-Roboto>{{good?.price}}$</p>
             </div>
             <div class="under_line_content"></div>
             <div class="quarity_content" display-flex justify-content-space-between>
                 <p class="price_text" font-family-Roboto>quarity</p>
                 <div class="quarity_item" display-flex>
                     <p class="remove" font-family-Roboto (click)="countremove()">-</p>
-                    <p class="count_text" font-family-Roboto> {{quarity}} </p>
+                    <p class="count_text" font-family-Roboto> {{count}} </p>
                     <p class="add" font-family-Roboto (click)="countdAdd()">+</p>
                 </div>
             </div>
             <div class="button_item" display-flex>
                 <div margin-auto>
-                    <button class="left_button" color-white font-family-Open-Sans margin-auto routerLink="cart"><span>CART</span></button>
+                    <button class="left_button" color-white font-family-Open-Sans margin-auto (click)="orderChart()"><span>CART</span></button>
                     <button class="right_button" color-white font-family-Open-Sans margin-auto (click)="onClickBuy()"><span>BUY</span></button>
+                    <!-- routerLink="cart" -->
                 </div>
 
             </div>
@@ -44,30 +45,24 @@
     </div>
     <div [ngSwitch]="tab">
         <div class="tab_content" display-flex justify-content-space-between>
-
             <div class="tab_item" display-flex (click)="openDescription()" [ngClass]="{'active_tab':tab==1}">
                 <span margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==1}">DESCRIPTION</span>
             </div>
-
-
             <div class="tab_item" display-flex (click)="openReview()" [ngClass]="{'active_tab':tab==2}">
                 <span margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==2}">REVIEW</span>
             </div>
-
-
             <div class="tab_item" display-flex (click)="openIngredient()" [ngClass]="{'active_tab':tab==3}">
                 <span margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==3}">INGREDIENT</span>
             </div>
-
         </div>
         <div *ngSwitchCase="1">
-            <app-description [descriptionData]="goodData?.description"></app-description>
+            <app-description [descriptionData]="good?.description"></app-description>
         </div>
         <div *ngSwitchCase="2">
             <app-review></app-review>
         </div>
         <div *ngSwitchCase="3">
-            <app-ingredient *ngFor="let item of toppingData" [topping]="item"></app-ingredient>
+            <app-ingredient *ngFor="let topping of toppings" [topping]="topping"></app-ingredient>
 
         </div>
     </div>

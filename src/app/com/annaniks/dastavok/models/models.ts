@@ -160,4 +160,17 @@ export interface Topping {
     name: string;
     stepPrice: number;
     updatedAt: string;
+    toppingValue?
+}
+export interface Card {
+    companyName: string;
+    goods: CardGoods[];
+}
+
+interface CardGoods {
+    count: number;
+    name: string;
+    orderGoodId: number;
+    price: number;
+    images: string;
 }

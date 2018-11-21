@@ -75,6 +75,14 @@
         cursor: pointer;
     }
 }
+
+.line {
+    width: 723px;
+    height: 0;
+    border: 1px solid #707070;
+    margin-top: 28px;
+}
+
 .restaurant_text {
     font-size: 22px;
     font-weight: bold;
@@ -87,6 +95,7 @@
     margin-top: 0px;
     margin-bottom: 0px;
 }
+
 .text_item {
     margin-top: 15px;
     font-size: 15px;

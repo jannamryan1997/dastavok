@@ -4,7 +4,7 @@ import { CookieService } from "angular2-cookie/services/cookies.service";
 import { map, catchError } from "rxjs/operators";
 import { SignUpService } from "./signUp.service";
 import { of } from "rxjs";
-import { RouterStateSnapshot, Router } from "@angular/router";
+import {  Router } from "@angular/router";
 
 @Injectable()
 export class ApiService {

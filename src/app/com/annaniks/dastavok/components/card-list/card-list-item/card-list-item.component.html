@@ -1,18 +1,18 @@
 <div class="detal_item">
     
     <div class="card_item" display-flex>
-        <div class="image_item"  [ngStyle]="{'background-image':'url('+cardInfo?.image+')'}"></div>
+        <div class="image_item"  [ngStyle]="{'background-image':'url('+cardGoodsImageItem+')'}"></div>
         <div class="card_text_item">
-            <p class="item_text" font-weight-bold font-family-Roboto>{{cardInfo?.name}}</p>
-            <p class="card_text" font-family-Roboto>{{cardInfo?.title}}</p>
+            <p class="item_text" font-weight-bold font-family-Roboto>{{cardGoodsInfo?.name}}</p>
+            <p class="card_text" font-family-Roboto>{{cardGoodsInfo?.title}}</p>
 
         </div>
 
-        <p class="price_item" font-weight-bold font-family-Roboto>{{cardInfo?.price}}</p>
+        <p class="price_item" font-weight-bold font-family-Roboto>{{cardGoodsInfo?.price}}</p>
         <span class="remove" (click)="removeQuarity()" font-weight-bold font-family-Open-Sans>{{remove}}</span>
         <p class="quarity_item" font-weight-bold font-family-Open-Sans>{{quarity}}</p>
         <span class="add" (click)="addQuarity()" font-weight-bold font-family-Open-Sans>{{add}}</span>
-        <p class="total_item" font-weight-bold font-family-Roboto>{{cardInfo?.total}}</p>
+        <p class="total_item" font-weight-bold font-family-Roboto>{{cardGoodsInfo?.total}}</p>
 
     </div>
     <div class="card_conteiner"></div>

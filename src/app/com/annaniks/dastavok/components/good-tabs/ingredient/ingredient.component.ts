@@ -8,10 +8,7 @@ import { Topping } from "../../../models/models";
 })
 
 export class IngredientComponent implements OnInit {
-
-    public count: number = 1;
-
-    @Input() topping: Array<Topping>;
+    @Input() topping: Topping;
 
 
     constructor() { }
@@ -19,13 +16,16 @@ export class IngredientComponent implements OnInit {
     ngOnInit() { }
 
     public countadd() {
-        this.count++;
+        if(this.topping.toppingValue==1){
+            return;
+        }
+        this.topping.toppingValue+=0.25;
     }
     public countremove() {
-        if (this.count == 1) {
-            return false;
+        if (this.topping.toppingValue== 0) {
+            return;
         }
-        this.count--;
+        this.topping.toppingValue-=0.25;
 
     }
 
