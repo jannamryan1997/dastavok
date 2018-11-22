@@ -13,11 +13,20 @@ export class CardListItemComponent implements OnInit {
     public add: string = "+";
     public remove: string = "-";
     @Input() cardGoodsInfo = {};
-    @Input() cardGoodsImageItem:string;
-
+    @Input() cardGoodsImageItem: string;
+    public image: Array<string>;
+    itemInage;
     constructor() { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        if (this.cardGoodsImageItem != null) {
+            this.image = this.cardGoodsImageItem.split(",")
+            for (var i = 0; i < this.image.length; i++) {
+                this.itemInage = this.image[1];
+            }
+        }
+
+    }
 
     public removeQuarity() {
 
@@ -33,5 +42,5 @@ export class CardListItemComponent implements OnInit {
         this.quarity++;
     }
 
-  
+
 }

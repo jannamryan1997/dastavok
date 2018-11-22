@@ -13,9 +13,9 @@ export class GoodsView implements OnInit {
     private _companyId: number;
     private _goodTypeId: number;
     public pageLength: number = 10;
-    public goods: Array<Good> = [];
+    public goodsInfo: Array<Good> = [];
     public count: number;
-
+    public goodsImage: string;
 
     constructor(private activatedRoute: ActivatedRoute, private _restaurantService: RestaurantService) {
         this.activatedRoute.params.subscribe((params) => {
@@ -31,9 +31,12 @@ export class GoodsView implements OnInit {
     private _getGoods(companyId: number, goodTypeId: number, page, count): void {
         this._restaurantService.getGoods(companyId, goodTypeId, page, count)
             .subscribe((data: ServerResponse<Paginator<Array<Good>>>) => {
-                this.goods = data.data.data;
+                this.goodsInfo = data.data.data;
                 this.count = data.data.metaData.count;
+                console.log(data);
             })
+
+
 
     }
 

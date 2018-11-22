@@ -26,6 +26,7 @@ export class InformationView implements OnInit {
             .subscribe((data: ServerResponse<Paginator<BriefCompany>>) => {
                 this.companyItem = data.data.data;
                 this.count = data.data.metaData.count;
+                console.log(data);
 
             })
     }

@@ -93,6 +93,8 @@ export class GoodComponent implements OnInit {
     }
 
     public orderChart() {
+       
+        
         let toppings = [];
         this.toppings.forEach((element: Topping) => {
             toppings.push(
@@ -113,6 +115,8 @@ export class GoodComponent implements OnInit {
 
             }
         }).subscribe((data) => {
+           
+            
             this._router.navigate(['home/card'])
             console.log();
 

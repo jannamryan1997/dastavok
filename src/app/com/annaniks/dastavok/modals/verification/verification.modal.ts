@@ -16,11 +16,34 @@ export class VerificationModal implements OnInit {
     public verificationForm: FormGroup;
     public loading: boolean = false;
     private controlsItems: string;
+    public minute: number = 2;
+    public secend: any = 0;
+    public time: string = "0";
     constructor(@Inject(MAT_DIALOG_DATA) private data: any, private dialoRef: MatDialogRef<VerificationModal>, private signUpService: SignUpService, private dialog: MatDialog,
         private cookieService: CookieService) { }
 
     ngOnInit() {
         this._formBuilder();
+        this.timer();
+    }
+
+    timer() {
+        setInterval(() => {
+            if (this.secend == 0 && this.minute == 0) {
+                return;
+            }
+            if (this.secend == 0) {
+                this.secend = 59;
+
+                this.minute--;
+            }
+            if (this.secend <= 10) {
+                this.secend = "0" + this.secend;
+                
+                
+            }
+            this.secend = this.secend - 1;
+        }, 1000)
     }
 
     public dialogClose() {
@@ -102,6 +125,6 @@ export class VerificationModal implements OnInit {
 
     }
 
-  
+
 }
 

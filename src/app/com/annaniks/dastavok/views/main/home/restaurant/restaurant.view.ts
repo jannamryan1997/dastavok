@@ -31,7 +31,7 @@ export class RestaurantView implements OnInit {
         this._restaurantService.getGoodTypes(companyId)
         .subscribe((data: ServerResponse<Array<GoodType>>) => {
             this.goodTypes = data.data;
-            console.log(data);
+         //   console.log(this.goodTypes);
             
         })
     }
@@ -44,7 +44,7 @@ export class RestaurantView implements OnInit {
         this._restaurantService.getRestaurantById(this.companyId)
             .subscribe((data: ServerResponse<Restaurant>) => {
                 this.restaurant = data.data;
-                console.log(data);
+             // console.log(this.restaurant);
 
             })
     }

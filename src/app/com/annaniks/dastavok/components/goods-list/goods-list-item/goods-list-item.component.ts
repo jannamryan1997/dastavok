@@ -8,9 +8,10 @@ import { Component, Input, OnInit } from "@angular/core"
 
 export class GoodsListItemComponent implements OnInit {
     @Input() goodInfo = {};
-    image: string;
-
+    @Input() goodsImage: string;
+public goodsImageItem;
     ngOnInit() {
+
 
     }
 }

@@ -25,6 +25,7 @@ export class CardView implements OnInit {
         this._cardService.getOrderChart()
             .subscribe((data:ServerResponse<Card>) => {
                 this.cardInfo = data.data;
+          
                 console.log(data.data);
             })
     }

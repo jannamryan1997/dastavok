@@ -2,7 +2,7 @@
     <div class="card_conteiner">
 
         <app-card-list  *ngFor="let item of cardInfo" [cardInfo]="item">
-            <app-card-list-item *ngFor="let good of item.goods" [cardGoodsInfo]="good" [cardGoodsImageItem]="cardGoodImageItem"></app-card-list-item>
+            <app-card-list-item *ngFor="let good of item.goods" [cardGoodsInfo]="good" [cardGoodsImageItem]="good.images"></app-card-list-item>
         </app-card-list>
     </div>
 </div>

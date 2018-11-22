@@ -15,8 +15,7 @@
     <div class="restaurant_wraper" position-relative [ngStyle]="{'background-image':'url('+'http://192.168.0.111:4000/static/company/'+restaurant?.image+')'}">
         <div class="text_wraper" position-absolute>
             <p class="text_item_one" color-white font-weight-bold font-family-Open-Sans>{{restaurant?.name}}</p>
-            <span class="text_item_two" font-family-Roboto>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, expedita, dict Molestias nemo molestiae ipsa
-                amet voluptates.</span>
+            <span class="text_item_two" font-family-Roboto>{{restaurant?.description}}</span>
         </div>
 
     </div>

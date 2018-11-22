@@ -9,11 +9,14 @@ import { GoodType } from "../../../models/models";
 
 export class GoodTypeListItemComponent implements OnInit {
 
-    @Input() goodTypeInfo:GoodType = {} as GoodType;
+    @Input() goodTypeInfo;
 
     constructor() { }
 
-    ngOnInit() { }
+    ngOnInit() { 
+   
+    }
+
 
 
 

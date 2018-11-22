@@ -2,17 +2,14 @@
     <div>
         <div class="line-count" full-width></div>
         <div class="meal_content" margin-auto>
-            <div class="meal_images" [ngStyle]="{'background-image':'url('+goodTypeInfo?.img+')'}" position-relative>
-                <span class="text_title" position-absolute font-weight-bold>{{goodTypeInfo?.name}}</span>
-                <span class="text-about" position-absolute font-weight-bold>{{goodTypeInfo?.about}}</span>
+            <div class="meal_images" position-relative>
             </div>
             <div class="meal_text">
-                <p class="meal_text_item_one" color-black color-white font-weight-bold font-family-Roboto>{{goodTypeInfo?.label}}</p>
-                <span class="meal_text_item_two" font-family-Roboto>{{goodTypeInfo?.text}}</span>
+                <p class="meal_text_item_one" color-black color-white font-weight-bold font-family-Roboto>{{goodTypeInfo?.name}}</p>
+                <span class="meal_text_item_two" font-family-Roboto>{{goodTypeInfo?.description}}</span>
 
             </div>
 
         </div>
-        <!--div class="line-count" full-width></div-->
     </div>
 </div>
