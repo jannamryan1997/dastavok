@@ -16,10 +16,10 @@
     <ng-content></ng-content>
     <div class="card_content" display-flex justify-content-space-between>
         <p class="card_text" font-family-Roboto font-weight-bold>Total coast</p>
-        <p class="price" font-family-Roboto font-weight-bold>33$</p>
+        <p class="price" font-family-Roboto font-weight-bold>{{cardInfo?.totalAmount}}$</p>
     </div>
     <div class="batton_content">
-        <button class="button" display-flex routerLink="/payment"><span margin-auto>BUY</span></button>
+        <button class="button" display-flex routerLink="/payment"><span margin-auto font-family-Open-Sans>BUY</span></button>
     </div>
     <div class="line" margin-auto></div>
 </div>

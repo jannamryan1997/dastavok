@@ -17,8 +17,8 @@ export class VerificationModal implements OnInit {
     public loading: boolean = false;
     private controlsItems: string;
     public minute: number = 2;
-    public secend: any = 0;
-    public time: string = "0";
+    public secend: number = 0;
+    public time: string;
     constructor(@Inject(MAT_DIALOG_DATA) private data: any, private dialoRef: MatDialogRef<VerificationModal>, private signUpService: SignUpService, private dialog: MatDialog,
         private cookieService: CookieService) { }
 
@@ -29,27 +29,27 @@ export class VerificationModal implements OnInit {
 
     timer() {
         setInterval(() => {
+            
             if (this.secend == 0 && this.minute == 0) {
                 return;
             }
             if (this.secend == 0) {
                 this.secend = 59;
-
                 this.minute--;
             }
-            if (this.secend <= 10) {
-                this.secend = "0" + this.secend;
-                
-                
-            }
             this.secend = this.secend - 1;
+            if (this.secend < 10) {
+                this.time = '0'+this.minute+':0'+this.secend;
+            }
+            else{
+                this.time = '0'+this.minute+':'+this.secend;
+            }
+           
         }, 1000)
     }
 
     public dialogClose() {
         this.dialoRef.close();
-
-
     }
 
     private _formBuilder() {
@@ -66,7 +66,6 @@ export class VerificationModal implements OnInit {
     }
 
     public openSignUpModalModal(): void {
-
         const dialoRef = this.dialog.open(SignUpModal, {
             width: "686px",
             height: "631.1px",
@@ -86,43 +85,29 @@ export class VerificationModal implements OnInit {
         this.controlsItems = this.verificationForm.value.control_1 + this.verificationForm.value.control_2 +
             this.verificationForm.value.control_3 + this.verificationForm.value.control_4;
         if (this.data.key == "registration") {
-
-
             this.signUpService.clientVerification({
                 "phoneNumber": this.data.phone,
                 "verifyCode": parseInt(this.controlsItems)
-            }).subscribe((data: any) => {
-                this.loading = false;
-                this.verificationForm.enable();
-                this.cookieService.put("verificationtoken", data.data.token)
-
-
-                this.openSignUpModalModal();
-                console.log(data);
-
-            }, (err) => {
-                console.log(err);
-
-            })
+            }).subscribe(
+                (data: any) => {
+                    this.loading = false;
+                    this.verificationForm.enable();
+                    this.cookieService.put("verificationtoken", data.data.token)
+                    this.openSignUpModalModal();
+                }, (err) => { })
         }
+
         if (this.data.key == "forgot_password")
-
             this.signUpService.forgetPasswordVerification({
-
                 "phoneNumber": this.data.phone,
                 "verifyCode": +(this.controlsItems)
-            }).subscribe((data: any) => {
-                this.cookieService.remove("forgot_token")
-                this.cookieService.put("verification_token", data.data.token)
-                this.openNewPasswordModal();
-                console.log(data);
-
-            },
-                err => {
-                    console.log(err);
-
-                })
-
+            }).subscribe(
+                (data: any) => {
+                    this.cookieService.remove("forgot_token")
+                    this.cookieService.put("verification_token", data.data.token)
+                    this.openNewPasswordModal();
+                },
+                (error) => { })
     }
 
 

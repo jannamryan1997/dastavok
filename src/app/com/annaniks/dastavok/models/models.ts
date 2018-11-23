@@ -164,6 +164,7 @@ export interface Topping {
 }
 export interface Card {
     companyName: string;
+    totalAmount:number;
     goods: CardGoods[];
 }
 

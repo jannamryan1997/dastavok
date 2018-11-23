@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core"
+import { ServerResponse, Card } from "../../../models/models";
+
 
 
 @Component({
@@ -12,9 +14,10 @@ export class CardListItemComponent implements OnInit {
     public quarity: number = 1;
     public add: string = "+";
     public remove: string = "-";
-    @Input() cardGoodsInfo = {};
+    @Input() cardGoodsInfo:ServerResponse<Card>;
     @Input() cardGoodsImageItem: string;
-    public image: Array<string>;
+  
+        public image: Array<string>;
     itemInage;
     constructor() { }
 
@@ -25,6 +28,7 @@ export class CardListItemComponent implements OnInit {
                 this.itemInage = this.image[1];
             }
         }
+
 
     }
 

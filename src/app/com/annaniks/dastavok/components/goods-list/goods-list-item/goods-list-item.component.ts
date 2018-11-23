@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core"
+import { Good } from "../../../models/models";
 
 @Component({
     selector: "app-goods-list-item",
@@ -7,11 +8,15 @@ import { Component, Input, OnInit } from "@angular/core"
 })
 
 export class GoodsListItemComponent implements OnInit {
-    @Input() goodInfo = {};
+    @Input() goodInfo: Array<Good>;
     @Input() goodsImage: string;
-public goodsImageItem;
+    public goodsImageItem;
+    
     ngOnInit() {
-
+        if (this.goodsImage != null) {
+            let images = this.goodsImage.split(",")
+            this.goodsImageItem = images[0];
+        }
 
     }
 }

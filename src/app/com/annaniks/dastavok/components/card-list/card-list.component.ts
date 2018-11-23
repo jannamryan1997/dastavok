@@ -12,6 +12,7 @@ export class CardListComponent implements OnInit {
 
     @Input() cardInfo = {};
 
+
     constructor() { }
 
     ngOnInit() {

@@ -10,11 +10,11 @@ import { ServerResponse, Card, } from "src/app/com/annaniks/dastavok/models/mode
 
 export class CardView implements OnInit {
 
-    public cardInfo: Card;
+    public cardInfo: Card[];
     public cardGoodsInfo: Array<any>;
     public cardGoodsImage: string;
     public cardGoodImageItem: string;
-
+    public totalSum: number=0;
     constructor(private _cardService: CardService) { }
 
     ngOnInit() {
@@ -23,10 +23,13 @@ export class CardView implements OnInit {
 
     private _getOrderChard() {
         this._cardService.getOrderChart()
-            .subscribe((data:ServerResponse<Card>) => {
+            .subscribe((data: ServerResponse<Card[]>) => {
                 this.cardInfo = data.data;
-          
-                console.log(data.data);
+                for (var i = 0; i < this.cardInfo.length; i++) {
+                  this.totalSum=this.totalSum+this.cardInfo[i].totalAmount;
+                }
+                console.log(this.cardInfo);
+
             })
     }
 
