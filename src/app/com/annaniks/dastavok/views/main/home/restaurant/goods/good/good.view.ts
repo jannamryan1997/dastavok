@@ -30,8 +30,6 @@ export class GoodComponent implements OnInit {
     }
 
     ngOnInit() {
-
-
         this._getGood();
     }
 
@@ -93,8 +91,6 @@ export class GoodComponent implements OnInit {
     }
 
     public orderChart() {
-       
-        
         let toppings = [];
         this.toppings.forEach((element: Topping) => {
             toppings.push(
@@ -104,7 +100,6 @@ export class GoodComponent implements OnInit {
                 }
             );
         })
-        console.log(toppings);
         this._goodService.orderChart({
             companyId: this._companyId,
             name: "good",
@@ -115,13 +110,7 @@ export class GoodComponent implements OnInit {
 
             }
         }).subscribe((data) => {
-           
-            
             this._router.navigate(['home/card'])
-            console.log();
-
-            console.log(data);
-
         })
 
     }

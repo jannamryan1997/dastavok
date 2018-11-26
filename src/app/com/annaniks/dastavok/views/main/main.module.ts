@@ -8,13 +8,14 @@ import { LoginModal, VerificationModal, PhoneNumberModal, SignUpModal, NewPasswo
 import { HttpClientModule } from "@angular/common/http"
 import { ProfileService } from "./profile/profile.service";
 import { PaymentService } from "./payment/payment.service";
+import { AuthGuard } from "../../guards/authguard.service";
 
 
 @NgModule({
 
     declarations: [MainComponent, FooterComponent, VerificationModal, LoginModal, PhoneNumberModal, SignUpModal, NewPasswordModals, UserUpdateModal,AddressEditModal,RegistrationStep],
     imports: [MainRoutingModule, SharedModule, HttpClientModule],
-    providers: [MenuItemsService,ProfileService,PaymentService],
+    providers: [MenuItemsService,ProfileService,PaymentService,AuthGuard],
     entryComponents: [VerificationModal, LoginModal, PhoneNumberModal, SignUpModal, NewPasswordModals, UserUpdateModal,AddressEditModal,RegistrationStep],
     exports: [],
 })

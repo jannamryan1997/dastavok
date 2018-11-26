@@ -10,14 +10,14 @@ import { ActivatedRoute } from "@angular/router";
 export class PaymentView implements OnInit {
     public orderInfo;
     public tab: number = 1;
-
     public paymentForm: FormGroup;
     public addres: string;
 
     constructor(private _activatedRoute: ActivatedRoute) {
         this._activatedRoute.queryParams.subscribe((params) => {
-            this.orderInfo = JSON.parse(params.order);
-            console.log(JSON.parse(params.order));
+            if (params.order) {
+                this.orderInfo = JSON.parse(params.order);
+            }
 
         })
     }

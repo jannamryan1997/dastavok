@@ -3,25 +3,24 @@ import { CanActivate, ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapsho
 import { Observable, of } from "rxjs";
 import { ApiService } from "../services/api.service";
 import { CookieService } from "angular2-cookie/services/cookies.service";
-import { SignUpService } from "../services/signUp.service";
 
 
 
 @Injectable()
 
-export class AuthGuard implements CanActivate {
+export class CheckToken implements CanActivate {
 
-    constructor (private _router: Router,private _signupService:SignUpService) { }
+    constructor(private _apiService: ApiService, private _cookieSerivce: CookieService, private _router: Router,private _activatedRoute:ActivatedRoute) { }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> | Promise<boolean> {
-        if(this._signupService.isAuthorized){
-            return true;
+
+        let token: string = this._cookieSerivce.get('token');
+        if (token) {
+            return this._apiService.checkToken();
         }
-        else{
-            this._router.navigate(['/home/information']);
-            return false;
+        else {
+            return of(true);
         }
-        
     }
 
 }

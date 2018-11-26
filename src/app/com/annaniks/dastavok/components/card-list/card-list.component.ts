@@ -8,16 +8,9 @@ import { Card } from "../../models/models";
 })
 
 export class CardListComponent implements OnInit {
-
-
-    @Input() cardInfo = {};
-
-
+    @Input() cardInfo:Card = {} as Card;
+    
     constructor() { }
-
-    ngOnInit() {
-        
-       
-
-    }
+    
+    ngOnInit() {}
 }

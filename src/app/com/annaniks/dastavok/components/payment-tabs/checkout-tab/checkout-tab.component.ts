@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { Validators, FormBuilder, FormGroup } from "@angular/forms"
 import { PaymentService } from "../../../views/main/payment/payment.service";
+import { Router, ActivatedRoute } from "@angular/router";
 
 
 declare var google;
@@ -20,13 +21,21 @@ export class CheckoutTabComponent implements OnInit {
     private _longitude: number;
     public directionsService = new google.maps.DirectionsService();
     public directionsDisplay = new google.maps.DirectionsRenderer();
+    public ordersParams: object = [];
+    public domaphoreValue:boolean;
     @Input() paymentTab: number;
     @Input() companyId: number;
     @Input() good: any;
     @Output() changeTab: EventEmitter<number> = new EventEmitter<number>();
-    @Output() addressValue:EventEmitter<string>=new EventEmitter<string>();
+    @Output() addressValue: EventEmitter<string> = new EventEmitter<string>();
 
-    constructor(private _paymentService: PaymentService) { }
+    constructor(private _paymentService: PaymentService, private router: Router, private _activatedRoute: ActivatedRoute) {
+        this._activatedRoute.queryParams.subscribe((queryParams) => {
+            this.ordersParams = queryParams;
+            console.log(this.ordersParams);
+
+        })
+    }
 
     ngOnInit() {
         this._formBuilder();
@@ -50,8 +59,8 @@ export class CheckoutTabComponent implements OnInit {
     public openPayment() {
         this.changeTab.emit(this.paymentTab);
     }
-    public getAddresValue(){
-        this.addressValue.emit(this.paymentForm.value.address); 
+    public getAddresValue() {
+        this.addressValue.emit(this.paymentForm.value.address);
     }
 
     private _initMap() {
@@ -63,8 +72,6 @@ export class CheckoutTabComponent implements OnInit {
         google.maps.event.addListener(this._map, 'click', (event) => {
             this._latitude = event.latLng.lat();
             this._longitude = event.latLng.lng();
-            console.log(this._latitude, this._longitude);
-
             this._addMarker(event.latLng)
 
 
@@ -108,6 +115,8 @@ export class CheckoutTabComponent implements OnInit {
     }
 
     private _createOrder() {
+ 
+        
         this._paymentService.createOrder({
             "name": "vika",
             "address": {
@@ -135,21 +144,43 @@ export class CheckoutTabComponent implements OnInit {
         })
     }
     public onClickSave() {
-        this._createOrder();
-      
+    
+         this._createOrder();
+
     }
 
     private _getOrderProcessing() {
         this._paymentService.getOrderProcessing()
-        .subscribe((data) => {
+            .subscribe((data) => {
+                console.log(data);
+
+            })
+    }
+
+    public putOrder() {
+        console.log(this.paymentForm.value.domaphore);
+        
+        this._paymentService.putOrders(
+            {
+            "ordersId": [
+                this.ordersParams,
+            ]
+                ,
+            "address": {
+                'lat': this._latitude,
+                'lng': this._longitude,
+                'text': this.paymentForm.value.address,
+
+            },
+            "domaphore": true,
+            "lift": false,
+            "apartment": this.paymentForm.value.apartment,
+        }
+        ).subscribe((data) => {
+            this.openPayment();
             console.log(data);
 
         })
     }
-   
-    onClickSavey(){
-    
-        this.openPayment();
-       
-    }
+
 }

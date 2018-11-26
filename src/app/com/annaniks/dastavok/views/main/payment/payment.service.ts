@@ -34,4 +34,8 @@ export class PaymentService {
         })
         return this._httpClient.put(this._baseUrl+"client",body,{headers})
     }
+
+    public putOrders(body){
+        return this._httpClient.put(this._baseUrl+"chart/orders/status",body)
+    }
 }

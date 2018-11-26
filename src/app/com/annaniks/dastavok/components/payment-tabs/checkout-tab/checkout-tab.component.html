@@ -15,11 +15,11 @@
             <span class="address_text" font-family-Roboto>Domaphore:</span>
             <div display-flex>
                 <div display-flex class="checkbox_wrapper">
-                    <input type="checkbox" class="input_checkbox" checked="checked" name="checkbox" formControlName="domaphore">
+                    <input type="checkbox" class="input_checkbox" checked="checked" name="checkbox" formControlName="domaphore" value="1">
                     <span class="text_content" font-family-Roboto>work</span>
                 </div>
                 <div display-flex>
-                    <input type="checkbox" class="input_checkbox_item" name="checkbox" formControlName="domaphore">
+                    <input type="checkbox" class="input_checkbox_item" name="checkbox" formControlName="domaphore" value="2">
                     <span class="text_content_item" font-family-Roboto>don't work</span>
                 </div>
             </div>
@@ -42,7 +42,7 @@
             <textarea full-width class="textarea_content" formControlName="comment"></textarea>
         </div>
         <div class="button_item" display-flex>
-            <button class="save_button" display-flex (click)="onClickSave()"><span margin-auto color-white
+            <button class="save_button" display-flex (click)="putOrder()"><span margin-auto color-white
                     font-weight-bold font-family-Open-Sans>SAVE</span></button>
             <button class="cancel_button" display-flex routerLink="/home/information"><span margin-auto color-white
                     font-weight-bold font-family-Open-Sans>CANCEL</span></button>

@@ -10,41 +10,24 @@ import { ServerResponse, Card } from "../../../models/models";
 })
 
 export class CardListItemComponent implements OnInit {
-
+    @Input() cardGoodsInfo:ServerResponse<Card>;
+    @Input() cardGoodsImageItem: string;
     public quarity: number = 1;
     public add: string = "+";
     public remove: string = "-";
-    @Input() cardGoodsInfo:ServerResponse<Card>;
-    @Input() cardGoodsImageItem: string;
-  
-        public image: Array<string>;
-    itemInage;
+    public image: Array<string>;
+    public itemImage:string;
     constructor() { }
 
     ngOnInit() {
         if (this.cardGoodsImageItem != null) {
             this.image = this.cardGoodsImageItem.split(",")
             for (var i = 0; i < this.image.length; i++) {
-                this.itemInage = this.image[1];
+                this.itemImage = this.image[1];
             }
         }
 
 
     }
-
-    public removeQuarity() {
-
-        if (this.quarity == 1) {
-            return;
-
-
-        }
-        this.quarity--;
-    }
-
-    public addQuarity() {
-        this.quarity++;
-    }
-
 
 }

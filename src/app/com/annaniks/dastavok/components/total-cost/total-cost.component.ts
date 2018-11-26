@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core"
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core"
 
 @Component({
     selector: "app-total-cost",
@@ -8,8 +8,13 @@ import { Component, OnInit, Input } from "@angular/core"
 
 export class TotalCoastComponent implements OnInit {
 
-   @Input() totalAmoutSum:number;
+    @Input() totalAmoutSum: number;
+    @Output() byAll = new EventEmitter<boolean>();
 
-   ngOnInit(){}
+    ngOnInit() {}
+
+    onClickByAll() {
+        this.byAll.emit(true);
+    }
 
 }

@@ -1,9 +1,9 @@
 import { NgModule } from "@angular/core"
 import { RouterModule, Routes } from "@angular/router";
-import { AuthGuard } from "./com/annaniks/dastavok/guards/authguard.service";
+import { CheckToken } from "./com/annaniks/dastavok/guards/checkToken.service";
 
 const router: Routes = [
-    { path: "", loadChildren: "./com/annaniks/dastavok/views/main/main.module#MainModule", canActivate: [AuthGuard] }
+    { path: "", loadChildren: "./com/annaniks/dastavok/views/main/main.module#MainModule", canActivate: [CheckToken] }
 ]
 
 @NgModule({
