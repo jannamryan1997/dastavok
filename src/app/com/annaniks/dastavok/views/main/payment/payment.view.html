@@ -7,7 +7,7 @@
             <div class="payment_tab">
                 <div class="tab_content" display-flex justify-content-space-between full-width>
                     <div class="checkout_item" full-height display-flex [ngClass]="{'active_tab':tab==1}">
-                        <span margin-auto font-family-Open-Sans (click)="openChackOut()" [ngClass]="{'active_tab_text':tab==1}"
+                        <span margin-auto font-family-Open-Sans (click)="changeTab(1)" [ngClass]="{'active_tab_text':tab==1}"
                             font-weight-bold>Checkout</span></div>
                     <div class="payment_item" full-height display-flex [ngClass]="{'active_tab':tab==2}"><span
                             margin-auto font-family-Open-Sans font-weight-bold [ngClass]="{'active_tab_text':tab==2}">Payment</span></div>
@@ -17,11 +17,10 @@
 
             </div>
             <div *ngSwitchCase="1">
-                <app-checkout-tab [paymentTab]="tab" (changeTab)="openPayment($event)" [companyId]="orderInfo.companyId"
-                    [good]="orderInfo.good" (addressValue)="getAddresValue($event)"></app-checkout-tab>
+                <app-checkout-tab [paymentTab]="tab" (changeTab)="changeTab(2)" (addressValue)="getAddresValue($event)"></app-checkout-tab>
             </div>
             <div *ngSwitchCase="2">
-                <app-payment-tab [paymentTab]="tab" (changeTab)="openDone($event)" [address]="addres"></app-payment-tab>
+                <app-payment-tab [paymentTab]="tab" (changeTab)="changeTab(3)" [address]="address"></app-payment-tab>
 
             </div>
             <div *ngSwitchCase="3">

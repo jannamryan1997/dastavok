@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core"
 import { CardService } from "./card.service";
-import { ServerResponse, Card, } from "src/app/com/annaniks/dastavok/models/models";
+import { ServerResponse, Card, OrderInfo, } from "src/app/com/annaniks/dastavok/models/models";
 import { Router } from "@angular/router";
 
 @Component({
@@ -39,10 +39,13 @@ export class CardView implements OnInit {
         for(var i=0; i<this.cardInfo.length;i++){
             ordersId.push(this.cardInfo[i].orderId)
         }
+        let queryParams:OrderInfo = {
+            orderType:'basket',
+            orders:ordersId
+        }
         this._router.navigate(['/payment'], {
             queryParams: {
-                companyId:'',
-                orders: JSON.stringify(ordersId)
+                order:JSON.stringify(queryParams)
             }
         })
         console.log(ordersId);

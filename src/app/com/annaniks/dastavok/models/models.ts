@@ -164,8 +164,8 @@ export interface Topping {
 }
 export interface Card {
     companyName: string;
-    totalAmount:number;
-    orderId:number;
+    totalAmount: number;
+    orderId: number;
     goods: CardGoods[];
 }
 
@@ -175,4 +175,23 @@ interface CardGoods {
     orderGoodId: number;
     price: number;
     images: string;
+}
+
+export interface OrderInfo {
+    orderType: string;
+    companyId?: number | string;
+    good?: OrderGood;
+    orders?: Array<number>;
+
+}
+
+interface OrderGood {
+    id: number;
+    count: number;
+    toppings: Array<BriefToppings>
+}
+
+export interface BriefToppings{
+    id:number;
+    toppingValue:number;
 }

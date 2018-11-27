@@ -2,6 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { Validators, FormBuilder, FormGroup } from "@angular/forms"
 import { PaymentService } from "../../../views/main/payment/payment.service";
 import { Router, ActivatedRoute } from "@angular/router";
+import { PARAMETERS } from "@angular/core/src/util/decorators";
+import { OrderInfo } from "../../../models/models";
 
 
 declare var google;
@@ -21,19 +23,17 @@ export class CheckoutTabComponent implements OnInit {
     private _longitude: number;
     public directionsService = new google.maps.DirectionsService();
     public directionsDisplay = new google.maps.DirectionsRenderer();
-    public ordersParams: object = [];
-    public domaphoreValue:boolean;
+    public ordersParams: OrderInfo;
+    public domaphoreValue: boolean;
     @Input() paymentTab: number;
-    @Input() companyId: number;
-    @Input() good: any;
     @Output() changeTab: EventEmitter<number> = new EventEmitter<number>();
     @Output() addressValue: EventEmitter<string> = new EventEmitter<string>();
 
     constructor(private _paymentService: PaymentService, private router: Router, private _activatedRoute: ActivatedRoute) {
         this._activatedRoute.queryParams.subscribe((queryParams) => {
-            this.ordersParams = queryParams;
-            console.log(this.ordersParams);
-
+            if (queryParams.order) {
+                this.ordersParams = JSON.parse(queryParams.order);
+            }
         })
     }
 
@@ -42,8 +42,6 @@ export class CheckoutTabComponent implements OnInit {
         this._initMap();
         this.calcRoute();
         this._getOrderProcessing();
-        console.log(this.good);
-
     }
 
     private _formBuilder() {
@@ -73,8 +71,6 @@ export class CheckoutTabComponent implements OnInit {
             this._latitude = event.latLng.lat();
             this._longitude = event.latLng.lng();
             this._addMarker(event.latLng)
-
-
         });
         this.directionsDisplay.setMap(this._map)
 
@@ -88,7 +84,6 @@ export class CheckoutTabComponent implements OnInit {
         this._marker = new google.maps.Marker({
             position: location,//tex@ nshvac
             map: this._map,
-
         });
     }
 
@@ -104,36 +99,22 @@ export class CheckoutTabComponent implements OnInit {
             travelMode: google.maps.TravelMode['DRIVING']
         };
         this.directionsService.route(request, (response, status) => {
-            console.log(status);
-
             if (status == 'OK') {
-                console.log(response);
-
                 this.directionsDisplay.setDirections(response);
             }
         });
     }
 
-    private _createOrder() {
- 
-        
+    private _createOrder(): void {
         this._paymentService.createOrder({
-            "name": "vika",
-            "address": {
-                "lat": this._latitude,
-                "lng": this._longitude,
-                "text": this.paymentForm.value.address,
+            name: "vika",
+            address: {
+                lat: this._latitude,
+                lng: this._longitude,
+                text: this.paymentForm.value.address,
             },
-            "companyId": this.companyId,
-            "good": {
-                "id": this.good.id,
-                "count": this.good.count,
-                "toppings": [{
-                    "id": 1,
-                    "toppingValue": 0.75
-                },
-                ]
-            }
+            companyId: this.ordersParams.companyId,
+            good: this.ordersParams.good
 
 
         }).subscribe((data) => {
@@ -144,8 +125,12 @@ export class CheckoutTabComponent implements OnInit {
         })
     }
     public onClickSave() {
-    
-         this._createOrder();
+        if (this.ordersParams.orderType == 'one') {
+            this._createOrder();
+        }
+        if(this.ordersParams.orderType == 'basket'){
+            this._changeOrderStatus();
+        }
 
     }
 
@@ -157,25 +142,19 @@ export class CheckoutTabComponent implements OnInit {
             })
     }
 
-    public putOrder() {
-        console.log(this.paymentForm.value.domaphore);
-        
+    private _changeOrderStatus(): void {
         this._paymentService.putOrders(
             {
-            "ordersId": [
-                this.ordersParams,
-            ]
-                ,
-            "address": {
-                'lat': this._latitude,
-                'lng': this._longitude,
-                'text': this.paymentForm.value.address,
-
-            },
-            "domaphore": true,
-            "lift": false,
-            "apartment": this.paymentForm.value.apartment,
-        }
+                ordersId: this.ordersParams.orders,
+                address: {
+                    lat: this._latitude,
+                    lng: this._longitude,
+                    text: this.paymentForm.value.address,
+                },
+                domaphore: true,
+                lift: false,
+                apartment: +this.paymentForm.value.apartment,
+            }
         ).subscribe((data) => {
             this.openPayment();
             console.log(data);

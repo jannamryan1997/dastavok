@@ -1,24 +1,25 @@
-import { Component, OnInit, Output } from "@angular/core"
-import { Validators, FormGroup, FormBuilder } from "@angular/forms"
+import { Component, OnInit } from "@angular/core"
+import { FormGroup } from "@angular/forms"
 import { ActivatedRoute } from "@angular/router";
+import { OrderInfo } from "../../../models/models";
+
 @Component({
     selector: "app-payment",
     templateUrl: "payment.view.html",
     styleUrls: ["payment.view.scss"]
 })
-
 export class PaymentView implements OnInit {
-    public orderInfo;
+    public orderInfo:OrderInfo = {} as OrderInfo;
     public tab: number = 1;
     public paymentForm: FormGroup;
-    public addres: string;
+    public address: string;
 
     constructor(private _activatedRoute: ActivatedRoute) {
         this._activatedRoute.queryParams.subscribe((params) => {
             if (params.order) {
                 this.orderInfo = JSON.parse(params.order);
+                console.log(this.orderInfo);
             }
-
         })
     }
 
@@ -26,21 +27,15 @@ export class PaymentView implements OnInit {
 
     }
 
-    public openChackOut() {
-        this.tab = 1;
+    public changeTab(tabNumber: number): void {
+        this.tab = tabNumber;
     }
-    public openPayment() {
-        this.tab = 2;
-    }
+
     public getAddresValue(event) {
-        this.addres = event;
-        console.log(this.addres);
-
+        this.address = event;
     }
 
-    public openDone() {
-        this.tab = 3;
-    }
+
 
 
 

@@ -12,9 +12,6 @@ import { ServerResponse, Card } from "../../../models/models";
 export class CardListItemComponent implements OnInit {
     @Input() cardGoodsInfo:ServerResponse<Card>;
     @Input() cardGoodsImageItem: string;
-    public quarity: number = 1;
-    public add: string = "+";
-    public remove: string = "-";
     public image: Array<string>;
     public itemImage:string;
     constructor() { }

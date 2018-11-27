@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from "@angular/core"
 import { Router, ActivatedRoute } from "@angular/router";
 import { GoodService } from "./good.service";
-import { Good, ServerResponse, Topping } from "src/app/com/annaniks/dastavok/models/models";
+import { Good, ServerResponse, Topping, BriefToppings, OrderInfo } from "src/app/com/annaniks/dastavok/models/models";
 
 @Component({
     selector: "app-good",
@@ -62,12 +62,23 @@ export class GoodComponent implements OnInit {
     }
 
     public onClickBuy() {
-        let orderInfo = {
+        let briefToppings: Array<BriefToppings> = [];
+        this.toppings.forEach((element: Topping) => {
+            briefToppings.push(
+                {
+                    id: element.id,
+                    toppingValue: element.toppingValue
+                }
+            );
+        })
+        let orderInfo:OrderInfo = {
+            orderType:'one',
             companyId: this._companyId,
             good:
             {
                 id: this._goodId,
-                count: this.count
+                count: this.count,
+                toppings:briefToppings
             }
         };
         this._router.navigate(['/payment'], { queryParams: { order: JSON.stringify(orderInfo) } })
@@ -91,9 +102,9 @@ export class GoodComponent implements OnInit {
     }
 
     public orderChart() {
-        let toppings = [];
+        let briefToppings: Array<BriefToppings> = [];
         this.toppings.forEach((element: Topping) => {
-            toppings.push(
+            briefToppings.push(
                 {
                     id: element.id,
                     toppingValue: element.toppingValue
@@ -104,9 +115,9 @@ export class GoodComponent implements OnInit {
             companyId: this._companyId,
             name: "good",
             good: {
-                "id": this.good.id,
-                "count": this.count,
-                "toppings": toppings
+                id: this.good.id,
+                count: this.count,
+                toppings: briefToppings
 
             }
         }).subscribe((data) => {

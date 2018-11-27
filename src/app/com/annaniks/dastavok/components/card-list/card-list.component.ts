@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from "@angular/core"
-import { Card } from "../../models/models";
+import { Card, OrderInfo } from "../../models/models";
+import { PaymentService } from "../../views/main/payment/payment.service";
+import { Router } from "@angular/router";
+
 
 @Component({
     selector: "app-card-list",
@@ -8,9 +11,21 @@ import { Card } from "../../models/models";
 })
 
 export class CardListComponent implements OnInit {
-    @Input() cardInfo:Card = {} as Card;
-    
-    constructor() { }
-    
-    ngOnInit() {}
+    @Input() cardInfo: Card = {} as Card;
+
+
+    constructor(private _router: Router) { }
+
+    ngOnInit() { }
+
+    public navToPayment() {
+        let queryParams: OrderInfo = {
+            orderType: 'basket',
+            orders: [this.cardInfo.orderId]
+        }
+        this._router.navigate(['/payment'], { queryParams:
+            {order:JSON.stringify(queryParams)}
+    })
+
+    }
 }
