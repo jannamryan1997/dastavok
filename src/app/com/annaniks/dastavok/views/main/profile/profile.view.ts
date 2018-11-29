@@ -35,6 +35,8 @@ export class ProfileView implements OnInit {
 
     ngOnInit() {
         this._clientGet();
+       //this._clientOrdersProcessing();
+       this._clientOrderDriver()
 
     }
 
@@ -61,8 +63,22 @@ export class ProfileView implements OnInit {
         this._profileService.getClient()
         .subscribe((data:ServerResponse<User>) => {
             this.clientData=data.data;
-            console.log(this.clientData);
+         //   console.log(this.clientData);
 
+        })
+    }
+
+    private _clientOrdersProcessing(){
+this._profileService.clientOrderProcessing()
+.subscribe((data)=>{
+    console.log(data);
+    
+})
+    }
+    private _clientOrderDriver(){
+        this._profileService.clientOrderDriver().subscribe((data)=>{
+            console.log(data);
+            
         })
     }
 

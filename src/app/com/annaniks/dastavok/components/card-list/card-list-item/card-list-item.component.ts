@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from "@angular/core"
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core"
 import { ServerResponse, Card } from "../../../models/models";
+import { CardService } from "../../../views/main/home/card/card.service";
+
 
 
 
@@ -10,11 +12,15 @@ import { ServerResponse, Card } from "../../../models/models";
 })
 
 export class CardListItemComponent implements OnInit {
-    @Input() cardGoodsInfo:ServerResponse<Card>;
+    @Input() cardInfo: Card = {} as Card;
+    @Input() cardInfoOrderGoodId: number;
+    @Input() cardGoodsInfo: ServerResponse<Card>;
     @Input() cardGoodsImageItem: string;
+    @Output() deleted: EventEmitter<boolean> = new EventEmitter()
     public image: Array<string>;
-    public itemImage:string;
-    constructor() { }
+    public itemImage: string;
+
+    constructor(private _cardService: CardService) { }
 
     ngOnInit() {
         if (this.cardGoodsImageItem != null) {
@@ -23,8 +29,30 @@ export class CardListItemComponent implements OnInit {
                 this.itemImage = this.image[1];
             }
         }
+      //  console.log(this.cardGoodsInfo);
 
 
+
+    }
+
+    public onClickDelete(): void {
+        this._deleteOrder();
+    }
+
+    private _deleteOrder(): void {
+    //    console.log(this.cardInfoOrderGoodId);
+
+        this._cardService.deleteOrderChart(this.cardInfo.orderId, this.cardInfoOrderGoodId)
+            .subscribe((data) => {
+                this._deletecardGoodItems();
+                console.log(data);
+
+            })
+
+    }
+
+    private _deletecardGoodItems() {
+        this.deleted.emit(true);
     }
 
 }

@@ -12,15 +12,17 @@
         </span>
 
     </div>
-    <div class="restaurant_wraper" position-relative [ngStyle]="{'background-image':'url('+'http://192.168.0.111:4000/static/company/'+restaurant?.image+')'}">
+    <div class="restaurant_wraper" position-relative [ngStyle]="{'background-image':'url('+localImage+')'}">
         <div class="text_wraper" position-absolute>
             <p class="text_item_one" color-white font-weight-bold font-family-Open-Sans>{{restaurant?.name}}</p>
             <span class="text_item_two" font-family-Roboto>{{restaurant?.description}}</span>
         </div>
 
     </div>
-    <app-goodType-list>
-        <app-goodType-list-item *ngFor="let item of goodTypes" [goodTypeInfo]="item" (click)="onClickItem(item)" ></app-goodType-list-item>
-    </app-goodType-list>
+    <div class="container">
+        <app-goodType-list>
+            <app-goodType-list-item *ngFor="let item of goodTypes" [goodTypeInfo]="item" (click)="onClickItem(item)"></app-goodType-list-item>
+        </app-goodType-list>
+    </div>
 
 </div>

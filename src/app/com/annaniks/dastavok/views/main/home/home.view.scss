@@ -5,7 +5,6 @@
     }
     .choose_bar {
         margin-top: 23px;
-        margin-bottom: 25px;
         width: calc(100% - 287px);
         .choose_bar_container {
             height: 79px;
@@ -32,50 +31,56 @@
         .search-content {
             margin-top: 27px;
             border-radius: 4px;
+            height: 41px;
             background-color: #ffffff;
             .search_wrapper {
                 width: 70%;
                 .search-input {
-                    height: 41px;
+                    height: 100%;
                     border: solid 1px #a4a4a4;
                     background-color: #ffffff;
                     width: calc(100% - 46.5px);
                 }
                 .search {
                     width: 46.5px;
-                    height: 41px;
+                    height: 100%;
                     background-color: #87bd3c;
                     i {
                         font-size: 26px;
                     }
                 }
             }
-        }
-        .trash {
-            width: 30%;
-            border-radius: 4px;
-            border: solid 1px #a4a4a4;
-            border-left: none;
-            height: 41px;
-            .count {
-                font-size: 23px;
-                font-weight: bold;
-                font-style: normal;
-                font-stretch: normal;
-                line-height: 1.35;
-                letter-spacing: normal;
-                text-align: left;
-                color: #191919;
-                margin-left: 20px;
-                margin-top: 3px
+            .trash {
+                width: 30%;
+                border-radius: 4px;
+                border: solid 1px #a4a4a4;
+                border-left: none;
+                height: 100%;
+                .content {
+                    display: flex;
+                    width: 40%;
+                    height: 100%;
+                    margin:0 auto;
+                    align-items: center;
+                    justify-content: space-between;
+                    .count {
+                        font-size: 23px;
+                        font-weight: bold;
+                        font-style: normal;
+                        font-stretch: normal;
+                        line-height: 1.35;
+                        letter-spacing: normal;
+                        text-align: left;
+                        color: #191919;
+                    }
+                    .icon {
+                        color: #000000;
+                        font-size: 27px;
+                    }
+                }
             }
-            .icon {
-                color: #000000;
-                margin: auto;
-                font-size: 27px;
-                margin-left: 21px;
-            }
         }
+        
         .slider {
             width: 70%;
             margin-top: 48px;
@@ -113,13 +118,6 @@
                     font-size: 40px;
                     cursor: pointer;
                 }
-            }
-        }
-        .trash_conteiner {
-            margin-left: 59.9px;
-            margin-top: 10.1px;
-            .i {
-                font-size: 27px;
             }
         }
     }

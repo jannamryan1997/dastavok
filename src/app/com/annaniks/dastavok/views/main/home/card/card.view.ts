@@ -10,7 +10,7 @@ import { Router } from "@angular/router";
 })
 
 export class CardView implements OnInit {
-
+    public loading: boolean = true;
     public cardInfo: Card[];
     public cardGoodsInfo: Array<any>;
     public cardGoodsImage: string;
@@ -20,35 +20,44 @@ export class CardView implements OnInit {
 
     ngOnInit() {
         this._getOrderChard();
+
     }
 
     private _getOrderChard() {
+        this.loading = true;
         this._cardService.getOrderChart()
             .subscribe((data: ServerResponse<Card[]>) => {
+                this.totalSum = 0;
                 this.cardInfo = data.data;
                 for (var i = 0; i < this.cardInfo.length; i++) {
                     this.totalSum = this.totalSum + this.cardInfo[i].totalAmount;
                 }
-                console.log(this.cardInfo);
-                
+                this.loading = false;
             })
+            
     }
 
     byAllEvent(event) {
-        let ordersId:Array<number> = [];
-        for(var i=0; i<this.cardInfo.length;i++){
+        let ordersId: Array<number> = [];
+        for (var i = 0; i < this.cardInfo.length; i++) {
             ordersId.push(this.cardInfo[i].orderId)
         }
-        let queryParams:OrderInfo = {
-            orderType:'basket',
-            orders:ordersId
+        let queryParams: OrderInfo = {
+            orderType: 'basket',
+            orders: ordersId
         }
         this._router.navigate(['/payment'], {
             queryParams: {
-                order:JSON.stringify(queryParams)
+                order: JSON.stringify(queryParams)
             }
         })
-        console.log(ordersId);
+        //   console.log(ordersId);
+    }
+
+    deletedOrder(event) {
+
+        this._getOrderChard()
+
     }
 
 }

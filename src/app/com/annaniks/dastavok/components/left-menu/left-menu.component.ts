@@ -12,7 +12,7 @@ export class LeftMenuComponent implements OnInit {
     constructor() { }
     ngOnInit() {
         for (let i = 1; i < 35; i++) {
-            this.menuItem.push({ label: "Restrant_" + i, routerLink: "/home/restaurant/" + i })
+            this.menuItem.push({ label: "filter_" + i, routerLink: "/home/restaurant/" + i })
         }
     }
 }

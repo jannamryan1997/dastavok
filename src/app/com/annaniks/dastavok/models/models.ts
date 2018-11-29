@@ -38,7 +38,8 @@ export class User {
     userName: string
     verifyCode: number;
     image: string;
-
+    chartOrdersCount:number;
+    
     constructor() {
         this.address = '';
         this.balance = 0;
@@ -56,6 +57,7 @@ export class User {
         this.userName = '';
         this.verifyCode = 0;
         this.image = '';
+        this.chartOrdersCount = 0;
     }
 }
 

@@ -5,7 +5,6 @@ import { map } from "rxjs/operators";
 import { User, ServerResponse, LoginResponse } from "../models/models";
 
 @Injectable()
-
 export class SignUpService {
     public userInfo: User = new User();
     public isAuthorized: boolean = false;

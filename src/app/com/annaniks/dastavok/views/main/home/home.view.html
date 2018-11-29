@@ -19,18 +19,16 @@
                         </i>
                     </div>
                 </div>
-                <div class="trash" display-flex>
-                    <div class="trash_conteiner">
+                <div class="trash">
+                    <div class="content">
                         <i class="material-icons" cursor-pointer>
                             shopping_cart
                         </i>
-                    </div>
-                    <div class="count">({{count}})
-
-                    </div>
-                    <i class="material-icons icon" cursor-pointer routerLink="card">
-                        keyboard_arrow_down
+                        <div class="count">({{signUpService.userInfo.chartOrdersCount}})</div>
+                        <i class="material-icons icon" cursor-pointer routerLink="card">
+                            keyboard_arrow_down
                         </i>
+                    </div>
                 </div>
             </div>
         </div>

@@ -13,7 +13,10 @@ export class IngredientComponent implements OnInit {
 
     constructor() { }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        console.log(this.topping.id,"topping");
+        
+    }
 
     public countadd() {
         if(this.topping.toppingValue==1){

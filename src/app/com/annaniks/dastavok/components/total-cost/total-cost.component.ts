@@ -8,13 +8,21 @@ import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core"
 
 export class TotalCoastComponent implements OnInit {
 
+
+
     @Input() totalAmoutSum: number;
     @Output() byAll = new EventEmitter<boolean>();
 
-    ngOnInit() {}
+    ngOnInit() {
+
+        console.log(this.totalAmoutSum,"total");
+       
+    }
 
     onClickByAll() {
         this.byAll.emit(true);
+       
+        
     }
 
 }

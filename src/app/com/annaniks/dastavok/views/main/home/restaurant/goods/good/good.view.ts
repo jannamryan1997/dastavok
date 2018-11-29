@@ -121,6 +121,17 @@ export class GoodComponent implements OnInit {
 
             }
         }).subscribe((data) => {
+            console.log({
+                companyId: this._companyId,
+                name: "good",
+                good: {
+                    id: this.good.id,
+                    count: this.count,
+                    toppings: briefToppings
+    
+                }
+            },"9086058");
+            
             this._router.navigate(['home/card'])
         })
 

@@ -24,25 +24,25 @@ export class SliderComponent implements OnInit {
     constructor() {
         this.items = [
             {
-                title: "/assets/images/slider.png",
+                title: "/assets/images/slide.jpg",
                 label: "Burger",
                 text: "Contrary to popular beelife"
 
             },
             {
-                title: "/assets/images/slider.png",
+                title: "/assets/images/slide.jpg",
                 label: "Burger",
                 text: "Contrary to popular beelife"
 
             },
             {
-                title: "/assets/images/slider.png",
+                title: "/assets/images/slide.jpg",
                 label: "Burger",
                 text: "Contrary to popular beelife"
 
             },
             {
-                title: "/assets/images/slider.png",
+                title: "/assets/images/slide.jpg",
                 label: "Burger",
                 text: "Contrary to popular beelife"
 

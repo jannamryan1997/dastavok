@@ -1,6 +1,5 @@
 .slider_content {
     margin-top: 48px;
-    margin-left: 30px;
     .slider_container {
         height: 476px;
         background-repeat: no-repeat;
@@ -17,6 +16,7 @@
         width: fit-content;
         height: fit-content;
         user-select: none;
+        margin: auto 0;
         cursor: pointer;
         i {
             font-size: 50px;
@@ -50,6 +50,7 @@
         right: 0;
         bottom: 103.3px;
         margin: auto;
+        cursor: pointer;
     }
     .slider_content {
         margin: 0 auto;

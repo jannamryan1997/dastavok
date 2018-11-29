@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from "@angular/core"
-import { Card, OrderInfo } from "../../models/models";
-import { PaymentService } from "../../views/main/payment/payment.service";
+import { Component, OnInit, Input, Output,EventEmitter } from "@angular/core"
+import { Card, OrderInfo, ServerResponse } from "../../models/models";
 import { Router } from "@angular/router";
+import { CardService } from "../../views/main/home/card/card.service";
+
 
 
 @Component({
@@ -12,20 +13,52 @@ import { Router } from "@angular/router";
 
 export class CardListComponent implements OnInit {
     @Input() cardInfo: Card = {} as Card;
+    @Output() deleted:EventEmitter<boolean>=new EventEmitter();
+    public orderGoodId;
 
+    constructor(private _router: Router, private _cardService: CardService) { }
 
-    constructor(private _router: Router) { }
+    ngOnInit() {
+        for (var i = 0; i < this.cardInfo.goods.length; i++) {
+            this.orderGoodId=(this.cardInfo.goods[i].orderGoodId)
 
-    ngOnInit() { }
+        }
+        
+    }
 
     public navToPayment() {
         let queryParams: OrderInfo = {
             orderType: 'basket',
             orders: [this.cardInfo.orderId]
         }
-        this._router.navigate(['/payment'], { queryParams:
-            {order:JSON.stringify(queryParams)}
-    })
-
+        this._router.navigate(['/payment'], {
+            queryParams:
+                { order: JSON.stringify(queryParams) }
+        })
     }
+
+    public onClickDelete(): void {
+      //  this._deleteOrder();
+    }
+
+   /* private _deleteOrder(): void {
+        this._cardService.deleteOrderChart(this.cardInfo.orderId,this.orderGoodId).subscribe((data) => {
+            console.log(data);
+
+        })
+
+    }*/
+    public deleteAllOrderChart(){
+       this._cardService.deleteItemOrderChart(this.cardInfo.orderId)
+        .subscribe((data)=>{
+        this._deleteChartGood()
+            console.log(data);
+            
+        })
+    }
+
+private _deleteChartGood(){
+    this.deleted.emit(true)
+}
+
 }

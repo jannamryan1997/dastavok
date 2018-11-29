@@ -1,20 +1,18 @@
-.detal_item {
+.detal_item{
     margin-top: 15px;
-    
-    .card_item {
-        margin-top: 29px;
-        .image_item {
-            width: 146.6px;
-            height: 96px;
-            box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-image: url("/assets/images/sezar.jpg")
-        }
-        .card_text_item {
-            margin-left: 55.4px;
-            .item_text {
+    .card_conteiner{
+        .left_item{
+            width: 64%;
+            .image_item{
+                width: 146.6px;
+                height: 96px;
+                box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+              //  background-image: url("/assets/images/sezar.jpg")
+            }
+            .item_text{
                 margin-top: 0px;
                 margin-bottom: 0px;
                 font-size: 15px;
@@ -22,82 +20,66 @@
                 font-stretch: normal;
                 line-height: 1.2;
                 letter-spacing: normal;
-                text-align: left;
                 color: #716b6b;
+                margin: auto;
+                margin-left: 30px;
             }
-            .card_text {
-                width: 301px;
-                font-size: 15px;
+        }
+        .right_item{
+            width: 36%;
+            .price_item{
+            font-size: 25px;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.2;
+            letter-spacing: normal;
+            text-align: left;
+            color: #979797; 
+            }
+            .remove {
+                margin-top: 30px;
+                margin-left: 34px;
+                font-size: 14px;
                 font-weight: normal;
                 font-style: normal;
                 font-stretch: normal;
-                line-height: 1.2;
+                line-height: 1.14;
                 letter-spacing: normal;
                 text-align: left;
-                color: #706f6f;
-                margin-top: 6px;
+                color: #686767;
+            }
+            .quarity_item {
+                margin-top: 30px;
+                font-size: 18px;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.14;
+                letter-spacing: normal;
+                text-align: left;
+                color: #686767;
+                margin-left: 8.1px;
+                margin-right: 8.1px;
                 margin-bottom: 0px;
             }
-        }
-        .price_item {
-            margin-left: 103px;
-            font-size: 25px;
-            font-style: normal;
-            font-stretch: normal;
-            line-height: 1.2;
-            letter-spacing: normal;
-            text-align: left;
-            color: #979797;
-        }
-        .remove {
-            margin-top: 30px;
-            margin-left: 34px;
-            font-size: 14px;
-            font-weight: normal;
-            font-style: normal;
-            font-stretch: normal;
-            line-height: 1.14;
-            letter-spacing: normal;
-            text-align: left;
-            color: #686767;
-        }
-        .quarity_item {
-            margin-top: 30px;
-            font-size: 18px;
-            font-style: normal;
-            font-stretch: normal;
-            line-height: 1.14;
-            letter-spacing: normal;
-            text-align: left;
-            color: #191919;
-            margin-left: 8.1px;
-            margin-right: 8.1px;
-            margin-bottom: 0px;
-        }
-        .add {
-            margin-top: 30px;
-            font-size: 14px;
-            font-weight: normal;
-            font-style: normal;
-            font-stretch: normal;
-            line-height: 1.14;
-            letter-spacing: normal;
-            text-align: left;
-            color: #686767;
-        }
-        .total_item {
-            font-size: 25px;
-            font-style: normal;
-            font-stretch: normal;
-            line-height: 1.2;
-            letter-spacing: normal;
-            text-align: left;
-            color: #979797;
-            margin-left: 64.3px;
-            margin-bottom: 0px;
-            margin-left: 43.3px;
+            .add {
+                margin-top: 30px;
+                font-size: 14px;
+                font-weight: normal;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.14;
+                letter-spacing: normal;
+                text-align: left;
+                color: #686767;
+            }
+            .close{
+                margin-top: 30px;
+                color: #686767;
+                font-size: 30px;
+                cursor: pointer;
+                margin-left: 60px;
+            }
         }
     }
-    
 }
 
