@@ -21,9 +21,10 @@
             <span>SHOP NOW</span>
         </button>
     </div>
+    
     <div *ngSwitchCase="2" class="second_slider">
         <ngx-carousel [inputs]="carouselConfig2">
-            <ngx-item *ngFor="let item of items" NgxCarouselItem style="width:fit-content">
+            <ngx-item *ngFor="let item of items" NgxCarouselItem>
                 
                 <div class="slider_content">
                     <div class="slider_image" [ngStyle]="{'background-image':'url('+item.title+')'}"></div>

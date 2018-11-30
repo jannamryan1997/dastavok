@@ -9,7 +9,6 @@
     margin-top: 18px;
     min-height: 100%;
     .menu_content {
-     
         .menu_item {
             padding-top: 25.5px;
             margin-left: 26.5px;
@@ -22,7 +21,7 @@
             &:last-child {
                 padding-bottom: 46px;
             }
-            .restaurant_name{
+            .restaurant_name {
                 margin-left: 40px;
                 font-size: 15px;
                 font-style: normal;
@@ -30,13 +29,19 @@
                 line-height: 1.33;
                 letter-spacing: normal;
                 text-align: left;
-                color: #c5c5c5; 
+                color: #c5c5c5;
             }
         }
     }
 }
 
-.item_active{
+.item_active {
     background-color: #87bd3c;
- 
+}
+
+@media only screen and (max-width: 900px) {
+    .left-menu {
+        display: none !important;
+        z-index: -1;
+    }
 }

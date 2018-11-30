@@ -1,5 +1,5 @@
 .profile_content {
-    width: 1220px;
+    max-width: 1220px;
     .profile_container {
         margin-top: 143px;
         margin-left: 113px;
@@ -128,42 +128,6 @@
             width: 824px;
             height: 0;
             border: solid 1px #707070;
-        }
-    }
-    .order_content {
-        width: 452px;
-        margin-top: 77.3px;
-        margin-bottom: 197px;
-        .order_data {
-            .icon_content {
-                width: 83.5px;
-                height: 81.3px;
-                i {
-                    font-size: 100px;
-                }
-            }
-            .text {
-                font-family: 'Roboto';
-                font-size: 35px;
-                font-weight: bold;
-                font-style: normal;
-                font-stretch: normal;
-                line-height: 1.2;
-                letter-spacing: normal;
-                text-align: center;
-                color: #444444;
-            }
-            .text_item {
-                font-family: 'Roboto';
-                font-size: 20px;
-                font-weight: normal;
-                font-style: normal;
-                font-stretch: normal;
-                line-height: 1.2;
-                letter-spacing: normal;
-                text-align: center;
-                color: #444444;
-            }
         }
     }
 

@@ -38,8 +38,8 @@ export class User {
     userName: string
     verifyCode: number;
     image: string;
-    chartOrdersCount:number;
-    
+    chartOrdersCount: number;
+
     constructor() {
         this.address = '';
         this.balance = 0;
@@ -193,7 +193,67 @@ interface OrderGood {
     toppings: Array<BriefToppings>
 }
 
-export interface BriefToppings{
-    id:number;
-    toppingValue:number;
+export interface BriefToppings {
+    id: number;
+    toppingValue: number;
+}
+
+export interface OrderHistory {
+    companydata: CompanyData,
+    driverdata: DeliverData,
+    orderdata: OrderData,
+}
+interface CompanyData {
+    address: Address,
+    code: number,
+    companyType: string,
+    confirmed: boolean,
+    createdAt: string,
+    description: string,
+    email: string,
+    id: number,
+    image: string,
+    name: string,
+    password: string,
+    phoneNumber: string,
+    refreshToken: string,
+    updatedAt: string,
+    userName: string,
+    zipCode: number,
+}
+interface DeliverData {
+    coordinate: Coordinate,
+    createdAt: string,
+    externalId: string,
+    firstName: string,
+    id: number,
+    isFree: boolean,
+    lastName: string,
+    phoneNumber: string,
+    updatedAt: string,
+}
+interface Coordinate {
+    lat: number;
+    lng: number;
+}
+
+interface OrderData {
+    address: Address,
+    buyDate: string,
+    clientId: number,
+    comment: string,
+    companyId: number,
+    createdAt: string,
+    dispatcherId: number,
+    driverId: number,
+    driverToClientDate: string,
+    driverToRestaurantDate: string,
+    id: number,
+    name: string,
+    orderCompleteDate: string,
+    orderStartDate: string,
+    reviewId: string
+    status: string,
+    totalAmount: number,
+    updatedAt: string,
 }

@@ -42,18 +42,7 @@
             </app-notification-list>
         </div>
         <div *ngSwitchCase="2">
-
-            <div class="order_content" margin-auto>
-                <div class="order_data">
-                    <div class="icon_content" display-flex margin-auto>
-                        <i class="material-icons">
-                            event_available
-                        </i>
-                    </div>
-                    <p class="text" full-width>Looks like you haven't taken a order yet.</p>
-                    <p class="text_item" margin-auto>Lets make history together.</p>
-                </div>
-            </div>
+<app-order-list><app-order-list-item [orderInfo]="OrderInfo"></app-order-list-item></app-order-list>
         </div>
         
     <div *ngSwitchCase="3">

@@ -7,7 +7,7 @@
         margin-top: 23px;
         width: calc(100% - 287px);
         .choose_bar_container {
-            height: 79px;
+            height: fit-content;
             border: 2px solid #a4a4a4;
             border-radius: 4px;
             -webkit-border-radius: 4px;
@@ -17,6 +17,7 @@
             .choose_bar_item {
                 background-color: #ffffff;
                 width: 33.333333333%;
+                height: 79px;
                 color: black;
                 cursor: pointer;
                 .item_label {
@@ -60,7 +61,7 @@
                     display: flex;
                     width: 40%;
                     height: 100%;
-                    margin:0 auto;
+                    margin: 0 auto;
                     align-items: center;
                     justify-content: space-between;
                     .count {
@@ -80,7 +81,6 @@
                 }
             }
         }
-        
         .slider {
             width: 70%;
             margin-top: 48px;
@@ -141,4 +141,25 @@ input::placeholder {
     margin-top: 12px;
     font-size: 12px;
     padding-left: 51px;
+}
+
+@media only screen and (max-width: 900px) {
+    .container {
+        .logo {
+            display: none;
+            z-index: -1;
+        }
+        .choose_bar{
+            width: 100%;
+            .choose_bar_container{
+                flex-direction: column;
+                .choose_bar_item{
+                    width: 100%;
+                }
+            }
+            .search-content{
+                display: none;
+            }
+        }
+    }
 }

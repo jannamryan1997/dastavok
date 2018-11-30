@@ -8,19 +8,19 @@
             width: 47px;
         }
         .line {
-            margin: auto;
+            margin: auto 0;
             margin-left: 38px;
-            width: 784px;
+            width: calc(100% - 150px);
             height: 0;
             border: solid 2px #c5c3c3;
         }
     }
     .under_line {
-        margin-left: 38px;
-        width: 784px;
+        margin: auto 0;
+        margin-left: 85px;
+        width: calc(100% - 150px);
         height: 0;
         border: solid 2px #c5c3c3;
-        margin: auto;
         margin-top: 55px;
     }
     .bottom_slider {
@@ -44,5 +44,12 @@ app-company-list {
     app-company-list-item {
         margin-top: 46px;
         margin-left: 59px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .container {
+        width: calc(100% - 20px);
+        margin:10px auto;
     }
 }

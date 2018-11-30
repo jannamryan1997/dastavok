@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core"
 import { UserUpdateModal } from "../../../modals/user-update/user-update.modal";
 import { MatDialog } from "@angular/material"
 import { ProfileService } from "./profile.service";
-import { ServerResponse, User } from "../../../models/models";
+import { ServerResponse, User, OrderHistory } from "../../../models/models";
 
 
 @Component({
@@ -13,6 +13,7 @@ import { ServerResponse, User } from "../../../models/models";
 
 export class ProfileView implements OnInit {
 
+    public OrderInfo:OrderHistory;
     public tab: number = 1;
      public clientData:User;
     public items_notification: Array<object> = [
@@ -76,7 +77,9 @@ this._profileService.clientOrderProcessing()
 })
     }
     private _clientOrderDriver(){
-        this._profileService.clientOrderDriver().subscribe((data)=>{
+        this._profileService.clientOrderDriver()
+        .subscribe((data:OrderHistory)=>{
+            this.OrderInfo=data;
             console.log(data);
             
         })

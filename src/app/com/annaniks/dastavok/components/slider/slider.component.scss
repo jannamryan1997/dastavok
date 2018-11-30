@@ -158,11 +158,26 @@
 .second_slider {
     ngx-carousel {
         ngx-item {
-            width: fit-content;
-            margin-left: 66px;
+            //width: fit-content;
+            //margin-left: 66px;
         }
     }
 }
-.rating_star{
+
+.rating_star {
     font-size: 2px;
+}
+
+@media only screen and (max-width: 900px) {
+    .slider_content {
+        //margin-top: 0px;
+        .slider_container {
+            height: 250px !important;
+        }
+        .shop_now {
+            width: 97.7px !important;
+            height: 25.5px !important;
+            font-size: 8px;
+        }
+    }
 }
