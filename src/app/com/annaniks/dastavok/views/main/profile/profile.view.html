@@ -42,12 +42,14 @@
             </app-notification-list>
         </div>
         <div *ngSwitchCase="2">
-<app-order-list><app-order-list-item [orderInfo]="OrderInfo"></app-order-list-item></app-order-list>
+            <app-order-list>
+                <app-order-list-item *ngFor="let item of orderInfo" [orderInfo]="item"></app-order-list-item>
+            </app-order-list>
         </div>
-        
-    <div *ngSwitchCase="3">
-        <app-shipping-addresses-tab></app-shipping-addresses-tab>
-    </div>
+
+        <div *ngSwitchCase="3">
+            <app-shipping-addresses-tab></app-shipping-addresses-tab>
+        </div>
 
     </div>
 

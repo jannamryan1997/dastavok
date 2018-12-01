@@ -144,6 +144,7 @@
                     background: white;
                     z-index: 1;
                     top: 30px;
+                    right: 0;
                     .user_singIn {
                         margin-left: 16px;
                         .user_text {
@@ -217,4 +218,11 @@
         width: 100%;
         display: flex !important;
     }
+}
+@media only screen and (max-width: 1410px) {
+
+    .right-0{
+        right: 0;
+    }
+
 }

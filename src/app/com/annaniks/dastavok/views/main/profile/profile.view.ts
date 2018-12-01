@@ -13,7 +13,7 @@ import { ServerResponse, User, OrderHistory } from "../../../models/models";
 
 export class ProfileView implements OnInit {
 
-    public OrderInfo:OrderHistory;
+    public orderInfo:OrderHistory;
     public tab: number = 1;
      public clientData:User;
     public items_notification: Array<object> = [
@@ -78,8 +78,8 @@ this._profileService.clientOrderProcessing()
     }
     private _clientOrderDriver(){
         this._profileService.clientOrderDriver()
-        .subscribe((data:OrderHistory)=>{
-            this.OrderInfo=data;
+        .subscribe((data:ServerResponse<OrderHistory>)=>{
+            this.orderInfo=data.data;
             console.log(data);
             
         })

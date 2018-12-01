@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core"
+import { OrderHistory } from "../../../models/models";
 
 @Component({
     selector: "app-order-list-item",
@@ -8,10 +9,9 @@ import { Component, OnInit, Input } from "@angular/core"
 
 export class OrderListItemComponent implements OnInit {
 
-    @Input() orderInfo;
+    @Input() orderInfo:OrderHistory;
 
     ngOnInit(){
-        console.log(this.orderInfo,"gfdgv");
         
     }
 

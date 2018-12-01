@@ -1,6 +1,19 @@
 <div class="order_content">
-    <div class="order_info" full-width display-flex>
+    <div class="order_info" full-width>
+        <div class="order_data" display-flex>
         <div class="images"></div>
-        <p class="namr_info" font-family-Roboto></p>
+        <div  class="namr_info" margin-auto >
+                <p font-family-Roboto >{{orderInfo?.companydata.name}}</p>
+                <span  class="description" font-family-Roboto>jtyytjtrjhtrjhtjhtjyjkyj</span>
+               
+        </div>
+        <div class="data"  display-flex>
+                <p font-family-Roboto  margin-auto>{{orderInfo?.companydata.createdAt}}</p>
+        </div>
+       
+        </div>
     </div>
 </div>
+
+
+<!-- {{orderInfo?.companydata.description}} -->
