@@ -25,16 +25,12 @@ export class SlideNawComponent implements OnInit {
         this._menuService.closeMenu();
     }
     public showLanguage() {
-
         this.showLangualeMenu = !this.showLangualeMenu;
-
 
     }
 
- /* public  onClickedOutside(e: Event) {
-    this.showLangualeMenu=false;
-    console.log("gi");
-    
-      }*/
+    public onClickedOutside(e: Event) {
+        this.showLangualeMenu = false;
+    }
 
 }

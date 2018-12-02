@@ -2,33 +2,31 @@
     <div class="slide_naw_content" [ngClass]="{'open':_menuService.isOpen,'close':!_menuService.isOpen}">
         <div class="slide_top" full-width display-flex>
             <div class="conteiner" full-width>
-                <div class="lenguage" display-flex>
+                <div class="lenguage" position-relative display-flex (click)="showLanguage()" (clickOutside)="onClickedOutside($event)">
                     <div display-flex>
                         <div class="flag_img"></div>
                     </div>
 
 
                     <p class="lenguage_name" font-family-Roboto>English</p>
-                    <i class="material-icons" (click)="showLanguage()">
+                    <i class="material-icons" >
                         keyboard_arrow_down
                     </i>
-
-                </div>
-                <!-- [ngClass]="{'showLanguage':showLenguage,'hideLanguage':!showLenguage}" -->
-                <div class="language_menu" position-relative >
-                    <div class="language_menu_content" position-absolute display-flex  [ngClass]="{'showLanguage':showLangualeMenu,'hideLanguage':!showLangualeMenu}">
-                        <div class="language_menu_top" width-75 margin-side-auto >
-                            <div class="language_item" *ngFor="let item of languageItem">
-                                <div  display-flex>
-                                    <div class="flag_img" [ngStyle]="{'background-image':'url('+item.image+')'}"></div>
-                                    <p class="lenguage_name" font-family-Roboto>{{item.name}}</p>
-                                    </div>
-                                    <div class="line" full-width></div>
+                    <div class="language_menu">
+                        <div class="language_menu_content" position-absolute display-flex  [ngClass]="{'showLanguage':showLangualeMenu,'hideLanguage':!showLangualeMenu}">
+                            <div class="language_menu_top" width-75 margin-side-auto >
+                                <div class="language_item" *ngFor="let item of languageItem">
+                                    <div  display-flex>
+                                        <div class="flag_img" [ngStyle]="{'background-image':'url('+item.image+')'}"></div>
+                                        <p class="lenguage_name" font-family-Roboto>{{item.name}}</p>
+                                        </div>
+                                        <div class="line" full-width></div>
+                                </div>
+                            
                             </div>
-                        
                         </div>
+    
                     </div>
-
                 </div>
                 <div class=radius_content width-75 margin-auto>
                         <div class="radius"></div>
