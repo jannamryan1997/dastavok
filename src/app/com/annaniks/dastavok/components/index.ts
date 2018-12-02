@@ -24,6 +24,7 @@ export * from "src/app/com/annaniks/dastavok/components/paginator/paginator.comp
 export * from "src/app/com/annaniks/dastavok/components/good-tabs/description/description.component";
 export * from "src/app/com/annaniks/dastavok/components/good-tabs/reviw/review.component";
 export * from "src/app/com/annaniks/dastavok/components/good-tabs/ingredient/ingredient.component";
-export *from "src/app/com/annaniks/dastavok/components/total-cost/total-cost.component";
-export *from "src/app/com/annaniks/dastavok/components/order-list/order-list.component";
-export *from "src/app/com/annaniks/dastavok/components/order-list/order-list-item/order-list-item.component";
+export * from "src/app/com/annaniks/dastavok/components/total-cost/total-cost.component";
+export * from "src/app/com/annaniks/dastavok/components/order-list/order-list.component";
+export * from "src/app/com/annaniks/dastavok/components/order-list/order-list-item/order-list-item.component";
+export * from "src/app/com/annaniks/dastavok/components/slide-nav/slide-nav.component";

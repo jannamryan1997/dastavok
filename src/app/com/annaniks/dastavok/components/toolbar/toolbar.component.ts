@@ -3,6 +3,7 @@ import { MatDialog } from "@angular/material";
 import { LoginModal, PhoneNumberModal, RegistrationStep } from "../../modals";
 import { SignUpService } from "../../services/signUp.service";
 import { CookieService } from "angular2-cookie/services/cookies.service";
+import { MenuService } from "../../services/menu.service";
 
 
 @Component({
@@ -21,7 +22,7 @@ export class ToolbarComponent implements OnInit {
         {name:'Русский',image:'assets/images/russion.jpg'}
     ]
 
-    constructor(private dialog: MatDialog, public signUpService: SignUpService, private _cookieService: CookieService) { }
+    constructor(private dialog: MatDialog, public signUpService: SignUpService, private _cookieService: CookieService,private _menuService:MenuService) { }
 
     ngOnInit() {
         if (this.signUpService.isAuthorized == true) {
@@ -100,7 +101,9 @@ export class ToolbarComponent implements OnInit {
         window.location.reload();
     }
 
-
+public openMenu(){
+   this._menuService.openMenu()
+}
 
 
 }

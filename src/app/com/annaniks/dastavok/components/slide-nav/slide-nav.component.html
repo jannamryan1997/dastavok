@@ -1,0 +1,70 @@
+<div>
+    <div class="slide_naw_content" [ngClass]="{'open':_menuService.isOpen,'close':!_menuService.isOpen}">
+        <div class="slide_top" full-width display-flex>
+            <div class="conteiner" full-width>
+                <div class="lenguage" display-flex>
+                    <div display-flex>
+                        <div class="flag_img"></div>
+                    </div>
+
+
+                    <p class="lenguage_name" font-family-Roboto>English</p>
+                    <i class="material-icons" (click)="showLanguage()">
+                        keyboard_arrow_down
+                    </i>
+
+                </div>
+                <!-- [ngClass]="{'showLanguage':showLenguage,'hideLanguage':!showLenguage}" -->
+                <div class="language_menu" position-relative >
+                    <div class="language_menu_content" position-absolute display-flex  [ngClass]="{'showLanguage':showLangualeMenu,'hideLanguage':!showLangualeMenu}">
+                        <div class="language_menu_top" width-75 margin-side-auto >
+                            <div class="language_item" *ngFor="let item of languageItem">
+                                <div  display-flex>
+                                    <div class="flag_img" [ngStyle]="{'background-image':'url('+item.image+')'}"></div>
+                                    <p class="lenguage_name" font-family-Roboto>{{item.name}}</p>
+                                    </div>
+                                    <div class="line" full-width></div>
+                            </div>
+                        
+                        </div>
+                    </div>
+
+                </div>
+                <div class=radius_content width-75 margin-auto>
+                        <div class="radius"></div>
+                        <div class="login_signin">
+                            <p class="login_text" font-family-Roboto>login/sign in</p>
+                        </div>
+                </div>
+                
+             
+            </div>
+
+        </div>
+
+        <div class="top_menu" full-width display-flex>
+            <div class="menu_content" width-75 margin-auto>
+                <div display-flex>
+                    <i class="material-icons">
+                        home
+                    </i>
+                    <div display-flex>
+                        <p class="home_text" font-family-Open-Sans margin-auto>HOME</p>
+                    </div>
+
+                </div>
+                <div class="contact_content" display-flex>
+                    <i class="material-icons">
+                        contacts
+                    </i>
+                    <div display-flex>
+                        <p class="contact_text" font-family-Open-Sans margin-auto>CONTACT</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
