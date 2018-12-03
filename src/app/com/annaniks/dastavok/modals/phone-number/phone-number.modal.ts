@@ -5,7 +5,7 @@ import { VerificationModal } from "../verification/verification.modal";
 import { SignUpService } from "../../services/signUp.service";
 import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { PhoneVerification, ServerResponse } from "../../models/models";
-import { DialogData } from "..";
+
 
 @Component({
     selector: "app-phonenumber",

@@ -9,40 +9,53 @@
 
 
                     <p class="lenguage_name" font-family-Roboto>English</p>
-                    <i class="material-icons" >
+                    <i class="material-icons">
                         keyboard_arrow_down
                     </i>
                     <div class="language_menu">
-                        <div class="language_menu_content" position-absolute display-flex  [ngClass]="{'showLanguage':showLangualeMenu,'hideLanguage':!showLangualeMenu}">
-                            <div class="language_menu_top" width-75 margin-side-auto >
+                        <div class="language_menu_content" position-absolute display-flex [ngClass]="{'showLanguage':showLangualeMenu,'hideLanguage':!showLangualeMenu}">
+                            <div class="language_menu_top" width-75 margin-side-auto>
                                 <div class="language_item" *ngFor="let item of languageItem">
-                                    <div  display-flex>
+                                    <div display-flex>
                                         <div class="flag_img" [ngStyle]="{'background-image':'url('+item.image+')'}"></div>
                                         <p class="lenguage_name" font-family-Roboto>{{item.name}}</p>
-                                        </div>
-                                        <div class="line" full-width></div>
+                                    </div>
+                                    <div class="line" full-width></div>
                                 </div>
-                            
+
                             </div>
                         </div>
-    
+
                     </div>
                 </div>
                 <div class=radius_content width-75 margin-auto>
-                        <div class="radius"></div>
-                        <div class="login_signin">
-                            <p class="login_text" font-family-Roboto>login/sign in</p>
-                        </div>
+                    <div class="radius"></div>
                 </div>
-                
-             
+                <div class="login_menu" position-relative (clickOutside)="onClickedOutsideLoginMenu($event)" *ngIf="!signUpService.isAuthorized">
+                    <div class="login_signin" width-75 margin-auto (click)="showLogin()">
+                        <p class="login_text" font-family-Roboto>login/sign in</p>
+                    </div>
+                    <div class="top_login" position-absolute display-flex [ngClass]="{'showLogin':showLoginMenu,'hideLogin':!showLoginMenu}">
+                        <div class="button_item" width-75 margin-auto>
+                            <button class="login_button"><span color-white font-family-Roboto text-align-center (click)="openLoginDialog()">LOGIN</span></button>
+                            <button class="registration_button"><span color-white font-family-Roboto text-align-center
+                                    (click)="openDialogPhoneNumber()"> Registration</span></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="user_data">
+                    <span *ngIf="signUpService.isAuthorized">{{signUpService?.userInfo.fullName}}</span>
+                </div>
+
+
             </div>
 
         </div>
 
         <div class="top_menu" full-width display-flex>
             <div class="menu_content" width-75 margin-auto>
-                <div display-flex>
+                <div display-flex align-items-center>
                     <i class="material-icons">
                         home
                     </i>

@@ -23,7 +23,7 @@ import { SignUpService } from './com/annaniks/dastavok/services/signUp.service';
     HttpClientModule
   ],
   providers: [{
-    provide: 'BASE_URL', useValue: 'http://192.168.0.117:4004/'
+    provide: 'BASE_URL', useValue: 'http://192.168.0.102:3000/'
   },
     CheckToken,
     ApiService,

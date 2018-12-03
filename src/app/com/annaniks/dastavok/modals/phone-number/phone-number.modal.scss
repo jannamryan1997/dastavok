@@ -1,12 +1,4 @@
-.top_content {
-    height: 115px;
-    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-    background-color: #ffffff;
-}
-
 .phone_wrapper {
-    width: 391.3px;
-    margin: 0 auto;
     .input_content {
         margin-top: 86px;
         height: 42px;
@@ -32,6 +24,7 @@
     }
     .buttons_wrapper {
         margin-top: 50px;
+        margin-bottom: 86px;
         height: 42px; //   box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
         //  border: solid 1px #707070;
         .back_button {
@@ -60,4 +53,18 @@
 
 .opacity{
     opacity: 0.5;
+}
+
+
+@media only screen and (max-width: 900px){
+
+
+.back_button{
+width: 110px !important;
+height: 42px !important; 
+}
+.next_button{
+    width: 110px !important;
+    height: 42px !important;
+}
 }

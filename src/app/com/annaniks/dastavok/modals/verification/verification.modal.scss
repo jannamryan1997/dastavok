@@ -5,8 +5,6 @@
         background-color: #ffffff;
     }
     .topbar_content {
-        margin-left: 173px;
-        margin-top: 73px;
         .item_label {
             margin-left: 20.7px;
             width: 68.3px;
@@ -66,11 +64,27 @@
                 letter-spacing: normal;
             }
         }
-        .load{
+        .load {
             width: 64%;
         }
     }
 }
-.opacity{
+
+.opacity {
     opacity: 0.5
+}
+
+@media only screen and (max-width: 900px) {
+    .item_label {
+        width: 46.3px !important;
+        height: 38px !important;
+    }
+    .back_button{
+        width: 110px !important;
+        height: 42px !important; 
+    }
+    .next_button {
+        width: 110px !important;
+        height: 42px !important; 
+    }
 }
