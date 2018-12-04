@@ -29,7 +29,8 @@
                     </div>
                 </div>
                 <div class=radius_content width-75 margin-auto>
-                    <div class="radius"></div>
+                    <div class="radius" *ngIf="!signUpService.isAuthorized"></div>
+                    <div class="img_content" *ngIf="signUpService.isAuthorized"></div>
                 </div>
                 <div class="login_menu" position-relative (clickOutside)="onClickedOutsideLoginMenu($event)" *ngIf="!signUpService.isAuthorized">
                     <div class="login_signin" width-75 margin-auto (click)="showLogin()">
@@ -44,8 +45,8 @@
                     </div>
                 </div>
 
-                <div class="user_data">
-                    <span *ngIf="signUpService.isAuthorized">{{signUpService?.userInfo.fullName}}</span>
+                <div class="user_data" *ngIf="signUpService.isAuthorized" width-75 margin-auto>
+                    <p>{{signUpService?.userInfo.fullName}}</p>
                 </div>
 
 

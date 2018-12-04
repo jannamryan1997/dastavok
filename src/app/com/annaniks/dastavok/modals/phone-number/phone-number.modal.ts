@@ -14,7 +14,7 @@ import { PhoneVerification, ServerResponse } from "../../models/models";
 })
 
 export class PhoneNumberModal implements OnInit {
-public loading:boolean=false;
+    public loading: boolean = false;
     public phoneNumberForm: FormGroup;
 
     constructor(@Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<PhoneNumberModal>, public dialog: MatDialog, private signUpService: SignUpService, private cookieService: CookieService) { }
@@ -37,8 +37,8 @@ public loading:boolean=false;
     public openVerificationModal(key: string): void {
         const dialogRef = this.dialog.open(VerificationModal, {
             width: "686px",
-            height: "444px",
-            panelClass: ['no-padding'],
+            maxWidth: "100vw",
+            panelClass: ['margin-10'],
             data: {
                 phone: this.phoneNumberForm.value.phonenumber,
                 key: key
@@ -50,7 +50,7 @@ public loading:boolean=false;
     }
 
     postPhoneNumber() {
-        this.loading=true;
+        this.loading = true;
         this.phoneNumberForm.disable();
         if (this.data.key == "registration") {
 
@@ -61,8 +61,10 @@ public loading:boolean=false;
                 this.openVerificationModal('registration');
             }),
                 err => {
+                    this.loading=false;
+                    this.phoneNumberForm.enable();
                     console.log(err);
-}
+                }
         }
         if (this.data.key === 'forgot_password') {
 
@@ -70,12 +72,14 @@ public loading:boolean=false;
             this.signUpService.forgetPasswordPhoneNumber({
                 "phoneNumber": this.phoneNumberForm.value.phonenumber
             }).subscribe((data: ServerResponse<PhoneVerification>) => {
-                this.loading=false;
+                this.loading = false;
                 this.cookieService.put('forgot_token', data.data.token)
                 this.openVerificationModal('forgot_password');
                 this.phoneNumberForm.enable();
             },
                 err => {
+                    this.loading=false;
+                    this.phoneNumberForm.enable();
                     console.log(err);
 
                 })

@@ -51,20 +51,20 @@
     }
 }
 
-.opacity{
+.opacity {
     opacity: 0.5;
 }
 
-
-@media only screen and (max-width: 900px){
-
-
-.back_button{
-width: 110px !important;
-height: 42px !important; 
-}
-.next_button{
-    width: 110px !important;
-    height: 42px !important;
-}
+@media only screen and (max-width: 900px) {
+    :host::ng-deep .cdk-overlay-panel{
+        max-width: 100vw;
+    }
+    .back_button {
+        width: 110px !important;
+        height: 42px !important;
+    }
+    .next_button {
+        width: 110px !important;
+        height: 42px !important;
+    }
 }

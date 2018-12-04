@@ -1,6 +1,6 @@
 .topbar_wrapper {
+    padding: 100px;
     .top_content {
-        height: 115px;
         box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
         background-color: #ffffff;
     }
@@ -21,7 +21,6 @@
             margin-top: 10px;
             width: 186px;
             height: 16px;
-            font-family: SegoeUI;
             font-size: 12px;
             font-weight: bold;
             font-style: normal;
@@ -86,5 +85,12 @@
     .next_button {
         width: 110px !important;
         height: 42px !important; 
+    }
+    .topbar_wrapper{
+        margin: 100px 25px;
+        padding: 0px;
+    }
+    .topbar_content{
+        width: 100%;
     }
 }

@@ -68,15 +68,16 @@ export class VerificationModal implements OnInit {
     public openSignUpModalModal(): void {
         const dialoRef = this.dialog.open(SignUpModal, {
             width: "686px",
-            height: "631.1px",
-            panelClass: ['no-padding']
+            maxWidth:'100vw',
+            panelClass:['margin-10'],
+         
         })
     }
     public openNewPasswordModal(): void {
         const dialoRef = this.dialog.open(NewPasswordModals, {
             width: "686px",
-            height: "444px",
-            panelClass: ['no-padding']
+            maxWidth:'100vw',
+            panelClass:['margin-10'],
         })
     }
     postVerification() {

@@ -1,9 +1,9 @@
-import { Component, OnInit } from "@angular/core"
+import { Component, OnInit, HostListener } from "@angular/core"
 import { MenuService } from "../../services/menu.service";
 import { MatDialog } from "@angular/material";
 import { LoginModal, PhoneNumberModal } from "../../modals";
 import { SignUpService } from "../../services/signUp.service";
-import { ServerResponse, User } from "../../models/models";
+
 
 
 @Component({
@@ -13,7 +13,12 @@ import { ServerResponse, User } from "../../models/models";
 })
 
 export class SlideNawComponent implements OnInit {
-
+    @HostListener('window:resize',['$event'])
+    onresize($event){
+        if(window.innerWidth>900 && this._menuService.isOpen){
+            this._menuService.closeMenu();
+        }
+    }
     public showLangualeMenu: boolean = false;
     public showLoginMenu: boolean = false;
     public languageItem: Array<any> = [
@@ -51,14 +56,20 @@ export class SlideNawComponent implements OnInit {
 
     public openLoginDialog(): void {
         const dialogRef = this.dialog.open(LoginModal, {
-            width: " 354px",
-            height: " 291px",
+            width: "686px",
+            maxWidth:'100vw',
+            panelClass:['margin-10'],
         })
     }
-    public openDialogPhoneNumber(): void {
+    public openDialogPhoneNumber(key: string): void {
         const dialogRef = this.dialog.open(PhoneNumberModal, {
-            width: " 354px",
-            height: " 291px",
+            width: "686px",
+            maxWidth:'100vw',
+            panelClass:['margin-10'],
+            data: {
+               // phone: this.phoneNumberForm.value.phonenumber,
+                key: 'registration'
+            }
         })
     }
 

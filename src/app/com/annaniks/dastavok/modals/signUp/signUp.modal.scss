@@ -72,3 +72,24 @@ input::placeholder {
 .opacity {
     opacity: 0.5;
 }
+
+@media only screen and (max-width: 900px) {
+    :host::ng-deep .cdk-overlay-panel{
+        max-width: 100vw;
+    }
+    .item_label {
+        width: 46.3px !important;
+        height: 38px !important;
+    }
+    .button_items{
+        margin-top:45px !important;
+    }
+    .back_button{
+        width: 110px !important;
+        height: 42px !important; 
+    }
+    .next_button {
+        width: 110px !important;
+        height: 42px !important; 
+    }
+}
