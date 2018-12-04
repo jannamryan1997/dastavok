@@ -28,25 +28,36 @@
 
                     </div>
                 </div>
-                <div class=radius_content width-75 margin-auto>
-                    <div class="radius" *ngIf="!signUpService.isAuthorized"></div>
-                    <div class="img_content" *ngIf="signUpService.isAuthorized"></div>
+                <div class=radius_content width-75 margin-auto display-flex>
+                    <div class="radius" *ngIf="signUpService.isAuthorized"></div>
+                    <div class="img_content" *ngIf="!signUpService.isAuthorized"></div>
+                    <p class="user_name" color-white font-weight-bold font-family-Open-Sans>George Washington </p>
+                    <!-- <div class="user_data" *ngIf="!signUpService.isAuthorized" width-75 margin-auto>
+                  <p>{{signUpService?.userInfo.fullName}}</p> 
+                  
+                </div> -->
                 </div>
-                <div class="login_menu" position-relative (clickOutside)="onClickedOutsideLoginMenu($event)" *ngIf="!signUpService.isAuthorized">
+                <div class="login_menu" position-relative (clickOutside)="onClickedOutsideLoginMenu($event)" *ngIf="signUpService.isAuthorized">
                     <div class="login_signin" width-75 margin-auto (click)="showLogin()">
                         <p class="login_text" font-family-Roboto>login/sign in</p>
                     </div>
                     <div class="top_login" position-absolute display-flex [ngClass]="{'showLogin':showLoginMenu,'hideLogin':!showLoginMenu}">
                         <div class="button_item" width-75 margin-auto>
-                            <button class="login_button"><span color-white font-family-Roboto text-align-center (click)="openLoginDialog()">LOGIN</span></button>
-                            <button class="registration_button"><span color-white font-family-Roboto text-align-center
-                                    (click)="openDialogPhoneNumber()"> Registration</span></button>
+                            <button class="login_button">
+                                <span color-white font-family-Roboto text-align-center (click)="openLoginDialog()">LOGIN</span>
+                            </button>
+                            <button class="registration_button">
+                                <span color-white font-family-Roboto text-align-center (click)="openDialogPhoneNumber()"> Registration</span>
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="user_data" *ngIf="signUpService.isAuthorized" width-75 margin-auto>
-                    <p>{{signUpService?.userInfo.fullName}}</p>
+                <div class="sign_up" *ngIf="!signUpService.isAuthorized" width-75 margin-auto display-flex>
+                    <i class="material-icons">
+                        exit_to_app
+                    </i>
+                    <p class="sign_up_text" font-family-Roboto>sign up</p>
                 </div>
 
 
@@ -56,7 +67,7 @@
 
         <div class="top_menu" full-width display-flex>
             <div class="menu_content" width-75 margin-auto>
-                <div display-flex align-items-center>
+                <div display-flex align-items-center routerLink="/home">
                     <i class="material-icons">
                         home
                     </i>
@@ -65,7 +76,7 @@
                     </div>
 
                 </div>
-                <div class="contact_content" display-flex>
+                <div class="contact_content" display-flex routerLink="/contact">
                     <i class="material-icons">
                         contacts
                     </i>

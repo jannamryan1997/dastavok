@@ -5,18 +5,21 @@ import {Injectable} from "@angular/core";
 export class MenuService{
 
     public isOpen:boolean;
-
+body=document.getElementById('body')
 
 public openMenu(){
 this.isOpen=true;
-console.log(this.isOpen);
+this.body.style.overflowY="hidden";
+console.log(this.body)
+
 
 
 }
 
 public closeMenu(){
-    this.isOpen=false;
-    console.log(this.isOpen,"close");
+    this.isOpen=false; 
+    this.body.style.overflowY="auto";
+    console.log(this.body);
     
 }
 

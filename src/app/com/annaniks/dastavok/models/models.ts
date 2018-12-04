@@ -1,6 +1,6 @@
 export interface MenuItem {
     label: string,
-    routerLink: string
+    routerLink: string;
 }
 
 export interface ServerResponse<T> {

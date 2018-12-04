@@ -4,8 +4,6 @@ import { MatDialog } from "@angular/material";
 import { LoginModal, PhoneNumberModal } from "../../modals";
 import { SignUpService } from "../../services/signUp.service";
 
-
-
 @Component({
     selector: "app-slide-nav",
     templateUrl: "slide-nav.component.html",

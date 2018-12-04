@@ -95,6 +95,18 @@
                 background-size: cover;
                 background-image: url('/assets/images/user.png')
             }
+            .user_name{
+                width: 129px;
+                font-size: 20px;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.35;
+                letter-spacing: normal;
+                text-align: left;  
+               display: block;
+                word-wrap:break-word;
+                margin-bottom: 0px;
+            }
             .login_menu {
                 .login_text {
                     font-size: 20px;
@@ -148,6 +160,27 @@
                         }
                     }
                 }
+            }
+           .sign_up {
+            margin-top: 19px;
+                font-size: 20px;
+                font-weight: normal;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.2;
+                letter-spacing: normal;
+                text-align: left;
+                color: #191919;
+                i{
+                    color: #191919;
+                    font-size: 20px;
+                }
+                .sign_up_text{
+                 margin-top: 0px;
+                margin-bottom: 0px;
+                }
+
+                
             }
         }
     }
