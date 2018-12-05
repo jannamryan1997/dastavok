@@ -28,3 +28,4 @@ export * from "src/app/com/annaniks/dastavok/components/total-cost/total-cost.co
 export * from "src/app/com/annaniks/dastavok/components/order-list/order-list.component";
 export * from "src/app/com/annaniks/dastavok/components/order-list/order-list-item/order-list-item.component";
 export * from "src/app/com/annaniks/dastavok/components/slide-nav/slide-nav.component";
+export *from "src/app/com/annaniks/dastavok/components/filters-list/filters-list.component";

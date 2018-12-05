@@ -5,21 +5,34 @@ import { Injectable } from "@angular/core";
 export class MenuService {
 
     public isOpen: boolean;
-    body = document.getElementById('body')
+    public isOpenFilter: boolean;
+    body;
+
+    constructor() {
+        this.body = document.getElementById('body');
+    }
 
     public openMenu() {
         this.isOpen = true;
+        this.isOpenFilter = false;
+        console.log(this.body.style.overflowY);
         this.body.style.overflowY = "hidden";
-        console.log(this.body)
-
-
-
     }
 
     public closeMenu() {
         this.isOpen = false;
         this.body.style.overflowY = "auto";
-        console.log(this.body);
+    }
+
+    public openFitersMenu() {
+        this.isOpenFilter = true;
+        this.isOpen = false;
+
+    }
+
+    public closeFiltersMenu() {
+        this.isOpenFilter = false;
+
 
     }
 

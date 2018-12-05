@@ -1,5 +1,5 @@
 import { NgModule } from "@angular/core"
-import { TopbarComponent, ToolbarComponent, LoadingComponent,RatingComponent, PaginatorComponent,SlideNawComponent } from "../components";
+import { TopbarComponent, ToolbarComponent, LoadingComponent,RatingComponent, PaginatorComponent,SlideNawComponent, FiltersListComponent } from "../components";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router"
 import {MatDialogModule} from '@angular/material/dialog';
@@ -12,9 +12,9 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 @NgModule({
     entryComponents:[],
-    declarations: [TopbarComponent,ToolbarComponent,LoadingComponent,RatingComponent,PaginatorComponent,SlideNawComponent],
+    declarations: [TopbarComponent,ToolbarComponent,LoadingComponent,RatingComponent,PaginatorComponent,SlideNawComponent,FiltersListComponent],
     imports: [CommonModule, RouterModule,MatDialogModule,FormsModule,ReactiveFormsModule,ClickOutsideModule,ProgressSpinnerModule],
-    exports: [TopbarComponent, CommonModule,FormsModule,ReactiveFormsModule,ToolbarComponent,RatingComponent,ClickOutsideModule,LoadingComponent,PaginatorComponent,SlideNawComponent],
+    exports: [TopbarComponent, CommonModule,FormsModule,ReactiveFormsModule,ToolbarComponent,RatingComponent,ClickOutsideModule,LoadingComponent,PaginatorComponent,SlideNawComponent,FiltersListComponent],
     providers:[]
 })
 

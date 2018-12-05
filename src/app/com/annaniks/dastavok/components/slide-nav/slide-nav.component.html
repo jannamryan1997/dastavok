@@ -52,7 +52,7 @@
                     </div>
                 </div>
 
-                <div class="sign_up" *ngIf="signUpService.isAuthorized" width-75 margin-auto display-flex>
+                <div class="sign_up" *ngIf="signUpService.isAuthorized" width-75 margin-auto display-flex (click)="logOut()">
                     <i class="material-icons">
                         exit_to_app
                     </i>

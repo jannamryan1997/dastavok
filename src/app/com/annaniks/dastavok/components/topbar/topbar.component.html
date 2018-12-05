@@ -6,12 +6,17 @@
             <p class="item_label" font-weight-bold margin-auto font-family-Open-Sans>{{item.label}}</p>
         </div>
     </div>
-    <div class="topbar_middle">
+    <div class="topbar_middle" (clickOutside)="onClickedOutside($event)"> 
         <div display-flex class="container">
+            <i class="material-icons icon_shopping" margin-auto (click)="openFiltersMenu()">
+                near_me
+            </i>
             <i class="material-icons icon_shopping" margin-auto>
                 shopping_cart
             </i>
         </div>
 
+       <app-filters-list></app-filters-list>
     </div>
+    
 </div>

@@ -4,6 +4,7 @@ import { MatDialog } from "@angular/material";
 import { LoginModal, PhoneNumberModal } from "../../modals";
 import { SignUpService } from "../../services/signUp.service";
 import { Router } from "@angular/router";
+import { CookieService } from "angular2-cookie/services/cookies.service";
 
 @Component({
     selector: "app-slide-nav",
@@ -26,7 +27,7 @@ export class SlideNawComponent implements OnInit {
 
     ]
 
-    constructor(private _menuService: MenuService, private dialog: MatDialog, public signUpService: SignUpService, private roter: Router) { }
+    constructor(private _menuService: MenuService, private dialog: MatDialog, public signUpService: SignUpService, private roter: Router, private _cookieService: CookieService) { }
 
     ngOnInit() {
         this._getUserInfo();
@@ -81,5 +82,12 @@ export class SlideNawComponent implements OnInit {
         this.roter.navigate([route])
     }
 
-  
+    public logOut() {
+        this._cookieService.remove('refreshToken');
+        this._cookieService.remove('token');
+        this._menuService.closeMenu();
+        this.roter.navigate(['/home'])
+    }
+
+
 }
