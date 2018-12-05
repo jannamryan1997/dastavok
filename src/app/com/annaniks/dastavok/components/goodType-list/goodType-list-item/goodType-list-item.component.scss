@@ -1,6 +1,6 @@
 .menu_content {
     margin-top: 69.4px;
-    width: 737px;
+    width: 100%;
     cursor: pointer;
     .line-count {
         height: 0;
@@ -8,7 +8,7 @@
         margin-top: 34.4px;
     }
     .meal_content {
-        width: 685.5px;
+        width: calc(100% - 52px);
         margin-top: 34.4px;
         box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23); 
         background-color: #ffffff;
