@@ -5,6 +5,7 @@ import { Component, OnInit } from "@angular/core"
     template: `<div display-flex flex-direction-column>
                 <ng-content></ng-content>
                </div>`,
+    styles:[]
 
 })
 export class GoodTypeList implements OnInit {

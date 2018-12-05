@@ -1,6 +1,6 @@
-.salads_content {
+.goods_content {
     margin-top: 15.6px;
-    .salads_main {
+    .goods_main {
         height: 257.6px;
         border-radius: 4px;
         box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
@@ -9,5 +9,18 @@
         background-repeat: no-repeat;
         background-position: center;
     }
+    app-goods-list-item{
+        width: 50%;
+        min-width: fit-content;
+    }
    
+}
+
+@media only screen and (max-width: 900px) {
+    .goods_content{
+        margin:10px 21px !important;
+    }
+    app-goods-list-item{
+        width: 100% !important;
+    }
 }
