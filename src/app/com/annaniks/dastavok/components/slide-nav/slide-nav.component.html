@@ -29,15 +29,14 @@
                     </div>
                 </div>
                 <div class=radius_content width-75 margin-auto display-flex>
-                    <div class="radius" *ngIf="signUpService.isAuthorized"></div>
-                    <div class="img_content" *ngIf="!signUpService.isAuthorized"></div>
-                    <p class="user_name" color-white font-weight-bold font-family-Open-Sans>George Washington </p>
-                    <!-- <div class="user_data" *ngIf="!signUpService.isAuthorized" width-75 margin-auto>
-                  <p>{{signUpService?.userInfo.fullName}}</p> 
+                    <div class="radius" *ngIf="!signUpService.isAuthorized"></div>
+                    <div class="img_content" *ngIf="signUpService.isAuthorized"></div>
+                   <div class="user_name" *ngIf="signUpService.isAuthorized" width-75 margin-auto>
+                  <p color-white  font-family-Roboto>{{signUpService?.userInfo.fullName}}</p> 
                   
-                </div> -->
+                </div> 
                 </div>
-                <div class="login_menu" position-relative (clickOutside)="onClickedOutsideLoginMenu($event)" *ngIf="signUpService.isAuthorized">
+                <div class="login_menu" position-relative (clickOutside)="onClickedOutsideLoginMenu($event)" *ngIf="!signUpService.isAuthorized">
                     <div class="login_signin" width-75 margin-auto (click)="showLogin()">
                         <p class="login_text" font-family-Roboto>login/sign in</p>
                     </div>
@@ -53,7 +52,7 @@
                     </div>
                 </div>
 
-                <div class="sign_up" *ngIf="!signUpService.isAuthorized" width-75 margin-auto display-flex>
+                <div class="sign_up" *ngIf="signUpService.isAuthorized" width-75 margin-auto display-flex>
                     <i class="material-icons">
                         exit_to_app
                     </i>
@@ -67,7 +66,7 @@
 
         <div class="top_menu" full-width display-flex>
             <div class="menu_content" width-75 margin-auto>
-                <div display-flex align-items-center routerLink="/home">
+                <div display-flex align-items-center (click)="navToPage('/home')">
                     <i class="material-icons">
                         home
                     </i>
@@ -76,7 +75,7 @@
                     </div>
 
                 </div>
-                <div class="contact_content" display-flex routerLink="/contact">
+                <div class="contact_content" display-flex (click)="navToPage('/contact')">
                     <i class="material-icons">
                         contacts
                     </i>

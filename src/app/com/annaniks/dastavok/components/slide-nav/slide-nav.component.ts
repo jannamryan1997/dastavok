@@ -3,6 +3,7 @@ import { MenuService } from "../../services/menu.service";
 import { MatDialog } from "@angular/material";
 import { LoginModal, PhoneNumberModal } from "../../modals";
 import { SignUpService } from "../../services/signUp.service";
+import { Router } from "@angular/router";
 
 @Component({
     selector: "app-slide-nav",
@@ -11,9 +12,9 @@ import { SignUpService } from "../../services/signUp.service";
 })
 
 export class SlideNawComponent implements OnInit {
-    @HostListener('window:resize',['$event'])
-    onresize($event){
-        if(window.innerWidth>900 && this._menuService.isOpen){
+    @HostListener('window:resize', ['$event'])
+    onresize($event) {
+        if (window.innerWidth > 900 && this._menuService.isOpen) {
             this._menuService.closeMenu();
         }
     }
@@ -25,10 +26,10 @@ export class SlideNawComponent implements OnInit {
 
     ]
 
-    constructor(private _menuService: MenuService, private dialog: MatDialog, public signUpService: SignUpService) { }
+    constructor(private _menuService: MenuService, private dialog: MatDialog, public signUpService: SignUpService, private roter: Router) { }
 
     ngOnInit() {
-     this._getUserInfo();
+        this._getUserInfo();
     }
 
 
@@ -55,17 +56,17 @@ export class SlideNawComponent implements OnInit {
     public openLoginDialog(): void {
         const dialogRef = this.dialog.open(LoginModal, {
             width: "686px",
-            maxWidth:'100vw',
-            panelClass:['margin-10'],
+            maxWidth: '100vw',
+            panelClass: ['margin-10'],
         })
     }
     public openDialogPhoneNumber(key: string): void {
         const dialogRef = this.dialog.open(PhoneNumberModal, {
             width: "686px",
-            maxWidth:'100vw',
-            panelClass:['margin-10'],
+            maxWidth: '100vw',
+            panelClass: ['margin-10'],
             data: {
-               // phone: this.phoneNumberForm.value.phonenumber,
+                // phone: this.phoneNumberForm.value.phonenumber,
                 key: 'registration'
             }
         })
@@ -74,5 +75,11 @@ export class SlideNawComponent implements OnInit {
 
     private _getUserInfo() {
         this.signUpService.getUserInfo().subscribe();
-}
+    }
+    public navToPage(route: string) {
+        this._menuService.closeMenu();
+        this.roter.navigate([route])
+    }
+
+  
 }
