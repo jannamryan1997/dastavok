@@ -1,6 +1,4 @@
 .contact_conteiner {
-    height: 1364px;
-  //  background-color: #ffffff;
     .left_content {
         margin-left: 97px;
         width: 50%;
@@ -249,4 +247,21 @@ textarea::placeholder {
 }
 .disable{
     opacity:0.5
+}
+
+@media only screen and (max-width: 900px) {
+    .contact_conteiner{
+        flex-direction: column;
+        margin:0 21px;
+    }
+
+    .right_content{
+        width: 100% !important;
+        margin-left:0 !important;
+    }
+
+    .left_content{
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
 }
