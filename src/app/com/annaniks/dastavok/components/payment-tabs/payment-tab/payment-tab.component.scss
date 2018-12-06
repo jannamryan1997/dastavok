@@ -1,5 +1,5 @@
 .payment_content {
-    width: 994px;
+    // width: 994px;
     margin-top: 72px;
     .payment_data {
         width: 303px;
@@ -100,7 +100,6 @@
                     text-align: left;
                     color: #444444;
                     margin-left: 42px;
-                 
                 }
             }
         }
@@ -152,7 +151,7 @@
         }
     }
     .line {
-        width: 994px;
+        // width: 994px;
         height: 0;
         border: solid 1px grey;
         margin-top: 68px;
@@ -195,7 +194,7 @@
     }
     .input_form {
         .form_group_item {
-            width: 489px;
+            //  width: 489px;
         }
         .form_group {
             margin-top: 25px;
@@ -211,7 +210,7 @@
             color: #444444;
         }
         .input_card_number {
-            width: 489px;
+            //width: 489px;
             height: 42px;
             border-radius: 4px;
             box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
@@ -258,7 +257,7 @@
             margin-bottom: 0px;
         }
         .line_content {
-            width: 994px;
+            //width: 994px;
             height: 0;
             border: solid 1px grey;
             margin-top: 54px;
@@ -281,5 +280,20 @@
                 cursor: pointer;
             }
         }
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .input_card_varieble {
+        width: 125px !important;
+    }
+    .input_card_security {
+        width: 125px !important;
+    }
+    .input_card_cardowner {
+        width: 125px !important;
+    }
+     .item {
+        height: 40px !important;
     }
 }
