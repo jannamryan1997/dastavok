@@ -27,12 +27,19 @@ export class MenuService {
     public openFitersMenu() {
         this.isOpenFilter = true;
         this.isOpen = false;
+        if(this.isOpenFilter==true){
+            this.body.style.overflowY = "hidden";
+        }
+    
+      
 
     }
 
     public closeFiltersMenu() {
         this.isOpenFilter = false;
-
+        if(this.isOpenFilter==false){
+            this.body.style.overflowY = "scroll";
+        }
 
     }
 

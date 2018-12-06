@@ -13,7 +13,7 @@ export class FiltersListComponent implements OnInit {
     public menuItem: Array<object> = [];
     public showFiltersMenu: boolean = false;
     public arry: Array<any> = [];
-    public displayValue: string;
+    public displayValue: boolean;
 
 
     constructor(public menuService: MenuService, private router: Router) { }
@@ -26,16 +26,14 @@ export class FiltersListComponent implements OnInit {
 
     public routerRestaurant(item) {
         this.arry.push(item.label);
-        //this.menuService.closeFiltersMenu();
-        //this.setDisplayValue();
-        if (item.checked) {
-            this.router.navigate([], { queryParams: { filter: JSON.stringify(this.arry) } })
-        }
-
+    
+        this.menuService.closeFiltersMenu();
+        this.setDisplayValue();
+        this.router.navigate(['/home/information'], { queryParams: { filter: JSON.stringify(item) } })
+        // if (item.checked) {
+        //     this.router.navigate(["/contact"], { queryParams: { filter: JSON.stringify(item) } })
+        // }
     }
-
     public setDisplayValue() {
-        console.log(event);
-
     }
 }

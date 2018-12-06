@@ -3,9 +3,9 @@
                 <div class="left-menu" display-flex>
 
                         <div class="menu_content" width-75>
-                                <div class="menu_item" color-white *ngFor="let item of menuItem;let ind=index" (click)="routerRestaurant()">
+                                <div class="menu_item" color-white *ngFor="let item of menuItem;let ind=index" (click)="routerRestaurant(ind)">
                                         <div routerLinkActive="item_active" full-width display-flex>
-                                                <input type="checkbox" class="checkbox" name="scales"   [checked]="true" (click)="setDisplayValue($event.target.checked)">
+                                                <input type="checkbox" class="checkbox" name="scales"   [checked]="displayValue" (click)="setDisplayValue($event.target.checked)">
                                                 <span class="restaurant_name" font-weight-bold font-family-Open-Sans>{{item.label}}</span>
 
                                         </div>

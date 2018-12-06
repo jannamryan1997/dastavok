@@ -1,26 +1,21 @@
 .topbar_wrapper {
-    padding: 100px;
-    .top_content {
-        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-        background-color: #ffffff;
-    }
+    height: 444px;
     .topbar_content {
-        .item_label {
-            margin-left: 20.7px;
-            width: 68.3px;
-            height: 42px;
-            border-radius: 4px;
-            box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-            border: solid 1px #707070;
-            background-color: #ffffff;
-            &:first-child {
-                margin-left: 0px;
+        .item {
+            .item_label {
+                width: 68.3px;
+                height: 42px;
+                border-radius: 4px;
+                box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+                border: solid 1px #707070;
+                background-color: #ffffff;
+                margin-left: 20.7px;
+                &:first-child {
+                    margin-left: 0px;
+                }
             }
         }
         .text_content {
-            margin-top: 10px;
-            width: 186px;
-            height: 16px;
             font-size: 12px;
             font-weight: bold;
             font-style: normal;
@@ -29,9 +24,11 @@
             letter-spacing: normal;
             text-align: left;
             color: #aeaeae;
+            justify-content: flex-end;
+            margin-top: 10px;
         }
-        .buttons_wrapper {
-            margin-top: 50px;
+        .button_item {
+            margin: 55px auto 0 auto;
             .back_button {
                 display: inline-block;
                 cursor: pointer;
@@ -63,34 +60,11 @@
                 letter-spacing: normal;
             }
         }
-        .load {
-            width: 64%;
-        }
     }
-}
-
-.opacity {
-    opacity: 0.5
 }
 
 @media only screen and (max-width: 900px) {
-    .item_label {
-        width: 46.3px !important;
-        height: 38px !important;
-    }
-    .back_button{
-        width: 110px !important;
-        height: 42px !important; 
-    }
-    .next_button {
-        width: 110px !important;
-        height: 42px !important; 
-    }
-    .topbar_wrapper{
-        margin: 100px 25px;
-        padding: 0px;
-    }
-    .topbar_content{
-        width: 100%;
-    }
+   .item_label{
+       width: 55.3px !important;
+   }
 }

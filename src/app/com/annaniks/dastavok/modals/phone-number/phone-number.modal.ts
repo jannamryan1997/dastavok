@@ -37,7 +37,7 @@ export class PhoneNumberModal implements OnInit {
     public openVerificationModal(key: string): void {
         const dialogRef = this.dialog.open(VerificationModal, {
             width: "686px",
-            maxWidth: "100vw",
+            maxWidth: '100vw',
             panelClass: ['margin-10'],
             data: {
                 phone: this.phoneNumberForm.value.phonenumber,
@@ -56,36 +56,33 @@ export class PhoneNumberModal implements OnInit {
 
             this.signUpService.clientPhoneNumber({
                 "phoneNumber": this.phoneNumberForm.value.phonenumber
-            }).subscribe((data: ServerResponse<PhoneVerification>) => {
-                this.cookieService.put('phone_token', data.data.token);
-                this.openVerificationModal('registration');
-            }),
-                err => {
-                    this.loading=false;
+            }).subscribe(
+                (data: ServerResponse<PhoneVerification>) => {
+                    this.cookieService.put('phone_token', data.data.token);
+                    this.openVerificationModal('registration');
+                },
+                (error) => {
+                    this.loading = false;
                     this.phoneNumberForm.enable();
-                    console.log(err);
-                }
-        }
-        if (this.data.key === 'forgot_password') {
-
-
-            this.signUpService.forgetPasswordPhoneNumber({
-                "phoneNumber": this.phoneNumberForm.value.phonenumber
-            }).subscribe((data: ServerResponse<PhoneVerification>) => {
-                this.loading = false;
-                this.cookieService.put('forgot_token', data.data.token)
-                this.openVerificationModal('forgot_password');
-                this.phoneNumberForm.enable();
-            },
-                err => {
-                    this.loading=false;
-                    this.phoneNumberForm.enable();
-                    console.log(err);
-
                 })
-        }
-    }
 
+            if (this.data.key === 'forgot_password') {
+                this.signUpService.forgetPasswordPhoneNumber({
+                    "phoneNumber": this.phoneNumberForm.value.phonenumber
+                }).subscribe((data: ServerResponse<PhoneVerification>) => {
+                    this.loading = false;
+                    this.cookieService.put('forgot_token', data.data.token)
+                    this.openVerificationModal('forgot_password');
+                    this.phoneNumberForm.enable();
+                },
+                    err => {
+                        this.loading = false;
+                        this.phoneNumberForm.enable();
+                    })
+            }
+        }
+
+    }
 }
 
 

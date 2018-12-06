@@ -1,26 +1,20 @@
-<div class="topbar_wrapper" full-width  display-flex>
-    <div class="topbar_content" margin-auto width-75   display-flex>
+<div class="topbar_wrapper" full-width display-flex>
+    <div class="topbar_content" margin-auto>
         <form [formGroup]="verificationForm">
-            <div class="items" margin-auto>
-
+            <div class="item" margin-auto>
                 <input class="item_label" formControlName="control_1">
                 <input class="item_label" formControlName="control_2">
                 <input class="item_label" formControlName="control_3">
                 <input class="item_label" formControlName="control_4">
-
-            </div>
-            <div class="text_content" margin-auto>
-                <span>Enter the verification code <b color-orange>{{time}}</b></span>
-            </div>
-            <div class="load">
-                <app-loading [loading]="loading"></app-loading>
-            </div>
-            <div class="buttons_wrapper">
-
-                <button class="back_button" font-weight-bold text-align-center (click)="closeVerification()">BACK</button>
-                <button class="next_button" font-weight-bold text-align-center color-white [disabled]="verificationForm.invalid || loading"
-                    (click)="postVerification()" [ngClass]="{'opacity':verificationForm.invalid || loading}">NEXT</button>
             </div>
         </form>
+        <div class="text_content" display-flex margin-auto>
+            <span>Enter the verification code <b color-orange>{{time}}</b></span>
+        </div>
+        <div class="button_item" display-flex width-fit>
+            <button class="back_button" font-weight-bold text-align-center (click)="closeVerification()">BACK</button>
+            <button class="next_button" font-weight-bold text-align-center color-white [disabled]="verificationForm.invalid || loading"
+                (click)="postVerification()" [ngClass]="{'opacity':verificationForm.invalid || loading}">NEXT</button>
+        </div>
     </div>
 </div>

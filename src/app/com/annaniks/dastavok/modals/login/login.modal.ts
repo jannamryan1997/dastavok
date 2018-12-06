@@ -61,7 +61,8 @@ export class LoginModal implements OnInit {
     private _openPhoneNumberModal(): void {
         const dialogRef = this.dialog.open(PhoneNumberModal, {
             width: "686px",
-            panelClass: ['no-padding'],
+            maxWidth: '100vw',
+            panelClass: ['margin-10'],
             data: {
                 key: 'forgot_password'
             }
