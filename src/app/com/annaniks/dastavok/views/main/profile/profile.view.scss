@@ -1,8 +1,9 @@
 .profile_content {
-    max-width: 1220px;
+  //  max-width: 1220px;
     .profile_container {
-        margin-top: 143px;
-        margin-left: 113px;
+        .profile_data{
+ margin-top: 143px;
+       // margin-left: 113px;
         .img_content {
             background-image: url("/assets/images/user.png");
             width: 202px;
@@ -10,10 +11,11 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
+            border: 1px solid black;
+            border-radius: 50%;
         }
         .text_content {
-            margin-left: 85px;
-            height: 303px;
+            margin-left: 22px;
             .text_name {
                 font-size: 31px;
                 font-style: normal;
@@ -23,6 +25,7 @@
                 text-align: left;
                 color: #444444;
                 margin-bottom: 0px;
+                margin-top: 0px;
             }
             .user_room {
                 font-size: 31px;
@@ -34,7 +37,7 @@
                 text-align: left;
                 color: #444444;
                 margin-bottom: 0px;
-                margin-top: 14.2px;
+                margin-top: 0px;
                 .text_item {
                     margin-bottom: 0px;
                     margin-top: 0px;
@@ -55,8 +58,8 @@
             }
         }
         .add_content {
-            margin-left: 229px;
-            margin-top: 49px;
+          //  margin-left: 229px;
+            margin-top: 44px;
             width: 287px;
             height: 75px;
             .button_content {
@@ -73,11 +76,12 @@
             }
         }
     }
+}
     .tabs_content {
         height: 75px;
         border-radius: 4px;
         box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-        margin: 139px 12px 0 12px;
+        margin-top: 26px;
         border: 1px solid #707070;
         .notification {
             width: 33.333333%;
@@ -140,4 +144,19 @@
 
 .active_tab_text {
     color: white !important;
+}
+
+
+@media only screen and (max-width: 900px) {
+
+.profile_data{
+    flex-direction: column;
+}
+.img_content{
+    width: 93px !important;
+    height: 93px !important;
+}
+.tab_label{
+    font-size: 17px !important;
+}
 }

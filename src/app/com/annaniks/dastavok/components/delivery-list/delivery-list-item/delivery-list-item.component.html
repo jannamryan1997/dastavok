@@ -1,5 +1,5 @@
 <div class="deliver_items" full-width>
-    <div class="container">
+    <div class="container" width-75 margin-auto>
         <div class="order_info">
             <p class="company_name" font-family-Roboto>Restrant_1 </p>
             <div class="price_info">
@@ -40,16 +40,16 @@
                     </div>
                 </div>
             </div>
-            <div class="line"></div>
+            <div class="line"  full-width></div>
         </div>
 
         <div class="button_content" display-flex (click)="showMap()">
             <button class="button" display-flex><span font-family-Roboto margin-auto>view more detalis</span></button>
         </div>
 
-        <div class="line"></div>
+        <div class="line"  full-width></div>
         <div class="map_content" margin-auto [ngStyle]="{'max-height':detailsinfoheigth}" id="1" [ngClass]="{'details-open' : showDetails, 'details-close' : !showDetails}">
-            <div class="flan" id="map"></div>
+            <div class="flan" id="map" full-width></div>
         </div>
 
 

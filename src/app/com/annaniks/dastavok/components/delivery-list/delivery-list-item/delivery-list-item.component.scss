@@ -1,7 +1,7 @@
 .deliver_items {
     .container {
-        width: 748px;
-        margin: 0 auto;
+      //  width: 748px;
+      //  margin: 0 auto;
         .order_info {
             .company_name {
                 font-size: 30px;
@@ -71,16 +71,16 @@
             }
         }
         .line {
-            width: 622px;
             height: 0;
             border: solid 0.5px #707070;
             margin: 0 auto;
         }
         .map_content {
             #map {
-                margin:0 auto;
-                width: 604px;
                 height: 576.2px;
+                margin:0 auto;
+               // width: 604px;
+               
             }
         }
         .details-open {
@@ -95,4 +95,9 @@
             transition: max-height 0.3s ease-out;
         }
     }
+}
+@media only screen and (max-width: 900px) {
+#map{
+height: 300px !important;
+}
 }
