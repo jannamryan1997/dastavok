@@ -83,6 +83,21 @@
                         <p class="contact_text" font-family-Open-Sans margin-auto>CONTACT</p>
                     </div>
                 </div>
+                <div class="user_profile" *ngIf="signUpService.isAuthorized">
+                    <div class="line"full-width></div>
+                    <div class="profile_content" display-flex (click)="navToPage('/profile')">
+                        <i class="material-icons">
+                            person
+                        </i>
+                        <p  class="profile_text" font-family-Open-Sans >User profile</p>
+                    </div>
+                    <div class="notifications_content" display-flex >
+                        <i class="material-icons">
+                            notifications_active
+                        </i>
+                        <p  class="profile_text" font-family-Open-Sans >Notification</p>
+                    </div>
+                </div>
 
             </div>
 

@@ -220,9 +220,58 @@
                     margin-left: 25px;
                 }
             }
+            .user_profile{
+                .line{
+                    border:1px solid #c5c3c3;
+                    margin-top: 27px;
+                }
+                .profile_content{
+                    margin-top: 23px;
+                    font-size: 20px;
+                    font-weight: bold;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.35;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: #444444;
+                    i{
+                        font-size: 34px;
+                    color: #444444;
+                    }
+                    .profile_text{
+                        margin-bottom: 0px;
+                       margin-top: 0px;
+                       margin-left: 18px;
+                      padding: 5px;
+}
+                    }
+                    .notifications_content{
+                        margin-top: 23px;
+                        font-size: 20px;
+                        font-weight: bold;
+                        font-style: normal;
+                        font-stretch: normal;
+                        line-height: 1.35;
+                        letter-spacing: normal;
+                        text-align: left;
+                        color: #444444;
+                        i{
+                            font-size: 34px;
+                        color: #444444;
+                        }
+                        .profile_text{
+                            margin-bottom: 0px;
+                           margin-top: 0px;
+                           margin-left: 18px;
+                          padding: 5px;
+    }
+                    }
+                }
+            }
         }
     }
-}
+
 
 .open {
     left: 0;

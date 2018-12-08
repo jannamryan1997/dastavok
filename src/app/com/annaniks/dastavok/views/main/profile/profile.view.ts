@@ -44,8 +44,9 @@ export class ProfileView implements OnInit {
     public openUserUpdateModal(): void {
         const dialogref = this.dialog.open(UserUpdateModal, {
             width: "686px",
-            height: " 579px",
-            panelClass: ['no-padding'],
+            //height: " 579px",
+           // panelClass: ['no-padding'],
+           panelClass: ['margin-10']
         })
     }
     public showNotification() {
