@@ -6,12 +6,13 @@
         background-color: white;
         .top_line {
             width: 349px;
-            height: 0px;
-            border: 1px solid #ff6f00;
+            height: 3px;
+          //  border: 1px solid #676767;
+            background-image: linear-gradient(to right,#ff6f00,#676767,#676767);
             .step_one {
                 width: 30px;
                 height: 30px;
-                border: 2px solid #ff6f00;
+               border: 2px solid #676767;
                 border-radius: 50%;
                 margin-top: -15px;
                 background-color: white;
@@ -25,7 +26,7 @@
             .step_two {
                 width: 30px;
                 height: 30px;
-                border: 2px solid #ff6f00;
+                border: 2px solid #676767;
                 border-radius: 50%;
                 margin-top: -15px;
                 background-color: white;
@@ -37,7 +38,7 @@
             .step_three {
                 width: 30px;
                 height: 30px;
-                border: 2px solid #ff6f00;
+                border: 2px solid #676767;
                 border-radius: 50%;
                 margin-top: -15px;
                 background-color: white;
@@ -63,7 +64,7 @@
                 .left_icon {
                     width: 47.3px;
                     height: 42px;
-                    border-bottom: solid 1px #707070;
+                    border: solid 1px #707070;
                     border-right: solid 1px #707070;
                     background-color: #ffffff;
                     i {
@@ -73,7 +74,7 @@
                 }
                 .input {
                     width: calc(100% - 47.3px);
-                    border: none;
+                  //  border: none;
                 }
             }
         }
@@ -180,4 +181,13 @@ input::placeholder {
         line-height: 1.33;
         letter-spacing: normal;
     }
+}
+.activeTab{
+    border: 2px solid #ff6f00 !important;
+}
+.stepTwoGradient{
+    background-image: linear-gradient(to right,#ff6f00,#ff6f00,#676767)!important;
+}
+.stepThreeGradient{
+    background-image: linear-gradient(to right,#ff6f00,#ff6f00,#ff6f00)!important;
 }
