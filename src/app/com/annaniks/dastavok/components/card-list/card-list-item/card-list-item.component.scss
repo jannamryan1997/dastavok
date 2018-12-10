@@ -1,85 +1,210 @@
-.detal_item{
-    margin-top: 15px;
-    .card_conteiner{
-        .left_item{
-            width: 64%;
-            .image_item{
+// .detal_item{
+//     margin-top: 15px;
+//     .card_conteiner{
+//         .left_item{
+//             width: 64%;
+//             .image_item{
+//                 width: 146.6px;
+//                 height: 96px;
+//                 box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+//                 background-position: center;
+//                 background-repeat: no-repeat;
+//                 background-size: cover;
+//               //  background-image: url("/assets/images/sezar.jpg")
+//             }
+//             .item_text{
+//                 margin-top: 0px;
+//                 margin-bottom: 0px;
+//                 font-size: 15px;
+//                 font-style: normal;
+//                 font-stretch: normal;
+//                 line-height: 1.2;
+//                 letter-spacing: normal;
+//                 color: #716b6b;
+//                 margin: auto;
+//                 margin-left: 30px;
+//             }
+//         }
+//         .right_item{
+//             width: 36%;
+//             .price_item{
+//             font-size: 25px;
+//             font-style: normal;
+//             font-stretch: normal;
+//             line-height: 1.2;
+//             letter-spacing: normal;
+//             text-align: left;
+//             color: #979797; 
+//             }
+//             .remove {
+//                 margin-top: 30px;
+//                 margin-left: 34px;
+//                 font-size: 14px;
+//                 font-weight: normal;
+//                 font-style: normal;
+//                 font-stretch: normal;
+//                 line-height: 1.14;
+//                 letter-spacing: normal;
+//                 text-align: left;
+//                 color: #686767;
+//             }
+//             .quarity_item {
+//                 margin-top: 30px;
+//                 font-size: 18px;
+//                 font-style: normal;
+//                 font-stretch: normal;
+//                 line-height: 1.14;
+//                 letter-spacing: normal;
+//                 text-align: left;
+//                 color: #686767;
+//                 margin-left: 8.1px;
+//                 margin-right: 8.1px;
+//                 margin-bottom: 0px;
+//             }
+//             .add {
+//                 margin-top: 30px;
+//                 font-size: 14px;
+//                 font-weight: normal;
+//                 font-style: normal;
+//                 font-stretch: normal;
+//                 line-height: 1.14;
+//                 letter-spacing: normal;
+//                 text-align: left;
+//                 color: #686767;
+//             }
+//             .close{
+//                 margin-top: 30px;
+//                 color: #686767;
+//                 font-size: 30px;
+//                 cursor: pointer;
+//                 margin-left: 60px;
+//             }
+//         }
+//     }
+// }
+.detal_item {
+    margin-top: 20px;
+    .card_items {
+        .left_item {
+            align-items: center;
+            .image {
                 width: 146.6px;
                 height: 96px;
                 box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
-              //  background-image: url("/assets/images/sezar.jpg")
             }
-            .item_text{
-                margin-top: 0px;
-                margin-bottom: 0px;
+            .text_item {
+                margin-left: 55px;
+                max-width: 230px;
+                .goodInfo_name {
+                    font-size: 15px;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.2;
+                    letter-spacing: normal;
+                    color: #716b6b;
+                }
+                .goodInfo_description {
+                    font-size: 15px;
+                    font-weight: normal;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.2;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: #706f6f;
+                    display: block;
+                    word-wrap: break-word;
+                }
+            }
+        }
+        .right_item {
+            width: 50%;
+            justify-content: space-between;
+            .price_text,
+            .quarity_text,
+            .delete_text {
                 font-size: 15px;
                 font-style: normal;
                 font-stretch: normal;
                 line-height: 1.2;
                 letter-spacing: normal;
-                color: #716b6b;
-                margin: auto;
-                margin-left: 30px;
+                text-align: left;
+                color: #979797;
             }
-        }
-        .right_item{
-            width: 36%;
-            .price_item{
-            font-size: 25px;
-            font-style: normal;
-            font-stretch: normal;
-            line-height: 1.2;
-            letter-spacing: normal;
-            text-align: left;
-            color: #979797; 
-            }
-            .remove {
-                margin-top: 30px;
-                margin-left: 34px;
-                font-size: 14px;
-                font-weight: normal;
+            .price_item {
+                font-size: 25px;
                 font-style: normal;
                 font-stretch: normal;
-                line-height: 1.14;
+                line-height: 1.2;
                 letter-spacing: normal;
                 text-align: left;
-                color: #686767;
-            }
-            .quarity_item {
-                margin-top: 30px;
-                font-size: 18px;
-                font-style: normal;
-                font-stretch: normal;
-                line-height: 1.14;
-                letter-spacing: normal;
-                text-align: left;
-                color: #686767;
-                margin-left: 8.1px;
-                margin-right: 8.1px;
+                color: #979797;
+                margin-top: 0px;
                 margin-bottom: 0px;
             }
-            .add {
-                margin-top: 30px;
-                font-size: 14px;
-                font-weight: normal;
-                font-style: normal;
-                font-stretch: normal;
-                line-height: 1.14;
-                letter-spacing: normal;
-                text-align: left;
-                color: #686767;
+            .quarity {
+                .remove {
+                    font-size: 25px;
+                    font-weight: normal;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.14;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: #686767;
+                    cursor: pointer;
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                }
+                .quarity_item {
+                    font-size: 25px;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.14;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: #686767;
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                }
+                .add {
+                    font-size: 25px;
+                    font-weight: normal;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.14;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: #686767;
+                    cursor: pointer;
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                }
             }
-            .close{
-                margin-top: 30px;
-                color: #686767;
-                font-size: 30px;
-                cursor: pointer;
-                margin-left: 60px;
+            .delete_items {
+                color: #979797;
+                font-size: 25px;
             }
         }
     }
 }
 
+@media only screen and (max-width: 900px) {
+    .card_items {
+        flex-direction: column;
+    }
+    .left_item {
+        width: fit-content
+    }
+
+    .text_item{
+        width: fit-content;
+    }
+
+    .right_item{
+        width: 100% !important;
+    }
+}

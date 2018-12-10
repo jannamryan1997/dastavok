@@ -35,8 +35,7 @@
                     color: #706f6f;
                     .text {
                         margin-bottom: 0px;
-                        margin-top: 20px;
-                        width: 251px;
+                        margin-top: 20px; //   width: 251px;
                     }
                 }
             }
@@ -76,9 +75,11 @@
                 text-align: left;
                 color: #706f6f;
                 .review_text_item {
-                    width: 687px;
+                    // width: 687px;
                     margin-bottom: 0px;
                     margin-top: 0px;
+                    display: block;
+                    word-wrap: break-word
                 }
                 .data_item {
                     margin-left: 20px;

@@ -1,4 +1,4 @@
-
+<!-- 
 <div class="detal_item" full-width>
     <div class="card_conteiner" display-flex full-width>
         <div class="left_item" display-flex>
@@ -13,6 +13,41 @@
             <i class="material-icons close" (click)="onClickDelete()">
                 close
             </i>
+        </div>
+    </div>
+</div> -->
+<div class="detal_item" full-width>
+    <div class="card_items" display-flex>
+        <div class="left_item" display-flex>
+            <div class="image" [ngStyle]="{'background-image':'url('+'http://192.168.0.111:4000/static/company/'+itemImage+')'}"></div>
+            <div class="text_item">
+                <p class="goodInfo_name" font-weight-bold font-family-Roboto>{{cardGoodsInfo?.name}}</p>
+                <p class="goodInfo_description" font-family-Roboto>Lorem ipsum dolor sit amet consectetur adipisicing
+                    elit.
+                    Enim laborum illum quis id doloribus! Animi temporibus odio deleniti unde tenetur, quasi accusamus.</p>
+            </div>
+        </div>
+        <div class="right_item" display-flex>
+            <div>
+                <p class="price_text" font-weight-bold font-family-Roboto>Price</p>
+                <p class="price_item" font-weight-bold font-family-Roboto>{{cardGoodsInfo?.price}}</p>
+            </div>
+            <div>
+                <p class="quarity_text" font-weight-bold font-family-Roboto>Quarity</p>
+                <div class="quarity" display-flex>
+                    <p class="remove" font-weight-bold font-family-Open-Sans>-</p>
+                    <p class="quarity_item" font-weight-bold font-family-Open-Sans>{{cardGoodsInfo?.count}}</p>
+                    <p class="add" font-weight-bold font-family-Open-Sans>+</p>
+                </div>
+            </div>
+            <div>
+                <p class="delete_text" font-weight-bold font-family-Roboto>Delete</p>
+                <div class="delete_items">
+                    <i class="material-icons close" (click)="onClickDelete()">
+                        close
+                    </i>
+                </div>
+            </div>
         </div>
     </div>
 </div>

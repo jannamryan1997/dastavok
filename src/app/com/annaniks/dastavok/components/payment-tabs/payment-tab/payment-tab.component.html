@@ -44,8 +44,8 @@
         <p class="cash_text" font-family-Roboto>Pay in cash</p>
 
     </div>
-    <div *ngIf="cardPayment">
-        <div class="card_item" display-flex>
+    <div class="top_content" width-75>
+        <div class="card_item" display-flex  *ngIf="cardPayment">
             <div class="item" *ngFor="let item of cardItem" [ngStyle]="{'background-image':'url('+item.image+')'}"></div>
         </div>
 
@@ -54,7 +54,8 @@
                 <span class="form_text" font-family-Roboto font-weight-bold>Card number</span>
                 <input class="input_card_number" display-flex full-width>
             </div>
-            <div display-flex justify-content-space-between  full-width class="form_group_item">
+            <div>
+            <div class="form_group_item"  display-flex justify-content-space-between>
                 <div class="form_group">
                     <span class="form_text_varieble" font-family-Roboto font-weight-bold>Varieble</span>
                     <input class="input_card_varieble" display-flex>
@@ -66,7 +67,8 @@
                 </div>
 
             </div>
-            <div display-flex justify-content-space-between class="form_group_item">
+        </div>
+            <div  class="form_group_item" display-flex justify-content-space-between>
                 <div class="form_group">
                     <span class="form_text_cardowner" font-family-Roboto font-weight-bold>Cardowner</span>
                     <input class="input_card_cardowner" display-flex>

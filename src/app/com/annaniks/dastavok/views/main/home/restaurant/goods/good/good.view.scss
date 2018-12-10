@@ -2,13 +2,14 @@
     margin-top: 24.2px;
     .good_conteiner {
         .left_content {
-            width: 350.8px;
+            //   width: 350.8px;
             .image_content {
                 height: 241.9px;
                 box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
                 background-position: center;
                 background-size: cover;
                 background-repeat: no-repeat;
+                width: 335px;
             }
             .image_items {
                 margin-top: 28.5px;
@@ -58,13 +59,13 @@
                 }
             }
             .line_content {
-                width: 456px;
+                //   width: 456px;
                 height: 0;
                 border: solid 1px #bbbbbb;
                 margin-top: 7.5px;
             }
             .price_content {
-                width: 456px;
+                //width: 456px;
                 .price_text {
                     font-size: 20px;
                     font-weight: normal;
@@ -87,12 +88,12 @@
                 }
             }
             .under_line_content {
-                width: 456px;
+                //  width: 456px;
                 height: 0;
                 border: solid 1px #bbbbbb;
             }
             .quarity_content {
-                width: 456px;
+                //  width: 456px;
                 .price_text {
                     font-size: 20px;
                     font-weight: normal;
@@ -161,8 +162,7 @@
         }
     }
     .tab_content {
-        height: 55px;
-        width: 893px;
+        height: 55px; //  width: 893px;
         border-radius: 4px;
         box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
         border: solid 2px #a4a4a4;
@@ -188,4 +188,35 @@
 
 .text_active_tab {
     color: white;
+}
+
+@media only screen and (max-width: 900px) {
+    .good_content {
+      margin-left: 0px !important;
+    }
+    .good_conteiner{
+        flex-direction: column !important;
+        width: 335px;
+        margin-left: 23px !important;
+
+    }
+    .left_button {
+        width: 163.5px  !important;
+        height: 65px  !important; 
+    }
+    .right_button {
+        width: 163.5px  !important;
+        height: 65px  !important; 
+    }
+    .right_content{
+        margin-left: 0px  !important;
+    }
+   .tab_item{
+        font-size: 15px !important;
+   }
+
+    .image_content{
+        width: 335px !important;
+        height: 241.9px !important;
+    }
 }

@@ -1,4 +1,5 @@
 <div class="good_content" margin-control>
+  
     <div class="good_conteiner" full-width display-flex>
         <div class="left_content">
             <div class="image_content" full-width [ngStyle]="{'background-image':'url('+activeImage+')'}"></div>
@@ -32,7 +33,7 @@
                 </div>
             </div>
             <div class="button_item" display-flex>
-                <div margin-auto>
+                <div  margin-auto display-flex>
                     <button class="left_button" color-white font-family-Open-Sans margin-auto (click)="orderChart()"><span>CART</span></button>
                     <button class="right_button" color-white font-family-Open-Sans margin-auto (click)="onClickBuy()"><span>BUY</span></button>
                     <!-- routerLink="cart" -->
@@ -66,5 +67,4 @@
 
         </div>
     </div>
-
 </div>

@@ -178,7 +178,7 @@
     .card_item {
         margin-top: 30px;
         .item {
-            width: 101px;
+            width: 33.3%;
             height: 64px;
             border-radius: 4px;
             box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
@@ -195,6 +195,7 @@
     .input_form {
         .form_group_item {
             //  width: 489px;
+            justify-content: space-around;
         }
         .form_group {
             margin-top: 25px;
@@ -295,5 +296,8 @@
     }
      .item {
         height: 40px !important;
+    }
+    .top_content{
+        width: 100% !important;
     }
 }

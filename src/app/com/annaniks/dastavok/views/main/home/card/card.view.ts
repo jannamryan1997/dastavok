@@ -11,7 +11,7 @@ import { Router } from "@angular/router";
 
 export class CardView implements OnInit {
     public loading: boolean = true;
-    public cardInfo: Card[];
+    public cardInfo: Card[]=[];
     public cardGoodsInfo: Array<any>;
     public cardGoodsImage: string;
     public cardGoodImageItem: string;

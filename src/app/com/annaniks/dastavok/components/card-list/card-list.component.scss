@@ -1,136 +1,183 @@
-.container{
-    margin-top: 40px;
-
-.text,
-.price_text,
-.quarity_text,
-.total_text {
-    font-size: 15px;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.2;
-    letter-spacing: normal;
-    text-align: left;
-    color: #979797;
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
-.price_text {
-    margin-left: 504px;
-}
-
-.quarity_text,
-.total_text {
-    margin-left: 39px;
-}
-
+// .container{
+//     margin-top: 40px;
+// .text,
+// .price_text,
+// .quarity_text,
+// .total_text {
+//     font-size: 15px;
+//     font-style: normal;
+//     font-stretch: normal;
+//     line-height: 1.2;
+//     letter-spacing: normal;
+//     text-align: left;
+//     color: #979797;
+//     margin-top: 0px;
+//     margin-bottom: 0px;
+// }
+// .price_text {
+//     margin-left: 504px;
+// }
+// .quarity_text,
+// .total_text {
+//     margin-left: 39px;
+// }
+// .card_content {
+//     margin-left: 622px;
+//     margin-top: 70px;
+//     .card_text {
+//         font-size: 15px;
+//         font-style: normal;
+//         font-stretch: normal;
+//         line-height: 1.2;
+//         letter-spacing: normal;
+//         text-align: left;
+//         color: #979797;
+//         margin-top: 0px;
+//         margin-bottom: 0px;
+//     }
+//     .price {
+//         margin-left: 135px;
+//         margin-top: 0px;
+//         margin-bottom: 0px;
+//         font-size: 25px;
+//         font-style: normal;
+//         font-stretch: normal;
+//         line-height: 1.2;
+//         letter-spacing: normal;
+//         text-align: left;
+//         color: #979797;
+//     }
+// }
+// .batton_content {
+//     margin-top: 26px;
+//     .button {
+//         width: 228px;
+//         height: 65px;
+//         border-radius: 4px;
+//         box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+//         background-color: #ff6f00;
+//         font-family: 'OpenSans';
+//         font-size: 20px;
+//         font-weight: bold;
+//         font-style: normal;
+//         font-stretch: normal;
+//         line-height: 1.35;
+//         letter-spacing: normal;
+//         text-align: left;
+//         color: white;
+//         border: none;
+//         text-align: center;
+//         text-decoration: none;
+//         display: inline-block;
+//         cursor: pointer;
+//     }
+// }
+// .line {
+//     width: 723px;
+//     height: 0;
+//     border: 1px solid #707070;
+//     margin-top: 28px;
+// }
+// .restaurant_text {
+//     font-size: 22px;
+//     font-weight: bold;
+//     font-style: normal;
+//     font-stretch: normal;
+//     line-height: 1.23;
+//     letter-spacing: 2.9px;
+//     text-align: left;
+//     color: #444444;
+//     margin-top: 0px;
+//     margin-bottom: 0px;
+// }
+// .text_item {
+//     margin-top: 15px;
+//     font-size: 15px;
+//     font-weight: bold;
+//     font-style: normal;
+//     font-stretch: normal;
+//     line-height: 1.2;
+//     letter-spacing: normal;
+//     text-align: left;
+//     color: #716b6b;
+//     .text {
+//         margin-top: 0px;
+//         margin-bottom: 0px;
+//     }
+//     .money_text {
+//         font-size: 25px;
+//         font-weight: bold;
+//         font-style: normal;
+//         font-stretch: normal;
+//         line-height: 1.2;
+//         letter-spacing: normal;
+//         text-align: left;
+//         color: #979797;
+//         margin-left: 97px;
+//         margin-top: 0px;
+//         margin-bottom: 0px;
+//     }
+//     .close {
+//         color: #979797;
+//         font-size: 30px;
+//         right: 0;
+//         top: 0;
+//         cursor: pointer;
+//     }
+// }
+// }
 .card_content {
-    margin-left: 622px;
-    margin-top: 70px;
-    .card_text {
-        font-size: 15px;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.2;
-        letter-spacing: normal;
-        text-align: left;
-        color: #979797;
-        margin-top: 0px;
-        margin-bottom: 0px;
+    .delete_items {
+        i {
+            color: #979797;
+            font-size: 25px;
+            right: 0;
+        }
     }
-    .price {
-        margin-left: 135px;
-        margin-top: 0px;
-        margin-bottom: 0px;
-        font-size: 25px;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.2;
-        letter-spacing: normal;
-        text-align: left;
-        color: #979797;
+    .restaurant_data {
+        .restaurant_name {
+            font-size: 22px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.23;
+            letter-spacing: 2.9px;
+            text-align: left;
+            color: #444444;
+        }
+        .delivery_text {
+            font-size: 15px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.2;
+            letter-spacing: normal;
+            text-align: left;
+            color: #716b6b;
+            span{
+                margin-left:93px;
+            }
+        }
+        .sum {
+            font-size: 25px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.2;
+            letter-spacing: normal;
+            text-align: left;
+            color: #979797;
+        }
+        .detalis {
+            font-size: 15px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.2;
+            letter-spacing: normal;
+            text-align: left;
+            color: #979797;
+        }
     }
-}
-
-.batton_content {
-    margin-top: 26px;
-    .button {
-        width: 228px;
-        height: 65px;
-        border-radius: 4px;
-        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-        background-color: #ff6f00;
-        font-family: 'OpenSans';
-        font-size: 20px;
-        font-weight: bold;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.35;
-        letter-spacing: normal;
-        text-align: left;
-        color: white;
-        border: none;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        cursor: pointer;
-    }
-}
-
-.line {
-    width: 723px;
-    height: 0;
-    border: 1px solid #707070;
-    margin-top: 28px;
-}
-
-.restaurant_text {
-    font-size: 22px;
-    font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.23;
-    letter-spacing: 2.9px;
-    text-align: left;
-    color: #444444;
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
-.text_item {
-    margin-top: 15px;
-    font-size: 15px;
-    font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.2;
-    letter-spacing: normal;
-    text-align: left;
-    color: #716b6b;
-    .text {
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
-    .money_text {
-        font-size: 25px;
-        font-weight: bold;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.2;
-        letter-spacing: normal;
-        text-align: left;
-        color: #979797;
-        margin-left: 97px;
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
-    .close {
-        color: #979797;
-        font-size: 30px;
-        right: 0;
-        top: 0;
-        cursor: pointer;
-    }
-}
+    .card_item {}
 }

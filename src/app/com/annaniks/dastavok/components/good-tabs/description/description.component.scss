@@ -1,6 +1,6 @@
 .description_content {
     margin-top: 48px;
-    margin-left: 101px;
+    margin-left: 23px;
     font-family: 'Roboto';
     font-size: 20px;
     font-weight: normal;
@@ -11,8 +11,10 @@
     text-align: left;
     color: #706f6f;
     .description_text {
-        width: 707px;
+    //    width: 707px;
         margin-bottom: 0px;
         margin-top: 0px;
+        display: block;
+    word-wrap: break-word;
     }
 }

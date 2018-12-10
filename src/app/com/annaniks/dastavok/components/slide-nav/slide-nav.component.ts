@@ -30,7 +30,8 @@ export class SlideNawComponent implements OnInit {
     constructor(private _menuService: MenuService, private dialog: MatDialog, public signUpService: SignUpService, private roter: Router, private _cookieService: CookieService) { }
 
     ngOnInit() {
-        this._getUserInfo();
+        if(this.signUpService.isAuthorized)
+            this._getUserInfo();
     }
 
 

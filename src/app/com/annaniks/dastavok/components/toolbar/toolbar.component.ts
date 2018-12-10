@@ -17,12 +17,12 @@ export class ToolbarComponent implements OnInit {
     public showlogin: boolean = false;
     public showUserProfileDisplay: boolean = false;
     public showLenguage: boolean = false;
-    public languageItem:Array<any>=[
-        {name:'English',image:'assets/images/english.png'},
-        {name:'Русский',image:'assets/images/russion.jpg'}
+    public languageItem: Array<any> = [
+        { name: 'English', image: 'assets/images/english.png' },
+        { name: 'Русский', image: 'assets/images/russion.jpg' }
     ]
 
-    constructor(private dialog: MatDialog, public signUpService: SignUpService, private _cookieService: CookieService,private _menuService:MenuService) { }
+    constructor(private dialog: MatDialog, public signUpService: SignUpService, private _cookieService: CookieService, private _menuService: MenuService) { }
 
     ngOnInit() {
         if (this.signUpService.isAuthorized == true) {
@@ -30,8 +30,8 @@ export class ToolbarComponent implements OnInit {
         }
 
     }
-    public openRegisterStep():void{
-        const dialogRef=this.dialog.open(RegistrationStep,{
+    public openRegisterStep(): void {
+        const dialogRef = this.dialog.open(RegistrationStep, {
             width: "686px",
             height: "444px",
             panelClass: ['no-padding']
@@ -86,8 +86,8 @@ export class ToolbarComponent implements OnInit {
         this.signUpService.getUserInfo().subscribe();
     }
 
-    public onClickedOutsideUserProfile(){
-        this.showUserProfileDisplay=false;
+    public onClickedOutsideUserProfile() {
+        this.showUserProfileDisplay = false;
     }
 
     public onClickLogOut(): void {
@@ -100,9 +100,9 @@ export class ToolbarComponent implements OnInit {
         window.location.reload();
     }
 
-public openMenu(){
-   this._menuService.openMenu()
-}
+    public openMenu() {
+        this._menuService.openMenu()
+    }
 
 
 }
