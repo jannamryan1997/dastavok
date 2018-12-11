@@ -8,39 +8,38 @@ export class MenuService {
     public isOpenFilter: boolean;
     body;
 
-    constructor() {
-        this.body = document.getElementById('body');
-    }
+    constructor() { }
 
     public openMenu() {
         this.isOpen = true;
         this.isOpenFilter = false;
-        console.log(this.body.style.overflowY);
-        this.body.style.overflowY = "hidden";
+        document.getElementById('body').style.overflowY = "hidden";
+        console.log(document.getElementById('body').style);
     }
 
     public closeMenu() {
         this.isOpen = false;
-        this.body.style.overflowY = "auto";
+        document.getElementById('body').style.overflowY = "auto";
+
     }
 
     public openFitersMenu() {
         this.isOpenFilter = true;
         this.isOpen = false;
-        if(this.isOpenFilter==true){
-            this.body.style.overflowY = "hidden";
+        if (this.isOpenFilter == true) {
+            document.getElementById('body').style.overflowY = "hidden";
+
         }
-    
-      
+
+
 
     }
 
     public closeFiltersMenu() {
         this.isOpenFilter = false;
-        if(this.isOpenFilter==false){
-            this.body.style.overflowY = "scroll";
+        if (this.isOpenFilter == false) {
+            document.getElementById('body').style.overflowY = "auto";
+            console.log('calledd');
         }
-
     }
-
 }

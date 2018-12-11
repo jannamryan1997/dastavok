@@ -16,6 +16,7 @@ export class CardView implements OnInit {
     public cardGoodsImage: string;
     public cardGoodImageItem: string;
     public totalSum: number = 0;
+    public amount:number=0;
     constructor(private _cardService: CardService, private _router: Router) { }
 
     ngOnInit() {
@@ -26,14 +27,19 @@ export class CardView implements OnInit {
     private _getOrderChard() {
         this.loading = true;
         this._cardService.getOrderChart()
-            .subscribe((data: ServerResponse<Card[]>) => {
+            .subscribe((data:any) => {
+                console.log(data);
+                
                 this.totalSum = 0;
-                this.cardInfo = data.data;
+                this.cardInfo = data.data.data;
                 for (var i = 0; i < this.cardInfo.length; i++) {
                     this.totalSum = this.totalSum + this.cardInfo[i].totalAmount;
                 }
                 this.loading = false;
+                console.log(this.cardInfo);
             })
+            
+            
             
     }
 

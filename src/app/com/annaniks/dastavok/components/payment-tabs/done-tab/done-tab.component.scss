@@ -1,6 +1,5 @@
 .done_content {
     .done_conteiner {
-        margin: 0 113px;
         .done_text {
             margin-top: 191px;
             margin-bottom: 0px;
@@ -49,4 +48,14 @@
             }
         }
     }
+}
+@media only screen and (max-width: 900px) {
+.go_main{
+width: 143px !important;
+font-size: 14px !important;
+}
+.go_more{
+    width: 143px !important;
+    font-size: 14px !important;
+}
 }

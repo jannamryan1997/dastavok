@@ -102,6 +102,8 @@ export class GoodComponent implements OnInit {
     }
 
     public orderChart() {
+        console.log("hi");
+        
         let briefToppings: Array<BriefToppings> = [];
         this.toppings.forEach((element: Topping) => {
             briefToppings.push(

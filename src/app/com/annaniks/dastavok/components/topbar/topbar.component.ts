@@ -24,6 +24,8 @@ export class TopbarComponent implements OnInit {
     }
 
     public onClickedOutside(e: Event) {
-        this._menuService.closeFiltersMenu();
+        if (this._menuService.isOpenFilter) {
+            this._menuService.closeFiltersMenu();
+        }
     }
 }

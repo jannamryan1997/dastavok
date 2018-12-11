@@ -5,7 +5,8 @@ export interface MenuItem {
 
 export interface ServerResponse<T> {
     data: T;
-    message: Array<string>
+    message: Array<string>;
+
 }
 
 export interface LoginResponse {
@@ -165,6 +166,7 @@ export interface Topping {
     toppingValue?
 }
 export interface Card {
+    amount:number;
     companyName: string;
     totalAmount: number;
     orderId: number;

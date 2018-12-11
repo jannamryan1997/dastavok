@@ -13,9 +13,9 @@ import { ServerResponse, User, OrderHistory } from "../../../models/models";
 
 export class ProfileView implements OnInit {
 
-    public orderInfo:OrderHistory;
+    public orderInfo: OrderHistory;
     public tab: number = 1;
-     public clientData:User;
+    public clientData: User;
     public items_notification: Array<object> = [
         {
             label: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam provident atquedeleniti adipisci quam fugiat eveniet, debitis dolores laudantium delectus beatae earum dictainventore, illum laboriosam quaerat molestias reprehenderit assumenda ? ",
@@ -32,12 +32,12 @@ export class ProfileView implements OnInit {
     ]
 
 
-    constructor(private dialog: MatDialog,private _profileService: ProfileService) { }
+    constructor(private dialog: MatDialog, private _profileService: ProfileService) { }
 
     ngOnInit() {
         this._clientGet();
-       //this._clientOrdersProcessing();
-       this._clientOrderDriver()
+        //this._clientOrdersProcessing();
+        this._clientOrderDriver();
 
     }
 
@@ -45,8 +45,8 @@ export class ProfileView implements OnInit {
         const dialogref = this.dialog.open(UserUpdateModal, {
             width: "686px",
             //height: " 579px",
-           // panelClass: ['no-padding'],
-           panelClass: ['margin-10']
+            // panelClass: ['no-padding'],
+            panelClass: ['margin-10']
         })
     }
     public showNotification() {
@@ -61,29 +61,29 @@ export class ProfileView implements OnInit {
     }
 
 
-   private _clientGet() {
+    private _clientGet() {
         this._profileService.getClient()
-        .subscribe((data:ServerResponse<User>) => {
-            this.clientData=data.data;
-         //   console.log(this.clientData);
+            .subscribe((data: ServerResponse<User>) => {
+                this.clientData = data.data;
+                //   console.log(this.clientData);
 
-        })
+            })
     }
 
-    private _clientOrdersProcessing(){
-this._profileService.clientOrderProcessing()
-.subscribe((data)=>{
-    console.log(data);
-    
-})
+    private _clientOrdersProcessing() {
+        this._profileService.clientOrderProcessing()
+            .subscribe((data) => {
+                console.log(data);
+
+            })
     }
-    private _clientOrderDriver(){
+    private _clientOrderDriver() {
         this._profileService.clientOrderDriver()
-        .subscribe((data:ServerResponse<OrderHistory>)=>{
-            this.orderInfo=data.data;
-            console.log(data);
-            
-        })
+            .subscribe((data: ServerResponse<OrderHistory>) => {
+                this.orderInfo = data.data;
+                console.log(data);
+
+            })
     }
 
 }
