@@ -1,17 +1,71 @@
+// .order_content {
+//     margin-top: 50px;
+//     .order_info {
+//         .order_data {
+//             .images {
+//                 width: 146.6px;
+//                 height: 96px;
+//                 box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+//                 background-position: center;
+//                 background-repeat: no-repeat;
+//                 background-size: cover;
+//                 background-image: url("/assets/images/salads_3.jpg")
+//             }
+//             .namr_info {
+//                 font-size: 19px;
+//                 font-weight: bold;
+//                 font-style: normal;
+//                 font-stretch: normal;
+//                 line-height: 1.21;
+//                 letter-spacing: normal;
+//                 text-align: left;
+//                 color: #716b6b;
+//             }
+//             .description {
+//                 font-size: 15px;
+//                 font-weight: normal;
+//                 font-style: normal;
+//                 font-stretch: normal;
+//                 line-height: 1.2;
+//                 letter-spacing: normal;
+//                 text-align: left;
+//                 color: #706f6f;
+//                 margin-bottom: 0px;
+//                 margin-top: 0px;
+//                 display: block;
+//                 word-wrap: break-word;
+//               //  width: 390px;
+//             }
+//             .data {
+//                 font-size: 15px;
+//                 font-weight: normal;
+//                 font-style: normal;
+//                 font-stretch: normal;
+//                 line-height: 1.2;
+//                 letter-spacing: normal;
+//                 text-align: left;
+//                 color: #706f6f;
+//                 margin-bottom: 0px;
+//                 margin-top: 0px;
+//             }
+//         }
+//     }
+// }
 .order_content {
-    margin-top: 50px;
-    .order_info {
-        .order_data {
-            .images {
-                width: 146.6px;
-                height: 96px;
-                box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-                background-image: url("/assets/images/salads_3.jpg")
-            }
-            .namr_info {
+    .order_item {
+        margin-top: 30px;
+        .image_item {
+            width: 200px;
+            height: 96px;
+            box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url("/assets/images/salads_3.jpg")
+        }
+        .order_info {
+            margin-left: 30px;
+            .name_data {
                 font-size: 19px;
                 font-weight: bold;
                 font-style: normal;
@@ -20,6 +74,8 @@
                 letter-spacing: normal;
                 text-align: left;
                 color: #716b6b;
+                word-break: break-word;
+                display: block;
             }
             .description {
                 font-size: 15px;
@@ -34,20 +90,20 @@
                 margin-top: 0px;
                 display: block;
                 word-wrap: break-word;
-              //  width: 390px;
-            }
-            .data {
-                font-size: 15px;
-                font-weight: normal;
-                font-style: normal;
-                font-stretch: normal;
-                line-height: 1.2;
-                letter-spacing: normal;
-                text-align: left;
-                color: #706f6f;
-                margin-bottom: 0px;
-                margin-top: 0px;
             }
         }
+    }
+    .line {
+        margin-top: 33px;
+        border: solid 1px #707070;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .order_item {
+        flex-direction: column !important;
+    }
+    .order_info {
+        margin-left: 0px !important;
     }
 }

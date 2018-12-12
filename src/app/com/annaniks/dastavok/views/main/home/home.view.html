@@ -12,8 +12,8 @@
             </div>
             <div class="search-content" full-width display-flex>
                 <div class="search_wrapper" display-flex>
-                    <input class="search-input" placeholder="Search Product Hear" full-width>
-                    <div class="search" display-flex>
+                    <input class="search-input" placeholder="Search Product Hear" full-width [(ngModel)]="search">
+                    <div class="search" display-flex (click)="onClickSearch()">
                         <i class="material-icons" margin-auto color-white>
                             search
                         </i>

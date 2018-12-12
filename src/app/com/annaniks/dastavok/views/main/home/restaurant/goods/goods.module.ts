@@ -7,7 +7,7 @@ import { SharedModule } from "src/app/com/annaniks/dastavok/shared/shared.module
 
 
 @NgModule({
-    declarations:[GoodsView,GoodsListComponent, GoodsListItemComponent],
+    declarations:[GoodsView],
     imports:[GoodsRoutingModule,CommonModule,SharedModule],
     exports:[],
 })

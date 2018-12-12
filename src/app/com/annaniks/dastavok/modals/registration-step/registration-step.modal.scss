@@ -1,13 +1,11 @@
 .registration_content {
     .registration_top {
         height: 115px;
-        object-fit: contain;
         box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
         background-color: white;
         .top_line {
-            width: 349px;
+           // width: 349px;
             height: 3px;
-          //  border: 1px solid #676767;
             background-image: linear-gradient(to right,#ff6f00,#676767,#676767);
             .step_one {
                 width: 30px;
@@ -52,7 +50,7 @@
     }
     .registration_conteiner {
         .phone_wrapper {
-            width: 391.3px;
+           // width: 391.3px;
             margin: 0 auto;
             .input_content {
                 margin-top: 86px;
@@ -98,7 +96,6 @@
             margin-top: 10px;
             width: 186px;
             height: 16px;
-            font-family: SegoeUI;
             font-size: 12px;
             font-weight: bold;
             font-style: normal;

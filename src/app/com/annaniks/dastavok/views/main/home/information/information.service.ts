@@ -1,17 +1,22 @@
-import {Injectable, Inject} from "@angular/core"
+import { Injectable, Inject } from "@angular/core"
 import { HttpClient } from "@angular/common/http";
+import { text } from "@angular/core/src/render3/instructions";
 
 
 @Injectable()
 
-export class InformationService{
-    
-    constructor(@Inject('BASE_URL') private BASEURL,private _httpClient:HttpClient){}
+export class InformationService {
+
+  constructor(@Inject('BASE_URL') private BASEURL, private _httpClient: HttpClient) { }
 
 
 
-getFreeclientRestaurant(page:number,limit:number){
-  return  this._httpClient.get(this.BASEURL+"freeclient/restaurants?page="+page+"&limit="+limit)
-}
+  public getFreeclientRestaurant(page: number, limit: number) {
+    return this._httpClient.get(this.BASEURL + "freeclient/restaurants?page=" + page + "&limit=" + limit)
+  }
+
+  public getSearchGoods(page: number, limit: number,text:string) {
+    return this._httpClient.get(this.BASEURL + "freeclient/goods?page=" + page + "&limit=" + limit + "&text="+text)
+  }
 
 }

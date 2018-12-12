@@ -11,15 +11,16 @@ import { Router } from "@angular/router";
 
 export class CardView implements OnInit {
     public loading: boolean = true;
-    public cardInfo: Card[]=[];
+    public cardInfo: Card[] = [];
     public cardGoodsInfo: Array<any>;
     public cardGoodsImage: string;
     public cardGoodImageItem: string;
     public totalSum: number = 0;
-    public amount:number=0;
+    public amount: number = 0;
     constructor(private _cardService: CardService, private _router: Router) { }
 
     ngOnInit() {
+        console.log(this.cardInfo.length);
         this._getOrderChard();
 
     }
@@ -27,20 +28,17 @@ export class CardView implements OnInit {
     private _getOrderChard() {
         this.loading = true;
         this._cardService.getOrderChart()
-            .subscribe((data:any) => {
-                console.log(data);
-                
+            .subscribe((data: any) => {
                 this.totalSum = 0;
-                this.cardInfo = data.data.data;
-                for (var i = 0; i < this.cardInfo.length; i++) {
-                    this.totalSum = this.totalSum + this.cardInfo[i].totalAmount;
+                if (data && data.data && data.data.data) {
+                    this.cardInfo = data.data.data;
+                    for (var i = 0; i < this.cardInfo.length; i++) {
+                        this.totalSum = this.totalSum + this.cardInfo[i].totalAmount;
+                    }
+                    console.log(this.cardInfo);
                 }
                 this.loading = false;
-                console.log(this.cardInfo);
             })
-            
-            
-            
     }
 
     byAllEvent(event) {
@@ -61,9 +59,7 @@ export class CardView implements OnInit {
     }
 
     deletedOrder(event) {
-
         this._getOrderChard()
-
     }
 
 }

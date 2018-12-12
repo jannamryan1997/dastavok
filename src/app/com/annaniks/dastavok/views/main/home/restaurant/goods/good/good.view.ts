@@ -13,7 +13,7 @@ export class GoodComponent implements OnInit {
     private _companyId: number;
     private _goodId: number;
     public starCount: number = 4;
-    public count: number = 1;
+    public count: number=1 ;
     public tab: number = 1;
     public activeImage: string;
     public goodImage: Array<string>;
