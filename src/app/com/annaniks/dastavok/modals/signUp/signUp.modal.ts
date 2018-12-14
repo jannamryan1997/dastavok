@@ -52,7 +52,8 @@ export class SignUpModal implements OnInit {
             console.log(data);
 
         }, err => {
-            console.log(err);
+            this.loading=false;
+            this.signUpForm.enable();
 
         })
     }

@@ -13,8 +13,7 @@
         height: 165.1px;
         background-size: cover;
         background-repeat: no-repeat;
-        background-position: center;
-      //  background-image: url("/assets/images/salads.main.jpg");
+        background-position: center; //  background-image: url("/assets/images/salads.main.jpg");
     }
     .item_text {
         margin-left: 23.8px;
@@ -43,6 +42,8 @@
             color: #706f6f;
             margin-bottom: 0px;
             margin-top: 4.8px;
+            display: block;
+            word-break: break-word;
         }
         .money_text {
             font-size: 15px;

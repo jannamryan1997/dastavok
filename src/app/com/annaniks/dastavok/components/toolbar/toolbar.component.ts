@@ -33,7 +33,7 @@ export class ToolbarComponent implements OnInit {
     public openRegisterStep(): void {
         const dialogRef = this.dialog.open(RegistrationStep, {
             width: "686px",
-            maxWidth: '100vw',
+           maxWidth: '100vw',
             panelClass: ['margin-10'],
         })
     }

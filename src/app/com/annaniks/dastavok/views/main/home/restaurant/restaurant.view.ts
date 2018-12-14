@@ -15,6 +15,7 @@ export class RestaurantView implements OnInit {
     public companyId: number;
     public restaurant: Restaurant;
     public localImage:string = '/assets/images/restaurant.jpg';
+    public loading:boolean=false;
 
     constructor(private _router: Router, private _activatedRoute: ActivatedRoute, private _restaurantService: RestaurantService) {
         this._activatedRoute.params.subscribe((params) => {
@@ -29,8 +30,10 @@ export class RestaurantView implements OnInit {
     }
 
     private _getGoodTypes(companyId: number): void {
+        this.loading=true;
         this._restaurantService.getGoodTypes(companyId)
         .subscribe((data: ServerResponse<Array<GoodType>>) => {
+            this.loading=false;
             this.goodTypes = data.data;
          //   console.log(this.goodTypes);
             

@@ -16,6 +16,7 @@ export class ProfileView implements OnInit {
     public orderInfo: OrderHistory;
     public tab: number = 1;
     public clientData: User;
+    public loading:boolean=true;
     public items_notification: Array<object> = [
         {
             label: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam provident atquedeleniti adipisci quam fugiat eveniet, debitis dolores laudantium delectus beatae earum dictainventore, illum laboriosam quaerat molestias reprehenderit assumenda ? ",
@@ -44,8 +45,6 @@ export class ProfileView implements OnInit {
     public openUserUpdateModal(): void {
         const dialogref = this.dialog.open(UserUpdateModal, {
             width: "686px",
-            //height: " 579px",
-            // panelClass: ['no-padding'],
             panelClass: ['margin-10']
         })
     }
@@ -65,8 +64,6 @@ export class ProfileView implements OnInit {
         this._profileService.getClient()
             .subscribe((data: ServerResponse<User>) => {
                 this.clientData = data.data;
-                //   console.log(this.clientData);
-
             })
     }
 

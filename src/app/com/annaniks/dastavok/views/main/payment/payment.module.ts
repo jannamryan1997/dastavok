@@ -4,11 +4,12 @@ import { PaymentView } from "./payment.view";
 import { CommonModule } from "@angular/common";
 import {ReactiveFormsModule} from "@angular/forms";
 import { CheckoutTabComponent,DoneTabComponent,PaymentTabComponent } from "../../../components";
-//import { PaymentService } from "./payment.service";
+import { SharedModule } from "../../../shared/shared.module";
+
 
 @NgModule({
     declarations: [PaymentView,CheckoutTabComponent,DoneTabComponent,PaymentTabComponent],
-    imports: [PaymentRoutingModule, CommonModule,ReactiveFormsModule,],
+    imports: [PaymentRoutingModule, CommonModule,ReactiveFormsModule,SharedModule],
     providers:[],
     exports: [],
 })

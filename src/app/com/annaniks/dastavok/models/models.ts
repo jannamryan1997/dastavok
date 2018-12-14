@@ -21,6 +21,7 @@ export interface PhoneVerification {
 
 export interface Verification {
     token: string;
+    refreshToken?:string;
 }
 export class User {
     address: string

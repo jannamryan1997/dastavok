@@ -10,13 +10,15 @@ import { Router } from "@angular/router";
 })
 
 export class CardView implements OnInit {
-    public loading: boolean = true;
+    public loading: boolean = false;
     public cardInfo: Card[] = [];
     public cardGoodsInfo: Array<any>;
     public cardGoodsImage: string;
     public cardGoodImageItem: string;
     public totalSum: number = 0;
     public amount: number = 0;
+
+
     constructor(private _cardService: CardService, private _router: Router) { }
 
     ngOnInit() {
@@ -29,6 +31,7 @@ export class CardView implements OnInit {
         this.loading = true;
         this._cardService.getOrderChart()
             .subscribe((data: any) => {
+               this.loading = false;
                 this.totalSum = 0;
                 if (data && data.data && data.data.data) {
                     this.cardInfo = data.data.data;
@@ -37,7 +40,7 @@ export class CardView implements OnInit {
                     }
                     console.log(this.cardInfo);
                 }
-                this.loading = false;
+               // this.loading = false;
             })
     }
 

@@ -3,7 +3,7 @@
 
 
         <div class="registration_top" full-width display-flex>
-            <div class="top_line" full-width margin-auto display-flex [ngClass]="{'stepTwoGradient':tab=='2','stepThreeGradient':tab=='3'}">
+            <div class="top_line" width-75 margin-auto display-flex [ngClass]="{'stepTwoGradient':tab=='2','stepThreeGradient':tab=='3'}">
                 <div class="step_one" display-flex [ngClass]="{'activeTab':tab>='1'}">
                     <i class="material-icons" margin-auto>
                         call
@@ -20,10 +20,9 @@
                     </i>
                 </div>
             </div>
-
         </div>
         <div class="registration_conteiner">
-            <div class="phone_content" full-width *ngSwitchCase="1">
+            <div class="phone_content"  width-75 margin-auto *ngSwitchCase="1">
                 <div class="phone_wrapper">
                     <form [formGroup]="phoneNumberForm">
                         <div class="input_content" full-width display-flex>
@@ -34,16 +33,19 @@
                             </div>
                             <input type="text" class="input" formControlName="phonenumber">
                         </div>
-                        <app-loading [loading]="loading"></app-loading>
+                        <div  position-relative>
+                                <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading>
+                        </div>
+                      
                     </form>
 
                 </div>
 
             </div>
 
-            <div class="verification_content" *ngSwitchCase="2">
-                <form [formGroup]="verificationForm">
-                    <div class="items">
+            <div class="verification_content" *ngSwitchCase="2" full-width>
+                <form [formGroup]="verificationForm" width-75 margin-auto>
+                    <div class="items" width-75 margin-auto>
 
                         <input class="item_label" formControlName="control_1">
                         <input class="item_label" formControlName="control_2">
@@ -51,11 +53,11 @@
                         <input class="item_label" formControlName="control_4">
 
                     </div>
-                    <div class="text_content" margin-auto>
-                        <span>Enter the verification code <b color-orange>02:00</b></span>
+                    <div class="text_content" margin-auto justify-content-flex-end  display-flex>
+                        <span>Enter the verification code <b color-orange>{{time}}</b></span>
                     </div>
-                    <div class="load">
-                        <app-loading [loading]="loading"></app-loading>
+                    <div  position-relative>
+                            <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading>
                     </div>
 
                 </form>
@@ -76,7 +78,9 @@
                             <input class="confirm_password" placeholder="Confirm your password" full-width
                                 formControlName="confirm_password">
                         </div>
-                        <app-loading [loading]="loading"></app-loading>
+                        <div  position-relative>
+                                <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading>
+                        </div>
                         <div class="button_items" display-flex>
 
 

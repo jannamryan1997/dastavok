@@ -9,7 +9,9 @@
                 </div>
                 <input type="text" class="input" formControlName="phonenumber">
             </div>
-            <app-loading [loading]="loading"></app-loading>
+            <div  position-relative>
+                    <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading>
+            </div>
             <div class="buttons_wrapper" display-flex>
                 <div class="buttons_items" margin-auto full-height>
                     <button class="back_button" full-height font-weight-bold (click)="closePhoneModal()">BACK</button>

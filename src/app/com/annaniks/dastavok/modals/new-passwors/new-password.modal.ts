@@ -13,6 +13,7 @@ import { ServerResponse } from "../../models/models";
 export class NewPasswordModals implements OnInit {
 
     public newPasswordFormGroup: FormGroup;
+    public loading:boolean=false;
 
     constructor(public dialog: MatDialog,private dialogRef: MatDialogRef<NewPasswordModals>,private _signUpService: SignUpService) { }
 
@@ -27,15 +28,20 @@ export class NewPasswordModals implements OnInit {
     }
 
     public newPassword() {
-
+        this.loading=true;
+this.newPasswordFormGroup.disable();
         this._signUpService.newPassword({
             "password": this.newPasswordFormGroup.value.new_password
         }).subscribe((data: ServerResponse<Array<string>>) => {
+            this.loading=false;
+            this.newPasswordFormGroup.enable();
             this.dialogRef.close();
             console.log(data);
 
         },
             err => {
+                this.loading=false;
+                this.newPasswordFormGroup.enable();
                 console.log(err);
 
             })

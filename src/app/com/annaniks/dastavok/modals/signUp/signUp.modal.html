@@ -13,7 +13,9 @@
             <div class="form_group">
                 <input class="confirm_password" placeholder="Confirm your password" full-width formControlName="confirm_password">
             </div>
-            <app-loading [loading]="loading"></app-loading>
+            <div  position-relative>
+                    <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading>
+            </div>
             <div class="button_items" display-flex>
                 <div margin-auto>
                     <button class="back_button" text-align-center>

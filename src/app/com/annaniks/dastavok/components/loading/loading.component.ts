@@ -10,6 +10,8 @@ styleUrls:["loading.component.scss"]
 export class LoadingComponent implements OnInit{
 
 @Input() loading:boolean;
+@Input() height;
+@Input() width;
 
 constructor(){}
 

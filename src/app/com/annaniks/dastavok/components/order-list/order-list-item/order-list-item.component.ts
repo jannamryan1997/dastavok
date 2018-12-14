@@ -10,6 +10,7 @@ import { OrderHistory } from "../../../models/models";
 export class OrderListItemComponent implements OnInit {
 
     @Input() orderInfo:OrderHistory;
+    @Input() loading:boolean;
 
     ngOnInit(){
         

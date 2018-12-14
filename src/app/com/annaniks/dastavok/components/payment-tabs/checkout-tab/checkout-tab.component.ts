@@ -25,6 +25,7 @@ export class CheckoutTabComponent implements OnInit {
     public directionsDisplay = new google.maps.DirectionsRenderer();
     public ordersParams: OrderInfo;
     public domaphoreValue: boolean;
+    public loading: boolean = false;
     @Input() paymentTab: number;
     @Output() changeTab: EventEmitter<number> = new EventEmitter<number>();
     @Output() addressValue: EventEmitter<string> = new EventEmitter<string>();
@@ -106,8 +107,10 @@ export class CheckoutTabComponent implements OnInit {
     }
 
     private _createOrder(): void {
+        this.loading=true;
+        this.paymentForm.disable();
         this._paymentService.createOrder({
-            name: "vika",
+            name: "payment",
             address: {
                 lat: this._latitude,
                 lng: this._longitude,
@@ -118,31 +121,49 @@ export class CheckoutTabComponent implements OnInit {
 
 
         }).subscribe((data) => {
+            this.loading = false;
+            this.paymentForm.enable();
             this.openPayment();
             this.getAddresValue();
             console.log(data);
 
-        })
+        });
+        error=>{
+            this.loading = false;
+            this.paymentForm.enable();
+        }
     }
     public onClickSave() {
         if (this.ordersParams.orderType == 'one') {
             this._createOrder();
         }
-        if(this.ordersParams.orderType == 'basket'){
+        if (this.ordersParams.orderType == 'basket') {
             this._changeOrderStatus();
         }
 
     }
 
     private _getOrderProcessing() {
+        console.log("jiji");
+        
+        this.loading=true;
+        this.paymentForm.disable();
         this._paymentService.getOrderProcessing()
             .subscribe((data) => {
+                this.loading = false;
+                this.paymentForm.enable();
                 console.log(data);
 
-            })
+            });
+        error => {
+            this.loading = false;
+            this.paymentForm.enable();
+        }
     }
 
     private _changeOrderStatus(): void {
+        this.loading=true;
+        this.paymentForm.disable();
         this._paymentService.putOrders(
             {
                 ordersId: this.ordersParams.orders,
@@ -156,10 +177,16 @@ export class CheckoutTabComponent implements OnInit {
                 apartment: +this.paymentForm.value.apartment,
             }
         ).subscribe((data) => {
+            this.loading=false;
+            this.paymentForm.enable();
             this.openPayment();
             console.log(data);
 
-        })
+        });
+        error=>{
+            this.loading=false;
+            this.paymentForm.enable();
+        }
     }
 
 }

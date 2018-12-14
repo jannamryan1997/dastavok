@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core"
 import { ServerResponse, Paginator, BriefCompany, Good } from "src/app/com/annaniks/dastavok/models/models";
 import { InformationService } from "./information.service";
 import { ActivatedRoute } from "@angular/router";
-import { PageEvent } from "@angular/material";
+import { error } from "util";
 
 @Component({
     selector: "app-information",
@@ -11,6 +11,7 @@ import { PageEvent } from "@angular/material";
 })
 
 export class InformationView implements OnInit {
+    public loading:boolean=false;
     public case: string;
     public companyItem: BriefCompany[];
     public goods:Good[];
@@ -26,13 +27,19 @@ export class InformationView implements OnInit {
 
 
     private _getRestaurant(page, count) {
+        this.loading=true;
         this._informationService.getFreeclientRestaurant(page, count)
             .subscribe((data: ServerResponse<Paginator<BriefCompany[]>>) => {
+                this.loading=false;
                 this.companyItem = data.data.data;
                 this.count = data.data.metaData.count;
                 console.log(data);
 
             })
+            error=>{     
+                console.log(error);
+                
+            }
     }
 
     private _checkQueryParams(): void {
@@ -44,15 +51,21 @@ export class InformationView implements OnInit {
     }
 
     public paginate(event) {
+        this.loading=true;
         this._getRestaurant(event.pageNumber, this.pageLength);
 
     }
     private _getSearchGoods(page, limit, text) {
         this._informationService.getSearchGoods(page, limit, text)
             .subscribe((data:ServerResponse<Paginator<Good[]>>) => {
-                console.log(data);
+                this.loading=false;
                 this.goods=data.data.data;
 
             })
+            err=>{
+               // this.loading=false;
+                console.log(err);
+                
+            }
     }
 }

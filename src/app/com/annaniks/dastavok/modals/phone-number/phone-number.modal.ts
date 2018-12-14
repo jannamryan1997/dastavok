@@ -58,6 +58,8 @@ export class PhoneNumberModal implements OnInit {
                 "phoneNumber": this.phoneNumberForm.value.phonenumber
             }).subscribe(
                 (data: ServerResponse<PhoneVerification>) => {
+                    this.loading = false;
+                    this.phoneNumberForm.enable();
                     this.cookieService.put('phone_token', data.data.token);
                     this.openVerificationModal('registration');
                 },

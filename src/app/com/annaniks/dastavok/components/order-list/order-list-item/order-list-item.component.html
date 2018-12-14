@@ -1,22 +1,7 @@
-<!-- <div class="order_content" full-width>
-    <div class="order_info" width-75 margin-auto>
-        <div class="order_data" full-width>
-            <div class="images"></div>
-            <div class="namr_info" margin-auto>
-                <p font-family-Roboto>{{orderInfo?.companydata.name}}</p>
-                <span class="description" font-family-Roboto>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Magnam quam fugiat officia? Inventore placeat, tempore sit amet laboriosam dolorem tempora autem
-                    quae repellendus, quidem libero unde! Enim sint incidunt facere?</span>
-
-            </div>
-            <div class="data" display-flex>
-                <p font-family-Roboto margin-auto>{{orderInfo?.companydata.createdAt}}</p>
-            </div>
-
-        </div>
-    </div>
-</div> -->
 <div class="order_content" width-75 margin-auto>
+        <div position-relative>
+                <app-loading class="loading" [loading]="loading" [height]="150" [width]="150"></app-loading>
+            </div>
     <div class="order_item" display-flex>
         <div class="image_item"></div>
         <div class="order_info">

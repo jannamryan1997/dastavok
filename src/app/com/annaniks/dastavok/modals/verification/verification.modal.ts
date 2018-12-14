@@ -95,7 +95,10 @@ export class VerificationModal implements OnInit {
                     this.verificationForm.enable();
                     this.cookieService.put("verificationtoken", data.data.token)
                     this.openSignUpModalModal();
-                }, (err) => { })
+                }, (err) => { 
+                    this.loading = false;
+                    this.verificationForm.enable();
+                })
         }
 
         if (this.data.key == "forgot_password")
@@ -104,11 +107,16 @@ export class VerificationModal implements OnInit {
                 "verifyCode": +(this.controlsItems)
             }).subscribe(
                 (data: any) => {
+                    this.loading = false;
+                    this.verificationForm.enable();
                     this.cookieService.remove("forgot_token")
                     this.cookieService.put("verification_token", data.data.token)
                     this.openNewPasswordModal();
                 },
-                (error) => { })
+                (error) => {
+                    this.loading = false;
+                    this.verificationForm.enable();
+                 })
     }
 
 

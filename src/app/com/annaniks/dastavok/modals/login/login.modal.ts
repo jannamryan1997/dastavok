@@ -44,9 +44,9 @@ export class LoginModal implements OnInit {
             this.loading = false;
             this._cookieService.put("refreshToken", data.data.refreshToken);
             this._cookieService.put('token', data.data.token);
-            this.dialogRef.close();
-            this.router.navigate(["/home/information"]);
             this.loginForm.enable();
+            this.dialogRef.close();
+           
         },
             err => {
                 this.loading = false;
