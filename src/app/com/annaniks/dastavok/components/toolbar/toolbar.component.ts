@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core"
 import { MatDialog } from "@angular/material";
-import { LoginModal, PhoneNumberModal, RegistrationStep } from "../../modals";
+import { LoginModal, PhoneNumberModal, RegistrationStep, SearchGoodsModals } from "../../modals";
 import { SignUpService } from "../../services/signUp.service";
 import { CookieService } from "angular2-cookie/services/cookies.service";
 import { MenuService } from "../../services/menu.service";
@@ -33,7 +33,7 @@ export class ToolbarComponent implements OnInit {
     public openRegisterStep(): void {
         const dialogRef = this.dialog.open(RegistrationStep, {
             width: "686px",
-           maxWidth: '100vw',
+            maxWidth: '100vw',
             panelClass: ['margin-10'],
         })
     }
@@ -102,6 +102,14 @@ export class ToolbarComponent implements OnInit {
 
     public openMenu() {
         this._menuService.openMenu()
+    }
+
+    public openSearchGoodsModale(): void {
+        const dialogRef = this.dialog.open(SearchGoodsModals, {
+            width: "686px",
+            height: "240px",
+            panelClass: ['no-padding']
+        })
     }
 
 

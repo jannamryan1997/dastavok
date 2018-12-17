@@ -14,7 +14,7 @@ export class HomeView implements OnInit {
     public chooseBarVisiblity: boolean = true;
     public search: string;
 
-    constructor(public menuItemsService: MenuItemsService, public signUpService: SignUpService, private _router: Router,private _activatedRoute:ActivatedRoute) { }
+    constructor(public menuItemsService: MenuItemsService, public signUpService: SignUpService, private _router: Router, private _activatedRoute: ActivatedRoute) { }
 
     ngOnInit() {
         this._checkWindowSize();
@@ -31,7 +31,7 @@ export class HomeView implements OnInit {
     }
 
     public onClickSearch(): void {
-this._router.navigate(['/home/information'],{queryParams:{serch:this.search}})
+        this._router.navigate(['/home/search'], { queryParams: { search: this.search } })
 
     }
 

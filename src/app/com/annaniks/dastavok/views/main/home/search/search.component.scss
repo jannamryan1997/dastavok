@@ -1,0 +1,25 @@
+.container {
+    width: calc(100% - 297px);
+    margin-left: 10px;
+}
+
+app-company-list {
+    margin-top: 92px;
+    margin-left: 101px;
+    app-company-list-item {
+        margin-top: 46px;
+        margin-left: 59px;
+    }
+}
+
+// .ui-progress-spinner {
+//     width: 200px !important;
+//     height: 200px !important;
+// }
+
+@media only screen and (max-width: 900px) {
+    .container {
+        width: calc(100% - 20px);
+        margin: 10px auto;
+    }
+}

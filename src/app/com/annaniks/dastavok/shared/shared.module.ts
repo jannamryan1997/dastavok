@@ -1,5 +1,5 @@
 import { NgModule } from "@angular/core"
-import { TopbarComponent, ToolbarComponent, LoadingComponent,RatingComponent, PaginatorComponent,SlideNawComponent, FiltersListComponent, GoodsListComponent, GoodsListItemComponent } from "../components";
+import { TopbarComponent, ToolbarComponent, LoadingComponent,RatingComponent, PaginatorComponent,SlideNawComponent, FiltersListComponent, GoodsListComponent, GoodsListItemComponent,LeftMenuComponent } from "../components";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router"
 import {MatDialogModule} from '@angular/material/dialog';
@@ -21,7 +21,8 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
         SlideNawComponent,
         FiltersListComponent,
         GoodsListComponent,
-        GoodsListItemComponent
+        GoodsListItemComponent,
+        LeftMenuComponent
     ],
     imports: [
         CommonModule, 
@@ -33,6 +34,7 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
         ProgressSpinnerModule
     ],
     exports: [
+        LeftMenuComponent,
         TopbarComponent, 
         CommonModule,
         FormsModule,
