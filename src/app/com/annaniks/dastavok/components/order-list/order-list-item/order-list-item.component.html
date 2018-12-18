@@ -3,7 +3,7 @@
                 <app-loading class="loading" [loading]="loading" [height]="150" [width]="150"></app-loading>
             </div>
     <div class="order_item" display-flex>
-        <div class="image_item"></div>
+        <div class="image_item"  [ngStyle]="{'background-image':'url('+'http://192.168.0.111:4000/static/company/'+orderInfo.companydata.image+')'}"></div>
         <div class="order_info">
             <p class="name_data" ont-family-Roboto>{{orderInfo?.companydata.name}}</p>
             <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum eos itaque dolores
@@ -12,4 +12,5 @@
         </div>
     </div>
     <div class="line" full-width></div>
+
 </div>

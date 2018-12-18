@@ -1,0 +1,35 @@
+.empty_content {
+    .empty_conteiner {
+        margin-top: 70px;
+        .empty_top {
+            i {
+                font-size: 63px;
+                color: #444444;
+            }
+        }
+        .empty_text {
+            .text {
+                font-size: 26px;
+                font-weight: bold;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.23;
+                letter-spacing: normal;
+                text-align: center;
+                color: #444444;
+            }
+            .text_content {
+                margin-top: 0px;
+                margin-bottom: 0px;
+                font-size: 15px;
+                font-weight: normal;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.2;
+                letter-spacing: normal;
+                text-align: center;
+                color: #444444;
+            }
+        }
+    }
+}

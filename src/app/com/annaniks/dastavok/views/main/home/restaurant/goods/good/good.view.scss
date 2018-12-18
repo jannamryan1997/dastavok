@@ -56,6 +56,8 @@
                     color: #706f6f;
                     margin-bottom: 0px;
                     margin-top: 0px;
+                    word-break: break-word;
+                    display: block;
                 }
             }
             .line_content {
@@ -192,30 +194,28 @@
 
 @media only screen and (max-width: 900px) {
     .good_content {
-      margin-left: 0px !important;
+        margin-left: 0px !important;
     }
-    .good_conteiner{
+    .good_conteiner {
         flex-direction: column !important;
         width: 335px;
         margin-left: 23px !important;
-
     }
     .left_button {
-        width: 163.5px  !important;
-        height: 65px  !important; 
+        width: 163.5px !important;
+        height: 65px !important;
     }
     .right_button {
-        width: 163.5px  !important;
-        height: 65px  !important; 
+        width: 163.5px !important;
+        height: 65px !important;
     }
-    .right_content{
-        margin-left: 0px  !important;
+    .right_content {
+        margin-left: 0px !important;
     }
-   .tab_item{
+    .tab_item {
         font-size: 15px !important;
-   }
-
-    .image_content{
+    }
+    .image_content {
         width: 335px !important;
         height: 241.9px !important;
     }

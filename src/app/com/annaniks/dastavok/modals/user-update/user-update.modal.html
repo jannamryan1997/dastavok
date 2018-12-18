@@ -36,8 +36,11 @@
                 </div>
                 <input class="input_content" placeholder="Phone Number" full-height formControlName="phone_number">
             </div>
-            <div class="button_item" display-flex>
-                <button class="button_content" margin-auto display-flex [disabled]="userUpdateGroup.invalid" [ngClass]="{'opacity':userUpdateGroup.invalid}" (click)="putClient()">
+            <div position-relative>
+                    <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading>
+                </div>
+            <div class="button_item" display-flex (click)="updateClient()">
+                <button class="button_content" margin-auto display-flex [disabled]="userUpdateGroup.invalid" [ngClass]="{'opacity':userUpdateGroup.invalid}" >
                     <span class="button_text" color-white font-family-Roboto margin-auto>SAVE</span>
                 </button>
             </div>

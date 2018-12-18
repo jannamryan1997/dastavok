@@ -29,3 +29,6 @@ export * from "src/app/com/annaniks/dastavok/components/order-list/order-list.co
 export * from "src/app/com/annaniks/dastavok/components/order-list/order-list-item/order-list-item.component";
 export * from "src/app/com/annaniks/dastavok/components/slide-nav/slide-nav.component";
 export *from "src/app/com/annaniks/dastavok/components/filters-list/filters-list.component";
+export *from "src/app/com/annaniks/dastavok/components/empty/empty.component";
+export *from "src/app/com/annaniks/dastavok/components/profile-tab/orders-tab/orders-tab.componet";
+export *from "src/app/com/annaniks/dastavok/components/profile-tab/notification-tab/notification-tab.component";

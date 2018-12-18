@@ -16,31 +16,19 @@ export class ProfileView implements OnInit {
     public orderInfo: OrderHistory;
     public tab: number = 1;
     public clientData: User;
-    public loading:boolean=true;
-    public items_notification: Array<object> = [
-        {
-            label: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam provident atquedeleniti adipisci quam fugiat eveniet, debitis dolores laudantium delectus beatae earum dictainventore, illum laboriosam quaerat molestias reprehenderit assumenda ? ",
-            data: "17/08/18",
-        },
-        {
-            label: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam provident atquedeleniti adipisci quam fugiat eveniet, debitis dolores laudantium delectus beatae earum dictainventore, illum laboriosam quaerat molestias reprehenderit assumenda ? ",
-            data: "17/08/18",
-        },
-        {
-            label: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam provident atquedeleniti adipisci quam fugiat eveniet, debitis dolores laudantium delectus beatae earum dictainventore, illum laboriosam quaerat molestias reprehenderit assumenda ? ",
-            data: "17/08/18",
-        }
-    ]
+    public page = 1;
+    public pageLength = 10;
+    public count: number = 0;
+    public notifications: Array<object> = []
 
 
     constructor(private dialog: MatDialog, private _profileService: ProfileService) { }
 
     ngOnInit() {
         this._clientGet();
-        //this._clientOrdersProcessing();
-        this._clientOrderDriver();
-
+        this._clientOrdersProcessing();
     }
+
 
     public openUserUpdateModal(): void {
         const dialogref = this.dialog.open(UserUpdateModal, {
@@ -74,13 +62,6 @@ export class ProfileView implements OnInit {
 
             })
     }
-    private _clientOrderDriver() {
-        this._profileService.clientOrderDriver()
-            .subscribe((data: ServerResponse<OrderHistory>) => {
-                this.orderInfo = data.data;
-                console.log(data);
 
-            })
-    }
 
 }

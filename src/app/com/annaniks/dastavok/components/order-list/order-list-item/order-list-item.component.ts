@@ -9,13 +9,15 @@ import { OrderHistory } from "../../../models/models";
 
 export class OrderListItemComponent implements OnInit {
 
-    @Input() orderInfo:OrderHistory;
-    @Input() loading:boolean;
+    public empty: boolean;
+    @Input() orderInfo: OrderHistory;
+    @Input() loading: boolean;
 
-    ngOnInit(){
-        
+    constructor() { }
+
+    ngOnInit() {
+console.log(this.orderInfo,"iii");
+
     }
-
-    constructor(){}
 
 }

@@ -41,14 +41,11 @@
             </div>
         </div>
         <div *ngSwitchCase="1">
-            <app-notification-list>
-                <app-notification-list-item *ngFor="let item of items_notification" [label]="item.label" [data]="item.data"></app-notification-list-item>
-            </app-notification-list>
+               <app-notification-tab></app-notification-tab>
+          
         </div>
         <div *ngSwitchCase="2">
-            <app-order-list [loading]="loading">
-                <app-order-list-item *ngFor="let item of orderInfo" [orderInfo]="item" ></app-order-list-item>
-            </app-order-list>
+            <app-orders-tab ></app-orders-tab>
         </div>
 
         <div *ngSwitchCase="3">
@@ -56,5 +53,5 @@
         </div>
 
     </div>
-
+    <!-- <app-paginator [count]="count" [pageLength]="pageLength" (paginate)="paginate($event)"></app-paginator> -->
 </div>
