@@ -4,7 +4,6 @@ import { CookieService } from "angular2-cookie/services/cookies.service";
 import { map, catchError } from "rxjs/operators";
 import { SignUpService } from "./signUp.service";
 import { of } from "rxjs";
-import {  Router } from "@angular/router";
 
 @Injectable()
 export class ApiService {
@@ -13,7 +12,6 @@ export class ApiService {
         private _httpClient: HttpClient,
         public _cookieService: CookieService,
         private _signUpService: SignUpService,
-        private _router: Router
     ) { }
 
     public checkToken() {

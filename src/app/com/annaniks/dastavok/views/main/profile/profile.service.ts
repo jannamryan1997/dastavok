@@ -65,5 +65,14 @@ export class ProfileService {
         return this._httpClient.put(this.baseURL + "client", body, { headers })
     }
 
+    public updateClientImage(formData){
+        let token=this._cookieService.get('token');
+
+        let headers=new HttpHeaders({
+            'token': token
+        })
+        return this._httpClient.put(this.baseURL+"client/image",formData,{headers})
+    }
+
 }
 

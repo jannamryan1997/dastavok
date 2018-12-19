@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core"
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { ProfileService } from "../../views/main/profile/profile.service";
 import { MatDialogRef } from "@angular/material";
+import { forkJoin, of } from "rxjs";
+import { SignUpService } from "../../services/signUp.service";
 
 
 
@@ -15,8 +17,10 @@ export class UserUpdateModal implements OnInit {
 
     public userUpdateGroup: FormGroup;
     public loading: boolean = false;
+    public serivceImage: string;
+    public localImage: string = "assets/images/userimages.png";
 
-    constructor(private _profileService: ProfileService, private _dialogRef: MatDialogRef<UserUpdateModal>) { }
+    constructor(private _profileService: ProfileService, private _dialogRef: MatDialogRef<UserUpdateModal>,private _signUpService:SignUpService) { }
 
     ngOnInit() {
         this._formBuilder()
@@ -31,27 +35,57 @@ export class UserUpdateModal implements OnInit {
         })
     }
 
-    public updateClient() {
+    private _updateClient() {
         this.loading = true;
         this.userUpdateGroup.disable();
-        this._profileService.updateClient({
+      return  this._profileService.updateClient({
             "fullName": this.userUpdateGroup.value.full_name,
-            "location": this.userUpdateGroup.value.location,
-            "phoneNumber": this.userUpdateGroup.value.phone_number,
-        }).subscribe((data) => {
-            this.loading = false;
-            this.userUpdateGroup.enable();
-            this._dialogRef.close();
-            console.log(data);
-
-
-
-        }),
-            error => {
-                this.loading = false;
-                this.userUpdateGroup.enable();
-            }
+            //  "location": this.userUpdateGroup.value.location,
+            // "phoneNumber": this.userUpdateGroup.value.phone_number,
+         })
     }
 
 
+    public setServicePhoto(event) {
+        if (event) {
+            let reader = new FileReader()
+            this.serivceImage = event;
+
+            let self = this;
+            reader.onload = function (e: any) {
+                self.localImage = e.target.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
+    }
+
+    private _updateUserImage(event) {
+        if (event) {
+            let fileList: FileList = event.target.files;
+            if (fileList.length > 0) {
+                let file: File = fileList[0];
+                let formData: FormData = new FormData();
+                formData.append('image', file, file.name);
+               return this._profileService.updateClientImage(formData)
+
+            }
+         else{
+                return of([]);
+            }
+        }
+
+    }
+    public  updeteClientData(){
+        forkJoin(this._updateClient(),this._updateUserImage(this.serivceImage))
+        .subscribe((data)=>{
+            this.loading = false;
+                this.userUpdateGroup.enable();
+                this._dialogRef.close();
+                console.log(data);
+            console.log(data);
+            
+        })
+    }
 }
+

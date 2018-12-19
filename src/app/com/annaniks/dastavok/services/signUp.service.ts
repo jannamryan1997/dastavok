@@ -80,7 +80,14 @@ export class SignUpService {
             })
         )
     }
-
+public getUserImage(imageName:string){
+    let token = this.cookieService.get("token");
+    let headers = new HttpHeaders({
+        'Content-type': 'application/json',
+        'token': token
+    })
+    return this.httpClient.get(this.baseURL+"client/image/"+imageName)
+}
 
 
 }

@@ -46,12 +46,14 @@ export class LoginModal implements OnInit {
             this._cookieService.put('token', data.data.token);
             this.loginForm.enable();
             this.dialogRef.close();
+            
            
         },
             err => {
                 this.loading = false;
                 this.loginForm.enable();
             })
+            
     }
 
     public onClickForgotPassword(): void {

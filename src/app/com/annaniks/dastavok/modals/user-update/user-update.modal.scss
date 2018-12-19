@@ -1,99 +1,94 @@
-.update_content{
-margin: 25px 0px;
-.update_conteiner {
-    .img_content {
-        width: 180px;
-        height: 180px;
-        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-        border: solid 3px #aeaeae;
-        border-radius: 50%;
-        .images {
-            background-image: url("/assets/images/empty.svg");
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            width: 105.7px;
-            height: 95.1px;
-            .input_items {
-                margin-top: 12.7px;
-                height: 47px;
-                .icon_contnet {
-                    width: 42px;
-                    i {
-                        font-size: 16px;
-                        background-color: #676767;
+.update_content {
+    margin: 25px 0px;
+    .update_conteiner {
+        .img_content {
+            width: 180px;
+            height: 180px;
+            box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+            border: solid 3px #aeaeae;
+            border-radius: 50%;
+            .images {
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover; //width: 105.7px;
+                //height: 95.1px;
+                border-radius: 50%;
+                .input_items {
+                    margin-top: 12.7px;
+                    height: 47px;
+                    .icon_contnet {
+                        width: 42px;
+                        i {
+                            font-size: 16px;
+                            background-color: #676767;
+                        }
                     }
                 }
             }
         }
     }
-}
-
-.form_group_name {
-    height: 42px;
-    border-radius: 4px;
-    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-    border: 1px solid rgba(0, 0, 0, 0.23);
-    margin-top: 12.7px;
-    .icon_content {
-        width: 47px;
-        height: 42px; //    border: 1px solid rgba(0, 0, 0, 0.23)
-    }
-    .input_content {
-        width: calc(100% - 42px)
-    }
-}
-
-.form_group {
-    height: 42px;
-    border-radius: 4px;
-    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-    border: 1px solid rgba(0, 0, 0, 0.23);
-    margin-top: 20.7px;
-    .icon_content {
-        width: 47px;
-        height: 42px; //  border: 1px solid rgba(0, 0, 0, 0.23)
-    }
-    .input_content {
-        width: calc(100% - 42px)
-    }
-}
-
-.button_item {
-    margin-top: 59px;
-    .button_content {
-        width: 143.8px;
+    .form_group_name {
         height: 42px;
         border-radius: 4px;
         box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-        background-color: #ff6f00;
-        border: none;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        cursor: pointer;
-        .button_text {
-            font-size: 12px;
-            font-weight: bold;
-            font-style: normal;
-            font-stretch: normal;
-            line-height: 1.33;
-            letter-spacing: normal;
-            text-align: left;
+        border: 1px solid rgba(0, 0, 0, 0.23);
+        margin-top: 12.7px;
+        .icon_content {
+            width: 47px;
+            height: 42px;
+        }
+        .input_content {
+            width: calc(100% - 42px)
         }
     }
-}
-
-input::placeholder {
-    font-size: 12px;
-    font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.33;
-    letter-spacing: normal;
-    color: #aeaeae;
-    padding-left: 13px;
-}
+    .form_group {
+        height: 42px;
+        border-radius: 4px;
+        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+        border: 1px solid rgba(0, 0, 0, 0.23);
+        margin-top: 20.7px;
+        .icon_content {
+            width: 47px;
+            height: 42px;
+        }
+        .input_content {
+            width: calc(100% - 42px)
+        }
+    }
+    .button_item {
+        margin-top: 59px;
+        .button_content {
+            width: 143.8px;
+            height: 42px;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+            background-color: #ff6f00;
+            border: none;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            .button_text {
+                font-size: 12px;
+                font-weight: bold;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.33;
+                letter-spacing: normal;
+                text-align: left;
+            }
+        }
+    }
+    input::placeholder {
+        font-size: 12px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.33;
+        letter-spacing: normal;
+        color: #aeaeae;
+        padding-left: 13px;
+    }
 }
 
 .opacity {
