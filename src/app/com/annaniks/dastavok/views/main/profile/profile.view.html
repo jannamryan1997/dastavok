@@ -2,7 +2,7 @@
     <div class="profile_container" width-75 margin-auto>
         <div class="profile_data" display-flex justify-content-space-between>
             <div display-flex align-items-center>
-                <div class="img_content"></div>
+                <div class="img_content" [ngStyle]="{'background-image':'url('+clientImage+')'}"></div>
                 <div class="text_content">
                     <p class="text_name" font-weight-bold font-family-Open-Sans>{{clientData?.fullName}}</p>
                     <div class="user_room" display-flex align-items-center>
@@ -20,7 +20,7 @@
                     </div>
                 </div>
             </div>
-            <div class="add_content" (click)="openUserUpdateModal()">
+            <div class="add_content" (click)="openUserUpdateModal(clientData)">
                 <button class="button_content" full-width full-height display-flex>
                     <span font-family-Open-Sans margin-auto>add</span>
                 </button>

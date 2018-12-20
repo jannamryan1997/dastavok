@@ -1,9 +1,10 @@
-import { Component, OnInit } from "@angular/core"
+import { Component, OnInit, Inject } from "@angular/core"
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { ProfileService } from "../../views/main/profile/profile.service";
-import { MatDialogRef } from "@angular/material";
+import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import { forkJoin, of } from "rxjs";
 import { SignUpService } from "../../services/signUp.service";
+import { User } from "../../models/models";
 
 
 
@@ -19,11 +20,16 @@ export class UserUpdateModal implements OnInit {
     public loading: boolean = false;
     public serivceImage: string;
     public localImage: string = "assets/images/userimages.png";
+    public clientData: User;
 
-    constructor(private _profileService: ProfileService, private _dialogRef: MatDialogRef<UserUpdateModal>,private _signUpService:SignUpService) { }
+    constructor(@Inject(MAT_DIALOG_DATA) private data: any, private _profileService: ProfileService, private _dialogRef: MatDialogRef<UserUpdateModal>, private _signUpService: SignUpService) { }
 
     ngOnInit() {
-        this._formBuilder()
+        this._formBuilder();
+        this.clientData = this.data.clientData;
+        this._setUserUpdateValue();
+        console.log(this.clientData.image);
+
     }
 
 
@@ -34,15 +40,24 @@ export class UserUpdateModal implements OnInit {
             phone_number: ["", Validators.required]
         })
     }
+    private _setUserUpdateValue() {
+        this.userUpdateGroup.patchValue({
+            full_name: this.clientData.fullName,
+            phone_number: this.clientData.phoneNumber,
+        })
+        if (this.clientData.image !== null) {
+            this.localImage = "http://192.168.0.113:3000/client/image/" + this.clientData.image;
+        }
+    }
 
     private _updateClient() {
         this.loading = true;
         this.userUpdateGroup.disable();
-      return  this._profileService.updateClient({
+        return this._profileService.updateClient({
             "fullName": this.userUpdateGroup.value.full_name,
             //  "location": this.userUpdateGroup.value.location,
             // "phoneNumber": this.userUpdateGroup.value.phone_number,
-         })
+        })
     }
 
 
@@ -67,25 +82,25 @@ export class UserUpdateModal implements OnInit {
                 let file: File = fileList[0];
                 let formData: FormData = new FormData();
                 formData.append('image', file, file.name);
-               return this._profileService.updateClientImage(formData)
+                return this._profileService.updateClientImage(formData)
 
             }
-         else{
+            else {
                 return of([]);
             }
         }
 
     }
-    public  updeteClientData(){
-        forkJoin(this._updateClient(),this._updateUserImage(this.serivceImage))
-        .subscribe((data)=>{
-            this.loading = false;
+    public updeteClientData() {
+        forkJoin(this._updateClient(), this._updateUserImage(this.serivceImage))
+            .subscribe((data) => {
+                this.loading = false;
                 this.userUpdateGroup.enable();
                 this._dialogRef.close();
                 console.log(data);
-            console.log(data);
-            
-        })
+                console.log(data);
+
+            })
     }
 }
 

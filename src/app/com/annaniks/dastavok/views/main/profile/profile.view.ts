@@ -19,7 +19,8 @@ export class ProfileView implements OnInit {
     public page = 1;
     public pageLength = 10;
     public count: number = 0;
-    public notifications: Array<object> = []
+    public notifications: Array<object> = [];
+    public clientImage: string = "/assets/images/userimages.png";
 
 
     constructor(private dialog: MatDialog, private _profileService: ProfileService) { }
@@ -30,11 +31,18 @@ export class ProfileView implements OnInit {
     }
 
 
-    public openUserUpdateModal(): void {
+    public openUserUpdateModal(clientData): void {
         const dialogref = this.dialog.open(UserUpdateModal, {
             width: "686px",
-            panelClass: ['margin-10']
+            panelClass: ['margin-10'],
+            data:{
+                clientData:clientData,
+            }
+        });
+        dialogref.afterClosed().subscribe((data) => {
+            this._clientGet();
         })
+
     }
     public showNotification() {
         this.tab = 1;
@@ -52,7 +60,14 @@ export class ProfileView implements OnInit {
         this._profileService.getClient()
             .subscribe((data: ServerResponse<User>) => {
                 this.clientData = data.data;
+                if (data.data.image !== null) {
+                    this.clientImage = "http://192.168.0.113:3000/client/image/" + data.data.image;
+                }
+
+                console.log(data);
             })
+
+
     }
 
     private _clientOrdersProcessing() {

@@ -14,21 +14,23 @@ export class IngredientComponent implements OnInit {
     constructor() { }
 
     ngOnInit() { 
-        console.log(this.topping.id,"topping");
         
     }
 
     public countadd() {
         if(this.topping.toppingValue==1){
+           
             return;
         }
         this.topping.toppingValue+=0.25;
+        this.topping.stepPrice+=10;
     }
     public countremove() {
         if (this.topping.toppingValue== 0) {
             return;
         }
         this.topping.toppingValue-=0.25;
+        this.topping.stepPrice-=10;
 
     }
 

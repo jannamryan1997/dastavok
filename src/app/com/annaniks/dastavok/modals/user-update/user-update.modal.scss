@@ -94,3 +94,11 @@
 .opacity {
     opacity: 0.5;
 }
+
+@media only screen and (max-width:900px){
+
+.img_content{
+    width: 140px !important;
+    height: 140px !important;
+}
+}

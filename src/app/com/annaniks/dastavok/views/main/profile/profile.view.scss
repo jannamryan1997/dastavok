@@ -1,16 +1,13 @@
 .profile_content {
-    //  max-width: 1220px;
     .profile_container {
         .profile_data {
-            margin-top: 143px; // margin-left: 113px;
+            margin-top: 143px;
             .img_content {
-                background-image: url("/assets/images/user.png");
                 width: 202px;
                 height: 202px;
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
-                border: 1px solid black;
                 border-radius: 50%;
             }
             .text_content {
@@ -53,6 +50,8 @@
                     }
                     .text_number {
                         margin-left: 3.8px;
+                        margin-top: 0px;
+                        margin-bottom: 0px;
                     }
                 }
             }

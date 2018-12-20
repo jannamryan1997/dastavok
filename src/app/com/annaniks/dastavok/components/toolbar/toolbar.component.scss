@@ -119,11 +119,11 @@
             .user_data {
                 .user_image {
                     width: 36px;
-                    height: 36px; // box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23); 
-                    background-image: url("/assets/images/user.png");
+                    height: 36px; 
                     background-position: center;
                     background-size: cover;
                     background-repeat: no-repeat;
+                    border-radius: 50%;
                 }
                 .user_name {
                     font-size: 15px;
@@ -219,10 +219,3 @@
         display: flex !important;
     }
 }
-// @media only screen and (max-width: 1410px) {
-
-//     .right-0{
-//         right: 0;
-//     }
-
-// }
