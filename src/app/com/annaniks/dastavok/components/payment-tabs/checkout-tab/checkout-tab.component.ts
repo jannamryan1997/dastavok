@@ -94,9 +94,6 @@ export class CheckoutTabComponent implements OnInit {
         var request = {
             origin: origin,
             destination: destination,
-            // Note that Javascript allows us to access the constant
-            // using square brackets and a string value as its
-            // "property."
             travelMode: google.maps.TravelMode['DRIVING']
         };
         this.directionsService.route(request, (response, status) => {
@@ -144,7 +141,6 @@ export class CheckoutTabComponent implements OnInit {
     }
 
     private _getOrderProcessing() {
-        console.log("jiji");
         
         this.loading=true;
         this.paymentForm.disable();
@@ -152,7 +148,6 @@ export class CheckoutTabComponent implements OnInit {
             .subscribe((data) => {
                 this.loading = false;
                 this.paymentForm.enable();
-                console.log(data);
 
             });
         error => {
@@ -180,7 +175,6 @@ export class CheckoutTabComponent implements OnInit {
             this.loading=false;
             this.paymentForm.enable();
             this.openPayment();
-            console.log(data);
 
         });
         error=>{

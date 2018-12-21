@@ -33,8 +33,6 @@ export class InformationView implements OnInit {
                 this.loading=false;
                 this.companyItem = data.data.data;
                 this.count = data.data.metaData.count;
-                console.log(data);
-
             })
             error=>{     
                 console.log(error);
@@ -42,30 +40,9 @@ export class InformationView implements OnInit {
             }
     }
 
-    // private _checkQueryParams(): void {
-    //     this._activatedRoute.queryParams.subscribe((params) => {
-    //         this.companyItem = [];
-    //         this._getSearchGoods(this.page, this.pageLength, params.serch)
-    //         console.log(params);
-    //     })
-    // }
-
     public paginate(event) {
         this.loading=true;
         this._getRestaurant(event.pageNumber, this.pageLength);
 
     }
-    // private _getSearchGoods(page, limit, text) {
-    //     this._informationService.getSearchGoods(page, limit, text)
-    //         .subscribe((data:ServerResponse<Paginator<Good[]>>) => {
-    //             this.loading=false;
-    //             this.goods=data.data.data;
-
-    //         })
-    //         err=>{
-    //            // this.loading=false;
-    //             console.log(err);
-                
-    //         }
-    // }
 }

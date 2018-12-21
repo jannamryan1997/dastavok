@@ -36,7 +36,6 @@ export class GoodsView implements OnInit {
                 this.loading=false;
                 this.goodsInfo = data.data.data;
                 this.count = data.data.metaData.count;
-                console.log(data);
             })
 
 

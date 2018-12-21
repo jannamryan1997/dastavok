@@ -14,9 +14,6 @@ export class TotalCoastComponent implements OnInit {
     @Output() byAll = new EventEmitter<boolean>();
 
     ngOnInit() {
-
-        console.log(this.totalAmoutSum,"total");
-       
     }
 
     onClickByAll() {

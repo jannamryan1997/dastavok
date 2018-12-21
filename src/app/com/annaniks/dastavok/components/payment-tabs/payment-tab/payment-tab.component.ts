@@ -15,6 +15,7 @@ export class PaymentTabComponent implements OnInit {
     @Input() address: string;
     public userData: User = new User();
 
+
     public cardItem: Array<object> = [
         { image: "assets/images/mastercard.png" },
         { image: "assets/images/Visa.svg.png" },
@@ -25,23 +26,30 @@ export class PaymentTabComponent implements OnInit {
     @Input() paymentTab: number;
     @Output() changeTab: EventEmitter<number> = new EventEmitter;
 
+    constructor(private _signUpService: SignUpService, private _matDialog: MatDialog) { }
 
 
     ngOnInit() {
         this.userData = this._signUpService.userInfo;
         console.log(this.userData);
-     
+
 
     }
 
-    constructor(private _signUpService: SignUpService, private _matDialog: MatDialog) { }
+  
 
-    public openAddressModal(): void {
-        
+    public openAddressModal(userData): void {
+
         const dialogRef = this._matDialog.open(AddressEditModal, {
             width: "650px",
-           height: "650px",
-           panelClass: ['no-padding'],
+            height: "444px",
+            panelClass: ['no-padding'],
+            data: {
+                userData:userData,
+            }
+        });
+        dialogRef.afterClosed().subscribe((data)=>{
+         this._signUpService.getUserInfo().subscribe();
         })
     }
 

@@ -83,6 +83,7 @@ export class SignUpService {
                 else {
                     data.data.image = "/assets/images/userimages.png";
                 }
+                
 
             })
         )

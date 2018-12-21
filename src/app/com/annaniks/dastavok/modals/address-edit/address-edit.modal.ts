@@ -1,6 +1,8 @@
-import { Component, OnInit } from "@angular/core"
+import { Component, OnInit, Inject } from "@angular/core"
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { PaymentService } from "../../views/main/payment/payment.service";
+import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
+import { User } from "../../models/models";
 
 
 @Component({
@@ -12,11 +14,19 @@ import { PaymentService } from "../../views/main/payment/payment.service";
 export class AddressEditModal implements OnInit {
 
     public userUpdateGroup: FormGroup;
+    public clientData: User;
 
-    constructor(private _paymentService: PaymentService) { }
+    constructor(@Inject(MAT_DIALOG_DATA) private data: any, private _paymentService: PaymentService, private dialogRef: MatDialogRef<AddressEditModal>) { }
 
     ngOnInit() {
+        this.clientData = this.data.userData;
         this._formBuilder();
+        this._setPachValue();
+
+
+
+
+
     }
 
 
@@ -28,13 +38,19 @@ export class AddressEditModal implements OnInit {
         })
     }
 
+    private _setPachValue() {
+        this.userUpdateGroup.patchValue({
+            full_name: this.clientData.fullName,
+            location: this.clientData.address,
+            phone_number: this.clientData.phoneNumber,
+        })
+    }
+
     public putClient() {
         this._paymentService.putClient({
             "fullName": this.userUpdateGroup.value.full_name,
-            "address_validation": this.userUpdateGroup.value.location,
-            "apartment_validation": "asd",
-            "domaphore_validation": "asd",
         }).subscribe((data) => {
+            this.dialogRef.close();
             console.log(data);
 
         })

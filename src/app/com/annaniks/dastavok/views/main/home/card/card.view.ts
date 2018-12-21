@@ -22,7 +22,6 @@ export class CardView implements OnInit {
     constructor(private _cardService: CardService, private _router: Router) { }
 
     ngOnInit() {
-        console.log(this.cardInfo.length);
         this._getOrderChard();
 
     }
@@ -38,9 +37,7 @@ export class CardView implements OnInit {
                     for (var i = 0; i < this.cardInfo.length; i++) {
                         this.totalSum = this.totalSum + this.cardInfo[i].totalAmount;
                     }
-                    console.log(this.cardInfo);
                 }
-               // this.loading = false;
             })
     }
 
@@ -58,7 +55,6 @@ export class CardView implements OnInit {
                 order: JSON.stringify(queryParams)
             }
         })
-        //   console.log(ordersId);
     }
 
     deletedOrder(event) {

@@ -13,7 +13,7 @@
                 <i class="material-icons">
                     place
                 </i>
-                <span class="text" font-family-Roboto>{{address}}</span>
+                <span class="text" font-family-Roboto>{{userData.address.text}}</span>
             </div>
             <div class="data_phone"  display-flex>
                 <i class="material-icons">
@@ -22,7 +22,7 @@
                 <span class="text" font-family-Roboto >{{userData.phoneNumber}}</span>
             </div>
             <div class="edit" display-flex>
-                <i class="material-icons" (click)="openAddressModal()">
+                <i class="material-icons" (click)="openAddressModal(userData)">
                     edit
                 </i>
                 <span class="text" font-family-Roboto >Edit</span>

@@ -24,7 +24,7 @@ export interface Verification {
     refreshToken?:string;
 }
 export class User {
-    address: string
+    address: string;
     balance: number
     cardNumber: string
     createdAt: string

@@ -15,8 +15,6 @@ export class GoodsListItemComponent implements OnInit {
     public goodsImageItem;
 
     ngOnInit() {
-        console.log(this.goodInfo);
-
         if (this.goodsImage != null) {
             let images = this.goodsImage.split(",")
             this.goodsImageItem = images[0];
