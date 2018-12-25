@@ -65,14 +65,34 @@ export class ProfileService {
         return this._httpClient.put(this.baseURL + "client", body, { headers })
     }
 
-    public updateClientImage(formData){
-        let token=this._cookieService.get('token');
+    public updateClientImage(formData) {
+        let token = this._cookieService.get('token');
 
-        let headers=new HttpHeaders({
+        let headers = new HttpHeaders({
             'token': token
         })
-        return this._httpClient.put(this.baseURL+"client/image",formData,{headers})
+        return this._httpClient.put(this.baseURL + "client/image", formData, { headers })
     }
 
+    public putClientNewPhoneNumberStepOne(body) {
+        let token = this._cookieService.get('token');
+        let headers = new HttpHeaders({
+            'Content-type': 'application/json',
+            'token': token
+        })
+
+        return this._httpClient.put(this.baseURL + "client/phone/stepone",body, { headers })
+    }
+
+    public putClientNewPhoneNumberStepTwo(body){
+        let token = this._cookieService.get('token');
+        let phoneNumberToken=this._cookieService.get('newPhoneNumberToken')
+        let headers = new HttpHeaders({
+            'Content-type': 'application/json',
+            'token': token,
+            'temporary-token':phoneNumberToken,
+        })
+        return this._httpClient.put(this.baseURL+"client/phone/steptwo",body,{headers})
+    }
 }
 

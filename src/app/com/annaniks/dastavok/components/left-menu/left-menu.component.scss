@@ -37,9 +37,12 @@
         }
     }
 }
+input[type=checkbox]:before{
+    border: 1px solid red;
+}
 
 @media only screen and (max-width: 900px) {
-    .left-menu {
+    .left_menu {
         display: none !important;
         z-index: -1;
     }

@@ -8,9 +8,12 @@ import { User, ServerResponse, LoginResponse } from "../models/models";
 export class SignUpService {
     public userInfo: User = new User();
     public isAuthorized: boolean = false;
-    public clientImage: string;
-
+    public userImage:string="assets/images/userimages.png";
     constructor(@Inject('BASE_URL') private baseURL, private _httpClient: HttpClient, private _cookieService: CookieService) { }
+
+    ngOnInit(){
+   
+    }
 
     public clientPhoneNumber(body) {
         return this._httpClient.post(this.baseURL + "freeclient/phone", body)
@@ -79,10 +82,12 @@ export class SignUpService {
                 this.userInfo = data.data;
                 if (data.data.image !== null) {
                     data.data.image = "http://192.168.0.113:3000/client/image/" + data.data.image;
+                
                 }
                 else {
                     data.data.image = "/assets/images/userimages.png";
                 }
+                this.userImage=data.data.image;
                 
 
             })

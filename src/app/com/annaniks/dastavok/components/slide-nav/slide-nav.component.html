@@ -30,7 +30,7 @@
                 </div>
                 <div class=radius_content width-75 margin-auto display-flex>
                     <div class="radius" *ngIf="!signUpService.isAuthorized"></div>
-                    <div class="img_content" *ngIf="signUpService.isAuthorized"></div>
+                    <div class="img_content" *ngIf="signUpService.isAuthorized"[ngStyle]="{'background-image':'url('+signUpService.userImage+')'}"></div>
                    <div class="user_name" *ngIf="signUpService.isAuthorized" width-75 margin-auto>
                   <p color-white  font-family-Roboto>{{signUpService?.userInfo.fullName}}</p> 
                   

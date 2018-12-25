@@ -3,6 +3,7 @@ import { UserUpdateModal } from "../../../modals/user-update/user-update.modal";
 import { MatDialog } from "@angular/material"
 import { ProfileService } from "./profile.service";
 import { ServerResponse, User, OrderHistory } from "../../../models/models";
+import { NewPhoneNumber } from "../../../modals";
 
 
 @Component({
@@ -76,6 +77,14 @@ export class ProfileView implements OnInit {
                 console.log(data);
 
             })
+    }
+
+    public openNewPhoneNumberModal(){
+        const dialogref=this.dialog.open(NewPhoneNumber,{
+            width: "686px",
+            height:"444px",
+        })
+
     }
 
 

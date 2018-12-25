@@ -7,3 +7,4 @@ export * from 'src/app/com/annaniks/dastavok/modals/user-update/user-update.moda
 export * from "src/app/com/annaniks/dastavok/modals/address-edit/address-edit.modal";
 export * from "src/app/com/annaniks/dastavok/modals/registration-step/registration-step.modal";
 export * from "src/app/com/annaniks/dastavok/modals/search-goods/search-goods.component";
+export *from "src/app/com/annaniks/dastavok/modals/new-phone-number/new-phone-number.modals";

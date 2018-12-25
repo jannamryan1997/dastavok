@@ -5,6 +5,7 @@ import { SignUpModal } from "../signUp/signUp.modal";
 import { SignUpService } from "../../services/signUp.service";
 import { CookieService } from "angular2-cookie/services/cookies.service";
 import { NewPasswordModals } from "../new-passwors/new-password.modal";
+import { ProfileService } from "../../views/main/profile/profile.service";
 
 @Component({
     selector: "app-verification",
@@ -20,7 +21,7 @@ export class VerificationModal implements OnInit {
     public secend: number = 0;
     public time: string;
     constructor(@Inject(MAT_DIALOG_DATA) private data: any, private dialoRef: MatDialogRef<VerificationModal>, private signUpService: SignUpService, private dialog: MatDialog,
-        private cookieService: CookieService) { }
+        private cookieService: CookieService, private _profileService: ProfileService) { }
 
     ngOnInit() {
         this._formBuilder();
@@ -29,7 +30,7 @@ export class VerificationModal implements OnInit {
 
     timer() {
         setInterval(() => {
-            
+
             if (this.secend == 0 && this.minute == 0) {
                 return;
             }
@@ -39,12 +40,12 @@ export class VerificationModal implements OnInit {
             }
             this.secend = this.secend - 1;
             if (this.secend < 10) {
-                this.time = '0'+this.minute+':0'+this.secend;
+                this.time = '0' + this.minute + ':0' + this.secend;
             }
-            else{
-                this.time = '0'+this.minute+':'+this.secend;
+            else {
+                this.time = '0' + this.minute + ':' + this.secend;
             }
-           
+
         }, 1000)
     }
 
@@ -68,16 +69,16 @@ export class VerificationModal implements OnInit {
     public openSignUpModalModal(): void {
         const dialoRef = this.dialog.open(SignUpModal, {
             width: "686px",
-            maxWidth:'100vw',
-            panelClass:['margin-10'],
-         
+            maxWidth: '100vw',
+            panelClass: ['margin-10'],
+
         })
     }
     public openNewPasswordModal(): void {
         const dialoRef = this.dialog.open(NewPasswordModals, {
             width: "686px",
-            maxWidth:'100vw',
-            panelClass:['margin-10'],
+            maxWidth: '100vw',
+            panelClass: ['margin-10'],
         })
     }
     postVerification() {
@@ -95,7 +96,7 @@ export class VerificationModal implements OnInit {
                     this.verificationForm.enable();
                     this.cookieService.put("verificationtoken", data.data.token)
                     this.openSignUpModalModal();
-                }, (err) => { 
+                }, (err) => {
                     this.loading = false;
                     this.verificationForm.enable();
                 })
@@ -116,9 +117,29 @@ export class VerificationModal implements OnInit {
                 (error) => {
                     this.loading = false;
                     this.verificationForm.enable();
-                 })
+                })
+        if (this.data.key == "new-phone-number") {
+            this._putClientNewPhoneNumberStepTwo();
+        }
     }
 
 
+    private _putClientNewPhoneNumberStepTwo() {
+        console.log("Radik");
+
+        this.controlsItems = this.verificationForm.value.control_1 + this.verificationForm.value.control_2 +
+            this.verificationForm.value.control_3 + this.verificationForm.value.control_4;
+        console.log(this.controlsItems);
+
+        this._profileService.putClientNewPhoneNumberStepTwo({
+            phoneNumber: this.data.phoneNumber,
+            verifyCode: this.controlsItems,
+        }).subscribe((data) => {
+            this.cookieService.remove("newPhoneNumberToken")
+            console.log(data);
+            this.dialoRef.close();
+
+        })
+    }
 }
 

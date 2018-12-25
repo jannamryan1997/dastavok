@@ -21,6 +21,7 @@ export class ToolbarComponent implements OnInit {
         { name: 'English', image: 'assets/images/english.png' },
         { name: 'Русский', image: 'assets/images/russion.jpg' }
     ]
+ 
 
     constructor(private dialog: MatDialog, public signUpService: SignUpService, private _cookieService: CookieService, private _menuService: MenuService) { }
 

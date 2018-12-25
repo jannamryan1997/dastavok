@@ -1,0 +1,29 @@
+<div class="phone_content" full-width>
+    <div class="top" full-width></div>
+    <div class="phone_conteiner" full-width full-height display-flex>
+        <div class="phone_wrapper" width-75 margin-auto >
+
+            <form [formGroup]="phoneNumberForm">
+                <div class="input_content" full-width display-flex>
+                    <div class="left_icon" full-height display-flex>
+                        <i class="material-icons" margin-auto>
+                            call
+                        </i>
+                    </div>
+                    <input type="text" class="input" formControlName="newPhonenumber">
+                </div>
+                <div position-relative>
+                    <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading>
+                </div>
+                <div class="buttons_wrapper" display-flex>
+                    <div class="buttons_items" margin-auto full-height>
+                        <button class="back_button" full-height font-weight-bold (click)="closeNewPhoneNumberMoadal()">BACK</button>
+                        <button class="next_button" full-height font-weight-bold color-white (click)="putClientNewPhoneNumberStepOne()"
+                            [disabled]="phoneNumberForm.invalid  || loading" [ngClass]="{'opacity':phoneNumberForm.invalid  || loading}">NEXT</button>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
