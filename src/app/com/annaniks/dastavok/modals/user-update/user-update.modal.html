@@ -1,5 +1,6 @@
 <div class="update_content" full-width>
     <div class="update_conteiner" width-75 margin-auto full-height display-flex>
+            <app-error [error]="error"></app-error>
         <div class="img_content" margin-auto display-flex>
             <div class="images" margin-auto full-width full-height [ngStyle]="{'background-image':'url('+localImage+')'}"></div>
         </div>
@@ -10,8 +11,8 @@
   
     <div class="input_items" width-75 margin-auto>
         <form [formGroup]="userUpdateGroup">
-            <div class="form_group_name" full-width display-flex>
-                <div class="icon_content" display-flex>
+            <div class="form_group_name" full-width display-flex  [ngClass]="{'validators':userUpdateGroup.get('full_name').hasError('required') && userUpdateGroup.get('full_name').touched}"> 
+                <div class="icon_content" display-flex [ngClass]="{'validators':userUpdateGroup.get('full_name').hasError('required') && userUpdateGroup.get('full_name').touched}">
                     <i class="material-icons" margin-auto>
                         person
                     </i>
@@ -19,8 +20,8 @@
                 </div>
                 <input class="input_content" placeholder="fullName" full-height formControlName="full_name">
             </div>
-            <div class="form_group" full-width display-flex>
-                <div class="icon_content" display-flex>
+            <div class="form_group" full-width display-flex [ngClass]="{'validators':userUpdateGroup.get('location').hasError('required') && userUpdateGroup.get('location').touched}">
+                <div class="icon_content" display-flex [ngClass]="{'validators':userUpdateGroup.get('location').hasError('required') && userUpdateGroup.get('location').touched}">
                     <i class="material-icons" margin-auto>
                         place
                     </i>
@@ -28,7 +29,7 @@
                 </div>
                 <input class="input_content" placeholder="location" full-height formControlName="location">
             </div>
-            <div class="form_group" full-width display-flex>
+            <!-- <div class="form_group" full-width display-flex>
                 <div class="icon_content" display-flex>
                     <i class="material-icons" margin-auto>
                         call
@@ -36,7 +37,7 @@
 
                 </div>
                 <input class="input_content" placeholder="Phone Number" full-height formControlName="phone_number">
-            </div>
+            </div> -->
             <div position-relative>
                     <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading>
                 </div>

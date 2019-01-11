@@ -5,11 +5,12 @@ import {CommonModule} from "@angular/common";
 import { GoodService } from "./good.service";
 import { SharedModule } from "src/app/com/annaniks/dastavok/shared/shared.module";
 import { DescriptionComponent,ReviwComponent,IngredientComponent } from "src/app/com/annaniks/dastavok/components";
+import { ProgressSpinnerModule } from "primeng/progressspinner";
 
 
 @NgModule({
     declarations:[GoodComponent,DescriptionComponent,ReviwComponent,IngredientComponent],
-    imports:[GoodRoutingModule,CommonModule,SharedModule],
+    imports:[GoodRoutingModule,CommonModule,SharedModule,ProgressSpinnerModule],
     providers:[GoodService],
     exports:[]
 })

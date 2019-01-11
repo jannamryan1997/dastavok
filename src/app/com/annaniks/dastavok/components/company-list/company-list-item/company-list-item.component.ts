@@ -21,7 +21,7 @@ export class CompanyListItemComponent implements OnInit {
 
     private _setCompanyImage(): void {
         if (this.companyItem.image) {
-            this.localImage = 'http://192.168.0.111:4000/static/company/'+this.companyItem.image;
+            this.localImage = 'http://192.168.0.114:4000/static/company/'+this.companyItem.image;
         }
     }
 }

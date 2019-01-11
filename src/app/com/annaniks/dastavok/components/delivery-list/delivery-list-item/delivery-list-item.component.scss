@@ -1,7 +1,7 @@
 .deliver_items {
     .container {
-      //  width: 748px;
-      //  margin: 0 auto;
+        //  width: 748px;
+        //  margin: 0 auto;
         .order_info {
             .company_name {
                 font-size: 30px;
@@ -36,6 +36,7 @@
                             height: 23.9px;
                             border-radius: 50%;
                             background-color: #ff6f00;
+                            display: none;
                         }
                     }
                 }
@@ -78,9 +79,7 @@
         .map_content {
             #map {
                 height: 576.2px;
-                margin:0 auto;
-               // width: 604px;
-               
+                margin: 0 auto; // width: 604px;
             }
         }
         .details-open {
@@ -96,8 +95,17 @@
         }
     }
 }
-@media only screen and (max-width: 900px) {
-#map{
-height: 300px !important;
+
+.activeOrderData {
+    background-color: white !important;
+    border: 2px solid #87bd3c !important;
 }
+.activeOrderDataCircl{
+  display: block !important;
+}
+
+@media only screen and (max-width: 900px) {
+    #map {
+        height: 300px !important;
+    }
 }

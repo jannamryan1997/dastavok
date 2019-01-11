@@ -6,6 +6,8 @@ import { SignUpService } from "../../services/signUp.service";
 import { CookieService } from "angular2-cookie/services/cookies.service";
 import { NewPasswordModals } from "../new-passwors/new-password.modal";
 import { ProfileService } from "../../views/main/profile/profile.service";
+import { PhoneVerification, ServerResponse } from "../../models/models";
+import { locateHostElement } from "@angular/core/src/render3/instructions";
 
 @Component({
     selector: "app-verification",
@@ -20,18 +22,27 @@ export class VerificationModal implements OnInit {
     public minute: number = 2;
     public secend: number = 0;
     public time: string;
+    public isTimerStopped: boolean = false;
+    public interVal;
+    public error: string;
+    public timerStopped: boolean = true;
     constructor(@Inject(MAT_DIALOG_DATA) private data: any, private dialoRef: MatDialogRef<VerificationModal>, private signUpService: SignUpService, private dialog: MatDialog,
         private cookieService: CookieService, private _profileService: ProfileService) { }
 
     ngOnInit() {
         this._formBuilder();
-        this.timer();
+        this._timer();
     }
 
-    timer() {
-        setInterval(() => {
-
+    private _timer() {
+        this.isTimerStopped = false;
+        this.timerStopped=true;
+        this.minute = 2;
+        this.secend = 0;
+        clearInterval(this.interVal);
+        this.interVal = setInterval(() => {
             if (this.secend == 0 && this.minute == 0) {
+                this.isTimerStopped = true;
                 return;
             }
             if (this.secend == 0) {
@@ -45,12 +56,13 @@ export class VerificationModal implements OnInit {
             else {
                 this.time = '0' + this.minute + ':' + this.secend;
             }
+            if (this.minute == 0 && this.secend==0)
+            this.timerStopped = false;
+            console.log(this.time);
 
         }, 1000)
-    }
-
-    public dialogClose() {
-        this.dialoRef.close();
+   
+            
     }
 
     private _formBuilder() {
@@ -62,16 +74,15 @@ export class VerificationModal implements OnInit {
         })
     }
 
-    public closeVerification() {
-        this.dialoRef.close();
-    }
-
     public openSignUpModalModal(): void {
         const dialoRef = this.dialog.open(SignUpModal, {
             width: "686px",
             maxWidth: '100vw',
             panelClass: ['margin-10'],
 
+        })
+        dialoRef.afterClosed().subscribe((data) => {
+            this.dialog.closeAll()
         })
     }
     public openNewPasswordModal(): void {
@@ -81,7 +92,7 @@ export class VerificationModal implements OnInit {
             panelClass: ['margin-10'],
         })
     }
-    postVerification() {
+    public postVerification() {
         this.loading = true;
         this.verificationForm.disable();
         this.controlsItems = this.verificationForm.value.control_1 + this.verificationForm.value.control_2 +
@@ -99,6 +110,7 @@ export class VerificationModal implements OnInit {
                 }, (err) => {
                     this.loading = false;
                     this.verificationForm.enable();
+                    this.error = err.error.error;
                 })
         }
 
@@ -114,7 +126,8 @@ export class VerificationModal implements OnInit {
                     this.cookieService.put("verification_token", data.data.token)
                     this.openNewPasswordModal();
                 },
-                (error) => {
+                err => {
+                    this.error = err.error.error;
                     this.loading = false;
                     this.verificationForm.enable();
                 })
@@ -125,21 +138,31 @@ export class VerificationModal implements OnInit {
 
 
     private _putClientNewPhoneNumberStepTwo() {
-        console.log("Radik");
 
         this.controlsItems = this.verificationForm.value.control_1 + this.verificationForm.value.control_2 +
             this.verificationForm.value.control_3 + this.verificationForm.value.control_4;
-        console.log(this.controlsItems);
-
         this._profileService.putClientNewPhoneNumberStepTwo({
             phoneNumber: this.data.phoneNumber,
             verifyCode: this.controlsItems,
         }).subscribe((data) => {
             this.cookieService.remove("newPhoneNumberToken")
-            console.log(data);
-            this.dialoRef.close();
+        });
+        err => {
+            this.error = err.error.error;
+        }
+    }
 
+    public getVerifivationCode() {
+        this.signUpService.clientPhoneNumber({
+            "phoneNumber": this.data.phone,
+        }).subscribe((data: ServerResponse<PhoneVerification>) => {
+
+            this._timer();
         })
+    }
+
+    public closeVerification() {
+        this.dialoRef.close()
     }
 }
 

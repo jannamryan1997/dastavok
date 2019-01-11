@@ -1,17 +1,27 @@
 import { NgModule } from "@angular/core"
-import { TopbarComponent, ToolbarComponent, LoadingComponent,RatingComponent, PaginatorComponent,SlideNawComponent, FiltersListComponent, GoodsListComponent, GoodsListItemComponent,LeftMenuComponent } from "../components";
+import {
+    TopbarComponent,
+    ToolbarComponent,
+    LoadingComponent,
+    RatingComponent,
+    PaginatorComponent,
+    SlideNawComponent, 
+    FiltersListComponent, 
+    GoodsListComponent, 
+    GoodsListItemComponent, 
+    LeftMenuComponent, 
+    ErrorComponent
+} from "../components";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router"
-import {MatDialogModule} from '@angular/material/dialog';
-import {FormsModule} from "@angular/forms";
-import {ReactiveFormsModule} from "@angular/forms";
+import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from "@angular/forms";
 import { ClickOutsideModule } from 'ng-click-outside';
-import {ProgressSpinnerModule} from 'primeng/progressspinner';
-
-
-
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { MessageService } from 'primeng/components/common/messageservice';
 @NgModule({
-    entryComponents:[],
+    entryComponents: [],
     declarations: [
         TopbarComponent,
         ToolbarComponent,
@@ -22,20 +32,21 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
         FiltersListComponent,
         GoodsListComponent,
         GoodsListItemComponent,
-        LeftMenuComponent
+        LeftMenuComponent,
+        ErrorComponent
     ],
     imports: [
-        CommonModule, 
+        CommonModule,
         RouterModule,
         MatDialogModule,
         FormsModule,
         ReactiveFormsModule,
         ClickOutsideModule,
-        ProgressSpinnerModule
+        ProgressSpinnerModule,
     ],
     exports: [
         LeftMenuComponent,
-        TopbarComponent, 
+        TopbarComponent,
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
@@ -47,9 +58,10 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
         SlideNawComponent,
         FiltersListComponent,
         GoodsListComponent,
-        GoodsListItemComponent
+        GoodsListItemComponent,
+        ErrorComponent
     ],
-    providers:[]
+    providers: [MessageService]
 })
 
 export class SharedModule {

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core"
+import { ClientDriver } from "../../../models/models";
 
 
 
@@ -12,12 +13,15 @@ declare var google;
 
 export class DeliveryListItemComponent implements OnInit {
     @Input() index: number;
+    @Input() orderData:ClientDriver;
     private _map;
     private _marker;
     public showDetails: boolean = false;
     public detailsinfoheigth: string;
     public directionsService = new google.maps.DirectionsService();
     public directionsDisplay = new google.maps.DirectionsRenderer();
+   
+
     constructor( ) { }
 
     ngOnInit() {
@@ -87,6 +91,7 @@ export class DeliveryListItemComponent implements OnInit {
             }
         });
     }
+    
 
 
 

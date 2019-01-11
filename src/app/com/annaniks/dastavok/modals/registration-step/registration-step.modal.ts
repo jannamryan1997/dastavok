@@ -4,7 +4,6 @@ import { SignUpService } from "../../services/signUp.service";
 import { CookieService } from "angular2-cookie/services/cookies.service";
 import { ServerResponse, PhoneVerification, Verification } from "../../models/models";
 import { MatDialogRef } from "@angular/material";
-import { error } from "@angular/compiler/src/util";
 
 @Component({
     selector: "app-registration-step",
@@ -19,23 +18,33 @@ export class RegistrationStep implements OnInit {
     public tab: number = 1;
     public controlsItems: string;
     public disabled: boolean = false;
-    public loading: boolean =false;
-    public secend:number=0;
-    public minute:number=2;
-    public time:string;
+    public loading: boolean = false;
+    public secend: number = 0;
+    public minute: number = 2;
+    public time: string;
+    public error: string;
 
     constructor(private _signUpService: SignUpService, private _cookieService: CookieService, private dialogRef: MatDialogRef<RegistrationStep>) { }
 
     ngOnInit() {
         this._formBuilder();
         this.timer();
-
-
+    }
+    private matchingPasswords(passwordKey: string, confirmPasswordKey: string) {
+        return (group: FormGroup): { [key: string]: any } => {
+            let password = group.controls[passwordKey];
+            let confirmPassword = group.controls[confirmPasswordKey];
+            if (password.value !== confirmPassword.value) {
+                return {
+                    mismatchedPasswords: true
+                };
+            }
+        }
     }
 
     timer() {
         setInterval(() => {
-            
+
             if (this.secend == 0 && this.minute == 0) {
                 return;
             }
@@ -45,12 +54,12 @@ export class RegistrationStep implements OnInit {
             }
             this.secend = this.secend - 1;
             if (this.secend < 10) {
-                this.time = '0'+this.minute+':0'+this.secend;
+                this.time = '0' + this.minute + ':0' + this.secend;
             }
-            else{
-                this.time = '0'+this.minute+':'+this.secend;
+            else {
+                this.time = '0' + this.minute + ':' + this.secend;
             }
-           
+
         }, 1000)
     }
 
@@ -76,10 +85,13 @@ export class RegistrationStep implements OnInit {
             full_name: ["", Validators.required],
             password: ["", Validators.required],
             confirm_password: ["", Validators.required],
-        })
+        },
+            { validator: this.matchingPasswords('password', 'confirm_password') }
+        )
+
     }
 
-    nextStep() {
+    public nextStep() {
         if (this.tab == 1) {
             this._clientPhoneNumber();
         }
@@ -93,7 +105,7 @@ export class RegistrationStep implements OnInit {
         // this.tab += 1;
 
     }
-    back() {
+    public back() {
         this.tab = this.tab - 1;
     }
 
@@ -103,16 +115,19 @@ export class RegistrationStep implements OnInit {
         this._signUpService.clientPhoneNumber({
             "phoneNumber": this.phoneNumberForm.value.phonenumber,
         }).subscribe((data: ServerResponse<PhoneVerification>) => {
-            this.loading =false;
+            this.loading = false;
             this.phoneNumberForm.enable();
             this._formBuilderVerification();
             this.tab = this.tab + 1;
             this._cookieService.put('phone_token', data.data.token);
-        });
-        error=>{
-            this.loading =false;
-            this.phoneNumberForm.enable();   
-        }
+        },
+            err => {
+                this.error = err.error.error;
+                this.loading = false;
+                this.phoneNumberForm.enable();
+            }
+        );
+
     }
 
     private _clientVerification() {
@@ -124,19 +139,22 @@ export class RegistrationStep implements OnInit {
             "phoneNumber": this.phoneNumberForm.value.phonenumber,
             "verifyCode": parseInt(this.controlsItems),
         }).subscribe((data: ServerResponse<Verification>) => {
-            this.loading =false;
+            this.loading = false;
             this.phoneNumberForm.enable();
             this._cookieService.put("refreshToken", data.data.refreshToken);
             this._cookieService.put('token', data.data.token);
             this._formBuilderSignUpForm();
             this._signUpService.isAuthorized = true;
             this.tab = this.tab + 1;
-        }),
-        error =>{
-            this.loading =false;
-            this.phoneNumberForm.enable();
-            
-        }
+        },
+            err => {
+                this.error = err.error.error;
+                this.loading = false;
+                this.phoneNumberForm.enable();
+
+            }
+        )
+
     }
 
     private _signUpClient() {
@@ -152,11 +170,12 @@ export class RegistrationStep implements OnInit {
 
             console.log(data);
         }),
-        error =>{
-            this.loading = false;
-            this.phoneNumberForm.enable();
+            err => {
+                this.error = err.error.error;
+                this.loading = false;
+                this.phoneNumberForm.enable();
 
-        }
+            }
         this.dialogRef.close();
     }
 

@@ -24,4 +24,6 @@ export class RestaurantService {
         return this._httpClient.get(this._baseUrl + "freeclient/restaurant/" + id)
     }
 
+ 
+
 }

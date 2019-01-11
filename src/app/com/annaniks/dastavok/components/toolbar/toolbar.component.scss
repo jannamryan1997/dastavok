@@ -15,8 +15,8 @@
                     cursor: pointer;
                 }
             }
-            .search_button{
-                .search_icon{
+            .search_button {
+                .search_icon {
                     font-size: 26px;
                 }
             }
@@ -87,10 +87,9 @@
                 box-shadow: -4px 4px 6px 0 rgba(0, 0, 0, 0.16);
                 background-color: #ffffff;
                 z-index: 1;
-                top: 30px;
+                top: 66px;
+                right: 0;
                 .buttons_items {
-                    margin-left: 29px;
-                    margin-top: 81px;
                     .login_button {
                         font-size: 12px;
                         width: 143.8px;
@@ -119,7 +118,7 @@
             .user_data {
                 .user_image {
                     width: 36px;
-                    height: 36px; 
+                    height: 36px;
                     background-position: center;
                     background-size: cover;
                     background-repeat: no-repeat;
@@ -139,11 +138,10 @@
                     cursor: pointer;
                 }
                 .user_profile {
-                  //  width: 202px;
-                   // height: 334px;
                     background: white;
                     z-index: 1;
-                    top: 30px;
+                    top: 66px;
+                    right: 0;
                     .user_singIn {
                         margin-left: 16px;
                         .user_text {
@@ -185,8 +183,7 @@
 .showUserProfile {
     opacity: 1;
     z-index: 1;
-    top: 66px !important;
-    transition: top 0.5s, opacity 0.5s;
+    top: 66px !important; //  transition: top 0.5s, opacity 0.5s;
 }
 
 .hideUserProfile {

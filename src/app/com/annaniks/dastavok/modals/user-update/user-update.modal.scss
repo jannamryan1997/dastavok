@@ -36,6 +36,7 @@
         .icon_content {
             width: 47px;
             height: 42px;
+            border: 1px solid rgba(0, 0, 0, 0.23);
         }
         .input_content {
             width: calc(100% - 42px)
@@ -50,6 +51,7 @@
         .icon_content {
             width: 47px;
             height: 42px;
+            border: 1px solid rgba(0, 0, 0, 0.23);
         }
         .input_content {
             width: calc(100% - 42px)
@@ -101,4 +103,8 @@
     width: 140px !important;
     height: 140px !important;
 }
+}
+
+.validators {
+    border-color: #ff6f00 !important;
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core"
+import { ProfileService } from "../../../views/main/profile/profile.service";
+import { ClientDriver, ServerResponse } from "../../../models/models";
 
 @Component({
     selector: "app-shipping-addresses-tab",
@@ -8,9 +10,23 @@ import { Component, OnInit, Input } from "@angular/core"
 
 export class ShippingAddressesComponent implements OnInit {
 
+    @Input() clientId:number;
+   public orderData:ClientDriver;
    
-    constructor() { }
+    constructor(private _profileService:ProfileService) { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this._getOrderData();
+     }
+
+    private _getOrderData(){
+        this._profileService.getOrderData(this.clientId)
+        .subscribe((data:ServerResponse<ClientDriver>)=>{
+            this.orderData=data.data;
+            console.log(this.orderData,"gfd");
+            
+        })
+
+    }
 
 }

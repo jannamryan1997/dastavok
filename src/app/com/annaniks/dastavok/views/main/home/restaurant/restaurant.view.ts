@@ -26,7 +26,6 @@ export class RestaurantView implements OnInit {
     ngOnInit() {
         this._getGoodTypes(this.companyId);
         this._getRestaurant();
-
     }
 
     private _getGoodTypes(companyId: number): void {
@@ -55,10 +54,9 @@ export class RestaurantView implements OnInit {
 
     private _setCompanyImage():void{
         if(this.restaurant.image){
-            this.localImage = 'http://192.168.0.111:4000/static/company/'+this.restaurant.image;
+            this.localImage = 'http://192.168.0.114:4000/static/company/'+this.restaurant.image;
         }
     }
-
 
 
 }

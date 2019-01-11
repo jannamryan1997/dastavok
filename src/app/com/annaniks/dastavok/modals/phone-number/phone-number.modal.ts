@@ -6,7 +6,6 @@ import { SignUpService } from "../../services/signUp.service";
 import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { PhoneVerification, ServerResponse } from "../../models/models";
 
-
 @Component({
     selector: "app-phonenumber",
     templateUrl: "phone-number.modal.html",
@@ -16,6 +15,7 @@ import { PhoneVerification, ServerResponse } from "../../models/models";
 export class PhoneNumberModal implements OnInit {
     public loading: boolean = false;
     public phoneNumberForm: FormGroup;
+    public error: string;
 
     constructor(@Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<PhoneNumberModal>, public dialog: MatDialog, private signUpService: SignUpService, private cookieService: CookieService) { }
 
@@ -41,7 +41,7 @@ export class PhoneNumberModal implements OnInit {
             panelClass: ['margin-10'],
             data: {
                 phone: this.phoneNumberForm.value.phonenumber,
-                key: key
+                key: key,
             }
 
         })
@@ -49,7 +49,7 @@ export class PhoneNumberModal implements OnInit {
 
     }
 
-    postPhoneNumber() {
+    public postPhoneNumber() {
         this.loading = true;
         this.phoneNumberForm.disable();
         if (this.data.key == "registration") {
@@ -63,9 +63,11 @@ export class PhoneNumberModal implements OnInit {
                     this.cookieService.put('phone_token', data.data.token);
                     this.openVerificationModal('registration');
                 },
-                (error) => {
+                err => {
+                    this.error=err.error.error;
                     this.loading = false;
                     this.phoneNumberForm.enable();
+                    this.error=err.error.error;
                 })
 
             if (this.data.key === 'forgot_password') {
@@ -78,8 +80,11 @@ export class PhoneNumberModal implements OnInit {
                     this.phoneNumberForm.enable();
                 },
                     err => {
+            
+                        this.error=err.error.error;
                         this.loading = false;
                         this.phoneNumberForm.enable();
+                        
                     })
             }
         }

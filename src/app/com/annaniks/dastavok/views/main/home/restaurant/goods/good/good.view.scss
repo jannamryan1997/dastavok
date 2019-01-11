@@ -1,5 +1,14 @@
 .good_content {
     margin-top: 24.2px;
+    .loading{
+        left: 0;
+        right: 0;
+        margin: auto;
+        z-index: 1;
+        position: absolute;
+        height: 150px;
+        width: 150px;
+    }
     .good_conteiner {
         .left_content {
             //   width: 350.8px;

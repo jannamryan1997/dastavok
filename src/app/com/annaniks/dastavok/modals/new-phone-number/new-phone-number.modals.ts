@@ -15,6 +15,7 @@ export class NewPhoneNumber implements OnInit {
 
     public phoneNumberForm: FormGroup;
     public loading: boolean = false;
+    public error:string;
 
     constructor(private _dialogRef: MatDialogRef<NewPhoneNumber>, private _profileService: ProfileService, private _dialog: MatDialog, private _cookieService: CookieService) { }
 
@@ -39,8 +40,12 @@ export class NewPhoneNumber implements OnInit {
             this._cookieService.put('newPhoneNumberToken', data.data.token)
             this._openVerificationModal();
             console.log(data);
+            this._dialogRef.close();
 
-        })
+        });
+        err=>{
+            this.error=err.error.error;
+        }
     }
 
     private _openVerificationModal() {

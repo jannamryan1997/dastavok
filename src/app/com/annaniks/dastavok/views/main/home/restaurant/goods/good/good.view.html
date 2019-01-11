@@ -1,12 +1,13 @@
 <div class="good_content" margin-control>
-        <div position-relative>
-                <app-loading class="loading" [loading]="loading" [height]="150" [width]="150"></app-loading>
-            </div>
-    <div class="good_conteiner" full-width display-flex>
+    
+    <div class="good_conteiner" full-width position-relative display-flex>
+            <div class="loading" display-flex *ngIf="loading">
+                    <p-progressSpinner  class="spinner"></p-progressSpinner>
+                </div>
         <div class="left_content">
             <div class="image_content" full-width [ngStyle]="{'background-image':'url('+activeImage+')'}"></div>
             <div display-flex>
-                <div class="image_items" *ngFor="let item of goodImage" [ngStyle]="{'background-image':'url('+'http://192.168.0.111:4000/static/company/'+item+')'}"
+                <div class="image_items" *ngFor="let item of goodImage" [ngStyle]="{'background-image':'url('+'http://192.168.0.114:4000/static/company/'+item+')'}"
                     (click)="setActiveImage(item)"></div>
             </div>
 

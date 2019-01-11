@@ -19,6 +19,10 @@ export class ContactView implements OnInit {
 
     ngOnInit() {
         this._formBuilder();
+        this._contactService.freeClient().subscribe((data)=>{
+            console.log(data);
+            
+        })
     }
 
     private _formBuilder() {
@@ -30,5 +34,8 @@ export class ContactView implements OnInit {
             "messages": ["", Validators.required]
         })
     }
+
+
+
 
 }

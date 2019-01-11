@@ -1,6 +1,7 @@
 import { Injectable, Inject } from "@angular/core"
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { CookieService } from "angular2-cookie/services/cookies.service";
+import { identifierModuleUrl } from "@angular/compiler";
 
 @Injectable()
 
@@ -93,6 +94,15 @@ export class ProfileService {
             'temporary-token':phoneNumberToken,
         })
         return this._httpClient.put(this.baseURL+"client/phone/steptwo",body,{headers})
+    }
+
+    public getOrderData(id){
+        let token = this._cookieService.get('token');
+        let headers = new HttpHeaders({
+            'Content-type': 'application/json',
+            'token': token,
+        })
+        return this._httpClient.get(this.baseURL+"client/driver/"+id,{headers})
     }
 }
 

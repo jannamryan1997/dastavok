@@ -14,6 +14,7 @@ export class NewPasswordModals implements OnInit {
 
     public newPasswordFormGroup: FormGroup;
     public loading:boolean=false;
+public error:string;
 
     constructor(public dialog: MatDialog,private dialogRef: MatDialogRef<NewPasswordModals>,private _signUpService: SignUpService) { }
 
@@ -40,6 +41,7 @@ this.newPasswordFormGroup.disable();
 
         },
             err => {
+                this.error=err.error.error;
                 this.loading=false;
                 this.newPasswordFormGroup.enable();
                 console.log(err);

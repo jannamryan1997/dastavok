@@ -1,4 +1,5 @@
 <app-delivery-list>
-    <app-delivery-list-item full-width [index]="i" *ngFor="let item of [0,0,0,0];let i=index;"></app-delivery-list-item>
+    <app-delivery-list-item full-width [index]="i" *ngFor="let item of orderData;let i=index;" [orderData]="item"></app-delivery-list-item>
 </app-delivery-list>
+
 <app-paginator></app-paginator>

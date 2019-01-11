@@ -22,21 +22,25 @@
             </div>
         </div>
         <div class="registration_conteiner">
-            <div class="phone_content"  width-75 margin-auto *ngSwitchCase="1">
+            <div class="phone_content" width-75 margin-auto *ngSwitchCase="1">
                 <div class="phone_wrapper">
                     <form [formGroup]="phoneNumberForm">
-                        <div class="input_content" full-width display-flex>
-                            <div class="left_icon" full-height display-flex>
+                        <app-error [error]="error"></app-error>
+                        <div class="input_content" full-width display-flex [ngClass]="{'validators':phoneNumberForm.get('phonenumber').hasError('required') && phoneNumberForm.get('phonenumber').touched}">
+                            <div class="left_icon" full-height display-flex [ngClass]="{'validators':phoneNumberForm.get('phonenumber').hasError('required') && phoneNumberForm.get('phonenumber').touched}">
                                 <i class="material-icons" margin-auto>
                                     call
                                 </i>
                             </div>
                             <input type="text" class="input" formControlName="phonenumber">
                         </div>
-                        <div  position-relative>
-                                <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading>
+                        <div position-relative>
+                            <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading>
                         </div>
-                      
+                        <div class="button_item" display-flex>
+                            <button class="next_button" margin-auto font-weight-bold text-align-center color-white
+                                [disabled]="phoneNumberForm.invalid || loading" (click)="nextStep()" [ngClass]="{'opacity':phoneNumberForm.invalid || loading}">NEXT</button>
+                        </div>
                     </form>
 
                 </div>
@@ -44,55 +48,62 @@
             </div>
 
             <div class="verification_content" *ngSwitchCase="2" full-width>
+                <app-error [error]="error"></app-error>
                 <form [formGroup]="verificationForm" width-75 margin-auto>
                     <div class="items" width-75 margin-auto>
 
-                        <input class="item_label" formControlName="control_1">
-                        <input class="item_label" formControlName="control_2">
-                        <input class="item_label" formControlName="control_3">
-                        <input class="item_label" formControlName="control_4">
+                        <input class="item_label" formControlName="control_1" [ngClass]="{'validators':verificationForm.get('control_1').hasError('required') && verificationForm.get('control_1').touched}">
+                        <input class="item_label" formControlName="control_2" [ngClass]="{'validators':verificationForm.get('control_2').hasError('required') && verificationForm.get('control_2').touched}">
+                        <input class="item_label" formControlName="control_3" [ngClass]="{'validators':verificationForm.get('control_3').hasError('required') && verificationForm.get('control_3').touched}">
+                        <input class="item_label" formControlName="control_4" [ngClass]="{'validators':verificationForm.get('control_4').hasError('required') && verificationForm.get('control_4').touched}">
 
                     </div>
-                    <div class="text_content" margin-auto justify-content-flex-end  display-flex>
+                    <div class="text_content" margin-auto justify-content-flex-end display-flex>
                         <span>Enter the verification code <b color-orange>{{time}}</b></span>
                     </div>
-                    <div  position-relative>
-                            <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading>
+                    <div position-relative>
+                        <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading>
                     </div>
-
+                    <div class="button_item" display-flex>
+                        <div margin-auto>
+                            <button class="back_button" font-weight-bold text-align-center (click)="back()">BACK</button>
+                            <button class="next_button" font-weight-bold text-align-center color-white [disabled]="verificationForm.invalid || loading"
+                                (click)="nextStep()" [ngClass]="{'opacity':verificationForm.invalid || loading}">NEXT</button>
+                        </div>
+                    </div>
                 </form>
             </div>
             <div class="signUp_content" full-width *ngSwitchCase="3">
                 <div class="middle_content" width-75 margin-auto>
+                    <app-error [error]="error"></app-error>
                     <form [formGroup]="signUpForm">
                         <div class="form_group">
-                            <input class="user_name" placeholder="Enter user_name" full-width formControlName="user_name">
+                            <input class="user_name" placeholder="Enter user_name" full-width formControlName="user_name"
+                                [ngClass]="{'validators':signUpForm.get('user_name').hasError('required') && signUpForm.get('user_name').touched}">
                         </div>
                         <div class="form_group">
-                            <input class="full_name" placeholder="Enter full_name" full-width formControlName="full_name">
+                            <input class="full_name" placeholder="Enter full_name" full-width formControlName="full_name"
+                                [ngClass]="{'validators':signUpForm.get('full_name').hasError('required') && signUpForm.get('full_name').touched}">
                         </div>
                         <div class="form_group">
-                            <input class="password" placeholder="Enter your password" full-width formControlName="password">
+                            <input class="password" placeholder="Enter your password" full-width formControlName="password"
+                                [ngClass]="{'validators':signUpForm.get('password').hasError('required') && signUpForm.get('password').touched}">
                         </div>
                         <div class="form_group">
                             <input class="confirm_password" placeholder="Confirm your password" full-width
-                                formControlName="confirm_password">
+                                formControlName="confirm_password" [ngClass]="{'validators':signUpForm.get('confirm_password').hasError('required') && signUpForm.get('confirm_password').touched}">
                         </div>
-                        <div  position-relative>
-                                <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading>
+                        <div position-relative>
+                            <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading>
                         </div>
-                        <div class="button_items" display-flex>
-
-
+                        <div class="button_item" display-flex>
+                            <div margin-auto>
+                                <button class="back_button" font-weight-bold text-align-center (click)="back()">BACK</button>
+                                <button class="next_button" font-weight-bold text-align-center color-white [disabled]="signUpForm.invalid || loading"
+                                    (click)="nextStep()" [ngClass]="{'opacity':signUpForm.invalid || loading}">NEXT</button>
+                            </div>
                         </div>
                     </form>
-                </div>
-            </div>
-            <div class="buttons_wrapper" display-flex>
-                <div class="butt_items" margin-auto>
-                    <button class="back_button" font-weight-bold text-align-center *ngIf="tab>=2" (click)="back()">BACK</button>
-                    <button class="next_button" font-weight-bold text-align-center color-white [disabled]="disabled || loading"
-                        (click)="nextStep()" [ngClass]="{'opacity':disabled || loading}">NEXT</button>
                 </div>
             </div>
         </div>

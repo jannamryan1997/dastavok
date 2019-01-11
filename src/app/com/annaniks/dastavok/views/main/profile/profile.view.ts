@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core"
+import { Component, OnInit, Input } from "@angular/core"
 import { UserUpdateModal } from "../../../modals/user-update/user-update.modal";
 import { MatDialog } from "@angular/material"
 import { ProfileService } from "./profile.service";
@@ -22,6 +22,8 @@ export class ProfileView implements OnInit {
     public count: number = 0;
     public notifications: Array<object> = [];
     public clientImage: string = "/assets/images/userimages.png";
+
+     public clientId:number;
 
 
     constructor(private dialog: MatDialog, private _profileService: ProfileService) { }
@@ -61,11 +63,14 @@ export class ProfileView implements OnInit {
         this._profileService.getClient()
             .subscribe((data: ServerResponse<User>) => {
                 this.clientData = data.data;
+                this.clientId=data.data.id;
                 if (data.data.image !== null) {
-                    this.clientImage = "http://192.168.0.113:3000/client/image/" + data.data.image;
+                    this.clientImage = "http://192.168.0.110:3000/client/image/" + data.data.image;
                 }
 
                 console.log(data);
+              //  console.log(this.clientId);
+                
             })
 
 

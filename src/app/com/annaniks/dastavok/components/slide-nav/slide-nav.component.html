@@ -40,7 +40,7 @@
                     <div class="login_signin" width-75 margin-auto (click)="showLogin()">
                         <p class="login_text" font-family-Roboto>login/sign in</p>
                     </div>
-                    <div class="top_login" position-absolute display-flex [ngClass]="{'showLogin':showLoginMenu,'hideLogin':!showLoginMenu}">
+                    <div class="top_login" position-absolute display-flex *ngIf="showLenguage">
                         <div class="button_item" width-75 margin-auto>
                             <button class="login_button">
                                 <span color-white font-family-Roboto text-align-center (click)="openLoginDialog()">LOGIN</span>

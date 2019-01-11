@@ -1,12 +1,11 @@
-import { Component, OnInit } from "@angular/core"
-import { MatDialog, MatDialogRef, throwToolbarMixedModesError } from '@angular/material';
+import { Component, OnInit, Input } from "@angular/core"
+import { MatDialog, MatDialogRef} from '@angular/material';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { SignUpService } from "../../services/signUp.service";
 import { Router } from "@angular/router";
-import { ServerResponse, LoginResponse, User } from "../../models/models";
+import { ServerResponse, LoginResponse} from "../../models/models";
 import { PhoneNumberModal } from "../phone-number/phone-number.modal";
 import { CookieService } from "angular2-cookie/services/cookies.service";
-
 
 
 
@@ -19,6 +18,7 @@ import { CookieService } from "angular2-cookie/services/cookies.service";
 export class LoginModal implements OnInit {
     public loading: boolean = false;
     public loginForm: FormGroup;
+    public  error:string;
 
     constructor(public dialog: MatDialog, private dialogRef: MatDialogRef<LoginModal>, private signUpService: SignUpService, private router: Router, private _cookieService: CookieService) { }
 
@@ -50,8 +50,12 @@ export class LoginModal implements OnInit {
            
         },
             err => {
+                console.log(err,this.error);
+                
+                this.error=err.error.error;
                 this.loading = false;
                 this.loginForm.enable();
+                console.log(err.data);
             })
             
     }

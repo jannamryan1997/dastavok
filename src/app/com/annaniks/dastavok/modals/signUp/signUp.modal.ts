@@ -16,6 +16,7 @@ export interface DialogData {
 export class SignUpModal implements OnInit {
     public signUpForm: FormGroup;
     public loading:boolean=false;
+    public error:string;
     constructor(private dialogRef: MatDialogRef<SignUpModal>,
         @Inject(MAT_DIALOG_DATA) public data: DialogData, private signUpService: SignUpService, private router: Router) { }
 
@@ -24,6 +25,17 @@ export class SignUpModal implements OnInit {
 
 
     }
+    private matchingPasswords(passwordKey: string, confirmPasswordKey: string) {
+        return (group: FormGroup): { [key: string]: any } => {
+            let password = group.controls[passwordKey];
+            let confirmPassword = group.controls[confirmPasswordKey];
+            if (password.value !== confirmPassword.value) {
+                return {
+                    mismatchedPasswords: true
+                };
+            }
+        }
+    }
 
     private _formBuilder() {
         this.signUpForm = new FormBuilder().group({
@@ -31,8 +43,11 @@ export class SignUpModal implements OnInit {
             full_name: ["", Validators.required],
             password: ["", Validators.required],
             confirm_password: ["", Validators.required],
-        })
+        },
+        { validator: this.matchingPasswords('password', 'confirm_password') }
+        )  
     }
+
     public backVerificationModal() {
         this.dialogRef.close();
     }
@@ -52,6 +67,7 @@ export class SignUpModal implements OnInit {
             console.log(data);
 
         }, err => {
+            this.error=err.error.error;
             this.loading=false;
             this.signUpForm.enable();
 

@@ -21,7 +21,7 @@ export interface PhoneVerification {
 
 export interface Verification {
     token: string;
-    refreshToken?:string;
+    refreshToken?: string;
 }
 export class User {
     address: string;
@@ -140,6 +140,10 @@ interface Address {
     longitude: number,
     text: string,
 }
+interface Cordinate {
+    latitude: number,
+    longitude: number,
+}
 
 export interface Good {
     companyId: number,
@@ -167,7 +171,7 @@ export interface Topping {
     toppingValue?
 }
 export interface Card {
-    amount:number;
+    amount: number;
     companyName: string;
     totalAmount: number;
     orderId: number;
@@ -259,4 +263,61 @@ interface OrderData {
     status: string,
     totalAmount: number,
     updatedAt: string,
+}
+export interface ClientDriver {
+    companydata: ClientDriverCompanyData;
+    driverdata: ClientDriverData;
+    orderdata: ClientDriverOrderData;
+}
+
+interface ClientDriverCompanyData {
+    address: Address;
+    code: number;
+    companyType: string;
+    confirmed: boolean;
+    createdAt: string;
+    description: string;
+    email: string;
+    id: number;
+    image: string;
+    isSeen: boolean;
+    name: string;
+    password: string;
+    phoneNumber: string;
+    refreshToken: string;
+    updatedAt: string;
+    userName: string;
+    visibility: boolean;
+    zipCode: number;
+}
+interface ClientDriverData {
+    cordinate: Cordinate;
+    createdAt: string;
+    externalId: string;
+    firstName: string
+    id: number;
+    isFree: boolean;
+    lastName: string;
+    phoneNumber: string;
+    updatedAt: string;
+}
+interface ClientDriverOrderData {
+    address: Address;
+    buyDate: string;
+    clientId: number;
+    comment: string;
+    companyId: number;
+    createdAt: string;
+    dispatcherId: number;
+    driverId: number;
+    driverToClientDate: string;
+    driverToRestaurantDate: string;
+    id: number;
+    name: string;
+    orderCompleteDate: string;
+    orderStartDate: string;
+    reviewId: string;
+    status: string;
+    totalAmount: number;
+    updatedAt: string;
 }

@@ -1,15 +1,17 @@
-<div class="ingredient_content">
-    <div class="ingredient_conteiner"  width-75 margin-auto>
-        <div class="ingredient_items" display-flex justify-content-space-between>
-            <p class="item_text" font-family-Roboto>{{topping?.name}}</p>
-            <p class="money_item" font-family-Roboto>{{topping?.stepPrice}}$</p>
-
-            <div class="quarity" display-flex justify-content-space-between>
-                <div class="remove" ont-family-Roboto cursor-pointer (click)="countremove()">-</div>
-                <div class="count"  font-family-Roboto>{{topping.toppingValue}}</div>
-                <div class="add" ont-family-Roboto cursor-pointer (click)="countadd()">+</div>
+<div class="ingredient_content" full-width>
+    <div class="ingredient_conteiner" width-75 margin-auto display-flex>
+<div class="text_item">
+    <span  font-family-Roboto>{{topping?.name}}</span>
+</div>
+<div class="money_item">
+        <span  font-family-Roboto>{{topping?.stepPrice}}$</span>
+    </div>
+    <div class="quarity_item"  display-flex justify-content-space-between>
+        <div class="quarity" margin-auto>
+            <span class="remove"  font-family-Roboto cursor-pointer (click)="countremove()">-</span>
+            <span class="count"  font-family-Roboto >{{topping.toppingValue}}</span>
+            <span class="add"  font-family-Roboto   cursor-pointer (click)="countadd()">+</span>
             </div>
-
         </div>
     </div>
 </div>

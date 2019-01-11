@@ -1,5 +1,4 @@
 .topbar_wrapper {
-    margin: 58px 0px;
     .top_content {
         //height: 115px;
         box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
@@ -14,6 +13,7 @@
         .user_name_input {
             width: calc(100% - 47.3px);
             color: #707070;
+            border: 1px solid #707070;
         }
         .user_name_icons {
             width: 47.3px;
@@ -39,6 +39,7 @@
         .password_input {
             width: calc(100% - 47.3px);
             color: #707070;
+            border: solid 1px #707070;
         }
     }
     .forget_password {
@@ -73,4 +74,8 @@
     .opacity {
         opacity: 0.5;
     }
+}
+
+.validators {
+    border-color: #ff6f00 !important;
 }

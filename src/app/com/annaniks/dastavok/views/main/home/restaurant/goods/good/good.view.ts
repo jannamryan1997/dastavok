@@ -23,7 +23,7 @@ export class GoodComponent implements OnInit {
     public good: Good;
     public toppings: Array<Topping>;
     public top: Array<any> = [];
-    public loading: boolean = false;
+    public loading: boolean =false;
 
     constructor(@Inject('BASE_URL') private _baseUrl, private _router: Router, private _activatedRoute: ActivatedRoute, private _goodService: GoodService, private _dialog: MatDialog,
         private _signUpService: SignUpService) {
@@ -62,7 +62,7 @@ export class GoodComponent implements OnInit {
     }
 
     public setActiveImage(image) {
-        this.activeImage = 'http://192.168.0.111:4000/static/company/' + image;
+        this.activeImage = 'http://192.168.0.114:4000/static/company/' + image;
     }
 
     public onClickBuy() {
@@ -89,9 +89,11 @@ export class GoodComponent implements OnInit {
     }
 
     private _getGood() {
-        this.loading = true;
+       this.loading = true;
         this._goodService.getGood(this._goodId)
             .subscribe((data: ServerResponse<Good>) => {
+                console.log(data);
+                
                 this.loading = false;
                 this.good = data.data;
                 this.toppings = data.data.toppings;
@@ -99,7 +101,7 @@ export class GoodComponent implements OnInit {
                     element.toppingValue = 0;
                 })
                 if (data.data.thumbnail) {
-                    this.activeImage = 'http://192.168.0.111:4000/static/company/' + data.data.thumbnail;
+                    this.activeImage = 'http://192.168.0.114:4000/static/company/' + data.data.thumbnail;
                 }
                 if (data.data.images) {
                     this.goodImage = data.data.images.split(",")

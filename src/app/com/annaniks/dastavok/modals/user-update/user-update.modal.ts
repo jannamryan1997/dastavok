@@ -21,6 +21,7 @@ export class UserUpdateModal implements OnInit {
     public serivceImage: string;
     public localImage: string = "assets/images/userimages.png";
     public clientData: User;
+    public error: string;
 
     constructor(@Inject(MAT_DIALOG_DATA) private data: any, private _profileService: ProfileService, private _dialogRef: MatDialogRef<UserUpdateModal>, private _signUpService: SignUpService) { }
 
@@ -46,7 +47,7 @@ export class UserUpdateModal implements OnInit {
             phone_number: this.clientData.phoneNumber,
         })
         if (this.clientData.image !== null) {
-            this.localImage = "http://192.168.0.113:3000/client/image/" + this.clientData.image;
+            this.localImage = "http://192.168.0.110:3000/client/image/" + this.clientData.image;
         }
     }
 
@@ -100,7 +101,10 @@ export class UserUpdateModal implements OnInit {
                 console.log(data);
                 console.log(data);
 
-            })
+            },
+                err => {
+                    this.error = err.error.error;
+                })
     }
 }
 

@@ -1,11 +1,6 @@
 .phone_content {
-    .top {
-        height: 115px;
-        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-        background-color: white;
-    }
-    .phone_conteiner{
-        margin: 80px 0px;
+    .phone_conteiner {
+        margin: 70px 0px;
         .phone_wrapper {
             .input_content {
                 height: 42px;
@@ -58,12 +53,10 @@
     }
 }
 
-
-
-
 .opacity {
     opacity: 0.5;
 }
+
 @media only screen and (max-width: 900px) {
     .back_button {
         width: 110px !important;
@@ -73,4 +66,8 @@
         width: 110px !important;
         height: 42px !important;
     }
+}
+
+.validators {
+    border-color: #ff6f00 !important;
 }

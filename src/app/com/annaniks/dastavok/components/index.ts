@@ -32,3 +32,4 @@ export *from "src/app/com/annaniks/dastavok/components/filters-list/filters-list
 export *from "src/app/com/annaniks/dastavok/components/empty/empty.component";
 export *from "src/app/com/annaniks/dastavok/components/profile-tab/orders-tab/orders-tab.componet";
 export *from "src/app/com/annaniks/dastavok/components/profile-tab/notification-tab/notification-tab.component";
+export *from "src/app/com/annaniks/dastavok/components/error/error.component";

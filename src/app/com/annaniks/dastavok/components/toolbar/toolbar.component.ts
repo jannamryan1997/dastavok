@@ -40,9 +40,10 @@ export class ToolbarComponent implements OnInit {
     }
 
     public showLoginSignup() {
-        setTimeout(() => {
-            this.showlogin = !this.showlogin;
-        }, 1)
+        // setTimeout(() => {
+        //     this.showlogin = !this.showlogin;
+        // }, 1)
+        this.showlogin = !this.showlogin;
 
     }
 
@@ -74,10 +75,11 @@ export class ToolbarComponent implements OnInit {
     }
 
     public showLanguage() {
-        setTimeout(() => {
-            this.showLenguage = !this.showLenguage;
-        }, 1)
-    }
+    //     setTimeout(() => {
+    //         this.showLenguage = !this.showLenguage;
+    //     }, 1)
+    this.showLenguage = !this.showLenguage;
+     }
 
     public onClickedOutsideLenguage(e: Event) {
         this.showLenguage = false;

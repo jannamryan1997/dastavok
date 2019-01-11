@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div width-fit  display-flex class="right_content">
-                <div class="lenguage_content" display-flex align-items-center position-releative (click)="showLanguage()"
+                <div class="lenguage_content" display-flex align-items-center position-relative (click)="showLanguage()"
                     (clickOutside)="onClickedOutsideLenguage($event)">
                     <div class="flags">
                         <img src="assets/images/english.png" full-width full-height>
@@ -35,7 +35,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="login_content" display-flex position-releative>
+                <div class="login_content" display-flex position-relative>
                     <div class="login_signin" full-height display-flex align-items-center *ngIf="!signUpService.isAuthorized"
                         (clickOutside)="onClickedOutside($event)">
                         <div (click)="showLoginSignup()" display-flex align-items-center>
@@ -44,8 +44,8 @@
                             </i>
                             <span font-weight-bold font-family-Roboto>Login/sign in</span>
                         </div>
-                        <div class="login right-0 " position-absolute  [ngClass]="{'showUserProfile':showlogin,'hideUserProfile':!showlogin}">
-                            <div class="buttons_items">
+                        <div class="login right-0" position-absolute display-flex *ngIf="showlogin">
+                            <div class="buttons_items" margin-auto width-75 >
                                 <button class="login_button" text-align-center (click)="openLoginModal()">
                                     <span color-white font-weight-bold font-family-Roboto>LOGIN</span>
                                 </button>
@@ -65,7 +65,7 @@
                                 keyboard_arrow_down
                             </i>
                         </div>
-                        <div class="user_profile" position-absolute [ngClass]="{'showUserProfile':showUserProfileDisplay,'hideUserProfile':!showUserProfileDisplay}">
+                        <div class="user_profile" position-absolute *ngIf="showUserProfileDisplay">
                             <div class="user_singIn">
                                 <span class="user_text" font-family-Roboto font-weight-bold routerLink="/profile"
                                     cursor-pointer>User profile</span>
@@ -77,6 +77,8 @@
                         </div>
                     </div>
                 </div>
+
+                
             </div>
         </div>
     </div>
