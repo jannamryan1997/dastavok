@@ -6,7 +6,8 @@
     margin-top: 12.7px;
     .icon_content {
         width: 47px;
-        height: 42px; //    border: 1px solid rgba(0, 0, 0, 0.23)
+        height: 42px;
+        border: 1px solid rgba(0, 0, 0, 0.23)
     }
     .input_content {
         width: calc(100% - 42px)
@@ -21,7 +22,8 @@
     margin-top: 20.7px;
     .icon_content {
         width: 47px;
-        height: 42px; //  border: 1px solid rgba(0, 0, 0, 0.23)
+        height: 42px;
+        border: 1px solid rgba(0, 0, 0, 0.23)
     }
     .input_content {
         width: calc(100% - 42px)
@@ -52,6 +54,11 @@
         }
     }
 }
-.opacity{
-opacity: 0.5;
+
+.opacity {
+    opacity: 0.5;
+}
+
+.validators {
+    border-color: #ff6f00 !important;
 }

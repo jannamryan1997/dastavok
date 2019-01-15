@@ -1,34 +1,36 @@
-<div class="review_content">
-    <div class="review_top">
-        <div class="review_top_item">
-            <div class="text_item">
-                <div display-flex>
-                    <p class="reiting_count" font-family-Open-Sans>4.5</p>
-                    <div class="star_item" display-flex>
-                            <app-rating  margin-auto [currentIndex]="ratingCount" [changeRating]="false"></app-rating>
+<div class="review_content" full-width>
+    <div class="review_conteiner">
+        <!-- <div class="top_content" width-75 margin-auto>
+            <div class="reviw_content">
+                <div class="review" display-flex>
+                    <span font-family-Open-Sans>4.5</span>
+                    <div class="rating">
+                        <app-rating margin-auto [currentIndex]="ratingCount" [changeRating]="false"></app-rating>
                     </div>
                 </div>
-                <div class="reiting_text">
-                    <p class="text" font-family-Roboto>- 0.0 No movment negarding your raiting</p>
+                <div class="reviw_messages">
+                    <p font-family-Roboto>- 0.0 No movment negarding your raiting</p>
+                </div>
+                <div class="chart">fbdf</div>
+            </div>
+        </div> -->
+        <div class="chat_info" full-width>
+            <div class="chat_conteiner" display-flex>
+                <div class="image_content"></div>
+                <div class="chat_content" width-75>
+                    <div class="rating">
+                        <app-rating [currentIndex]="reviewData?.review-1" [changeRating]="true"></app-rating>
+                    </div>
+
+                    <span font-family-Roboto>{{reviewData?.comment}}</span>
+                </div>
+                <div class="data_info" margin-auto>
+                    <span font-family-Roboto>{{reviewDataTime | date:'short'}}</span>
                 </div>
             </div>
 
-
-
-        </div>
-    </div>
-    <div class="review_item" *ngFor="let item of reviewItem">
-        <div class="review_conteiner" display-flex>
-            <div class="review_image"></div>
-            <div class="stars_items">
-                    <app-rating [currentIndex]="ratingCount" [changeRating]="true"></app-rating>
-                <div class="review_text" display-flex justify-content-space-between>
-                    <p class="review_text_item">{{item.title}}</p>
-                    <p class="data_item">{{item.data}}</p>
-                </div>
-            </div>
-
         </div>
 
     </div>
+
 </div>

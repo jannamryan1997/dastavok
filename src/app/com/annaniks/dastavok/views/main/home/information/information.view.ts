@@ -33,6 +33,8 @@ export class InformationView implements OnInit {
                 this.loading=false;
                 this.companyItem = data.data.data;
                 this.count = data.data.metaData.count;
+                console.log(data);
+                
             })
             error=>{     
                 console.log(error);

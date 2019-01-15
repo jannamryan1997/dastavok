@@ -47,7 +47,7 @@ export class UserUpdateModal implements OnInit {
             phone_number: this.clientData.phoneNumber,
         })
         if (this.clientData.image !== null) {
-            this.localImage = "http://192.168.0.110:3000/client/image/" + this.clientData.image;
+            this.localImage =  this.clientData.image;
         }
     }
 

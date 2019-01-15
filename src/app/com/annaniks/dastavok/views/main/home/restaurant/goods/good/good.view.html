@@ -1,12 +1,13 @@
 <div class="good_content" margin-control>
-    
-    <div class="good_conteiner" full-width position-relative display-flex>
-            <div class="loading" display-flex *ngIf="loading">
-                    <p-progressSpinner  class="spinner"></p-progressSpinner>
-                </div>
+
+    <div class="good_conteiner" full-width display-flex justify-content-space-between>
+        <div class="loading" display-flex *ngIf="loading">
+            <p-progressSpinner class="spinner"></p-progressSpinner>
+        </div>
         <div class="left_content">
             <div class="image_content" full-width [ngStyle]="{'background-image':'url('+activeImage+')'}"></div>
-            <div display-flex>
+
+            <div class="images" display-flex flex-wrap-wrap justify-content-space-between>
                 <div class="image_items" *ngFor="let item of goodImage" [ngStyle]="{'background-image':'url('+'http://192.168.0.114:4000/static/company/'+item+')'}"
                     (click)="setActiveImage(item)"></div>
             </div>
@@ -15,10 +16,7 @@
         <div class="right_content">
             <p class="text_item" font-family-Roboto font-weight-bold>{{good?.name}}</p>
             <div class="star_items">
-                <!-- <i class="material-icons" *ngFor="let item of [0,0,0,0,0]">
-                    star
-                </i> -->
-                <app-rating [currentIndex]="starCount" [changeRating]="false"></app-rating>
+                <app-rating [currentIndex]="good?.review-1" [changeRating]="false"></app-rating>
                 <p class="text" font-family-Roboto>{{good?.description}}</p>
             </div>
             <div class="line_content"></div>
@@ -36,7 +34,7 @@
                 </div>
             </div>
             <div class="button_item" display-flex>
-                <div  margin-auto display-flex>
+                <div margin-auto display-flex>
                     <button class="left_button" color-white font-family-Open-Sans margin-auto (click)="onClickOrder('card')"><span>CART</span></button>
                     <button class="right_button" color-white font-family-Open-Sans margin-auto (click)="onClickOrder('buy')"><span>BUY</span></button>
                     <!-- routerLink="cart" -->
@@ -63,7 +61,9 @@
             <app-description [descriptionData]="good?.description"></app-description>
         </div>
         <div *ngSwitchCase="2">
-            <app-review></app-review>
+                <app-revie-chart></app-revie-chart>
+            <app-review *ngFor="let item of reviewData" [reviewData]="item" [reviewDataTime]="item.reviewDate"></app-review>
+            <app-paginator [count]="pageCount" [pageLength]="pageLength" (paginate)="paginate($event)"></app-paginator>
         </div>
         <div *ngSwitchCase="3">
             <app-ingredient *ngFor="let topping of toppings" [topping]="topping"></app-ingredient>

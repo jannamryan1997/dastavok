@@ -1,6 +1,6 @@
 .good_content {
     margin-top: 24.2px;
-    .loading{
+    .loading {
         left: 0;
         right: 0;
         margin: auto;
@@ -11,14 +11,15 @@
     }
     .good_conteiner {
         .left_content {
-            //   width: 350.8px;
+            width: 350.8px;
+            min-width: 393px;
+            max-width: 393px;
             .image_content {
                 height: 241.9px;
                 box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
                 background-position: center;
                 background-size: cover;
                 background-repeat: no-repeat;
-                width: 335px;
             }
             .image_items {
                 margin-top: 28.5px;
@@ -28,16 +29,12 @@
                 background-size: cover;
                 background-repeat: no-repeat;
                 cursor: pointer;
-                margin-left: 25px;
                 border-radius: 4px;
                 box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-                &:first-child {
-                    margin-left: 0px;
-                }
+                &:first-child {}
             }
         }
         .right_content {
-            margin-left: 84px;
             .text_item {
                 font-size: 25px;
                 font-style: normal;
@@ -48,6 +45,9 @@
                 color: #191919;
                 margin-bottom: 0px;
                 margin-top: 0px;
+                width: 100%;
+                display: block;
+                word-break: break-word;
             }
             .star_items {
                 i {
@@ -201,14 +201,13 @@
     color: white;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1160px) {
     .good_content {
         margin-left: 0px !important;
+        flex-direction: column !important;
     }
     .good_conteiner {
         flex-direction: column !important;
-        width: 335px;
-        margin-left: 23px !important;
     }
     .left_button {
         width: 163.5px !important;
@@ -225,7 +224,11 @@
         font-size: 15px !important;
     }
     .image_content {
-        width: 335px !important;
+        //  width: 335px !important;
         height: 241.9px !important;
+    }
+    .left_content {
+        min-width: 100% !important;
+        max-width: 100% !important;
     }
 }

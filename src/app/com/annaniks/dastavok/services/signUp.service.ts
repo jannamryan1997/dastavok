@@ -81,14 +81,14 @@ export class SignUpService {
             map((data: ServerResponse<User>) => {
                 this.userInfo = data.data;
                 if (data.data.image !== null) {
-                    data.data.image = "http://192.168.0.113:3000/client/image/" + data.data.image;
+                    data.data.image = "http://192.168.0.110:3000/client/image/" + data.data.image;
                 
                 }
                 else {
                     data.data.image = "/assets/images/userimages.png";
                 }
                 this.userImage=data.data.image;
-                
+                return data;
 
             })
         )

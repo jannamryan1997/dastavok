@@ -51,20 +51,41 @@
         bottom: 103.3px;
         margin: auto;
         cursor: pointer;
-    }
-    .slider_content {
-        margin: 0 auto;
-        width: 129.4px;
-        object-fit: contain;
-        border: solid 1px #707070;
-        .slider_image {
-            height: 87.7px;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
+    } 
+    .second_slider {
+        .leftRs_config {
+            display: block !important;
+            color: #444444;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto 0;
+            width: fit-content;
+            height: fit-content;
+            user-select: none;
+            cursor: pointer;
+            i {
+                font-size: 34px;
+            }
         }
-        .slider_top {
-            margin-left: 10px;
+        .slider_item {
+            margin: 0 auto;
+            object-fit: contain;
+            border: solid 1px #707070;
+            width: 129.4px;
+            height: 137.1px;
+            margin-left: 69.6px;
+            &:first-child {
+                margin-left: 74.6px;
+            }
+            .slider_image {
+                height: 87.7px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
             .information_content {
                 .information_name {
                     font-size: 9px;
@@ -99,40 +120,25 @@
                 margin-bottom: 0px;
             }
         }
-    }
-    .leftRs_config {
-        display: block !important;
-        color: #444444;
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        margin: auto 0;
-        width: fit-content;
-        height: fit-content;
-        user-select: none;
-        cursor: pointer;
-        i {
-            font-size: 50px;
-        }
-    }
-    .rightRs_config {
-        color: #444444;
-        display: block !important;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        margin: auto 0;
-        width: fit-content;
-        height: fit-content;
-        user-select: none;
-        i {
-            font-size: 50px;
-        }
+            .rightRs_config {
+                color: #444444;
+                display: block !important;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                margin: auto 0;
+                width: fit-content;
+                height: fit-content;
+                user-select: none;
+                i {
+                    font-size: 34px;
+                }
+            }
     }
 }
+
+
 
 :host::ng-deep .ngxcarouselPointDefault {
     position: absolute;

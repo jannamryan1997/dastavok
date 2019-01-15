@@ -28,6 +28,8 @@ export class DeliveryListItemComponent implements OnInit {
         this._initMap();
         this.setDetailsHeight();
         this.calcRoute();
+        console.log(this.orderData,"fg");
+        
     }
 
     private _initMap() {
@@ -71,8 +73,8 @@ export class DeliveryListItemComponent implements OnInit {
     }
 
     calcRoute() {
-        var origin = new google.maps.LatLng(40.177200, 44.503490);
-        var destination = new google.maps.LatLng(40.7942, 43.84528);
+        var origin = new google.maps.LatLng(this.orderData.companydata.address.lat, this.orderData.companydata.address.lng);
+        var destination = new google.maps.LatLng(this.orderData.orderdata.address.lat,this.orderData.orderdata.address.lng);
         var request = {
             origin: origin,
             destination: destination,

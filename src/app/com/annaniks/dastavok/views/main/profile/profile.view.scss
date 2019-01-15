@@ -1,77 +1,80 @@
 .profile_content {
-    .profile_container {
+    .profile_conteiner {
+        margin-top: 143px;
         .profile_data {
-            margin-top: 143px;
-            .img_content {
-                width: 202px;
-                height: 202px;
+            width: 400px;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+            background-color: white;
+            .profile_image {
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
-                border-radius: 50%;
+                height: 200px;
             }
-            .text_content {
-                margin-left: 22px;
-                .text_name {
-                    font-size: 31px;
-                    font-style: normal;
-                    font-stretch: normal;
-                    line-height: 1.35;
-                    letter-spacing: normal;
-                    text-align: left;
-                    color: #444444;
-                    margin-bottom: 0px;
-                    margin-top: 0px;
+            .top_content {
+                .icons {
+                    display: flex;
+                    flex-direction: column;
                 }
-                .user_room {
-                    font-size: 31px;
-                    font-weight: normal;
-                    font-style: normal;
-                    font-stretch: normal;
-                    line-height: 1.19;
-                    letter-spacing: normal;
-                    text-align: left;
-                    color: #444444;
-                    margin-bottom: 0px;
-                    margin-top: 0px;
-                    .text_item {
-                        margin-bottom: 0px;
-                        margin-top: 0px;
-                    }
-                    i {
-                        font-size: 31px;
+                .profile_data {
+                    .profile_fullName {
+                        font-size: 20px;
+                        font-weight: bold;
+                        font-style: normal;
+                        font-stretch: normal;
+                        line-height: 1.35;
+                        letter-spacing: normal;
+                        text-align: left;
                         color: #444444;
+                        width: 100%;
+                        display: block;
+                        word-wrap: break-word;
                     }
-                }
-                .user_call {
-                    i {
-                        font-size: 22px;
+                    .profile_address {
+                        font-size: 18px;
+                        font-weight: normal;
+                        font-style: normal;
+                        font-stretch: normal;
+                        line-height: 1.19;
+                        letter-spacing: normal;
+                        text-align: left;
                         color: #444444;
+                        width: 100%;
+                        display: block;
+                        word-wrap: break-word;
                     }
-                    .text_number {
-                        margin-left: 3.8px;
-                        margin-top: 0px;
-                        margin-bottom: 0px;
+                    .profile_phone {
+                        font-size: 16px;
+                        font-weight: normal;
+                        font-style: normal;
+                        font-stretch: normal;
+                        line-height: 1.21;
+                        letter-spacing: normal;
+                        text-align: left;
+                        color: #444444;
+                        width: 100%;
+                        display: block;
+                        word-wrap: break-word;
                     }
                 }
             }
-            .add_content {
-                //  margin-left: 229px;
-                margin-top: 44px;
-                width: 287px;
-                height: 75px;
-                .button_content {
-                    color: #444444;
-                    font-size: 31px;
-                    text-decoration: none;
-                    display: inline-block;
-                    border: none;
-                    cursor: pointer;
-                    border-radius: 4px;
-                    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-                    background: white;
-                    border: 1px solid #707070;
-                }
+        }
+        .add_content {
+            margin-top: 44px;
+            width: 287px;
+            height: 75px;
+            .button_content {
+                color: #444444;
+                font-size: 31px;
+                text-decoration: none;
+                display: inline-block;
+                border: none;
+                cursor: pointer;
+                border-radius: 4px;
+                box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+                background: white;
+                border: 1px solid #707070;
             }
         }
     }
@@ -144,8 +147,8 @@
 }
 
 @media only screen and (max-width: 900px) {
-    .profile_data {
-        flex-direction: column;
+    .profile_conteiner {
+        flex-direction: column !important;
     }
     .img_content {
         width: 93px !important;
@@ -153,5 +156,8 @@
     }
     .tab_label {
         font-size: 17px !important;
+    }
+    .profile_data{
+        width: 290px !important;
     }
 }

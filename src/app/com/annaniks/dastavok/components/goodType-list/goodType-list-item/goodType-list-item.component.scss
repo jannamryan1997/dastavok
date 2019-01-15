@@ -10,7 +10,7 @@
     .meal_content {
         width: calc(100% - 52px);
         margin-top: 34.4px;
-        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23); 
+        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
         background-color: #ffffff;
         .meal_images {
             height: 220.3px;
@@ -29,9 +29,15 @@
             letter-spacing: normal;
             text-align: left;
             color: #191919;
+            width: 100%;
+            display: block;
+            word-wrap: break-word;
             .meal_text_item_one {
                 margin-bottom: 0px;
                 margin-top: 0px;
+                width: 100%;
+                display: block;
+                word-wrap: break-word;
             }
             .meal_text_item_two {
                 margin-top: 11.6px;
@@ -41,6 +47,9 @@
                 width: 255px;
                 font-size: 14px;
                 color: #cfcfcf;
+                width: 100%;
+                display: block;
+                word-wrap: break-word;
             }
         }
     }

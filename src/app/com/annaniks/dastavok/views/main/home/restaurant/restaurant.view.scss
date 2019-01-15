@@ -23,8 +23,7 @@
         box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
         background-position: center;
         background-repeat: no-repeat;
-        background-size: cover;
-       // background-image: url("/assets/images/wine.jpg");
+        background-size: cover; // background-image: url("/assets/images/wine.jpg");
         .text_wraper {
             left: 57px;
             top: 7px;
@@ -38,6 +37,9 @@
             .text_item_one {
                 margin-top: 0;
                 margin-bottom: 0px;
+                width: 100%;
+                display: block;
+                word-wrap: break-word;
             }
             .text_item_two {
                 margin-top: 12.4px;
@@ -53,22 +55,21 @@
                 display: block;
                 word-wrap: break-word;
                 white-space: normal;
-                width: 295px;
+                width: 100%;
+                display: block;
+                word-wrap: break-word;
             }
         }
     }
-    
-    .container{
-        margin:0 auto;
+    .container {
+        margin: 0 auto;
         width: 100%;
         max-width: 737px;
     }
-
 }
 
 @media only screen and (max-width: 900px) {
-    .restaurant_content{
+    .restaurant_content {
         margin-left: 0 !important;
     }
 }
-

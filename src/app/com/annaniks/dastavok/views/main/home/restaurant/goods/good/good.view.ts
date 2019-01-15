@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from "@angular/core"
 import { Router, ActivatedRoute } from "@angular/router";
 import { GoodService } from "./good.service";
-import { Good, ServerResponse, Topping, BriefToppings, OrderInfo } from "src/app/com/annaniks/dastavok/models/models";
+import { Good, ServerResponse, Topping, BriefToppings, OrderInfo, Review } from "src/app/com/annaniks/dastavok/models/models";
 import { MatDialog } from "@angular/material"
 import { RegistrationStep } from "src/app/com/annaniks/dastavok/modals";
 import { SignUpService } from "src/app/com/annaniks/dastavok/services/signUp.service";
@@ -17,13 +17,17 @@ export class GoodComponent implements OnInit {
     private _goodId: number;
     public starCount: number = 4;
     public count: number = 1;
+    public pageLength: number = 10;
+    public pageCount: number;
     public tab: number = 1;
     public activeImage: string;
     public goodImage: Array<string>;
     public good: Good;
     public toppings: Array<Topping>;
     public top: Array<any> = [];
-    public loading: boolean =false;
+    public loading: boolean = false;
+    public reviewData: Review;
+    public reviewDataTime: string;
 
     constructor(@Inject('BASE_URL') private _baseUrl, private _router: Router, private _activatedRoute: ActivatedRoute, private _goodService: GoodService, private _dialog: MatDialog,
         private _signUpService: SignUpService) {
@@ -35,6 +39,7 @@ export class GoodComponent implements OnInit {
 
     ngOnInit() {
         this._getGood();
+        this._getReview();
     }
 
     public openDescription() {
@@ -89,11 +94,11 @@ export class GoodComponent implements OnInit {
     }
 
     private _getGood() {
-       this.loading = true;
+        this.loading = true;
         this._goodService.getGood(this._goodId)
             .subscribe((data: ServerResponse<Good>) => {
                 console.log(data);
-                
+
                 this.loading = false;
                 this.good = data.data;
                 this.toppings = data.data.toppings;
@@ -168,5 +173,19 @@ export class GoodComponent implements OnInit {
         }
     }
 
+    private _getReview() {
+        // this._goodService.getReview(this._companyId, this._goodId, this.pageCount, this.pageLength)
+        this._goodService.getReview(1, 1, 1, this.pageLength)
+            .subscribe((data: ServerResponse<Review[]>) => {
+                this.reviewData = data.data.data;
+                this.pageCount = data.data.metaData.count;
+                this.reviewDataTime=data.data.data.reviewDate;
+                console.log(this.reviewData);
+
+            })
+    }
+    paginate($event) {
+        this._getReview();
+    }
 
 }
