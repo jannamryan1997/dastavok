@@ -51,7 +51,7 @@
         bottom: 103.3px;
         margin: auto;
         cursor: pointer;
-    } 
+    }
     .second_slider {
         .leftRs_config {
             display: block !important;
@@ -76,10 +76,6 @@
             border: solid 1px #707070;
             width: 129.4px;
             height: 137.1px;
-            margin-left: 69.6px;
-            &:first-child {
-                margin-left: 74.6px;
-            }
             .slider_image {
                 height: 87.7px;
                 background-position: center;
@@ -120,25 +116,35 @@
                 margin-bottom: 0px;
             }
         }
-            .rightRs_config {
-                color: #444444;
-                display: block !important;
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                right: 0;
-                margin: auto 0;
-                width: fit-content;
-                height: fit-content;
-                user-select: none;
-                i {
-                    font-size: 34px;
-                }
+        .rightRs_config {
+            color: #444444;
+            display: block !important;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto 0;
+            width: fit-content;
+            height: fit-content;
+            user-select: none;
+            i {
+                font-size: 34px;
             }
+        }
     }
 }
 
-
+:host /deep/ {
+    .second_slider {
+        .ngxcarousel {
+            padding: 0 74px;
+        }
+        .ngxcarousel-items {
+            // display: flex;
+            // justify-content: space-around;
+        }
+    }
+}
 
 :host::ng-deep .ngxcarouselPointDefault {
     position: absolute;
@@ -170,10 +176,6 @@
     }
 }
 
-.rating_star {
-    font-size: 2px;
-}
-
 @media only screen and (max-width: 900px) {
     .slider_content {
         //margin-top: 0px;
@@ -183,7 +185,33 @@
         .shop_now {
             width: 97.7px !important;
             height: 25.5px !important;
-            font-size: 8px;
+            font-size: 8px !important;
+        }
+    }
+    .slider_item {
+        width: 85.7px !important;
+        height: 90.8px !important;
+        .slider_image {
+            height: 58.8px !important;
+        }
+        .rating_star {
+            font-size: 7px;
+        }
+        .carency {
+            font-size: 4px !important;
+        }
+        .information_text {
+            font-size: 6px !important;
+        }
+        .information_name {
+            font-size: 4px !important;
+        }
+    }
+    :host /deep/ {
+        .second_slider {
+            .ngxcarousel {
+                padding: 0px 25px !important;
+            }
         }
     }
 }

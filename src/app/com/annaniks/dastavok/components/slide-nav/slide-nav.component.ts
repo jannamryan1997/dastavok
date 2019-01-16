@@ -20,7 +20,7 @@ export class SlideNawComponent implements OnInit {
         }
     }
     public showLangualeMenu: boolean = false;
-    public showLoginMenu: boolean = false;
+    public showLoginMenu: boolean = true;
     public languageItem: Array<any> = [
         { name: "Englis", image: 'assets/images/english.png' },
         { name: "Pусский", image: 'assets/images/russion.jpg' }
@@ -43,9 +43,10 @@ export class SlideNawComponent implements OnInit {
 
     }
 
-    public showLogin() {
-        this.showLoginMenu = !this.showLoginMenu;
-    }
+    // public showLogin() {
+    //     this.showLoginMenu = !this.showLoginMenu;
+        
+    // }
 
     public onClickedOutside(e: Event) {
         this.showLangualeMenu = false;
@@ -55,7 +56,7 @@ export class SlideNawComponent implements OnInit {
         this.showLoginMenu = false;
     }
 
-    public openLoginDialog(): void {
+    public showLogin(): void {
         const dialogRef = this.dialog.open(LoginModal, {
             width: "686px",
             maxWidth: '100vw',

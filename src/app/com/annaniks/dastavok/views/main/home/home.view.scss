@@ -41,6 +41,7 @@
                     border: solid 1px #a4a4a4;
                     background-color: #ffffff;
                     width: calc(100% - 46.5px);
+                    padding-left: 51px;
                 }
                 .search {
                     width: 46.5px;
@@ -140,7 +141,6 @@ input::placeholder {
     color: #b5b5b5;
     margin-top: 12px;
     font-size: 12px;
-    padding-left: 51px;
 }
 
 @media only screen and (max-width: 900px) {

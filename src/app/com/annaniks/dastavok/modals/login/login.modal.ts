@@ -41,6 +41,8 @@ export class LoginModal implements OnInit {
             "password": this.loginForm.value.password,
 
         }).subscribe((data: ServerResponse<LoginResponse>) => {
+            console.log(data);
+            
             this.loading = false;
             this._cookieService.put("refreshToken", data.data.refreshToken);
             this._cookieService.put('token', data.data.token);

@@ -1,43 +1,35 @@
 <div class="profile_content" full-width>
-    <div class="profile_conteiner" width-75 margin-auto display-flex justify-content-space-between>
-        <div class="profile_data">
-            <div class="profile_image" full-width [ngStyle]="{'background-image':'url('+clientImage+')'}"></div>
-            <div class="top_content" full-width display-flex>
-                <div class="icons">
-                    <i class="material-icons">
-                        person
-                    </i>
-                    <i class="material-icons">
+<div class="profile_conteiner">
+    <div class="client_data"  display-flex justify-content-space-between>
+        <div  class="client" display-flex>
+            <div class="client_image" full-width [ngStyle]="{'background-image':'url('+clientImage+')'}"></div>
+            <div class="client_info">
+                    <div class="client_fullName" display-flex justify-content-space-between>
+                            <span class="fullName" font-weight-bold font-family-Open-Sans> {{clientData?.fullName}}</span>
+                        </div>
+                        <div class="client_addres"  display-flex>
+                                <i class="material-icons">
                         room
-                    </i>
-                    <i class="material-icons">
-                        call
-                    </i>
-                    <i class="material-icons" cursor-pointer (click)="openNewPhoneNumberModal()">
-                        add
-                    </i>
-                </div>
-                <div class="profile_data">
-                    <div class="profile_fullName" display-flex justify-content-space-between>
-                        <span font-weight-bold font-family-Open-Sans> {{clientData?.fullName}}</span>
-                    </div>
-                    <div class="profile_address" display-flex justify-content-space-between>
-                        <span ont-weight-bold font-family-Roboto>{{clientData?.address[0]?.text}}</span>
-                    </div>
-                    <div class="profile_phone">
-                        <span font-family-Roboto> {{clientData?.phoneNumber}}</span>
-                    </div>
+                        
+                                    </i>
+                                    <span class="addres" ont-weight-bold font-family-Roboto>{{clientData?.address[0]?.text}}</span>
+                        </div>
+                        <div class="profile_phone"  display-flex>
+                                <i class="material-icons">
+                                        call
+                                    </i>
+                        <span class="phone" font-family-Roboto> {{clientData?.phoneNumber}}</span>
 
-
-                </div>
+                        </div>
             </div>
         </div>
-        <div class="add_content" (click)="openUserUpdateModal(clientData)">
-            <button class="button_content" full-width full-height display-flex>
-                <span font-family-Open-Sans margin-auto>add</span>
-            </button>
-        </div>
+            <div class="add_content" (click)="openUserUpdateModal(clientData)">
+                    <button class="button_content" full-width full-height display-flex>
+                        <span font-family-Open-Sans margin-auto>add</span>
+                    </button>
+                </div>
     </div>
+</div>
     <div [ngSwitch]="tab">
         <div class="tabs_content" full-width display-flex>
             <div class="notification" full-height display-flex [ngClass]="{'active_tab':tab==1}" (click)="showNotification()"
