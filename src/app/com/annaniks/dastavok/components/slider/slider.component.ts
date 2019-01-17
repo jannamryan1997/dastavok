@@ -47,29 +47,8 @@ export class SliderComponent implements OnInit {
                 text: "Contrary to popular beelife"
 
             },
-            {
-                title: "/assets/images/slide.jpg",
-                label: "Burger",
-                text: "Contrary to popular beelife"
-
-            },{
-                title: "/assets/images/slide.jpg",
-                label: "Burger",
-                text: "Contrary to popular beelife"
-
-            },
-            {
-                title: "/assets/images/slide.jpg",
-                label: "Burger",
-                text: "Contrary to popular beelife"
-
-            },
-            {
-                title: "/assets/images/slide.jpg",
-                label: "Burger",
-                text: "Contrary to popular beelife"
-
-            }
+            
+       
 
 
         ]

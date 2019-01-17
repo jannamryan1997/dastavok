@@ -16,9 +16,7 @@ export class GoodComponent implements OnInit {
     private _companyId: number;
     private _goodId: number;
     public starCount: number = 4;
-    public count: number = 1;
-    public pageLength: number = 10;
-    public pageCount: number;
+    public countSum: number = 1;
     public tab: number = 1;
     public activeImage: string;
     public goodImage: Array<string>;
@@ -28,6 +26,10 @@ export class GoodComponent implements OnInit {
     public loading: boolean = false;
     public reviewData: Review;
     public reviewDataTime: string;
+    public count: number=0;
+    public page: number = 1;
+    public pageLength: number = 10;
+
 
     constructor(@Inject('BASE_URL') private _baseUrl, private _router: Router, private _activatedRoute: ActivatedRoute, private _goodService: GoodService, private _dialog: MatDialog,
         private _signUpService: SignUpService) {
@@ -56,14 +58,14 @@ export class GoodComponent implements OnInit {
     }
 
     public countdAdd() {
-        this.count++;
+        this.countSum++;
     }
 
     public countremove() {
-        if (this.count == 1) {
+        if (this.countSum == 1) {
             return;
         }
-        this.count--;
+        this.countSum--;
     }
 
     public setActiveImage(image) {
@@ -86,7 +88,7 @@ export class GoodComponent implements OnInit {
             good:
             {
                 id: this._goodId,
-                count: this.count,
+                count: this.countSum,
                 toppings: briefToppings
             }
         };
@@ -150,7 +152,7 @@ export class GoodComponent implements OnInit {
             name: "good",
             good: {
                 id: this.good.id,
-                count: this.count,
+                count: this.countSum,
                 toppings: briefToppings
 
             }
@@ -175,16 +177,21 @@ export class GoodComponent implements OnInit {
 
     private _getReview() {
         // this._goodService.getReview(this._companyId, this._goodId, this.pageCount, this.pageLength)
-        this._goodService.getReview(1, 1, 1, this.pageLength)
+        this._goodService.getReview(1, 1, this.page, this.pageLength)
             .subscribe((data: ServerResponse<Review[]>) => {
+                console.log(data);
+                
                 this.reviewData = data.data.data;
-                this.pageCount = data.data.metaData.count;
+              //this.pageCount = data.data.metaData.count;
                 this.reviewDataTime=data.data.data.reviewDate;
+                this.count=data.data.metaData.count;
                 console.log(this.reviewData);
 
             })
     }
     paginate($event) {
+        console.log($event);
+        this.page=$event.pageNumber;
         this._getReview();
     }
 

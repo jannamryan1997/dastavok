@@ -18,6 +18,7 @@ export class InformationView implements OnInit {
     public count: number;
     public page: number = 1;
     public pageLength: number = 10;
+ 
     constructor(private _informationService: InformationService, private _activatedRoute: ActivatedRoute) { }
 
     ngOnInit() {

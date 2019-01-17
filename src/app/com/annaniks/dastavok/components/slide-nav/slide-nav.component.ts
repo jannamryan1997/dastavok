@@ -87,10 +87,13 @@ export class SlideNawComponent implements OnInit {
     }
 
     public logOut() {
+        console.log("fgfgfg");
+        
         this._cookieService.remove('refreshToken');
         this._cookieService.remove('token');
         this._menuService.closeMenu();
         this.roter.navigate(['/home'])
+        this.signUpService.isAuthorized=false;
     }
 
 

@@ -29,7 +29,7 @@
                 <p class="price_text" font-family-Roboto>quarity</p>
                 <div class="quarity_item" display-flex>
                     <p class="remove" font-family-Roboto (click)="countremove()">-</p>
-                    <p class="count_text" font-family-Roboto> {{count}} </p>
+                    <p class="count_text" font-family-Roboto> {{countSum}} </p>
                     <p class="add" font-family-Roboto (click)="countdAdd()">+</p>
                 </div>
             </div>
@@ -63,7 +63,7 @@
         <div *ngSwitchCase="2">
                 <app-revie-chart></app-revie-chart>
             <app-review *ngFor="let item of reviewData" [reviewData]="item" [reviewDataTime]="item.reviewDate"></app-review>
-            <app-paginator [count]="pageCount" [pageLength]="pageLength" (paginate)="paginate($event)"></app-paginator>
+            <app-paginator [count]="count" [pageLength]="pageLength" (paginate)="paginate($event)"></app-paginator>
         </div>
         <div *ngSwitchCase="3">
             <app-ingredient *ngFor="let topping of toppings" [topping]="topping"></app-ingredient>
