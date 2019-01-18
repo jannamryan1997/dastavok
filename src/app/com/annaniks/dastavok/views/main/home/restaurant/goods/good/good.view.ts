@@ -181,11 +181,11 @@ export class GoodComponent implements OnInit {
             .subscribe((data: ServerResponse<Review[]>) => {
                 console.log(data);
                 
-                this.reviewData = data.data.data;
-              //this.pageCount = data.data.metaData.count;
-                this.reviewDataTime=data.data.data.reviewDate;
-                this.count=data.data.metaData.count;
-                console.log(this.reviewData);
+            //     this.reviewData = data.data.data;
+            //   //this.pageCount = data.data.metaData.count;
+            //     this.reviewDataTime=data.data.data.reviewDate;
+            //     this.count=data.data.metaData.count;
+            //     console.log(this.reviewData);
 
             })
     }
