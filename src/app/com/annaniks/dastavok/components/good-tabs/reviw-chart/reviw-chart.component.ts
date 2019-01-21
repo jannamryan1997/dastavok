@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core"
+import { Component, OnInit, HostListener } from "@angular/core"
 export var single = [
     {
         "name": "5",
@@ -100,6 +100,24 @@ export var multi = [
 })
 
 export class ReviwChartComponent implements OnInit {
+    @HostListener('window:resize',['$event'])
+    onresize(){
+        console.log(window.innerWidth);
+        if(window.innerWidth<=800 && window.innerWidth>400){
+            this.view[0]=300;
+            this.view[1]=100;
+        }
+
+        else if(window.innerWidth<=400){
+            this.view[0]=120;
+            this.view[1]=100;
+        }
+        else{
+            this.view[0]=446;
+            this.view[1]=110;
+        }
+    }
+
 
     survey = {
         country: '',
@@ -133,7 +151,9 @@ export class ReviwChartComponent implements OnInit {
         Object.assign(this, { single, multi })
     }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        this.onresize();
+    }
 
     onSelect(event) {
         console.log(event);

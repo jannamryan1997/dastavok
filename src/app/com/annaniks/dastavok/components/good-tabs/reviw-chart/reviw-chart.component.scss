@@ -27,9 +27,12 @@
                     color: #706f6f;
                 }
                 .chart {
-                    height: 150px;
                 }
             }
         }
     }
+}
+
+:host /deep/.ngx-charts{
+    float: none;
 }

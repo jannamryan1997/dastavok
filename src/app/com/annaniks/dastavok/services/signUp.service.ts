@@ -100,7 +100,7 @@ export class SignUpService {
 
     private _setImage(data): void {
         if (data.data.image !== null) {
-            data.data.image = "http://192.168.0.110:3000/client/image/" + data.data.image;
+            data.data.image = "http://192.168.0.113:3000/client/image/" + data.data.image;
 
         }
         else {

@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { GoodService } from "./good.service";
 import { Good, ServerResponse, Topping, BriefToppings, OrderInfo, Review } from "src/app/com/annaniks/dastavok/models/models";
 import { MatDialog } from "@angular/material"
-import { RegistrationStep } from "src/app/com/annaniks/dastavok/modals";
+import { RegistrationStep, MessagesModals } from "src/app/com/annaniks/dastavok/modals";
 import { SignUpService } from "src/app/com/annaniks/dastavok/services/signUp.service";
 
 @Component({
@@ -26,7 +26,7 @@ export class GoodComponent implements OnInit {
     public loading: boolean = false;
     public reviewData: Review;
     public reviewDataTime: string;
-    public count: number=0;
+    public count: number = 0;
     public page: number = 1;
     public pageLength: number = 10;
 
@@ -118,21 +118,14 @@ export class GoodComponent implements OnInit {
 
 
 
-    private _openRegistrationModal(type: string): void {
-        const dialogRef = this._dialog.open(RegistrationStep, {
+    private _openMessageModal(type: string): void {
+        const dialogRef = this._dialog.open(MessagesModals, {
             width: "686px",
             maxWidth: '100vw',
             panelClass: ['margin-10'],
         })
         dialogRef.afterClosed().subscribe((data) => {
-            if (this._signUpService.isAuthorized) {
-                if (type == "chart") {
-                    this._orderChart();
-                }
-                if (type == 'buy') {
-                    this._getGood();
-                }
-            }
+            this.openRegistrationStepModal();
         })
 
     }
@@ -163,16 +156,23 @@ export class GoodComponent implements OnInit {
     }
     public onClickOrder(type: string) {
         if (this._signUpService.isAuthorized == false) {
-            this._openRegistrationModal(type);
+            this._openMessageModal(type);
         }
         else {
             if (type && type == "card") {
                 this._orderChart();
             }
             if (type && type == "buy") {
-                this._getGood();
+                this.onClickBuy();
             }
         }
+    }
+    public openRegistrationStepModal() {
+        const dialogRef = this._dialog.open(RegistrationStep, {
+            width: "686px",
+            maxWidth: '100vw',
+            panelClass: ['margin-10'],
+        })
     }
 
     private _getReview() {
@@ -180,18 +180,18 @@ export class GoodComponent implements OnInit {
         this._goodService.getReview(1, 1, this.page, this.pageLength)
             .subscribe((data: ServerResponse<Review[]>) => {
                 console.log(data);
-                
-            //     this.reviewData = data.data.data;
-            //   //this.pageCount = data.data.metaData.count;
-            //     this.reviewDataTime=data.data.data.reviewDate;
-            //     this.count=data.data.metaData.count;
-            //     console.log(this.reviewData);
+
+                    this.reviewData = data.data.data;
+                  //this.pageCount = data.data.metaData.count;
+                    this.reviewDataTime=data.data.data.reviewDate;
+                    this.count=data.data.metaData.count;
+                    console.log(this.reviewData);
 
             })
     }
     paginate($event) {
         console.log($event);
-        this.page=$event.pageNumber;
+        this.page = $event.pageNumber;
         this._getReview();
     }
 
