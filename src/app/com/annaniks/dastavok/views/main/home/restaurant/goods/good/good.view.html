@@ -7,7 +7,7 @@
         <div class="left_content">
             <div class="image_content" full-width [ngStyle]="{'background-image':'url('+activeImage+')'}"></div>
 
-            <div class="images" display-flex flex-wrap-wrap justify-content-space-between>
+            <div class="images" display-flex flex-wrap-wrap>
                 <div class="image_items" *ngFor="let item of goodImage" [ngStyle]="{'background-image':'url('+'http://192.168.0.114:4000/static/company/'+item+')'}"
                     (click)="setActiveImage(item)"></div>
             </div>
