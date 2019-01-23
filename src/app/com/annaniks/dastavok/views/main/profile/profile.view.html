@@ -21,6 +21,13 @@
                         <span class="phone" font-family-Roboto> {{clientData?.phoneNumber}}</span>
 
                         </div>
+
+                        <div class="create"  display-flex (click)="openNewPhoneNumberModal()">
+                            <i class="material-icons" cursor-pointer>
+                                    create
+                                </i>
+
+                    </div>
             </div>
         </div>
             <div class="add_content" (click)="openUserUpdateModal(clientData)">

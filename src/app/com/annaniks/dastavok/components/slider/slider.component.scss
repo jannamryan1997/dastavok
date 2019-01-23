@@ -73,14 +73,17 @@
         .slider_item {
             margin: 0 auto;
             object-fit: contain;
-            border: solid 1px #707070;
             width: 129.4px;
             height: 137.1px;
+            border-radius: 4px;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
+            background-color: white;
             .slider_image {
                 height: 87.7px;
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
+                border-radius: 4px;
             }
             .information_content {
                 .information_name {

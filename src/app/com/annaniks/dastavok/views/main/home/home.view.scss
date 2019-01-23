@@ -8,12 +8,10 @@
         width: calc(100% - 287px);
         .choose_bar_container {
             height: fit-content;
-            border: 2px solid #a4a4a4;
+            object-fit: contain;
             border-radius: 4px;
-            -webkit-border-radius: 4px;
-            -moz-border-radius: 4px;
-            -ms-border-radius: 4px;
-            -o-border-radius: 4px;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
+            background-color: white;
             .choose_bar_item {
                 background-color: #ffffff;
                 width: 33.333333333%;
@@ -33,30 +31,32 @@
             margin-top: 27px;
             border-radius: 4px;
             height: 41px;
-            background-color: #ffffff;
             .search_wrapper {
                 width: 70%;
                 .search-input {
-                    height: 100%;
-                    border: solid 1px #a4a4a4;
-                    background-color: #ffffff;
+                   border: none;
                     width: calc(100% - 46.5px);
                     padding-left: 51px;
+                    border-radius: 4px;
+                    background-color: #e5e5e5;
                 }
                 .search {
                     width: 46.5px;
                     height: 100%;
                     background-color: #87bd3c;
+                    border-radius: 4px;
                     i {
                         font-size: 26px;
+                        cursor: pointer;
                     }
                 }
             }
             .trash {
                 width: 30%;
                 border-radius: 4px;
-                border: solid 1px #a4a4a4;
-                border-left: none;
+                border-radius: 4px;
+                box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
+                background-color:white;
                 height: 100%;
                 .content {
                     display: flex;
