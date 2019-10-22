@@ -57,22 +57,23 @@
                 height: 42px;
                 border-radius: 4px;
                 box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-                border: solid 1px #707070;
+              border: none;
                 background-color: #ffffff;
                 .left_icon {
                     width: 47.3px;
                     height: 42px;
-                    border: solid 1px #707070;
-                    border-right: solid 1px #707070;
                     background-color: #ffffff;
+                    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
                     i {
                         font-size: 16px;
                         color: #676767;
+                
                     }
                 }
                 .input {
                     width: calc(100% - 47.3px);
                     border: none;
+                    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
                 }
             }
             .button_item {
@@ -105,7 +106,7 @@
                 height: 42px;
                 border-radius: 4px;
                 box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-                border: solid 1px #707070;
+       border: none;
                 background-color: #ffffff;
                 &:first-child {
                     margin-left: 0px;
@@ -135,7 +136,6 @@
                 width: 143.8px;
                 height: 42px;
                 box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-                border: solid 1px #707070;
                 background-color: #ffffff;
                 font-size: 12px;
                 font-style: normal;
@@ -171,8 +171,8 @@
         height: 42px;
         border-radius: 4px;
         box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-        border: solid 1px #707070;
         background-color: #ffffff;
+        border: none;
     }
     .full_name,
     .password,
@@ -189,7 +189,6 @@
             width: 143.8px;
             height: 42px;
             box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-            border: solid 1px #707070;
             background-color: #ffffff;
             font-size: 12px;
             font-style: normal;
@@ -254,5 +253,5 @@ input::placeholder {
 }
 
 .validators {
-    border-color: #ff6f00 !important;
+    border: 1px solid #ff6f00 !important;
 }

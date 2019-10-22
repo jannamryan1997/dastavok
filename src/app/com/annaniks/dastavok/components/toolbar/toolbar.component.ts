@@ -18,8 +18,8 @@ export class ToolbarComponent implements OnInit {
     public showUserProfileDisplay: boolean = false;
     public showLenguage: boolean = false;
     public languageItem: Array<any> = [
-        { name: 'English', image: 'assets/images/english.png' },
-        { name: 'Русский', image: 'assets/images/russion.jpg' }
+        { name: 'English', image: 'assets/images/english.svg' },
+        { name: 'Русский', image: 'assets/images/russian.jpg' }
     ]
 
 
