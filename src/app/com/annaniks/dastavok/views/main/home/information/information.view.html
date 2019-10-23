@@ -11,8 +11,10 @@
             </div>
             <app-slider [sliderMode]="2"></app-slider>
             <div class="under_line"></div>
-            <div position-relative>
-                <app-loading class="loading" [loading]="loading" [height]="150" [width]="150"></app-loading>
+            <div  class="load" position-relative *ngIf="loading">
+                <!-- <app-loading class="loading" [loading]="loading" [height]="150" [width]="150"></app-loading> -->
+                <p-progressBar class="loading" mode="indeterminate" [style]="{'height': '8px'}" ></p-progressBar>
+
             </div>
             <app-company-list>
                 <app-company-list-item *ngFor="let companyItem of companyItem" [companyItem]="companyItem"></app-company-list-item>

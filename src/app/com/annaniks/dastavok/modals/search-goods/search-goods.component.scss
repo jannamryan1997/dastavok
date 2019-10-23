@@ -3,9 +3,12 @@
         .top_content {
             .input {
                 height: 100%;
-                border: solid 1px #a4a4a4;
+                border-radius: 4px;
+                box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+                background-color: #ffffff;
                 background-color: #ffffff;
                 width: calc(100% - 46.5px);
+                border: none;
             }
             .search {
                 width: 46.5px;
@@ -18,6 +21,7 @@
         }
     }
 }
+
 input::placeholder {
     color: #b5b5b5;
     margin-top: 12px;

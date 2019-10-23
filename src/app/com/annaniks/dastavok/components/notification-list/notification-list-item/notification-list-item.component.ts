@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from "@angular/core"
 
 export class NotificationListItemComponent implements OnInit {
     @Input() label: string;
-    @Input() data: string
+    @Input() data: string;
 
     constructor() { }
 

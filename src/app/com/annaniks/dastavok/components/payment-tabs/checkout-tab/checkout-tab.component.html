@@ -1,4 +1,5 @@
 <div class="payment_tab_content" margin-auto>
+        <app-error [error]="error"></app-error>
     <p class="payment_tab_text" font-weight-bold font-family-Open-Sans>Please fill in the shipping
         address</p>
         <div id="map"></div>
@@ -45,7 +46,7 @@
                 <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading>
             </div>
         <div class="button_item" display-flex>
-            <button class="save_button" display-flex (click)="onClickSave()" ><span margin-auto color-white
+            <button class="save_button" display-flex (click)="onClickSave()"  [disabled]="paymentForm.invalid || loading " [ngClass]="{'opacity':paymentForm.invalid || loading}"><span margin-auto color-white
                     font-weight-bold font-family-Open-Sans>SAVE</span></button>
             <button class="cancel_button" display-flex routerLink="/home/information"><span margin-auto color-white
                     font-weight-bold font-family-Open-Sans>CANCEL</span></button>

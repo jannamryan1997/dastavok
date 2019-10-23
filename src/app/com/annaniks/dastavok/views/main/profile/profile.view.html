@@ -1,35 +1,42 @@
 <div class="profile_content" full-width>
-    <div class="profile_container" width-75 margin-auto>
-        <div class="profile_data" display-flex justify-content-space-between>
-            <div display-flex align-items-center>
-                <div class="img_content" [ngStyle]="{'background-image':'url('+clientImage+')'}"></div>
-                <div class="text_content">
-                    <p class="text_name" font-weight-bold font-family-Open-Sans>{{clientData?.fullName}}</p>
-                    <div class="user_room" display-flex align-items-center>
-                        <i class="material-icons">
-                            room
-                        </i>
-                        <p font-weight-bold font-family-Roboto class="text_item">{{clientData?.address[0]?.text}}</p>
-                    </div>
-                    <div class="user_call" display-flex align-items-center>
-                        <i class="material-icons">
-                            call
-                        </i>
-                        <p class="text_number" font-weight-bold font-family-Roboto>
-                            {{clientData?.phoneNumber}}</p>
-                            <i class="material-icons" cursor-pointer (click)="openNewPhoneNumberModal()">
-                                add
+<div class="profile_conteiner">
+    <div class="client_data"  display-flex justify-content-space-between>
+        <div  class="client" display-flex>
+            <div class="client_image" full-width [ngStyle]="{'background-image':'url('+clientImage+')'}"></div>
+            <div class="client_info">
+                    <div class="client_fullName" display-flex justify-content-space-between>
+                            <span class="fullName" font-weight-bold font-family-Open-Sans> {{clientData?.fullName}}</span>
+                        </div>
+                        <div class="client_addres"  display-flex>
+                                <i class="material-icons">
+                        room
+                        
+                                    </i>
+                                    <span class="addres" ont-weight-bold font-family-Roboto>{{clientData?.address[0]?.text}}</span>
+                        </div>
+                        <div class="profile_phone"  display-flex>
+                                <i class="material-icons">
+                                        call
+                                    </i>
+                        <span class="phone" font-family-Roboto> {{clientData?.phoneNumber}}</span>
+
+                        </div>
+
+                        <div class="create"  display-flex (click)="openNewPhoneNumberModal()">
+                            <i class="material-icons" cursor-pointer>
+                                    create
                                 </i>
+
                     </div>
-                </div>
-            </div>
-            <div class="add_content" (click)="openUserUpdateModal(clientData)">
-                <button class="button_content" full-width full-height display-flex>
-                    <span font-family-Open-Sans margin-auto>add</span>
-                </button>
             </div>
         </div>
+            <div class="add_content" (click)="openUserUpdateModal(clientData)">
+                    <button class="button_content" full-width full-height display-flex>
+                        <span font-family-Open-Sans margin-auto>add</span>
+                    </button>
+                </div>
     </div>
+</div>
     <div [ngSwitch]="tab">
         <div class="tabs_content" full-width display-flex>
             <div class="notification" full-height display-flex [ngClass]="{'active_tab':tab==1}" (click)="showNotification()"
@@ -44,11 +51,11 @@
             </div>
         </div>
         <div *ngSwitchCase="1">
-               <app-notification-tab></app-notification-tab>
-          
+            <app-notification-tab></app-notification-tab>
+
         </div>
         <div *ngSwitchCase="2">
-            <app-orders-tab ></app-orders-tab>
+            <app-orders-tab></app-orders-tab>
         </div>
 
         <div *ngSwitchCase="3">
@@ -56,5 +63,4 @@
         </div>
 
     </div>
-    <!-- <app-paginator [count]="count" [pageLength]="pageLength" (paginate)="paginate($event)"></app-paginator> -->
 </div>

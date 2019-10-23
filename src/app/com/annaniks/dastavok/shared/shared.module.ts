@@ -5,12 +5,12 @@ import {
     LoadingComponent,
     RatingComponent,
     PaginatorComponent,
-    SlideNawComponent, 
-    FiltersListComponent, 
-    GoodsListComponent, 
-    GoodsListItemComponent, 
-    LeftMenuComponent, 
-    ErrorComponent
+    SlideNawComponent,
+    FiltersListComponent,
+    GoodsListComponent,
+    GoodsListItemComponent,
+    LeftMenuComponent,
+    ErrorComponent,
 } from "../components";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router"
@@ -20,6 +20,8 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { ClickOutsideModule } from 'ng-click-outside';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { MessageService } from 'primeng/components/common/messageservice';
+
+
 @NgModule({
     entryComponents: [],
     declarations: [
@@ -34,6 +36,7 @@ import { MessageService } from 'primeng/components/common/messageservice';
         GoodsListItemComponent,
         LeftMenuComponent,
         ErrorComponent
+
     ],
     imports: [
         CommonModule,

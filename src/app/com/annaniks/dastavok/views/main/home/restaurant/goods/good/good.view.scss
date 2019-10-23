@@ -1,6 +1,6 @@
 .good_content {
     margin-top: 24.2px;
-    .loading{
+    .loading {
         left: 0;
         right: 0;
         margin: auto;
@@ -11,33 +11,39 @@
     }
     .good_conteiner {
         .left_content {
-            //   width: 350.8px;
+            width: 350.8px;
+            min-width: 393px;
+            max-width: 393px;
             .image_content {
                 height: 241.9px;
                 box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
                 background-position: center;
                 background-size: cover;
                 background-repeat: no-repeat;
-                width: 335px;
             }
-            .image_items {
-                margin-top: 28.5px;
-                height: 78px;
-                width: 100px;
-                background-position: center;
-                background-size: cover;
-                background-repeat: no-repeat;
-                cursor: pointer;
-                margin-left: 25px;
-                border-radius: 4px;
-                box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-                &:first-child {
-                    margin-left: 0px;
+            .images {
+                justify-content: start;
+                .image_items {
+                    margin-top: 28.5px;
+                    height: 78px;
+                    width: 100px;
+                    background-position: center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    cursor: pointer;
+                    border-radius: 4px;
+                    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+                    margin-left: 30px;
+                    &:first-child {
+                        margin-left: 0px;
+                    }
+                    &:nth-child(4) {
+                        margin-left: 0px;
+                    }
                 }
             }
         }
         .right_content {
-            margin-left: 84px;
             .text_item {
                 font-size: 25px;
                 font-style: normal;
@@ -48,6 +54,9 @@
                 color: #191919;
                 margin-bottom: 0px;
                 margin-top: 0px;
+                width: 100%;
+                display: block;
+                word-break: break-word;
             }
             .star_items {
                 i {
@@ -176,7 +185,6 @@
         height: 55px; //  width: 893px;
         border-radius: 4px;
         box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-        border: solid 2px #a4a4a4;
         margin-top: 74px;
         .tab_item {
             width: 33.333333%;
@@ -201,31 +209,58 @@
     color: white;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1160px) {
     .good_content {
         margin-left: 0px !important;
+        flex-direction: column !important;
+        width: 75% !important;
+        margin: auto !important;
     }
     .good_conteiner {
         flex-direction: column !important;
-        width: 335px;
-        margin-left: 23px !important;
     }
     .left_button {
-        width: 163.5px !important;
+        width: 130.5px !important;
         height: 65px !important;
+        font-size: 17px !important;
     }
     .right_button {
-        width: 163.5px !important;
+        width: 130.5px !important;
         height: 65px !important;
+        font-size: 17px !important;
     }
     .right_content {
         margin-left: 0px !important;
     }
     .tab_item {
-        font-size: 15px !important;
+        font-size: 10px !important;
     }
     .image_content {
-        width: 335px !important;
+        //  width: 335px !important;
         height: 241.9px !important;
+    }
+    .left_content {
+        min-width: 100% !important;
+        max-width: 100% !important;
+        margin-top: 30px !important;
+    }
+    .image_items {
+        &:first-child {
+            margin-left: 0px !important;
+        }
+        &:nth-child(4) {
+            margin-left: 30px !important;
+        }
+    }
+}
+
+@media only screen and (max-width: 467px) {
+    .image_items {
+        &:first-child {
+            margin-left: 0px !important;
+        }
+        &:nth-child(4) {
+            margin-left: 0px !important;
+        }
     }
 }

@@ -8,3 +8,4 @@ export * from "src/app/com/annaniks/dastavok/modals/address-edit/address-edit.mo
 export * from "src/app/com/annaniks/dastavok/modals/registration-step/registration-step.modal";
 export * from "src/app/com/annaniks/dastavok/modals/search-goods/search-goods.component";
 export *from "src/app/com/annaniks/dastavok/modals/new-phone-number/new-phone-number.modals";
+export *from  "src/app/com/annaniks/dastavok/modals/messages/messages.modals";

@@ -19,7 +19,16 @@ export class GoodService {
             'Content-type': 'application/json',
             'token': token,
         })
-        return this._httpClient.post(this._baseUrl + "client/order/chart",body,{ headers })
+        return this._httpClient.post(this._baseUrl + "client/order/chart", body, { headers })
+    }
+
+    public getReview(companyId: number, goodId: number, page: number, limit: number) {
+        let token = this._cookieService.get('token')
+        let headers = new HttpHeaders({
+            'Content-type': 'application/json',
+            'token': token,
+        });
+        return this._httpClient.get(this._baseUrl + "freeclient/reviews/" + companyId + "/" + goodId + "?page=" + page + "&limit=" + limit)
     }
 
 }

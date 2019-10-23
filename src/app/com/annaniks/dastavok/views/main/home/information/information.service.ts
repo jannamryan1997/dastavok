@@ -15,8 +15,11 @@ export class InformationService {
     return this._httpClient.get(this.BASEURL + "freeclient/restaurants?page=" + page + "&limit=" + limit)
   }
 
-  public getSearchGoods(page: number, limit: number,text:string) {
-    return this._httpClient.get(this.BASEURL + "freeclient/goods?page=" + page + "&limit=" + limit + "&text="+text)
+  public getSearchGoods(page: number, limit: number, text: string) {
+    return this._httpClient.get(this.BASEURL + "freeclient/goods?page=" + page + "&limit=" + limit + "&text=" + text)
   }
 
+  public getFreeclientStores(page: number, limit: number) {
+    return this._httpClient.get(this.BASEURL + "freeclient/stores?page=" + page + "&limit=" + limit)
+  }
 }

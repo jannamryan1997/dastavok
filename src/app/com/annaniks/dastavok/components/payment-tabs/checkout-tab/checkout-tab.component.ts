@@ -26,6 +26,7 @@ export class CheckoutTabComponent implements OnInit {
     public ordersParams: OrderInfo;
     public domaphoreValue: boolean;
     public loading: boolean = false;
+    public error:string;
     @Input() paymentTab: number;
     @Output() changeTab: EventEmitter<number> = new EventEmitter<number>();
     @Output() addressValue: EventEmitter<string> = new EventEmitter<string>();
@@ -176,11 +177,15 @@ export class CheckoutTabComponent implements OnInit {
             this.paymentForm.enable();
             this.openPayment();
 
-        });
-        error=>{
+        },
+        err=>{
+            this.error=err.error.error;
             this.loading=false;
             this.paymentForm.enable();
         }
+        )
+    ;
+       
     }
 
 }

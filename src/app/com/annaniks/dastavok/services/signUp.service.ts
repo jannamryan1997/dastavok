@@ -8,11 +8,11 @@ import { User, ServerResponse, LoginResponse } from "../models/models";
 export class SignUpService {
     public userInfo: User = new User();
     public isAuthorized: boolean = false;
-    public userImage:string="assets/images/userimages.png";
+    public userImage: string = "assets/images/userimages.png";
     constructor(@Inject('BASE_URL') private baseURL, private _httpClient: HttpClient, private _cookieService: CookieService) { }
 
-    ngOnInit(){
-   
+    ngOnInit() {
+
     }
 
     public clientPhoneNumber(body) {
@@ -43,6 +43,7 @@ export class SignUpService {
             .pipe(
                 map((data: ServerResponse<LoginResponse>) => {
                     this.userInfo = data.data.data;
+                    this._setImage(data.data);
                     this.isAuthorized = true;
                     return data;
                 })
@@ -79,16 +80,11 @@ export class SignUpService {
         })
         return this._httpClient.get(this.baseURL + "client", { headers }).pipe(
             map((data: ServerResponse<User>) => {
+                console.log(data);
+
                 this.userInfo = data.data;
-                if (data.data.image !== null) {
-                    data.data.image = "http://192.168.0.113:3000/client/image/" + data.data.image;
-                
-                }
-                else {
-                    data.data.image = "/assets/images/userimages.png";
-                }
-                this.userImage=data.data.image;
-                
+                this._setImage(data);
+                return data;
 
             })
         )
@@ -100,6 +96,17 @@ export class SignUpService {
             'token': token
         })
         return this._httpClient.get(this.baseURL + "client/image/" + imageName)
+    }
+
+    private _setImage(data): void {
+        if (data.data.image !== null) {
+            data.data.image = "http://192.168.0.113:3000/client/image/" + data.data.image;
+
+        }
+        else {
+            data.data.image = "/assets/images/userimages.png";
+        }
+        this.userImage = data.data.image;
     }
 
 

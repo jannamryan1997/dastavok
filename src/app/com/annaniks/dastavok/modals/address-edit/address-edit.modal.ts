@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { PaymentService } from "../../views/main/payment/payment.service";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
 import { User } from "../../models/models";
+import { SignUpService } from "../../services/signUp.service";
 
 
 @Component({
@@ -16,7 +17,7 @@ export class AddressEditModal implements OnInit {
     public userUpdateGroup: FormGroup;
     public clientData: User;
 
-    constructor(@Inject(MAT_DIALOG_DATA) private data: any, private _paymentService: PaymentService, private dialogRef: MatDialogRef<AddressEditModal>) { }
+    constructor(@Inject(MAT_DIALOG_DATA) private data: any, private _paymentService: PaymentService, private dialogRef: MatDialogRef<AddressEditModal>, private _signUpService: SignUpService) { }
 
     ngOnInit() {
         this.clientData = this.data.userData;
@@ -52,8 +53,10 @@ export class AddressEditModal implements OnInit {
         }).subscribe((data) => {
             this.dialogRef.close();
             console.log(data);
-
+         
         })
+     
     }
 
+ 
 }
