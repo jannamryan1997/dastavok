@@ -3,9 +3,16 @@ import { ProfileView } from "./profile.view";
 import { ProfileRoutingModule } from "./profile.routing.module";
 import { CommonModule, DatePipe } from "@angular/common";
 import {
-    NotificationListItemComponent, NotificationListComponent,
-    ShippingAddressesComponent, DeliveryListItemComponent,
-    DeliveryListComponent, OrderListComponent, OrderListItemComponent, EmptyComponent,OrdersTabComponent,NotificationTabComponent
+    NotificationListItemComponent,
+    NotificationListComponent,
+    ShippingAddressesComponent,
+    DeliveryListItemComponent,
+    DeliveryListComponent,
+    OrderListComponent,
+    OrderListItemComponent,
+    EmptyComponent,
+    OrdersTabComponent,
+    NotificationTabComponent
 } from "../../../components";
 import { SharedModule } from "../../../shared/shared.module";
 
@@ -25,7 +32,11 @@ import { SharedModule } from "../../../shared/shared.module";
         OrdersTabComponent,
         NotificationTabComponent
     ],
-    imports: [ProfileRoutingModule, CommonModule, SharedModule],
+    imports: [
+        ProfileRoutingModule,
+        CommonModule,
+        SharedModule
+    ],
     providers: [DatePipe],
     exports: []
 })

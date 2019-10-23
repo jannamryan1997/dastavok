@@ -8,19 +8,14 @@ import { of } from "rxjs";
 @Injectable()
 export class ApiService {
 
-    constructor(@Inject('BASE_URL') private baseURL,
+    constructor(
         private _httpClient: HttpClient,
         public _cookieService: CookieService,
         private _signUpService: SignUpService,
     ) { }
 
     public checkToken() {
-        let token = this._cookieService.get("token");
-        let headers = new HttpHeaders({
-            'Content-type': 'application/json',
-            'token': token
-        })
-        return this._httpClient.get(this.baseURL + "freeclient/checktoken", { headers: headers, responseType: 'text', observe: 'response' })
+        return this._httpClient.get("freeclient/checktoken", { responseType: 'text', observe: 'response' })
             .pipe(
                 map((data) => {
                     this._signUpService.isAuthorized = true;

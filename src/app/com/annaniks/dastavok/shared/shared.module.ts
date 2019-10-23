@@ -10,7 +10,8 @@ import {
     GoodsListComponent, 
     GoodsListItemComponent, 
     LeftMenuComponent, 
-    ErrorComponent
+    ErrorComponent,
+    SliderComponent
 } from "../components";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router"
@@ -20,6 +21,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { ClickOutsideModule } from 'ng-click-outside';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { MessageService } from 'primeng/components/common/messageservice';
+import { NgxCarouselModule } from "ngx-carousel";
 @NgModule({
     entryComponents: [],
     declarations: [
@@ -33,7 +35,8 @@ import { MessageService } from 'primeng/components/common/messageservice';
         GoodsListComponent,
         GoodsListItemComponent,
         LeftMenuComponent,
-        ErrorComponent
+        ErrorComponent,
+        SliderComponent
     ],
     imports: [
         CommonModule,
@@ -43,6 +46,7 @@ import { MessageService } from 'primeng/components/common/messageservice';
         ReactiveFormsModule,
         ClickOutsideModule,
         ProgressSpinnerModule,
+        NgxCarouselModule
     ],
     exports: [
         LeftMenuComponent,
@@ -59,7 +63,8 @@ import { MessageService } from 'primeng/components/common/messageservice';
         FiltersListComponent,
         GoodsListComponent,
         GoodsListItemComponent,
-        ErrorComponent
+        ErrorComponent,
+        SliderComponent
     ],
     providers: [MessageService]
 })

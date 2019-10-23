@@ -1,18 +1,18 @@
 import { Component, OnInit, Inject } from "@angular/core"
 import { Router, ActivatedRoute } from "@angular/router";
-import { GoodService } from "./good.service";
-import { Good, ServerResponse, Topping, BriefToppings, OrderInfo } from "src/app/com/annaniks/dastavok/models/models";
+import { GoodService } from "./product.service";
+import { Good, ServerResponse, Topping, BriefToppings, OrderInfo } from "../../../../../models/models";
 import { MatDialog } from "@angular/material"
-import { RegistrationStep } from "src/app/com/annaniks/dastavok/modals";
-import { SignUpService } from "src/app/com/annaniks/dastavok/services/signUp.service";
+import { RegistrationStep } from "../../../../../modals";
+import { SignUpService } from "../../../../../services/signUp.service";
 
 @Component({
-    selector: "app-good",
-    templateUrl: "good.view.html",
-    styleUrls: ["good.view.scss"]
+    selector: "product-view",
+    templateUrl: "product.view.html",
+    styleUrls: ["product.view.scss"]
 })
 
-export class GoodComponent implements OnInit {
+export class ProductView implements OnInit {
     private _companyId: number;
     private _goodId: number;
     public starCount: number = 4;
@@ -23,10 +23,16 @@ export class GoodComponent implements OnInit {
     public good: Good;
     public toppings: Array<Topping>;
     public top: Array<any> = [];
-    public loading: boolean =false;
+    public loading: boolean = false;
 
-    constructor(@Inject('BASE_URL') private _baseUrl, private _router: Router, private _activatedRoute: ActivatedRoute, private _goodService: GoodService, private _dialog: MatDialog,
-        private _signUpService: SignUpService) {
+    constructor(
+        private _router: Router,
+        private _activatedRoute: ActivatedRoute,
+        private _goodService: GoodService,
+        private _dialog: MatDialog,
+        private _signUpService: SignUpService,
+        @Inject('BASE_URL') private _baseUrl: string
+    ) {
         this._activatedRoute.params.subscribe((params) => {
             this._companyId = +params.companyId;
             this._goodId = +params.good;
@@ -37,35 +43,34 @@ export class GoodComponent implements OnInit {
         this._getGood();
     }
 
-    public openDescription() {
+    public openDescription(): void {
         this.tab = 1;
-
     }
 
-    public openReview() {
+    public openReview(): void {
         this.tab = 2;
     }
 
-    public openIngredient() {
+    public openIngredient(): void {
         this.tab = 3;
     }
 
-    public countdAdd() {
+    public countdAdd(): void {
         this.count++;
     }
 
-    public countremove() {
+    public countremove(): void {
         if (this.count == 1) {
             return;
         }
         this.count--;
     }
 
-    public setActiveImage(image) {
-        this.activeImage = 'http://192.168.0.114:4000/static/company/' + image;
+    public setActiveImage(image): void {
+        this.activeImage = this._baseUrl + 'static/company/' + image;
     }
 
-    public onClickBuy() {
+    public onClickBuy(): void {
         let briefToppings: Array<BriefToppings> = [];
         this.toppings.forEach((element: Topping) => {
             briefToppings.push(
@@ -88,12 +93,10 @@ export class GoodComponent implements OnInit {
         this._router.navigate(['/payment'], { queryParams: { order: JSON.stringify(orderInfo) } })
     }
 
-    private _getGood() {
-       this.loading = true;
+    private _getGood(): void {
+        this.loading = true;
         this._goodService.getGood(this._goodId)
             .subscribe((data: ServerResponse<Good>) => {
-                console.log(data);
-                
                 this.loading = false;
                 this.good = data.data;
                 this.toppings = data.data.toppings;
@@ -101,7 +104,7 @@ export class GoodComponent implements OnInit {
                     element.toppingValue = 0;
                 })
                 if (data.data.thumbnail) {
-                    this.activeImage = 'http://192.168.0.114:4000/static/company/' + data.data.thumbnail;
+                    this.activeImage = this._baseUrl + 'static/company/' + data.data.thumbnail;
                 }
                 if (data.data.images) {
                     this.goodImage = data.data.images.split(",")
