@@ -1,75 +1,143 @@
-.restaurant_content {
-    .path_content {
+// .restaurant_content {
+//     .path_content {
+//         .text_content {
+//             font-weight: normal;
+//             font-style: normal;
+//             font-stretch: normal;
+//             line-height: 1.21;
+//             letter-spacing: normal;
+//             text-align: left;
+//             color: #716b6b;
+//             font-size: 14px;
+//             cursor: pointer;
+//             i {
+//                 margin-top: 1px;
+//                 font-size: 10px;
+//             }
+//         }
+//     }
+//     .restaurant_wraper {
+//         margin-top: 14.6px;
+//         height: 257.6px;
+//         border-radius: 4px;
+//         box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+//         background-position: center;
+//         background-repeat: no-repeat;
+//         background-size: cover; // background-image: url("/assets/images/wine.jpg");
+//         .text_wraper {
+//             left: 57px;
+//             top: 7px;
+//             font-size: 45px;
+//             font-style: normal;
+//             font-stretch: normal;
+//             line-height: 1.36;
+//             letter-spacing: normal;
+//             text-align: left;
+//             color: #ffffff;
+//             .text_item_one {
+//                 margin-top: 0;
+//                 margin-bottom: 0px;
+//                 width: 100%;
+//                 display: block;
+//                 word-wrap: break-word;
+//             }
+//             .text_item_two {
+//                 margin-top: 12.4px;
+//                 margin-bottom: 0px;
+//                 font-size: 14px;
+//                 font-weight: normal;
+//                 font-style: normal;
+//                 font-stretch: normal;
+//                 line-height: 1.21;
+//                 letter-spacing: normal;
+//                 text-align: left;
+//                 color: #cfcfcf;
+//                 display: block;
+//                 word-wrap: break-word;
+//                 white-space: normal;
+//                 width: 100%;
+//                 display: block;
+//                 word-wrap: break-word;
+//             }
+//         }
+//     }
+//     .container {
+//         margin: 0 auto;
+//         width: 100%;
+//         max-width: 737px;
+//     }
+// }
+
+// @media only screen and (max-width: 900px) {
+//     .restaurant_content {
+//         margin-left: 0 !important;
+//     }
+// }
+
+
+
+.container {
+    width: calc(100% - 297px);
+    margin-left: 10px;
+    .line_content {
+        margin-top: 47px;
         .text_content {
-            font-weight: normal;
-            font-style: normal;
-            font-stretch: normal;
-            line-height: 1.21;
-            letter-spacing: normal;
-            text-align: left;
-            color: #716b6b;
-            font-size: 14px;
-            cursor: pointer;
-            i {
-                margin-top: 1px;
-                font-size: 10px;
-            }
+            height: 27px;
+            width: 47px;
+        }
+        .line {
+            margin: auto 0;
+            margin-left: 38px;
+            width: calc(100% - 150px);
+            height: 0;
+            border: solid 2px #c5c3c3;
         }
     }
-    .restaurant_wraper {
-        margin-top: 14.6px;
-        height: 257.6px;
-        border-radius: 4px;
-        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover; // background-image: url("/assets/images/wine.jpg");
-        .text_wraper {
-            left: 57px;
-            top: 7px;
-            font-size: 45px;
-            font-style: normal;
-            font-stretch: normal;
-            line-height: 1.36;
-            letter-spacing: normal;
-            text-align: left;
-            color: #ffffff;
-            .text_item_one {
-                margin-top: 0;
-                margin-bottom: 0px;
-                width: 100%;
-                display: block;
-                word-wrap: break-word;
-            }
-            .text_item_two {
-                margin-top: 12.4px;
-                margin-bottom: 0px;
-                font-size: 14px;
-                font-weight: normal;
-                font-style: normal;
-                font-stretch: normal;
-                line-height: 1.21;
-                letter-spacing: normal;
-                text-align: left;
-                color: #cfcfcf;
-                display: block;
-                word-wrap: break-word;
-                white-space: normal;
-                width: 100%;
-                display: block;
-                word-wrap: break-word;
-            }
-        }
+    .under_line {
+        margin: auto 0;
+        margin-left: 85px;
+        width: calc(100% - 150px);
+        height: 0;
+        border: solid 2px #c5c3c3;
+        margin-top: 55px;
     }
-    .container {
-        margin: 0 auto;
-        width: 100%;
-        max-width: 737px;
+    .load{
+        width: 80%;
+        margin: auto;
+        margin-top: 20px;
+       
+    }
+    .bottom_slider {
+        margin-top: 56px;
+    }
+    .top_line_content {
+        margin-top: 47px;
+        .line {
+            margin: auto;
+            margin-left: 38px;
+            width: 723px;
+            height: 0;
+            border: solid 2px #c5c3c3;
+        }
     }
 }
 
+app-goodType-list {
+    margin-top: 92px;
+    margin-left: 101px;
+    app-goodType-list-item {
+        margin-top: 46px;
+        margin-left: 80px;
+    }
+}
+.ui-progress-spinner{
+    width: 200px !important;
+    height: 200px !important;
+}
+
 @media only screen and (max-width: 900px) {
-    .restaurant_content {
-        margin-left: 0 !important;
+    .container {
+        width: calc(100% - 20px);
+        margin:10px auto;
     }
 }

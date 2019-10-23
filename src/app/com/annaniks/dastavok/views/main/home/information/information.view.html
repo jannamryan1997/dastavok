@@ -16,12 +16,12 @@
                 <p-progressBar class="loading" mode="indeterminate" [style]="{'height': '8px'}" ></p-progressBar>
 
             </div>
-            <app-company-list>
+            <!-- <app-company-list>
                 <app-company-list-item *ngFor="let companyItem of companyItem" [companyItem]="companyItem"></app-company-list-item>
             </app-company-list>
             <app-goods-list>
                 <app-goods-list-item *ngFor="let item of goods" [goodInfo]="item" [goodsImage]="item.images"></app-goods-list-item>
-            </app-goods-list>
+            </app-goods-list> -->
             <app-paginator [count]="count" [pageLength]="pageLength" (paginate)="paginate($event)"></app-paginator>
             
         </div>

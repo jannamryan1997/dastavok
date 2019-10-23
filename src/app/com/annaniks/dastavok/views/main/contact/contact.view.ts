@@ -15,27 +15,33 @@ export class ContactView implements OnInit {
     public userForm: FormGroup;
     public userInfo: User;
 
-    constructor(private _contactService: ContactService) { }
+    constructor(
+        private _contactService: ContactService,
+        private _fb: FormBuilder,
+    ) { }
 
     ngOnInit() {
         this._formBuilder();
-        this._contactService.freeClient().subscribe((data)=>{
+        this._contactService.freeClient().subscribe((data) => {
             console.log(data);
-            
+
         })
     }
 
     private _formBuilder() {
-        this.userForm = new FormBuilder().group({
-            "first_name": ["", Validators.required],
-            "last_name": ["", Validators.required],
-            "email": ["", Validators.required],
-            "phone_number": ["", Validators.required],
-            "messages": ["", Validators.required]
+        this.userForm = this._fb.group({
+            firstName: ["", Validators.required],
+            lastName: ["", Validators.required],
+            email: ["", [Validators.required,Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]],
+            phoneNumber: ["", Validators.required],
+            messages: ["", Validators.required]
         })
     }
 
 
+    public checkIsValid(controlName: string): boolean {
+        return this.userForm.get(controlName).hasError('required') && this.userForm.get(controlName).touched;
+    }
 
 
 }
