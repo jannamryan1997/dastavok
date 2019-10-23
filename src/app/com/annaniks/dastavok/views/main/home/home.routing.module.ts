@@ -7,10 +7,10 @@ import { AuthGuard } from "../../../guards/authguard.service";
 const router: Routes = [
     {
         path: "", component: HomeView, children: [
-            { path: "", loadChildren: "./product-types/product-types.module#ProductTypesModule" },
-            { path: "card", loadChildren: "./card/card.module#CardModule", canActivate: [AuthGuard] },
-            { path: "search", loadChildren: "./search/search.module#SearchModule" },
-            { path: ":goodTypeId/products", loadChildren: "./products/products.module#ProductsModule" }
+            { path: "", loadChildren: () => import('./product-types/product-types.module').then(m => m.ProductTypesModule) },
+            { path: "card", loadChildren: () => import('./card/card.module').then(m => m.CardModule), canActivate: [AuthGuard] },
+            { path: "search", loadChildren: () => import('./search/search.module').then(m => m.SearchModule) },
+            { path: ":goodTypeId/products", loadChildren: () => import('./products/products.module').then(m => m.ProductsModule) }
         ]
     }
 ]

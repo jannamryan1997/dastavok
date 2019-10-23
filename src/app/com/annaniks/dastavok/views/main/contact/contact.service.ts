@@ -1,12 +1,12 @@
 import { Injectable, Inject } from "@angular/core"
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { CookieService } from "angular2-cookie/services/cookies.service";
+import { CookieService } from "ngx-cookie";
 
 @Injectable()
 
 export class ContactService {
 
-    constructor(@Inject('BASE_URL') private BASEURL, private _httpClient: HttpClient, private cookieService: CookieService) { }
+    constructor(private _httpClient: HttpClient, private cookieService: CookieService) { }
 
 
     public getUserInfo() {

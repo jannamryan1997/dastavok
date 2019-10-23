@@ -5,10 +5,10 @@ import { AuthGuard } from "../../guards/authguard.service";
 const router: Routes = [
     {
         path: "", component: MainComponent, children: [
-            { path: "", loadChildren: "./home/home.module#HomeModule", pathMatch: "full" },
-            { path: "contact", loadChildren: "./contact/contact.module#ContactModule" },
-            { path: "profile", loadChildren: "./profile/profile.module#ProfileModule", canActivate: [AuthGuard] },
-            { path: "payment", loadChildren: "./payment/payment.module#PaymentModule", canActivate: [AuthGuard] }
+            { path: "", loadChildren: () => import('./home/home.module').then(m => m.HomeModule), pathMatch: "full" },
+            { path: "contact", loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule) },
+            { path: "profile", loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule), canActivate: [AuthGuard] },
+            { path: "payment", loadChildren: () => import('./payment/payment.module').then(m => m.PaymentModule), canActivate: [AuthGuard] }
 
         ]
     }

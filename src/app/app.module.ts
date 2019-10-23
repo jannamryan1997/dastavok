@@ -6,21 +6,20 @@ import { AppRoutingModule } from './app.routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CheckToken } from './com/annaniks/dastavok/guards/checkToken.service';
 import { ApiService } from './com/annaniks/dastavok/services/api.service';
-import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { SignUpService } from './com/annaniks/dastavok/services/signUp.service';
-
+import { CookieService, CookieModule } from 'ngx-cookie'
 
 
 @NgModule({
   declarations: [
     AppComponent,
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    CookieModule.forRoot()
   ],
   providers: [
     {

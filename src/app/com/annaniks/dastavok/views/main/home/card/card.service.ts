@@ -1,15 +1,11 @@
-import { Injectable, Inject } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { CookieService } from "angular2-cookie/services/cookies.service";
-
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable()
-
 export class CardService {
 
     constructor(
-        private _httpClient: HttpClient,
-        private _cookieService: CookieService) { }
+        private _httpClient: HttpClient) { }
 
 
     public getOrderChart() {

@@ -1,13 +1,11 @@
 import { Injectable, Inject } from "@angular/core"
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { CookieService } from "angular2-cookie/services/cookies.service";
-import { identifierModuleUrl } from "@angular/compiler";
 
 @Injectable()
 
 export class ProfileService {
 
-    constructor(@Inject('BASE_URL') private baseURL, private _httpClient: HttpClient, private _cookieService: CookieService) { }
+    constructor(@Inject('BASE_URL') private baseURL, private _httpClient: HttpClient) { }
 
 
     public getClient() {
