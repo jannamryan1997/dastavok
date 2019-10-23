@@ -22,15 +22,15 @@
                             <i class="material-icons">
                                 person
                             </i>
-                            <span font-weight-bold font-family-Roboto >Login/sign in</span>
+                            <span font-weight-bold font-family-Roboto>{{'login'| translate}}/{{'registration'| translate}}</span>
                         </div>
                         <div class="login right-0" position-absolute display-flex *ngIf="showlogin">
                             <div class="buttons_items" margin-auto width-75 >
                                 <button class="login_button" text-align-center (click)="openLoginModal()">
-                                    <span color-white font-weight-bold font-family-Roboto>LOGIN</span>
+                                    <span color-white font-weight-bold font-family-Roboto>{{'login'| translate}}</span>
                                 </button>
                                 <button class="registration_button" (click)="openPhoneNumberModal()">
-                                    <span color-white font-weight-bold font-family-Roboto>Registration</span>
+                                    <span color-white font-weight-bold font-family-Roboto>{{'registration'| translate}}</span>
                                 </button>
                             </div>
                         </div>

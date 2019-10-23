@@ -1,9 +1,8 @@
 import { Component, OnInit } from "@angular/core"
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { ContactService } from "./contact.service";
-import { ServerResponse, User } from "../../../models/models";
-
-
+import {User } from "../../../models/models";
+import {TranslateService} from '@ngx-translate/core';
 @Component({
     selector: "app-contact",
     templateUrl: "contact.view.html",
@@ -18,6 +17,7 @@ export class ContactView implements OnInit {
     constructor(
         private _contactService: ContactService,
         private _fb: FormBuilder,
+        private translate: TranslateService
     ) { }
 
     ngOnInit() {

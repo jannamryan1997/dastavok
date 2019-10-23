@@ -15,20 +15,54 @@ import {
     RegistrationStep,
     SearchGoodsModals,
     MessagesModals,
-    NewPhoneNumber} from "../../modals";
-import { HttpClientModule } from "@angular/common/http"
+    NewPhoneNumber
+} from "../../modals";
 import { ProfileService } from "./profile/profile.service";
 import { PaymentService } from "./payment/payment.service";
 import { AuthGuard } from "../../guards/authguard.service";
 import { MenuService } from "../../services/menu.service";
-
+import { HttpClientModule} from '@angular/common/http';
 
 @NgModule({
 
-    declarations: [MainComponent, FooterComponent, VerificationModal, LoginModal, PhoneNumberModal, SignUpModal, NewPasswordModals, UserUpdateModal, AddressEditModal, RegistrationStep, SearchGoodsModals, NewPhoneNumber,MessagesModals],
-    imports: [MainRoutingModule, SharedModule, HttpClientModule],
-    providers: [MenuItemsService, ProfileService, PaymentService, AuthGuard, MenuService],
-    entryComponents: [VerificationModal, LoginModal, PhoneNumberModal, SignUpModal, NewPasswordModals, UserUpdateModal, AddressEditModal, RegistrationStep, SearchGoodsModals, NewPhoneNumber,MessagesModals],
+    declarations: [
+        MainComponent,
+        FooterComponent,
+        VerificationModal,
+        LoginModal,
+        PhoneNumberModal,
+        SignUpModal,
+        NewPasswordModals,
+        UserUpdateModal,
+        AddressEditModal,
+        RegistrationStep,
+        SearchGoodsModals,
+        NewPhoneNumber,
+        MessagesModals],
+    imports: [
+        MainRoutingModule,
+        SharedModule,
+        HttpClientModule,
+    ],
+    providers: [
+        MenuItemsService,
+        ProfileService,
+        PaymentService,
+        AuthGuard,
+        MenuService
+    ],
+    entryComponents: [
+        VerificationModal,
+        LoginModal,
+        PhoneNumberModal,
+        SignUpModal,
+        NewPasswordModals,
+        UserUpdateModal,
+        AddressEditModal,
+        RegistrationStep,
+        SearchGoodsModals,
+        NewPhoneNumber,
+        MessagesModals],
     exports: [],
 })
 

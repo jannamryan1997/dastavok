@@ -9,20 +9,11 @@ export class MenuItemsService {
         { label: "CONTACT", routerLink: "/contact" },
     ]
 
-    private _homeContentItems: Array<MenuItem> = [
-        { label: "SHOP", routerLink: "#" },
-        { label: "COMPANY", routerLink: "/home/information" },
-        { label: "ALL", routerLink: "#" },
-
-    ]
-
     constructor() { }
 
     public getMenuItems(): Array<MenuItem> {
         return this._menuItems;
     }
 
-    public getHomeContentItems(): Array<MenuItem> {
-        return this._homeContentItems;
-    }
+
 }

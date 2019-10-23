@@ -6,7 +6,7 @@
         <div class="choose_bar" *ngIf="chooseBarVisiblity">
             <div class="search-content" full-width display-flex>
                 <div class="search_wrapper" display-flex>
-                    <input class="search-input" placeholder="Search Product Hear" full-width [(ngModel)]="search">
+                    <input class="search-input" placeholder="{{'search_product_hear' | translate}}" full-width [(ngModel)]="search">
                     <div class="search" display-flex (click)="onClickSearch()">
                         <i class="material-icons" margin-auto color-white>
                             search
