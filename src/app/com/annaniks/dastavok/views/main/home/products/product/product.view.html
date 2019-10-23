@@ -61,7 +61,7 @@
             <app-description [descriptionData]="good?.description"></app-description>
         </div>
         <div *ngSwitchCase="2">
-                <app-revie-chart></app-revie-chart>
+                <app-review-chart></app-review-chart>
             <app-review *ngFor="let item of reviewData" [reviewData]="item" [reviewDataTime]="item.reviewDate"></app-review>
             <app-paginator [count]="count" [pageLength]="pageLength" (paginate)="paginate($event)"></app-paginator>
         </div>

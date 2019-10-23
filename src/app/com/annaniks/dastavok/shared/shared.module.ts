@@ -5,13 +5,15 @@ import {
     LoadingComponent,
     RatingComponent,
     PaginatorComponent,
-    SlideNawComponent, 
-    FiltersListComponent, 
-    GoodsListComponent, 
-    GoodsListItemComponent, 
-    LeftMenuComponent, 
+    SlideNawComponent,
+    FiltersListComponent,
+    GoodsListComponent,
+    GoodsListItemComponent,
+    LeftMenuComponent,
     ErrorComponent,
-    SliderComponent
+    SliderComponent,
+    CompanyListComponent,
+    CompanyListItemComponent
 } from "../components";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router"
@@ -22,6 +24,9 @@ import { ClickOutsideModule } from 'ng-click-outside';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { MessageService } from 'primeng/components/common/messageservice';
 import { NgxCarouselModule } from "ngx-carousel";
+import { ReviwChartComponent } from "../components/good-tabs/reviw-chart/reviw-chart.component";
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+
 @NgModule({
     entryComponents: [],
     declarations: [
@@ -36,7 +41,10 @@ import { NgxCarouselModule } from "ngx-carousel";
         GoodsListItemComponent,
         LeftMenuComponent,
         ErrorComponent,
-        SliderComponent
+        SliderComponent,
+        CompanyListComponent,
+        CompanyListItemComponent,
+        ReviwChartComponent,
     ],
     imports: [
         CommonModule,
@@ -46,7 +54,8 @@ import { NgxCarouselModule } from "ngx-carousel";
         ReactiveFormsModule,
         ClickOutsideModule,
         ProgressSpinnerModule,
-        NgxCarouselModule
+        NgxCarouselModule,
+        NgxChartsModule
     ],
     exports: [
         LeftMenuComponent,
@@ -64,7 +73,8 @@ import { NgxCarouselModule } from "ngx-carousel";
         GoodsListComponent,
         GoodsListItemComponent,
         ErrorComponent,
-        SliderComponent
+        SliderComponent,
+        ReviwChartComponent
     ],
     providers: [MessageService]
 })

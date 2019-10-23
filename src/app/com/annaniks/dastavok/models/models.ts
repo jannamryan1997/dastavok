@@ -24,7 +24,7 @@ export interface Verification {
     refreshToken?: string;
 }
 export class User {
-    address: string;
+    address: any;
     balance: number
     cardNumber: string
     createdAt: string
@@ -98,6 +98,7 @@ export interface Good {
     price: number;
     readyTime: number;
     thumbnail: string;
+    review:string;
 }
 
 export interface Paginator<T> {
@@ -121,6 +122,7 @@ export interface BriefCompany {
     name: string;
     phoneNumber: string;
     zipCode: number;
+    review:string;
 }
 
 export interface Restaurant {
@@ -178,6 +180,9 @@ export interface Card {
     totalAmount: number;
     orderId: number;
     goods: CardGoods[];
+    price:number;
+    count:number;
+    name:number;
 }
 
 interface CardGoods {

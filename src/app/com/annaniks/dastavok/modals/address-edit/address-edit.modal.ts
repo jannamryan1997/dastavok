@@ -13,7 +13,7 @@ import { SignUpService } from "../../services/signUp.service";
 })
 
 export class AddressEditModal implements OnInit {
-
+    public loading: boolean = false;
     public userUpdateGroup: FormGroup;
     public clientData: User;
 
@@ -53,10 +53,10 @@ export class AddressEditModal implements OnInit {
         }).subscribe((data) => {
             this.dialogRef.close();
             console.log(data);
-         
+
         })
-     
+
     }
 
- 
+
 }

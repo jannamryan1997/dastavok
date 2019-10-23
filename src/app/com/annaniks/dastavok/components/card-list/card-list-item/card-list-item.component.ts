@@ -14,7 +14,7 @@ import { CardService } from "../../../views/main/home/card/card.service";
 export class CardListItemComponent implements OnInit {
     @Input() cardInfo: Card = {} as Card;
     @Input() cardInfoOrderGoodId: number;
-    @Input() cardGoodsInfo: ServerResponse<Card>;
+    @Input() cardGoodsInfo: Card;
     @Input() cardGoodsImageItem: string;
     @Output() deleted: EventEmitter<boolean> = new EventEmitter()
     public image: Array<string>;
@@ -29,7 +29,7 @@ export class CardListItemComponent implements OnInit {
                 this.itemImage = this.image[1];
             }
         }
-      //  console.log(this.cardGoodsInfo);
+        //  console.log(this.cardGoodsInfo);
 
 
 
@@ -40,7 +40,7 @@ export class CardListItemComponent implements OnInit {
     }
 
     private _deleteOrder(): void {
-    //    console.log(this.cardInfoOrderGoodId);
+        //    console.log(this.cardInfoOrderGoodId);
 
         this._cardService.deleteOrderChart(this.cardInfo.orderId, this.cardInfoOrderGoodId)
             .subscribe((data) => {

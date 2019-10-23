@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core"
 import { ActivatedRoute } from "@angular/router";
-import { Good, ServerResponse, Paginator } from "src/app/com/annaniks/dastavok/models/models";
+import { Good, ServerResponse, Paginator } from "./../../../../models/models";
 import { ProductsService } from "./products.service";
 
 @Component({

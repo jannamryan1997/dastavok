@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core"
 import { CardService } from "./card.service";
-import { ServerResponse, Card, OrderInfo, } from "src/app/com/annaniks/dastavok/models/models";
+import { ServerResponse, Card, OrderInfo, } from "./../../../../models/models";
 import { Router } from "@angular/router";
 
 @Component({

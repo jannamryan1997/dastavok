@@ -1,10 +1,11 @@
-import { Component, OnInit, HostListener } from "@angular/core"
+import { Component, OnInit, HostListener, PLATFORM_ID, Inject } from "@angular/core"
 import { MenuService } from "../../services/menu.service";
 import { MatDialog } from "@angular/material";
 import { LoginModal, PhoneNumberModal } from "../../modals";
 import { SignUpService } from "../../services/signUp.service";
 import { Router } from "@angular/router";
 import { CookieService } from "angular2-cookie/services/cookies.service";
+import { isPlatformBrowser } from "@angular/common";
 
 @Component({
     selector: "app-slide-nav",
@@ -13,10 +14,13 @@ import { CookieService } from "angular2-cookie/services/cookies.service";
 })
 
 export class SlideNawComponent implements OnInit {
+    public isBrowser: boolean;
     @HostListener('window:resize', ['$event'])
     onresize($event) {
-        if (window.innerWidth > 900 && this._menuService.isOpen) {
-            this._menuService.closeMenu();
+        if (this.isBrowser) {
+            if (window.innerWidth > 900 && this.menuService.isOpen) {
+                this.menuService.closeMenu();
+            }
         }
     }
     public showLangualeMenu: boolean = false;
@@ -27,16 +31,25 @@ export class SlideNawComponent implements OnInit {
 
     ]
 
-    constructor(private _menuService: MenuService, private dialog: MatDialog, public signUpService: SignUpService, private roter: Router, private _cookieService: CookieService) { }
+    constructor(
+        public menuService: MenuService,
+        private dialog: MatDialog,
+        public signUpService: SignUpService,
+        private roter: Router,
+        private _cookieService: CookieService,
+        @Inject(PLATFORM_ID) private platformId
+    ) {
+        this.isBrowser = isPlatformBrowser(platformId);
+    }
 
     ngOnInit() {
-        if(this.signUpService.isAuthorized)
+        if (this.signUpService.isAuthorized)
             this._getUserInfo();
     }
 
 
     public closeMenu() {
-        this._menuService.closeMenu();
+        this.menuService.closeMenu();
     }
     public showLanguage() {
         this.showLangualeMenu = !this.showLangualeMenu;
@@ -45,7 +58,7 @@ export class SlideNawComponent implements OnInit {
 
     // public showLogin() {
     //     this.showLoginMenu = !this.showLoginMenu;
-        
+
     // }
 
     public onClickedOutside(e: Event) {
@@ -80,20 +93,16 @@ export class SlideNawComponent implements OnInit {
         this.signUpService.getUserInfo().subscribe();
     }
     public navToPage(route: string) {
-        console.log("hi");
-        
-        this._menuService.closeMenu();
+        this.menuService.closeMenu();
         this.roter.navigate([route])
     }
 
     public logOut() {
-        console.log("fgfgfg");
-        
         this._cookieService.remove('refreshToken');
         this._cookieService.remove('token');
-        this._menuService.closeMenu();
+        this.menuService.closeMenu();
         this.roter.navigate(['/home'])
-        this.signUpService.isAuthorized=false;
+        this.signUpService.isAuthorized = false;
     }
 
 

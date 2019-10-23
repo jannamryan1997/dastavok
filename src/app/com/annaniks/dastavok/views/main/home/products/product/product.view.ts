@@ -5,7 +5,7 @@ import { Good, ServerResponse, Topping, BriefToppings, OrderInfo } from "../../.
 import { MatDialog } from "@angular/material"
 import { RegistrationStep } from "../../../../../modals";
 import { SignUpService } from "../../../../../services/signUp.service";
-import { MessagesModals } from "src/app/com/annaniks/dastavok/modals/messages/messages.modals";
+import { MessagesModals } from "../../../../../modals/messages/messages.modals";
 
 @Component({
     selector: "product-view",

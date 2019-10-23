@@ -1,9 +1,10 @@
-import { Component, OnInit } from "@angular/core"
+import { Component, OnInit, Inject, PLATFORM_ID } from "@angular/core"
 import { MatDialog } from "@angular/material";
 import { LoginModal, PhoneNumberModal, RegistrationStep, SearchGoodsModals } from "../../modals";
 import { SignUpService } from "../../services/signUp.service";
 import { CookieService } from "angular2-cookie/services/cookies.service";
 import { MenuService } from "../../services/menu.service";
+import { isPlatformBrowser } from "@angular/common";
 
 
 @Component({
@@ -13,7 +14,7 @@ import { MenuService } from "../../services/menu.service";
 })
 
 export class ToolbarComponent implements OnInit {
-
+    public isBrowser: boolean;
     public showlogin: boolean = false;
     public showUserProfileDisplay: boolean = false;
     public showLenguage: boolean = false;
@@ -23,7 +24,15 @@ export class ToolbarComponent implements OnInit {
     ]
 
 
-    constructor(private dialog: MatDialog, public signUpService: SignUpService, private _cookieService: CookieService, private _menuService: MenuService) { }
+    constructor(
+        private dialog: MatDialog,
+        public signUpService: SignUpService,
+        private _cookieService: CookieService,
+        private _menuService: MenuService,
+        @Inject(PLATFORM_ID) private platformId
+    ) {
+        this.isBrowser = isPlatformBrowser(platformId);
+    }
 
     ngOnInit() {
         if (this.signUpService.isAuthorized == true) {
@@ -100,7 +109,8 @@ export class ToolbarComponent implements OnInit {
     private _removeCookies(): void {
         this._cookieService.remove('token');
         this._cookieService.remove('refreshToken');
-        window.location.reload();
+        if (this.isBrowser)
+            window.location.reload();
     }
 
     public openMenu() {

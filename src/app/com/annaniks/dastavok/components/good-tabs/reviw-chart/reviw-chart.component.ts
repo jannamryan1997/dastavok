@@ -1,4 +1,5 @@
-import { Component, OnInit, HostListener } from "@angular/core"
+import { Component, OnInit, HostListener, PLATFORM_ID, Inject } from "@angular/core"
+import { isPlatformBrowser } from "@angular/common";
 export var single = [
     {
         "name": "5",
@@ -14,7 +15,7 @@ export var single = [
     },
     {
         "name": "2",
-        "value":  1805000
+        "value": 1805000
     },
     {
         "name": "1",
@@ -64,7 +65,7 @@ export var multi = [
     //         }
     //     ]
     // },
-    
+
     // {
     //     "name": "France",
     //     "series": [
@@ -78,7 +79,7 @@ export var multi = [
     //         }
     //     ]
     // },
-    
+
     // {
     //     "name": "France",
     //     "series": [
@@ -94,27 +95,31 @@ export var multi = [
     // }
 ];
 @Component({
-    selector: "app-revie-chart",
+    selector: "app-review-chart",
     templateUrl: "reviw-chart.component.html",
     styleUrls: ["reviw-chart.component.scss"]
 })
 
 export class ReviwChartComponent implements OnInit {
-    @HostListener('window:resize',['$event'])
-    onresize(){
-        console.log(window.innerWidth);
-        if(window.innerWidth<=800 && window.innerWidth>400){
-            this.view[0]=300;
-            this.view[1]=100;
-        }
+    public ratingCount: number = 0;
+    public single;
+    public isBrowser: boolean;
+    @HostListener('window:resize', ['$event'])
+    onresize() {
+        if (this.isBrowser) {
+            if (window.innerWidth <= 800 && window.innerWidth > 400) {
+                this.view[0] = 300;
+                this.view[1] = 100;
+            }
 
-        else if(window.innerWidth<=400){
-            this.view[0]=220;
-            this.view[1]=100;
-        }
-        else{
-            this.view[0]=446;
-            this.view[1]=110;
+            else if (window.innerWidth <= 400) {
+                this.view[0] = 220;
+                this.view[1] = 100;
+            }
+            else {
+                this.view[0] = 446;
+                this.view[1] = 110;
+            }
         }
     }
 
@@ -136,22 +141,19 @@ export class ReviwChartComponent implements OnInit {
     xAxisLabel = '';
     showYAxisLabel = true;
     yAxisLabel = '';
-    barPadding=true;
-    showDataLabel=true;
-
-
-
-
+    barPadding = true;
+    showDataLabel = true;
 
     colorScheme = {
-        domain: ['#87bd3c', '#3c74bd', '#bdbd3c', '#ff6f00','#bd3c3c']
+        domain: ['#87bd3c', '#3c74bd', '#bdbd3c', '#ff6f00', '#bd3c3c']
     };
 
-    constructor() {
+    constructor(@Inject(PLATFORM_ID) private platformId) {
+        this.isBrowser = isPlatformBrowser(platformId);
         Object.assign(this, { single, multi })
     }
 
-    ngOnInit() { 
+    ngOnInit() {
         this.onresize();
     }
 

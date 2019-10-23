@@ -3,8 +3,8 @@ import { ProductView } from "./product.view";
 import { ProductRoutingModule } from "./product.routing.module";
 import { CommonModule } from "@angular/common";
 import { GoodService } from "./product.service";
-import { SharedModule } from "src/app/com/annaniks/dastavok/shared/shared.module";
-import { DescriptionComponent, ReviwComponent, IngredientComponent } from "src/app/com/annaniks/dastavok/components";
+import { SharedModule } from "../../../../../shared/shared.module";
+import { DescriptionComponent, ReviwComponent, IngredientComponent } from "./../../../../../components";
 import { ProgressSpinnerModule } from "primeng/progressspinner";
 
 

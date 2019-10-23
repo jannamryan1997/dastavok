@@ -8,6 +8,7 @@ import { CheckToken } from './com/annaniks/dastavok/guards/checkToken.service';
 import { ApiService } from './com/annaniks/dastavok/services/api.service';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { SignUpService } from './com/annaniks/dastavok/services/signUp.service';
+import { CookieOptions, BaseCookieOptions } from 'angular2-cookie/services/base-cookie-options';
 
 
 
@@ -17,7 +18,7 @@ import { SignUpService } from './com/annaniks/dastavok/services/signUp.service';
 
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'app-dastavok' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule
@@ -32,6 +33,10 @@ import { SignUpService } from './com/annaniks/dastavok/services/signUp.service';
     CheckToken,
     ApiService,
     CookieService,
+    {
+      provide: CookieOptions,
+      useFactory: BaseCookieOptions
+    },
     SignUpService
   ],
   bootstrap: [AppComponent]

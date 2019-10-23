@@ -1,1 +1,1 @@
-export * from "src/app/com/annaniks/dastavok/services/menuItems.service"
+export * from "./menuItems.service"
