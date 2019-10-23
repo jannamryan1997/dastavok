@@ -4,19 +4,6 @@
             <img src="assets/images/LOGO.png">
         </div>
         <div class="choose_bar" *ngIf="chooseBarVisiblity">
-            <div class="choose_bar_container" display-flex full-height>
-                <div class="choose_bar_item" display-flex routerLinkActive="item_Active" [routerLink]="['/home/information']"
-                    [queryParams]="{ type: 'shop'}">
-                    <p class="item_label" margin-auto font-weight-bold font-family-Open-Sans>SHOP</p>
-                </div>
-                <div class="choose_bar_item" display-flex routerLinkActive="item_Active" [routerLink]="['/home/information']"
-                    [queryParams]="{ type: 'company'}">
-                    <p class="item_label" margin-auto font-weight-bold font-family-Open-Sans>COMPANY</p>
-                </div>
-                <div class="choose_bar_item" display-flex routerLinkActive="item_Active" [routerLink]="['#']">
-                    <p class="item_label" margin-auto font-weight-bold font-family-Open-Sans>ALL</p>
-                </div>
-            </div>
             <div class="search-content" full-width display-flex>
                 <div class="search_wrapper" display-flex>
                     <input class="search-input" placeholder="Search Product Hear" full-width [(ngModel)]="search">

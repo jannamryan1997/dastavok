@@ -5,9 +5,9 @@
             <div position-relative>
                 <app-loading class="loading" [loading]="loading" [height]="150" [width]="150"></app-loading>
             </div>
-
             <app-goods-list>
-                <app-goods-list-item *ngFor="let item of goods" [goodInfo]="item" [goodsImage]="item.images"></app-goods-list-item>
+                <app-goods-list-item *ngFor="let item of goods" [goodInfo]="item" [goodsImage]="item.images">
+                </app-goods-list-item>
             </app-goods-list>
 
             <!-- <app-paginator [count]="count" [pageLength]="pageLength" (paginate)="paginate($event)"></app-paginator> -->

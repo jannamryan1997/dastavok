@@ -6,27 +6,6 @@
     .choose_bar {
         margin-top: 23px;
         width: calc(100% - 287px);
-        .choose_bar_container {
-            height: fit-content;
-            object-fit: contain;
-            border-radius: 4px;
-            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
-            background-color: white;
-            .choose_bar_item {
-                background-color: #ffffff;
-                width: 33.333333333%;
-                height: 79px;
-                color: black;
-                cursor: pointer;
-                .item_label {
-                    height: 23px;
-                    font-size: 20px;
-                    line-height: 1.15;
-                    letter-spacing: normal;
-                    text-align: left;
-                }
-            }
-        }
         .search-content {
             margin-top: 27px;
             border-radius: 4px;
@@ -151,12 +130,6 @@ input::placeholder {
         }
         .choose_bar{
             width: 100%;
-            .choose_bar_container{
-                flex-direction: column;
-                .choose_bar_item{
-                    width: 100%;
-                }
-            }
             .search-content{
                 display: none;
             }

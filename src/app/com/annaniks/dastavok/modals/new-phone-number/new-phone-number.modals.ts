@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef, MatDialog } from "@angular/material";
 import { ProfileService } from "../../views/main/profile/profile.service";
-import { VerificationModal } from "..";
+import { VerificationModal } from "../verification/verification.modal";
 import { CookieService } from "angular2-cookie/services/cookies.service";
 
 @Component({
@@ -15,9 +15,13 @@ export class NewPhoneNumber implements OnInit {
 
     public phoneNumberForm: FormGroup;
     public loading: boolean = false;
-    public error:string;
+    public error: string;
 
-    constructor(private _dialogRef: MatDialogRef<NewPhoneNumber>, private _profileService: ProfileService, private _dialog: MatDialog, private _cookieService: CookieService) { }
+    constructor(
+        private _dialogRef: MatDialogRef<NewPhoneNumber>,
+        private _profileService: ProfileService,
+        private _dialog: MatDialog,
+        private _cookieService: CookieService) { }
 
     ngOnInit() {
         this._formBuilder();
@@ -43,8 +47,8 @@ export class NewPhoneNumber implements OnInit {
             this._dialogRef.close();
 
         });
-        err=>{
-            this.error=err.error.error;
+        err => {
+            this.error = err.error.error;
         }
     }
 
@@ -52,9 +56,9 @@ export class NewPhoneNumber implements OnInit {
         const dialogRef = this._dialog.open(VerificationModal, {
             width: "686px",
             height: "444px",
-            data:{
-                phoneNumber:this.phoneNumberForm.value.newPhonenumber,
-                key:'new-phone-number',
+            data: {
+                phoneNumber: this.phoneNumberForm.value.newPhonenumber,
+                key: 'new-phone-number',
             }
         })
     }
