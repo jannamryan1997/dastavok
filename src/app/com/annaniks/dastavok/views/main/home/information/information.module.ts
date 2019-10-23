@@ -6,10 +6,10 @@ import { NgxCarouselModule } from 'ngx-carousel';
 import { CommonModule } from "@angular/common"
 import { SharedModule } from "../../../../shared/shared.module";
 import { InformationService } from "./information.service";
-
+import {ProgressBarModule} from 'primeng/progressbar';
 @NgModule({
     declarations: [InformationView, SliderComponent, CompanyListComponent, CompanyListItemComponent],
-    imports: [InformationRoutingModule, NgxCarouselModule, CommonModule, SharedModule],
+    imports: [InformationRoutingModule, NgxCarouselModule, CommonModule, SharedModule,ProgressBarModule],
     providers:[InformationService],
     exports: [],
 })

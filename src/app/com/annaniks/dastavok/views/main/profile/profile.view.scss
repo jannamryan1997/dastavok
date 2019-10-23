@@ -1,62 +1,79 @@
 .profile_content {
-    .profile_container {
-        .profile_data {
-            margin-top: 143px;
-            .img_content {
-                width: 202px;
-                height: 202px;
+    .profile_conteiner {
+        max-width: 1220px;
+        margin-top: 143px;
+        .client_data {
+            margin-left: 13px;
+            .client_image {
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
+                width: 202px;
+                height: 202px;
+                box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
                 border-radius: 50%;
             }
-            .text_content {
-                margin-left: 22px;
-                .text_name {
-                    font-size: 31px;
-                    font-style: normal;
-                    font-stretch: normal;
-                    line-height: 1.35;
-                    letter-spacing: normal;
-                    text-align: left;
-                    color: #444444;
-                    margin-bottom: 0px;
-                    margin-top: 0px;
-                }
-                .user_room {
-                    font-size: 31px;
-                    font-weight: normal;
-                    font-style: normal;
-                    font-stretch: normal;
-                    line-height: 1.19;
-                    letter-spacing: normal;
-                    text-align: left;
-                    color: #444444;
-                    margin-bottom: 0px;
-                    margin-top: 0px;
-                    .text_item {
-                        margin-bottom: 0px;
-                        margin-top: 0px;
+            .client_info {
+                margin-left: 85px;
+                flex-direction: column;
+              //  width: 50%;
+                .client_fullName {
+                    margin-left: 7px;
+                    margin-top: 14.2px;
+                    .fullName {
+                        font-size: 31px;
+                        font-weight: bold;
+                        font-style: normal;
+                        font-stretch: normal;
+                        line-height: 1.35;
+                        letter-spacing: normal;
+                        text-align: left;
+                        color: #444444;
+                        display: block;
+                        word-wrap: break-word;
+                        width: 100%;
                     }
+                }
+                .client_addres {
+                    margin-top: 14.2px;
                     i {
                         font-size: 31px;
+                    }
+                    .addres {
+                        font-size: 31px;
+                        font-weight: normal;
+                        font-style: normal;
+                        font-stretch: normal;
+                        line-height: 1.19;
+                        letter-spacing: normal;
+                        text-align: left;
                         color: #444444;
+                        display: block;
+                        word-wrap: break-word;
+                        width: 100%;
                     }
                 }
-                .user_call {
+                .profile_phone {
+                    margin-top: 14.2px;
                     i {
                         font-size: 22px;
-                        color: #444444;
                     }
-                    .text_number {
-                        margin-left: 3.8px;
-                        margin-top: 0px;
-                        margin-bottom: 0px;
+                    .phone {
+                        font-size: 24px;
+                        font-weight: normal;
+                        font-style: normal;
+                        font-stretch: normal;
+                        line-height: 1.21;
+                        letter-spacing: normal;
+                        text-align: left;
+                        color: #444444;
+                        display: block;
+                        word-wrap: break-word;
+                        width: 100%;
                     }
                 }
             }
             .add_content {
-                //  margin-left: 229px;
                 margin-top: 44px;
                 width: 287px;
                 height: 75px;
@@ -70,7 +87,6 @@
                     border-radius: 4px;
                     box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
                     background: white;
-                    border: 1px solid #707070;
                 }
             }
         }
@@ -80,7 +96,6 @@
         border-radius: 4px;
         box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
         margin-top: 26px;
-        border: 1px solid #707070;
         .notification {
             width: 33.333333%;
         }
@@ -144,14 +159,30 @@
 }
 
 @media only screen and (max-width: 900px) {
-    .profile_data {
-        flex-direction: column;
+    .client_data {
+        flex-direction: column !important;
     }
-    .img_content {
+    .client_image {
         width: 93px !important;
         height: 93px !important;
     }
     .tab_label {
         font-size: 17px !important;
+    }
+    .profile_data {
+        width: 290px !important;
+    }
+    .fullName,
+    .addres,
+    .phone {
+        font-size: 20px !important;
+    }
+    i {
+        font-size: 20px !important;
+    }
+    .button_content{
+        width: 167.1px !important;
+        height: 43.7px !important;
+        font-size: 18px !important;
     }
 }

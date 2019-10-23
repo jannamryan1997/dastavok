@@ -5,6 +5,7 @@ import { Good, ServerResponse, Topping, BriefToppings, OrderInfo } from "../../.
 import { MatDialog } from "@angular/material"
 import { RegistrationStep } from "../../../../../modals";
 import { SignUpService } from "../../../../../services/signUp.service";
+import { MessagesModals } from "src/app/com/annaniks/dastavok/modals/messages/messages.modals";
 
 @Component({
     selector: "product-view",
@@ -16,13 +17,17 @@ export class ProductView implements OnInit {
     private _companyId: number;
     private _goodId: number;
     public starCount: number = 4;
-    public count: number = 1;
+    public countSum: number = 1;
     public tab: number = 1;
     public activeImage: string;
     public goodImage: Array<string>;
     public good: Good;
     public toppings: Array<Topping>;
     public top: Array<any> = [];
+    public reviewDataTime: string;
+    public count: number = 0;
+    public page: number = 1;
+    public pageLength: number = 10;
     public loading: boolean = false;
 
     constructor(
@@ -41,6 +46,7 @@ export class ProductView implements OnInit {
 
     ngOnInit() {
         this._getGood();
+        this._getReview();
     }
 
     public openDescription(): void {
@@ -63,7 +69,7 @@ export class ProductView implements OnInit {
         if (this.count == 1) {
             return;
         }
-        this.count--;
+        this.countSum--;
     }
 
     public setActiveImage(image): void {
@@ -86,7 +92,7 @@ export class ProductView implements OnInit {
             good:
             {
                 id: this._goodId,
-                count: this.count,
+                count: this.countSum,
                 toppings: briefToppings
             }
         };
@@ -114,21 +120,14 @@ export class ProductView implements OnInit {
 
 
 
-    private _openRegistrationModal(type: string): void {
-        const dialogRef = this._dialog.open(RegistrationStep, {
+    private _openMessageModal(type: string): void {
+        const dialogRef = this._dialog.open(MessagesModals, {
             width: "686px",
             maxWidth: '100vw',
             panelClass: ['margin-10'],
         })
         dialogRef.afterClosed().subscribe((data) => {
-            if (this._signUpService.isAuthorized) {
-                if (type == "chart") {
-                    this._orderChart();
-                }
-                if (type == 'buy') {
-                    this._getGood();
-                }
-            }
+            this.openRegistrationStepModal();
         })
 
     }
@@ -148,7 +147,7 @@ export class ProductView implements OnInit {
             name: "good",
             good: {
                 id: this.good.id,
-                count: this.count,
+                count: this.countSum,
                 toppings: briefToppings
 
             }
@@ -159,17 +158,43 @@ export class ProductView implements OnInit {
     }
     public onClickOrder(type: string) {
         if (this._signUpService.isAuthorized == false) {
-            this._openRegistrationModal(type);
+            this._openMessageModal(type);
         }
         else {
             if (type && type == "card") {
                 this._orderChart();
             }
             if (type && type == "buy") {
-                this._getGood();
+                this.onClickBuy();
             }
         }
     }
+    public openRegistrationStepModal() {
+        const dialogRef = this._dialog.open(RegistrationStep, {
+            width: "686px",
+            maxWidth: '100vw',
+            panelClass: ['margin-10'],
+        })
+    }
 
+    private _getReview() {
+        // // this._goodService.getReview(this._companyId, this._goodId, this.pageCount, this.pageLength)
+        // this._goodService.getReview(1, 1, this.page, this.pageLength)
+        //     .subscribe((data: ServerResponse<Review[]>) => {
+        //         console.log(data);
+
+        //         //     this.reviewData = data.ddwqata.data;
+        //         //   //this.pageCount = data.data.metaData.count;
+        //         //     this.reviewDataTime=data.data.data.reviewDate;
+        //         //     this.count=data.data.metaData.count;
+        //         //     console.log(this.reviewData);
+
+        //     })
+    }
+    paginate($event) {
+        console.log($event);
+        this.page = $event.pageNumber;
+        this._getReview();
+    }
 
 }

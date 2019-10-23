@@ -4,12 +4,13 @@
         height: 214px;
         border-radius: 4px;
         box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.16);
-        border: solid 1px #707070;
+        background-color: white;
         .company_image {
             height: 137px;
             background-position: center;
             background-size: cover;
-            background-repeat: no-repeat; //background-image: url("/assets/images/winee.jpg")
+            background-repeat: no-repeat; 
+            border-radius: 4px;
         }
         .company_info {
             margin-top: 16px;
@@ -24,6 +25,9 @@
                 color: #191919;
                 margin-top: 0px;
                 margin-bottom: 0px;
+                width: 100%;
+                display: block;
+                word-wrap: break-word;
             }
             .company_description {
                 font-size: 10px;
@@ -35,6 +39,9 @@
                 color: #191919;
                 margin-top: 0px;
                 margin-bottom: 0px;
+                width: 100%;
+                display: block;
+                word-wrap: break-word;
             }
         }
     }

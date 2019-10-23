@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core"
+import { Component, OnInit} from "@angular/core"
 import { MatDialog, MatDialogRef} from '@angular/material';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { SignUpService } from "../../services/signUp.service";
@@ -41,6 +41,8 @@ export class LoginModal implements OnInit {
             "password": this.loginForm.value.password,
 
         }).subscribe((data: ServerResponse<LoginResponse>) => {
+            console.log(data);
+            
             this.loading = false;
             this._cookieService.put("refreshToken", data.data.refreshToken);
             this._cookieService.put('token', data.data.token);

@@ -24,30 +24,42 @@ export class SliderComponent implements OnInit {
     constructor() {
         this.items = [
             {
-                title: "/assets/images/slide.jpg",
+                title: "/assets/images/slider.jpg",
                 label: "Burger",
                 text: "Contrary to popular beelife"
 
             },
             {
-                title: "/assets/images/slide.jpg",
+                title: "/assets/images/slider2.jpg",
                 label: "Burger",
                 text: "Contrary to popular beelife"
 
             },
             {
-                title: "/assets/images/slide.jpg",
+                title: "/assets/images/slider2.jpeg",
                 label: "Burger",
                 text: "Contrary to popular beelife"
 
             },
             {
-                title: "/assets/images/slide.jpg",
+                title: "/assets/images/slider3.jpg",
                 label: "Burger",
                 text: "Contrary to popular beelife"
 
-            }
+            },
+            
+            {
+                title: "/assets/images/slider5.jpg",
+                label: "Burger",
+                text: "Contrary to popular beelife"
 
+            },
+            {
+                title: "/assets/images/slider2.jpeg",
+                label: "Burger",
+                text: "Contrary to popular beelife"
+
+            },
 
         ]
 
@@ -55,7 +67,7 @@ export class SliderComponent implements OnInit {
             grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
             slide: 1,
             speed: 400,
-            interval: 10000,
+            interval: 2000,
             point: {
                 visible: true,
             },
@@ -63,10 +75,10 @@ export class SliderComponent implements OnInit {
             touch: true
         }
         this.carouselConfig2 = {
-            grid: { xs: 2, sm: 3, md: 4, lg: 4, all: 0 },
+            grid: { xs: 3, sm: 3, md: 4, lg: 4, all:0 },
             slide: 1,
             speed: 400,
-            interval: 10000,
+            interval: 2000,
             point: {
                 visible: false,
             },

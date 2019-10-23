@@ -14,8 +14,8 @@ import {
     AddressEditModal,
     RegistrationStep,
     SearchGoodsModals,
-    NewPhoneNumber
-} from "../../modals";
+    MessagesModals,
+    NewPhoneNumber} from "../../modals";
 import { HttpClientModule } from "@angular/common/http"
 import { ProfileService } from "./profile/profile.service";
 import { PaymentService } from "./payment/payment.service";
@@ -25,10 +25,10 @@ import { MenuService } from "../../services/menu.service";
 
 @NgModule({
 
-    declarations: [MainComponent, FooterComponent, VerificationModal, LoginModal, PhoneNumberModal, SignUpModal, NewPasswordModals, UserUpdateModal, AddressEditModal, RegistrationStep, SearchGoodsModals, NewPhoneNumber],
+    declarations: [MainComponent, FooterComponent, VerificationModal, LoginModal, PhoneNumberModal, SignUpModal, NewPasswordModals, UserUpdateModal, AddressEditModal, RegistrationStep, SearchGoodsModals, NewPhoneNumber,MessagesModals],
     imports: [MainRoutingModule, SharedModule, HttpClientModule],
     providers: [MenuItemsService, ProfileService, PaymentService, AuthGuard, MenuService],
-    entryComponents: [VerificationModal, LoginModal, PhoneNumberModal, SignUpModal, NewPasswordModals, UserUpdateModal, AddressEditModal, RegistrationStep, SearchGoodsModals, NewPhoneNumber],
+    entryComponents: [VerificationModal, LoginModal, PhoneNumberModal, SignUpModal, NewPasswordModals, UserUpdateModal, AddressEditModal, RegistrationStep, SearchGoodsModals, NewPhoneNumber,MessagesModals],
     exports: [],
 })
 

@@ -49,7 +49,11 @@ export class PaymentTabComponent implements OnInit {
             }
         });
         dialogRef.afterClosed().subscribe((data)=>{
-         this._signUpService.getUserInfo().subscribe();
+         this._signUpService.getUserInfo().subscribe((data)=>{
+             this.userData=data.data;
+             console.log(data);
+             
+         });
         })
     }
 

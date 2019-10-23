@@ -1,42 +1,42 @@
 <div class="footer_content" full-width>
-    <div class="footer_conteiner" margin-auto display-flex>
-
+    <div class="footer_conteiner" width-75 margin-auto display-flex>
         <div class="logo_content">
-            <img class="image" src="assets/images/log.png" >
-
-            <span class="footer_text" font-weight-bold font-family-Roboto > Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-                porro iusto, sit molestias
-                voluptas
-                vero optio obcaecati, velit reiciendis expedita laboriosam, repellendus suscipit provident dolores
-                sed
-                officia vel. Quasi, autem.</span>
-
-
+            <img class="image" src="assets/images/LOGO.png" full-width>
+            <div class="text_description">
+                <p class="footer_text" font-weight-bold font-family-Roboto full-width>Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit. Quisquam inventore ad obcaecati error
+                    expedita sunt corporis eius nihil aut at, assumenda explicabo. Enim veritatis iusto facilis ut vero
+                    tempora. Nobis.</p>
+            </div>
         </div>
+        <div class="footer_item" display-flex>
+            <div class="top_item" display-flex>
+                <div class="text_links">
+                    <span class="quick_links" color-white font-weight-bold font-family-Open-Sans>QUICK LINKS</span>
+                    <div class="links_item">
+                        <p class="item" *ngFor="let item of linksItem" font-family-Roboto>{{item.title}}</p>
+                    </div>
+                </div>
+                <div class="text_categoris">
+                    <span class="categoris_link" color-white font-weight-bold font-family-Open-Sans>CATEGORIES</span>
+                    <div class="links_item">
+                        <p class="item" *ngFor="let item of linksItem" font-family-Roboto>{{item.qategorisTitle}}</p>
 
-        <div class="footer_item">
-            <span color-white font-weight-bold font-family-Open-Sans>QUICK LINKS</span>
-            <span class="text_item" font-family-Roboto>Home</span>
-            <span class="text_items" font-family-Roboto>Contacts</span>
-           <span class="text_items" font-family-Roboto>Special</span>
-        </div>
-        <div class="footer_item_categories media_footer_item">
-            <span color-white font-weight-bold font-family-Open-Sans>CATEGORIES</span>
-            <span class="text_item" font-family-Roboto>Shop</span>
-            <span class="text_items" font-family-Roboto>Restrant</span>
-            <span class="text_items" font-family-Roboto>All</span>
-        </div>
-        <div class="footer_item_categories" >
-            <span color-white font-weight-bold font-family-Open-Sans>ABOUT</span>
-            <span class="text_item" font-family-Roboto><i class="material-icons" >
-                    call
-                </i>+37494565656</span>
+                    </div>
+                </div>
+            </div>
 
-            <span class="text_items" font-family-Roboto> <i class="material-icons">
-                        email
-                    </i>@Annaniksteam.com</span>
 
+            <div class="text_about">
+                <span class="about_link" color-white font-weight-bold font-family-Open-Sans>About</span>
+                <div class="links_item">
+                   
+                    <p class="item" *ngFor="let item of aboutLink" font-family-Roboto> <i class="material-icons">
+                            {{item.icon}}
+                        </i>{{item.aboutTitle}}</p>
+
+                </div>
+            </div>
         </div>
-        
     </div>
 </div>

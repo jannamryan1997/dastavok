@@ -8,17 +8,18 @@
         {
         height: 42px;
         border-radius: 4px;
-        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23); // border: solid 1px #707070;
+        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
         background-color: #ffffff;
         .user_name_input {
             width: calc(100% - 47.3px);
-            color: #707070;
-            border: 1px solid #707070;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.23);
+            background-color: white;
+            border: none;
         }
         .user_name_icons {
             width: 47.3px;
-            border: solid 1px #707070;
-            background-color: #ffffff;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.23);
+            background-color: white;
             font-size: 16px;
             color: #676767;
         }
@@ -31,15 +32,17 @@
         background-color: #ffffff;
         .password_icons {
             width: 47.3px;
-            border: solid 1px #707070;
-            background-color: #ffffff;
             font-size: 16px;
             color: #676767;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.23);
+            background-color: white;
         }
         .password_input {
             width: calc(100% - 47.3px);
             color: #707070;
-            border: solid 1px #707070;
+            border: none;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.23);
+            background-color: white;
         }
     }
     .forget_password {
@@ -58,8 +61,9 @@
         justify-content: flex-end;
     }
     .login_content {
-        height: 42px;
+        height: 90px;
         margin-top: 54px;
+        padding: 20px;
         .login {
             width: 143.8px;
             border-radius: 4px;
@@ -77,5 +81,5 @@
 }
 
 .validators {
-    border-color: #ff6f00 !important;
+    border: 1px solid #ff6f00 !important;
 }

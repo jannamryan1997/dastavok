@@ -1,15 +1,9 @@
 <div class="home_content" full-width>
     <div class="container" display-flex justify-content-space-between>
         <div class="logo">
-            <img src="assets/images/logo.png">
+            <img src="assets/images/LOGO.png">
         </div>
         <div class="choose_bar" *ngIf="chooseBarVisiblity">
-            <div class="choose_bar_container" display-flex full-height>
-                <div class="choose_bar_item" display-flex *ngFor="let item of menuItemsService.getHomeContentItems()"
-                    routerLink="{{item.routerLink}}" routerLinkActive="item_Active">
-                    <p class="item_label" margin-auto font-weight-bold font-family-Open-Sans>{{item.label}}</p>
-                </div>
-            </div>
             <div class="search-content" full-width display-flex>
                 <div class="search_wrapper" display-flex>
                     <input class="search-input" placeholder="Search Product Hear" full-width [(ngModel)]="search">

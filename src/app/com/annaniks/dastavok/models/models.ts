@@ -139,6 +139,8 @@ interface Address {
     latitude: number,
     longitude: number,
     text: string,
+    lat:number;
+    lng:number;
 }
 interface Cordinate {
     latitude: number,
@@ -320,4 +322,19 @@ interface ClientDriverOrderData {
     status: string;
     totalAmount: number;
     updatedAt: string;
+}
+
+export interface Review {
+    comment: string;
+    companyId: number;
+    count: number;
+    createdAt: string;
+    goodId: number;
+    id: number;
+    orderId: number;
+    review: number;
+    reviewDate: string;
+    reviewId: number;
+    updatedAt: string;
+    metaData: MetaData;
 }

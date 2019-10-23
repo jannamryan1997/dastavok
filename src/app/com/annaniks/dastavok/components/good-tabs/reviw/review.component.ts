@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core"
+import { Component, OnInit, Input } from "@angular/core"
+import { Review } from "../../../models/models";
 
 @Component({
     selector: "app-review",
@@ -9,43 +10,20 @@ import { Component, OnInit } from "@angular/core"
 export class ReviwComponent implements OnInit {
 
     public ratingCount: number = 4;
-    
-    public reviewItem: Array<object> = [
-        {
-            image: "assets/images/uzer.jpg", title: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Facilis, perferendis iustperspiciatis molestias, aspernatur molestiae ipsum enim quis atque officia, a nemo animi.Quam totam placeat illum! Esse, iste tempora ?",
-            data: "04/10/18"
-        },
-        {
-            image: "assets/images/uzer.jpg", title: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Facilis, perferendis iustperspiciatis molestias, aspernatur molestiae ipsum enim quis atque officia, a nemo animi.Quam totam placeat illum! Esse, iste tempora ?",
-            data: "04/10/18"
-        },
-        {
-            image: "assets/images/uzer.jpg", title: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Facilis, perferendis iustperspiciatis molestias, aspernatur molestiae ipsum enim quis atque officia, a nemo animi.Quam totam placeat illum! Esse, iste tempora ?",
-            data: "04/10/18"
-        },
-        {
-            image: "assets/images/uzer.jpg", title: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Facilis, perferendis iustperspiciatis molestias, aspernatur molestiae ipsum enim quis atque officia, a nemo animi.Quam totam placeat illum! Esse, iste tempora ?",
-            data: "04/10/18"
-        },
-        {
-            image: "assets/images/uzer.jpg", title: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Facilis, perferendis iustperspiciatis molestias, aspernatur molestiae ipsum enim quis atque officia, a nemo animi.Quam totam placeat illum! Esse, iste tempora ?",
-            data: "04/10/18"
-        },
-        {
-            image: "assets/images/uzer.jpg", title: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Facilis, perferendis iustperspiciatis molestias, aspernatur molestiae ipsum enim quis atque officia, a nemo animi.Quam totam placeat illum! Esse, iste tempora ?",
-            data: "04/10/18"
-        },
-        {
-            image: "assets/images/uzer.jpg", title: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Facilis, perferendis iustperspiciatis molestias, aspernatur molestiae ipsum enim quis atque officia, a nemo animi.Quam totam placeat illum! Esse, iste tempora ?",
-            data: "04/10/18"
-        },
-        {
-            image: "assets/images/uzer.jpg", title: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Facilis, perferendis iustperspiciatis molestias, aspernatur molestiae ipsum enim quis atque officia, a nemo animi.Quam totam placeat illum! Esse, iste tempora ?",
-            data: "04/10/18"
-        },
-    ]
+    public count: number;
+    public page: number = 1;
+    public pageLength: number = 10;
+    public reviewImage: string = "assets/images/uzer.jpg";
+    @Input() reviewData: Review;
+    @Input() reviewDataTime: string;
     constructor() { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        console.log(this.reviewData);
+        console.log(this.reviewDataTime);
+
+
+
+    }
 
 }

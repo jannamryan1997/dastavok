@@ -4,6 +4,7 @@ import { MatDialog } from "@angular/material"
 import { ProfileService } from "./profile.service";
 import { ServerResponse, User, OrderHistory } from "../../../models/models";
 import { NewPhoneNumber } from "../../../modals";
+import { SignUpService } from "../../../services/signUp.service";
 
 
 @Component({
@@ -26,7 +27,7 @@ export class ProfileView implements OnInit {
      public clientId:number;
 
 
-    constructor(private dialog: MatDialog, private _profileService: ProfileService) { }
+    constructor(private dialog: MatDialog, private _profileService: ProfileService,private _signUpService:SignUpService) { }
 
     ngOnInit() {
         this._clientGet();
@@ -60,12 +61,12 @@ export class ProfileView implements OnInit {
 
 
     private _clientGet() {
-        this._profileService.getClient()
+        this._signUpService.getUserInfo()
             .subscribe((data: ServerResponse<User>) => {
                 this.clientData = data.data;
                 this.clientId=data.data.id;
                 if (data.data.image !== null) {
-                    this.clientImage = "http://192.168.0.110:3000/client/image/" + data.data.image;
+                    this.clientImage = data.data.image;
                 }
 
                 console.log(data);

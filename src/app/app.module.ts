@@ -37,3 +37,4 @@ import { SignUpService } from './com/annaniks/dastavok/services/signUp.service';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

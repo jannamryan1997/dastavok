@@ -31,30 +31,36 @@
         height: 42px;
         border-radius: 4px;
         box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-        border: 1px solid rgba(0, 0, 0, 0.23);
         margin-top: 12.7px;
         .icon_content {
             width: 47px;
             height: 42px;
-            border: 1px solid rgba(0, 0, 0, 0.23);
+            border-radius: 4px;
+            box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+        
         }
         .input_content {
-            width: calc(100% - 42px)
+            width: calc(100% - 42px);
+            border-radius: 4px;
+            box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
         }
     }
     .form_group {
         height: 42px;
         border-radius: 4px;
         box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-        border: 1px solid rgba(0, 0, 0, 0.23);
+   
         margin-top: 20.7px;
         .icon_content {
             width: 47px;
             height: 42px;
-            border: 1px solid rgba(0, 0, 0, 0.23);
+            border-radius: 4px;
+        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
         }
         .input_content {
-            width: calc(100% - 42px)
+            width: calc(100% - 42px);
+            border-radius: 4px;
+            box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
         }
     }
     .button_item {
@@ -106,5 +112,5 @@
 }
 
 .validators {
-    border-color: #ff6f00 !important;
+    border: 1px solid #ff6f00 !important;
 }

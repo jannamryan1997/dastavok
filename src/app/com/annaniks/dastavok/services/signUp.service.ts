@@ -33,6 +33,7 @@ export class SignUpService {
             .pipe(
                 map((data: ServerResponse<LoginResponse>) => {
                     this.userInfo = data.data.data;
+                    this._setImage(data.data);
                     this.isAuthorized = true;
                     return data;
                 })
@@ -54,6 +55,8 @@ export class SignUpService {
     public getUserInfo() {
         return this._httpClient.get(this.baseURL + "client").pipe(
             map((data: ServerResponse<User>) => {
+                console.log(data);
+
                 this.userInfo = data.data;
                 if (data.data.image !== null) {
                     data.data.image = "http://192.168.0.113:3000/client/image/" + data.data.image;
@@ -64,6 +67,8 @@ export class SignUpService {
                 }
                 this.userImage = data.data.image;
 
+                this._setImage(data);
+                return data;
 
             })
         )
@@ -71,6 +76,17 @@ export class SignUpService {
     public getUserImage(imageName: string) {
         let token = this._cookieService.get("token");
         return this._httpClient.get(this.baseURL + "client/image/" + imageName)
+    }
+
+    private _setImage(data): void {
+        if (data.data.image !== null) {
+            data.data.image = "http://192.168.0.113:3000/client/image/" + data.data.image;
+
+        }
+        else {
+            data.data.image = "/assets/images/userimages.png";
+        }
+        this.userImage = data.data.image;
     }
 
 

@@ -18,10 +18,10 @@ export class ToolbarComponent implements OnInit {
     public showUserProfileDisplay: boolean = false;
     public showLenguage: boolean = false;
     public languageItem: Array<any> = [
-        { name: 'English', image: 'assets/images/english.png' },
-        { name: 'Русский', image: 'assets/images/russion.jpg' }
+        { name: 'English', image: 'assets/images/english.svg' },
+        { name: 'Русский', image: 'assets/images/russian.jpg' }
     ]
- 
+
 
     constructor(private dialog: MatDialog, public signUpService: SignUpService, private _cookieService: CookieService, private _menuService: MenuService) { }
 
@@ -75,11 +75,11 @@ export class ToolbarComponent implements OnInit {
     }
 
     public showLanguage() {
-    //     setTimeout(() => {
-    //         this.showLenguage = !this.showLenguage;
-    //     }, 1)
-    this.showLenguage = !this.showLenguage;
-     }
+        //     setTimeout(() => {
+        //         this.showLenguage = !this.showLenguage;
+        //     }, 1)
+        this.showLenguage = !this.showLenguage;
+    }
 
     public onClickedOutsideLenguage(e: Event) {
         this.showLenguage = false;

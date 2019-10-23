@@ -6,7 +6,7 @@
         </div>
     </div>
     <div width-75 display-flex  margin-auto>
-        <input type="file" margin-auto (change)="setServicePhoto($event)">
+        <input type="file" border-none margin-auto (change)="setServicePhoto($event)">
     </div>
   
     <div class="input_items" width-75 margin-auto>
@@ -18,7 +18,7 @@
                     </i>
 
                 </div>
-                <input class="input_content" placeholder="fullName" full-height formControlName="full_name">
+                <input class="input_content" placeholder="fullName"  border-none full-height formControlName="full_name">
             </div>
             <div class="form_group" full-width display-flex [ngClass]="{'validators':userUpdateGroup.get('location').hasError('required') && userUpdateGroup.get('location').touched}">
                 <div class="icon_content" display-flex [ngClass]="{'validators':userUpdateGroup.get('location').hasError('required') && userUpdateGroup.get('location').touched}">
@@ -27,17 +27,8 @@
                     </i>
 
                 </div>
-                <input class="input_content" placeholder="location" full-height formControlName="location">
+                <input class="input_content" placeholder="location" border-none full-height formControlName="location">
             </div>
-            <!-- <div class="form_group" full-width display-flex>
-                <div class="icon_content" display-flex>
-                    <i class="material-icons" margin-auto>
-                        call
-                    </i>
-
-                </div>
-                <input class="input_content" placeholder="Phone Number" full-height formControlName="phone_number">
-            </div> -->
             <div position-relative>
                     <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading>
                 </div>
