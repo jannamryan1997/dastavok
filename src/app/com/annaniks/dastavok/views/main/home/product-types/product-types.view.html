@@ -1,31 +1,28 @@
-<div class="restaurant_content" margin-control>
-    <!-- <div class="path_content" display-flex align-items-center>
-        <span class="text_content" routerLink="/home/information">Home
-            <i class="material-icons">
-                navigate_next
-            </i>
-        </span>
-        <span class="text_content" routerLink="/home/restaurant">Restaurant
-            <i class="material-icons">
-                navigate_next
-            </i>
-        </span>
 
-    </div>
-    <div class="restaurant_wraper" position-relative [ngStyle]="{'background-image':'url('+localImage+')'}">
-        <div class="text_wraper" position-absolute>
-            <p class="text_item_one" color-white font-weight-bold font-family-Open-Sans>{{restaurant?.name}}</p>
-            <span class="text_item_two" font-family-Roboto>{{restaurant?.description}}</span>
+<div full-width>
+    <app-slider [sliderMode]="1"></app-slider>
+    <div display-flex flex-wrap-wrap>
+        <app-menu></app-menu>
+        <div class="container">
+            <div class="line_content" full-width display-flex>
+                <div class="text_content">
+                    <span class="text" color-black font-weight-bold font-family-Open-Sans>SALE</span>
+                </div>
+                <div class="line"></div>
+            </div>
+            <app-slider [sliderMode]="2"></app-slider>
+            <div class="under_line"></div>
+            <div  class="load" position-relative *ngIf="loading">
+                <p-progressBar class="loading" mode="indeterminate" [style]="{'height': '8px'}" ></p-progressBar>
+
+            </div>
+            <app-goodType-list>
+                <app-goodType-list-item *ngFor="let item of goodTypes" [goodTypeInfo]="item" (click)="onClickItem(item)"></app-goodType-list-item>
+            </app-goodType-list>
+            <app-paginator [count]="count" [pageLength]="pageLength" (paginate)="paginate($event)"></app-paginator>
+            
         </div>
-
-    </div>
-    <div position-relative>
-            <app-loading class="loading" [loading]="loading" [height]="150" [width]="150"></app-loading>
-        </div> -->
-    <div class="container">
-        <app-goodType-list>
-            <app-goodType-list-item *ngFor="let item of goodTypes" [goodTypeInfo]="item" (click)="onClickItem(item)"></app-goodType-list-item>
-        </app-goodType-list>
+       
     </div>
 
 </div>
