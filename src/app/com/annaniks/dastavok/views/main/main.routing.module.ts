@@ -5,11 +5,10 @@ import { AuthGuard } from "../../guards/authguard.service";
 const router: Routes = [
     {
         path: "", component: MainComponent, children: [
-            { path: "", redirectTo: "home", pathMatch: "full" },
-            { path: "home", loadChildren: "src/app/com/annaniks/dastavok/views/main/home/home.module#HomeModule" },
-            { path: "contact", loadChildren: "src/app/com/annaniks/dastavok/views/main/contact/contact.module#ContactModule" },
-            { path: "profile", loadChildren: "src/app/com/annaniks/dastavok/views/main/profile/profile.module#ProfileModule",canActivate:[AuthGuard] },
-            { path: "payment", loadChildren: "src/app/com/annaniks/dastavok/views/main/payment/payment.module#PaymentModule",canActivate:[AuthGuard] }
+            { path: "", loadChildren: "./home/home.module#HomeModule", pathMatch: "full" },
+            { path: "contact", loadChildren: "./contact/contact.module#ContactModule" },
+            { path: "profile", loadChildren: "./profile/profile.module#ProfileModule", canActivate: [AuthGuard] },
+            { path: "payment", loadChildren: "./payment/payment.module#PaymentModule", canActivate: [AuthGuard] }
 
         ]
     }

@@ -22,9 +22,13 @@ import { SignUpService } from './com/annaniks/dastavok/services/signUp.service';
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  providers: [{
-    provide: 'BASE_URL', useValue: 'http://192.168.0.127:3000/'
-  },
+  providers: [
+    {
+      provide: 'BASE_URL', useValue: 'http://192.168.0.127:3000/'
+    },
+    {
+      provide: 'COMPANY_ID', useValue: '23'
+    },
     CheckToken,
     ApiService,
     CookieService,

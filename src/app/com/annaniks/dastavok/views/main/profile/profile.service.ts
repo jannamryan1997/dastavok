@@ -11,98 +11,43 @@ export class ProfileService {
 
 
     public getClient() {
-        let token = this._cookieService.get('token');
-        let headers = new HttpHeaders({
-            'Content-type': 'application/json',
-            'token': token
-        })
-        return this._httpClient.get(this.baseURL + "client", { headers })
+        return this._httpClient.get("client")
     }
 
     public putClient(body) {
-        let token = this._cookieService.get('token');
-        let headers = new HttpHeaders({
-            'Content-type': 'application/json',
-            'token': token
-        })
-        console.log(token);
-
-        return this._httpClient.put(this.baseURL + "client", body, { headers })
+        return this._httpClient.put("client", body)
     }
 
     public clientOrderProcessing() {
-        let token = this._cookieService.get('token');
-        let headers = new HttpHeaders({
-            'Content-type': 'application/json',
-            'token': token
-        })
-        return this._httpClient.get(this.baseURL + "client/orders/processing", { headers })
+        return this._httpClient.get("client/orders/processing")
     }
 
     public clientOrderDriver() {
-        let token = this._cookieService.get('token');
-        let headers = new HttpHeaders({
-            'Content-type': 'application/json',
-            'token': token
-        })
-        return this._httpClient.get(this.baseURL + "client/driver/orders", { headers })
+        return this._httpClient.get("client/driver/orders")
     }
 
     public getNatifocation(page: number, limit: number) {
-        let token = this._cookieService.get('token');
-        let headers = new HttpHeaders({
-            'Content-type': 'application/json',
-            'token': token
-        })
-        return this._httpClient.get(this.baseURL + "client/notifications?page=" + page + "&limit=" + limit, { headers })
+        return this._httpClient.get("client/notifications?page=" + page + "&limit=" + limit)
     }
 
     public updateClient(body) {
-        let token = this._cookieService.get('token');
-        let headers = new HttpHeaders({
-            'Content-type': 'application/json',
-            'token': token
-        })
-        return this._httpClient.put(this.baseURL + "client", body, { headers })
+        return this._httpClient.put("client", body)
     }
 
     public updateClientImage(formData) {
-        let token = this._cookieService.get('token');
-
-        let headers = new HttpHeaders({
-            'token': token
-        })
-        return this._httpClient.put(this.baseURL + "client/image", formData, { headers })
+        return this._httpClient.put("client/image", formData)
     }
 
     public putClientNewPhoneNumberStepOne(body) {
-        let token = this._cookieService.get('token');
-        let headers = new HttpHeaders({
-            'Content-type': 'application/json',
-            'token': token
-        })
-
-        return this._httpClient.put(this.baseURL + "client/phone/stepone",body, { headers })
+        return this._httpClient.put("client/phone/stepone", body)
     }
 
-    public putClientNewPhoneNumberStepTwo(body){
-        let token = this._cookieService.get('token');
-        let phoneNumberToken=this._cookieService.get('newPhoneNumberToken')
-        let headers = new HttpHeaders({
-            'Content-type': 'application/json',
-            'token': token,
-            'temporary-token':phoneNumberToken,
-        })
-        return this._httpClient.put(this.baseURL+"client/phone/steptwo",body,{headers})
+    public putClientNewPhoneNumberStepTwo(body) {
+        return this._httpClient.put(this.baseURL + "client/phone/steptwo", body)
     }
 
-    public getOrderData(id){
-        let token = this._cookieService.get('token');
-        let headers = new HttpHeaders({
-            'Content-type': 'application/json',
-            'token': token,
-        })
-        return this._httpClient.get(this.baseURL+"client/driver/"+id,{headers})
+    public getOrderData(id) {
+        return this._httpClient.get(this.baseURL + "client/driver/" + id)
     }
 }
 

@@ -20,22 +20,12 @@ export class SignUpService {
     }
 
     public clientVerification(body) {
-        let token = this._cookieService.get("phone_token");
-        let headers = new HttpHeaders({
-            'Content-type': 'application/json',
-            'token': token
-        })
-        return this._httpClient.post(this.baseURL + "freeclient/phone/verify", body, { headers })
+        return this._httpClient.post(this.baseURL + "freeclient/phone/verify", body)
 
     }
 
     public signUpClient(body) {
-        let token = this._cookieService.get("verificationtoken");
-        let headers = new HttpHeaders({
-            'Content-type': 'application/json',
-            'token': token
-        })
-        return this._httpClient.post(this.baseURL + "client", body, { headers })
+        return this._httpClient.post(this.baseURL + "client", body)
     }
 
     public loginClient(body) {
@@ -55,34 +45,28 @@ export class SignUpService {
     }
 
     public forgetPasswordVerification(body) {
-        let token = this._cookieService.get('forgot_token')
-        let headers = new HttpHeaders({
-            'Content-type': 'application/json',
-            'token': token
-        })
-        return this._httpClient.post(this.baseURL + "freeclient/forget/steptwo", body, { headers })
+        return this._httpClient.post(this.baseURL + "freeclient/forget/steptwo", body)
     }
 
     public newPassword(body) {
-        let token = this._cookieService.get('verification_token')
-        let headers = new HttpHeaders({
-            'Content-type': 'application/json',
-            'token': token
-        })
-        return this._httpClient.put(this.baseURL + "freeclient/forget/stepthree", body, { headers })
+        return this._httpClient.put(this.baseURL + "freeclient/forget/stepthree", body)
     }
 
     public getUserInfo() {
-        let token = this._cookieService.get("token");
-        let headers = new HttpHeaders({
-            'Content-type': 'application/json',
-            'token': token
-        })
-        return this._httpClient.get(this.baseURL + "client", { headers }).pipe(
+        return this._httpClient.get(this.baseURL + "client").pipe(
             map((data: ServerResponse<User>) => {
                 console.log(data);
 
                 this.userInfo = data.data;
+                if (data.data.image !== null) {
+                    data.data.image = "http://192.168.0.113:3000/client/image/" + data.data.image;
+
+                }
+                else {
+                    data.data.image = "/assets/images/userimages.png";
+                }
+                this.userImage = data.data.image;
+
                 this._setImage(data);
                 return data;
 
@@ -91,10 +75,6 @@ export class SignUpService {
     }
     public getUserImage(imageName: string) {
         let token = this._cookieService.get("token");
-        let headers = new HttpHeaders({
-            'Content-type': 'application/json',
-            'token': token
-        })
         return this._httpClient.get(this.baseURL + "client/image/" + imageName)
     }
 
