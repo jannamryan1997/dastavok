@@ -11,7 +11,7 @@ import {
     GoodsListItemComponent, 
     LeftMenuComponent, 
     ErrorComponent,
-    SliderComponent
+    SliderComponent,
 } from "../components";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router"
@@ -46,7 +46,6 @@ export function createTranslateLoader(http: HttpClient) {
         LeftMenuComponent,
         ErrorComponent,
         SliderComponent,
-     
      
     ],
     imports: [
@@ -84,7 +83,7 @@ export function createTranslateLoader(http: HttpClient) {
         GoodsListItemComponent,
         ErrorComponent,
         SliderComponent,
-        TranslateModule
+        TranslateModule,
     ],
     providers: [MessageService]
 })

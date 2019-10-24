@@ -4,6 +4,7 @@ import { MainComponent } from "./main.view";
 import { SharedModule } from "../../shared/shared.module";
 import { MenuItemsService } from "../../services";
 import { FooterComponent } from "../../components/footer/footer.component";
+
 import {
     LoginModal,
     VerificationModal,

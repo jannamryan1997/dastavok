@@ -9,5 +9,21 @@
     "phone_number":"Номер телефона",
     "messages":"Сообщения",
     "login":"Вход",
-    "registration":"Регистрация"
+    "registration":"Регистрация",
+    "forgot_password":"забыл пароль",
+    "password":"пароль",
+    "user_name":"Имя пользователя",
+    "phonenumber":"Номер телефона",
+    "back":"назад",
+    "next":"следующий",
+    "new_password":"новый пароль",
+    "QUICK_LINKS":"БЫСТРЫЕ ССЫЛКИ",
+    "home":"Главная",
+    "contact":"Контакт",
+    "special":"Special",
+    "CATEGORIES":"КАТЕГОРИЯ",
+    "shop":"Магазин",
+    "restaurant":"Ресторан",
+    "all":"Все",
+    "about":"Около"
 }

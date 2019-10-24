@@ -64,10 +64,10 @@ export class PhoneNumberModal implements OnInit {
                     this.openVerificationModal('registration');
                 },
                 err => {
-                    this.error=err.error.error;
+                    this.error = err.error.error;
                     this.loading = false;
                     this.phoneNumberForm.enable();
-                    this.error=err.error.error;
+                    this.error = err.error.error;
                 })
 
             if (this.data.key === 'forgot_password') {
@@ -80,15 +80,19 @@ export class PhoneNumberModal implements OnInit {
                     this.phoneNumberForm.enable();
                 },
                     err => {
-            
-                        this.error=err.error.error;
+
+                        this.error = err.error.error;
                         this.loading = false;
                         this.phoneNumberForm.enable();
-                        
+
                     })
             }
         }
 
+    }
+
+    public checkIsValid(controlName): boolean {
+        return this.phoneNumberForm.get(controlName).hasError('required') && this.phoneNumberForm.get(controlName).touched;
     }
 }
 

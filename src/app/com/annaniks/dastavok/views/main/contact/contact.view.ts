@@ -30,12 +30,26 @@ export class ContactView implements OnInit {
 
     private _formBuilder() {
         this.userForm = this._fb.group({
-            firstName: ["", Validators.required],
-            lastName: ["", Validators.required],
-            email: ["", [Validators.required,Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]],
-            phoneNumber: ["", Validators.required],
-            messages: ["", Validators.required]
+            firstName: ["janna", Validators.required],
+            lastName: ["mryan", Validators.required],
+            email: ["jannamryan@mail.ru", [Validators.required,Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]],
+            phoneNumber: ["+37494598259", Validators.required],
+            messages: ["barev", Validators.required]
         })
+    }
+
+    public contact():void{
+        this._contactService.contact({
+            firstName:this.userForm.value.firstName,
+            lastName :this.userForm.value.lastName,
+            email :this.userForm.value.email,
+            phoneNumber :this.userForm.value.phoneNumber,
+            message:this.userForm.value.messages
+        }).subscribe((data)=>{
+            console.log(data);
+            
+        })
+        
     }
 
 

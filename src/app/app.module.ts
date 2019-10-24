@@ -10,7 +10,6 @@ import { SignUpService } from './com/annaniks/dastavok/services/signUp.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -35,7 +34,7 @@ export function createTranslateLoader(http: HttpClient) {
   ],
   providers: [
     {
-      provide: 'BASE_URL', useValue: 'http://192.168.0.127:3000/'
+      provide: 'BASE_URL', useValue: 'http://192.168.0.137:13000/'
     },
     {
       provide: 'COMPANY_ID', useValue: '23'
@@ -49,3 +48,4 @@ export function createTranslateLoader(http: HttpClient) {
 })
 export class AppModule { }
 
+////http://annaniks.com:16004/
