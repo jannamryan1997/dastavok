@@ -4,13 +4,13 @@ import { InformationRoutingModule } from "./information.routing.module";
 // import { SliderComponent, CompanyListComponent, CompanyListItemComponent} from "../../../../components";
 // import { NgxCarouselModule } from 'ngx-carousel';
 // import { CommonModule } from "@angular/common"
-// import { SharedModule } from "../../../../shared/shared.module";
-// import { InformationService } from "./information.service";
+import { SharedModule } from "../../../../shared/shared.module";
+import { InformationService } from "./information.service";
 // import {ProgressBarModule} from 'primeng/progressbar';
 @NgModule({
     declarations: [InformationView],
-    imports: [InformationRoutingModule],
-    providers:[],
+    imports: [InformationRoutingModule,SharedModule],
+    providers:[InformationService],
     exports: [],
 })
 

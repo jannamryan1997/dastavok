@@ -1,33 +1,43 @@
+@import "../../../../../../assets/scss/mixin.scss";
+
+
 .toolbar_content {
     .toolbar_container {
         height: 66px;
         max-width: 1220px;
+
         .left_content {
             display: none;
             justify-content: space-between;
             align-items: center;
             margin: 0 16px;
+
             .menu_button {
                 height: 100%;
                 display: flex;
+
                 .menu_icon {
                     font-size: 30px;
                     cursor: pointer;
                 }
             }
+
             .search_button {
                 .search_icon {
                     font-size: 26px;
                 }
             }
         }
+
         .login_content {
             .login_signin {
                 cursor: pointer;
+
                 i {
                     color: #87bd3c
                 }
             }
+
             .login {
                 width: 202px;
                 height: 250px;
@@ -36,32 +46,22 @@
                 z-index: 1;
                 top: 66px;
                 right: 0;
+
                 .buttons_items {
+                    display: flex;
+                    flex-direction: column;
+
                     .login_button {
-                        font-size: 12px;
-                        width: 143.8px;
-                        height: 42px;
-                        border-radius: 4px;
-                        background-color: #87bd3c;
-                        text-decoration: none;
-                        display: inline-block;
-                        border: none;
-                        cursor: pointer;
+                        @include button(#87bd3c,20px 40px,#ffffff);
                     }
+
                     .registration_button {
+                        @include button(#ff6f00,20px 40px,#ffffff);
                         margin-top: 42px;
-                        font-size: 12px;
-                        width: 143.8px;
-                        height: 42px;
-                        border-radius: 4px;
-                        background-color: #ff6f00;
-                        text-decoration: none;
-                        display: inline-block;
-                        border: none;
-                        cursor: pointer;
                     }
                 }
             }
+
             .user_data {
                 .user_image {
                     width: 36px;
@@ -71,6 +71,7 @@
                     background-repeat: no-repeat;
                     border-radius: 50%;
                 }
+
                 .user_name {
                     font-size: 15px;
                     font-style: normal;
@@ -81,44 +82,33 @@
                     color: #191919;
                     margin-left: 8px;
                 }
+
                 i {
                     cursor: pointer;
                 }
+
                 .user_profile {
                     background: white;
                     z-index: 1;
                     top: 66px;
                     right: 0;
+
                     .user_singIn {
                         margin-left: 16px;
+
                         .user_text {
-                            font-size: 20px;
-                            font-style: normal;
-                            font-stretch: normal;
-                            line-height: 1.2;
-                            letter-spacing: normal;
-                            text-align: left;
-                            color: #191919;
-                            margin-top: 13px;
-                            display: block;
+                          @include text(20px, #191919);
                         }
+
                         .line_content {
                             width: 169px;
                             height: 0;
                             border: solid 1px #707070;
                             margin-top: 232px;
                         }
+
                         .text_signup {
-                            margin-top: 12px;
-                            font-size: 20px;
-                            font-style: normal;
-                            font-stretch: normal;
-                            line-height: 1.2;
-                            letter-spacing: normal;
-                            text-align: left;
-                            color: #191919;
-                            margin-top: 13px;
-                            display: block;
+                          @include text(20px, #191919);
                         }
                     }
                 }
@@ -157,6 +147,7 @@
         display: none;
         z-index: -1;
     }
+
     .left_content {
         width: 100%;
         display: flex !important;

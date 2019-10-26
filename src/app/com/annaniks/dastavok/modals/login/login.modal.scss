@@ -1,85 +1,31 @@
-.topbar_wrapper {
-    .top_content {
-        //height: 115px;
-        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-        background-color: #ffffff;
-    }
-    .user_name,
-        {
-        height: 42px;
-        border-radius: 4px;
-        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-        background-color: #ffffff;
-        .user_name_input {
-            width: calc(100% - 47.3px);
-            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.23);
-            background-color: white;
-            border: none;
-        }
-        .user_name_icons {
-            width: 47.3px;
-            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.23);
-            background-color: white;
-            font-size: 16px;
-            color: #676767;
+
+@import "../../../../../../assets/scss/mixin.scss";
+@import "../../../../../../assets/scss/global.scss";
+
+.form_conteiner {
+    margin: 50px auto;
+
+
+    .forget_password{
+      
+        .lable{
+            @include lable();
+            cursor: pointer; 
+            color: #ff6f00;
+            justify-content: flex-end;
         }
     }
-    .password {
-        margin-top: 28px;
-        height: 42px;
-        border-radius: 4px;
-        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23); //  border: solid 1px #707070;
-        background-color: #ffffff;
-        .password_icons {
-            width: 47.3px;
-            font-size: 16px;
-            color: #676767;
-            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.23);
-            background-color: white;
-        }
-        .password_input {
-            width: calc(100% - 47.3px);
-            color: #707070;
-            border: none;
-            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.23);
-            background-color: white;
-        }
-    }
-    .forget_password {
-        margin-top: 12px;
-        height: 14px;
-        font-family: BasicSansSF;
-        font-size: 12px;
-        font-weight: normal;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.17;
-        letter-spacing: normal;
-        text-align: left;
-        color: #ff6f00;
-        cursor: pointer;
-        justify-content: flex-end;
-    }
-    .login_content {
-        height: 90px;
-        margin-top: 54px;
-        padding: 20px;
-        .login {
-            width: 143.8px;
-            border-radius: 4px;
-            box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-            background-color: #87bd3c;
-            cursor: pointer;
-            border: none;
-            display: inline-block;
-            text-decoration: none;
-        }
-    }
-    .opacity {
-        opacity: 0.5;
+    .button{
+        @include button(#87bd3c,20px 50px,#ffffff);
     }
 }
 
-.validators {
-    border: 1px solid #ff6f00 !important;
+.border{
+border: 1px solid red !important;
+}
+.color{
+    color: red !important;
+}
+.opacity{
+opacity: 0.5;
 }

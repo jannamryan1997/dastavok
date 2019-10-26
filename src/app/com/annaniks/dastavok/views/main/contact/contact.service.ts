@@ -18,5 +18,9 @@ export class ContactService {
         return this._httpClient.get("client/driver/2")
     }
 
+    public contact(body: object) {
+        return this._httpClient.post(this.BASEURL+'freeclient/contact', body);
+    }
+
 
 }

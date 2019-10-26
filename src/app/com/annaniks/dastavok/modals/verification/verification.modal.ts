@@ -134,6 +134,7 @@ export class VerificationModal implements OnInit {
         if (this.data.key == "new-phone-number") {
             this._putClientNewPhoneNumberStepTwo();
         }
+
     }
 
 
@@ -163,6 +164,11 @@ export class VerificationModal implements OnInit {
 
     public closeVerification() {
         this.dialoRef.close()
+    }
+
+
+    public checkIsValid(controlName:string):boolean{
+        return this.verificationForm.get(controlName).hasError('required') && this.verificationForm.get(controlName).touched;
     }
 }
 

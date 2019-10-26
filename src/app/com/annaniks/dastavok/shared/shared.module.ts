@@ -11,7 +11,7 @@ import {
     GoodsListItemComponent, 
     LeftMenuComponent, 
     ErrorComponent,
-    SliderComponent
+    SliderComponent,
 } from "../components";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router"
@@ -22,6 +22,15 @@ import { ClickOutsideModule } from 'ng-click-outside';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { MessageService } from 'primeng/components/common/messageservice';
 import { NgxCarouselModule } from "ngx-carousel";
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
+
 @NgModule({
     entryComponents: [],
     declarations: [
@@ -36,7 +45,8 @@ import { NgxCarouselModule } from "ngx-carousel";
         GoodsListItemComponent,
         LeftMenuComponent,
         ErrorComponent,
-        SliderComponent
+        SliderComponent,
+     
     ],
     imports: [
         CommonModule,
@@ -46,7 +56,15 @@ import { NgxCarouselModule } from "ngx-carousel";
         ReactiveFormsModule,
         ClickOutsideModule,
         ProgressSpinnerModule,
-        NgxCarouselModule
+        NgxCarouselModule,
+        HttpClientModule,
+        TranslateModule.forChild({
+          loader: {
+            provide: TranslateLoader,
+            useFactory: createTranslateLoader,
+            deps: [HttpClient]
+          }
+        })
     ],
     exports: [
         LeftMenuComponent,
@@ -64,7 +82,8 @@ import { NgxCarouselModule } from "ngx-carousel";
         GoodsListComponent,
         GoodsListItemComponent,
         ErrorComponent,
-        SliderComponent
+        SliderComponent,
+        TranslateModule,
     ],
     providers: [MessageService]
 })
