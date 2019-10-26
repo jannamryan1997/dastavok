@@ -1,36 +1,32 @@
-
 <form [formGroup]="loginForm">
     <div class="container">
         <div class="form_conteiner" full-width>
             <div class="form" full-width>
-                <label class="lable" [ngClass]="{'color':checkIsValid('userName')}">{{'user_name' | translate}}</label>
+                <label class="label" [ngClass]="{'color':checkIsValid('userName')}">{{'user_name' | translate}}</label>
                 <div class="form_content" full-height display-flex>
                     <i class="material-icons" margin-auto>
                         person
                     </i>
-                    <input class="input" placeholder="{{'userName' | translate}}" formControlName="userName"
-                        [ngClass]="{'border':checkIsValid('userName')}">
+                    <input class="input" placeholder="{{'userName' | translate}}" formControlName="userName" [ngClass]="{'border':checkIsValid('userName')}">
                 </div>
             </div>
             <div class="form" full-width>
-                <label class="lable" [ngClass]="{'color':checkIsValid('password')}">{{'password' | translate}}</label>
+                <label class="label" [ngClass]="{'color':checkIsValid('password')}">{{'password' | translate}}</label>
                 <div class="form_content" full-height display-flex>
                     <i class="material-icons" margin-auto>
                         vpn_key
                     </i>
-                    <input class="input" placeholder="{{'password' | translate}}" formControlName="password"
-                        [ngClass]="{'border':checkIsValid('password')}">
+                    <input class="input" placeholder="{{'password' | translate}}" formControlName="password" [ngClass]="{'border':checkIsValid('password')}">
                 </div>
 
             </div>
             <div class="forget_password" full-width display-flex (click)="onClickForgotPassword()">
-                <p class="lable" display-flex>{{'forgot_password' | translate}}</p>
+                <p class="label" display-flex>{{'forgot_password' | translate}}</p>
             </div>
             <div position-relative>
-                    <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading>
-                </div>
-            <button class="button" display-flex margin-auto [disabled]="loginForm.invalid || loading" [ngClass]="{'opacity':loginForm.invalid || loading}"
-                (click)="loginClient()">
+                <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading>
+            </div>
+            <button class="button" display-flex margin-auto [disabled]="loginForm.invalid || loading" [ngClass]="{'opacity':loginForm.invalid || loading}" (click)="loginClient()">
                 <span margin-auto>{{'login' | translate}}</span>
             </button>
         </div>

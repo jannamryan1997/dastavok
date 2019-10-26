@@ -1,4 +1,4 @@
-@mixin lable {
+@mixin label {
     color: #aeaeae;
     word-break: break-all;
     width: 100%;
@@ -8,7 +8,7 @@
     font-family: 'Open Sans';
 }
 
-@mixin text ($color,$fontSize) {
+@mixin text ($color, $fontSize) {
     font-size: $fontSize;
     font-style: none;
     font-stretch: normal;
@@ -20,10 +20,10 @@
     display: block;
     word-break: break-all;
     text-decoration: none;
-} 
+}
 
-@mixin button($backgroundColor, $padding,$color) {
-    color:$color;
+@mixin button($backgroundColor, $padding, $color) {
+    color: $color;
     text-align: center;
     font-weight: bold;
     border-radius: 4px;
@@ -33,5 +33,4 @@
     border: none;
     text-decoration: none;
     padding: $padding;
-
 }
