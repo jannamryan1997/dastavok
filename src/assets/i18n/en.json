@@ -5,6 +5,8 @@
     "submit": "Submit",
     "first_name": "First Name",
     "last_name": "Last Name",
+    "full_name":"Full Name",
+    "location":"location",
     "email": "Email",
     "phone_number": "Phone Number",
     "messages": "Messages",
@@ -25,7 +27,8 @@
     "shop":"Shop",
     "restaurant":"Restaurant",
     "all":"All",
-    "about":"About"
+    "about":"About",
+    "save":"Save"
 
 
 }
