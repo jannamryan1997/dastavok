@@ -1,41 +1,36 @@
 @import "../scss/mixin";
-
 .form {
     display: flex;
     flex-direction: column;
-
-    .lable {
-        padding: 15px 15px;
-        @include lable();
+    .label {
+         padding: 15px 0;
+        @include label();
     }
-
     .form_content {
         height: 42px;
         border-radius: 4px;
         box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
         background-color: #ffffff;
-
         i {
             font-size: 20px;
             color: #676767;
         }
-
         .input {
             width: calc(100% - 47.3px);
             box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.23);
             background-color: white;
             border: none;
             padding-left: 16px;
-
         }
+        
     }
-
 }
-.input::placeholder{
+
+.input::placeholder {
     color: #aeaeae;
 }
 
-.button_item{
+.button_item {
     display: flex;
     width: 60%;
     margin: 70px auto;

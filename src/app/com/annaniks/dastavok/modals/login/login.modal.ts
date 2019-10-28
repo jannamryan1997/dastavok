@@ -45,7 +45,7 @@ export class LoginModal implements OnInit {
             "password": this.loginForm.value.password,
 
         }).subscribe((data: ServerResponse<LoginResponse>) => {
-            console.log(data);
+            (data);
 
             this.loading = false;
             this._cookieService.put("refreshToken", data.data.refreshToken);
@@ -56,12 +56,9 @@ export class LoginModal implements OnInit {
 
         },
             err => {
-                console.log(err, this.error);
-
                 this.error = err.error.error;
                 this.loading = false;
                 this.loginForm.enable();
-                console.log(err.data);
             })
 
     }

@@ -29,10 +29,6 @@ export class CardListItemComponent implements OnInit {
                 this.itemImage = this.image[1];
             }
         }
-      //  console.log(this.cardGoodsInfo);
-
-
-
     }
 
     public onClickDelete(): void {
@@ -40,13 +36,9 @@ export class CardListItemComponent implements OnInit {
     }
 
     private _deleteOrder(): void {
-    //    console.log(this.cardInfoOrderGoodId);
-
         this._cardService.deleteOrderChart(this.cardInfo.orderId, this.cardInfoOrderGoodId)
             .subscribe((data) => {
                 this._deletecardGoodItems();
-                console.log(data);
-
             })
 
     }

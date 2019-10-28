@@ -28,7 +28,7 @@ export class SearchView implements OnInit {
 
     private _checkQueryParams(): void {
         this._activatedRoute.queryParams.subscribe((params) => {
-            console.log(params);
+            (params);
             this.companyItem = [];
             this._getSearchGoods(this.page, this.pageLength, params.search)
         
@@ -43,7 +43,7 @@ export class SearchView implements OnInit {
 
             })
         err => {
-            console.log(err);
+            (err);
 
         }
     }

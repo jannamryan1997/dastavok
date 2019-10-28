@@ -2,11 +2,6 @@
     margin-top: 69.4px;
     width: 100%;
     cursor: pointer;
-    .line-count {
-        height: 0;
-        border: solid 2px #c5c3c3;
-        margin-top: 50.4px;
-    }
     .meal_content {
         width: calc(100% - 52px);
         margin-top: 34.4px;
@@ -20,8 +15,7 @@
             background-image: url("/assets/images/wine.jpg");
         }
         .meal_text {
-            margin-left: 30.5;
-            margin-top: 6.1px;
+            padding:2rem;
             font-size: 22px;
             font-style: normal;
             font-stretch: normal;

@@ -14,7 +14,7 @@ export class MenuService {
         this.isOpen = true;
         this.isOpenFilter = false;
         document.getElementById('body').style.overflowY = "hidden";
-        console.log(document.getElementById('body').style);
+        (document.getElementById('body').style);
     }
 
     public closeMenu() {
@@ -39,7 +39,7 @@ export class MenuService {
         this.isOpenFilter = false;
         if (this.isOpenFilter == false) {
             document.getElementById('body').style.overflowY = "auto";
-            console.log('calledd');
+            ('calledd');
         }
     }
 }

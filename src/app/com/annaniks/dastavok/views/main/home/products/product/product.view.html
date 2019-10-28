@@ -8,7 +8,8 @@
             <div class="image_content" full-width [ngStyle]="{'background-image':'url('+activeImage+')'}"></div>
 
             <div class="images" display-flex flex-wrap-wrap>
-                <div class="image_items" *ngFor="let item of goodImage" [ngStyle]="{'background-image':'url('+'http://192.168.0.114:4000/static/company/'+item+')'}"
+                <div class="image_items" *ngFor="let item of goodImage"
+                    [ngStyle]="{'background-image':'url('+'http://192.168.0.114:4000/static/company/'+item+')'}"
                     (click)="setActiveImage(item)"></div>
             </div>
 
@@ -35,8 +36,10 @@
             </div>
             <div class="button_item" display-flex>
                 <div margin-auto display-flex>
-                    <button class="left_button" color-white font-family-Open-Sans margin-auto (click)="onClickOrder('card')"><span>CART</span></button>
-                    <button class="right_button" color-white font-family-Open-Sans margin-auto (click)="onClickBuy()"><span>BUY</span></button>
+                    <button class="left_button" color-white font-family-Open-Sans margin-auto
+                        (click)="onClickOrder('card')"><span>CART</span></button>
+                    <button class="right_button" color-white font-family-Open-Sans margin-auto
+                        (click)="onClickBuy()"><span>BUY</span></button>
                     <!-- routerLink="cart" -->
                 </div>
 
@@ -47,13 +50,13 @@
     </div>
     <div [ngSwitch]="tab">
         <div class="tab_content" display-flex justify-content-space-between>
-            <div class="tab_item" display-flex (click)="openDescription()" [ngClass]="{'active_tab':tab==1}">
+            <div class="tab_item" display-flex (click)="changeTab(1)" [ngClass]="{'active_tab':tab==1}">
                 <span margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==1}">DESCRIPTION</span>
             </div>
-            <div class="tab_item" display-flex (click)="openReview()" [ngClass]="{'active_tab':tab==2}">
+            <div class="tab_item" display-flex (click)="changeTab(2)" [ngClass]="{'active_tab':tab==2}">
                 <span margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==2}">REVIEW</span>
             </div>
-            <div class="tab_item" display-flex (click)="openIngredient()" [ngClass]="{'active_tab':tab==3}">
+            <div class="tab_item" display-flex (click)="changeTab(3)" [ngClass]="{'active_tab':tab==3}">
                 <span margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==3}">INGREDIENT</span>
             </div>
         </div>
@@ -61,8 +64,9 @@
             <app-description [descriptionData]="good?.description"></app-description>
         </div>
         <div *ngSwitchCase="2">
-                <app-revie-chart></app-revie-chart>
-            <app-review *ngFor="let item of reviewData" [reviewData]="item" [reviewDataTime]="item.reviewDate"></app-review>
+            <app-review-chart></app-review-chart>
+            <app-review *ngFor="let item of reviewData" [reviewData]="item" [reviewDataTime]="item.reviewDate">
+            </app-review>
             <app-paginator [count]="count" [pageLength]="pageLength" (paginate)="paginate($event)"></app-paginator>
         </div>
         <div *ngSwitchCase="3">

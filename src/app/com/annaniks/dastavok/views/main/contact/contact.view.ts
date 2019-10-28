@@ -23,7 +23,7 @@ export class ContactView implements OnInit {
     ngOnInit() {
         this._formBuilder();
         this._contactService.freeClient().subscribe((data) => {
-            console.log(data);
+            (data);
 
         })
     }
@@ -46,7 +46,7 @@ export class ContactView implements OnInit {
             phoneNumber :this.userForm.value.phoneNumber,
             message:this.userForm.value.messages
         }).subscribe((data)=>{
-            console.log(data);
+            (data);
             
         })
         
