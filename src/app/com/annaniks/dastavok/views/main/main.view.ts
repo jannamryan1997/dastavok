@@ -9,6 +9,11 @@ import { UserUpdateModal } from "../../modals";
 })
 
 export class MainComponent{
-    constructor() {}
+    constructor(private _dialogref: MatDialog) {
+        this._dialogref.open(UserUpdateModal, {
+            width: "686px",
+            height: "686px"
+        })
+    }
 
 }
