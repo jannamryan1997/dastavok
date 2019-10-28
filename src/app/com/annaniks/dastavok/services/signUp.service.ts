@@ -25,7 +25,9 @@ export class SignUpService {
     }
 
     public signUpClient(body) {
-        return this._httpClient.post("client", body)
+        let verificationToken: string = this._cookieService.get('verificationtoken');
+        let headers = new HttpHeaders({ 'token': verificationToken });
+        return this._httpClient.post("client", body, { headers })
     }
 
     public loginClient(body) {
@@ -73,7 +75,7 @@ export class SignUpService {
             })
         )
     }
-    
+
     public getUserImage(imageName: string) {
         return this._httpClient.get("client/image/" + imageName)
     }
