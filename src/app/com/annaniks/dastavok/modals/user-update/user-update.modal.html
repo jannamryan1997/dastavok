@@ -1,4 +1,4 @@
-<div class="update_content" full-width>
+<!-- <div class="update_content" full-width>
     <div class="update_conteiner" width-75 margin-auto full-height display-flex>
             <app-error [error]="error"></app-error>
         <div class="img_content" margin-auto display-flex>
@@ -40,4 +40,24 @@
 
         </form>
     </div>
-</div>
+</div> -->
+
+<form [formGroup]="userUpdateGroup">
+    <div class="container">
+        <app-error [error]="error"></app-error>
+        <div class="update_content" full-width>
+            <div class="image" margin-auto [ngStyle]="{'background-image':'url('+localImage+')'}"></div>
+            <input type="file" border-none margin-auto (change)="setServicePhoto($event)">
+            <div class="form" full-width>
+                    <label class="lable" [ngClass]="{'color':checkIsValid('fullName')}">{{'full_name' | translate}}</label>
+                    <div class="form_content" full-height display-flex>
+                        <i class="material-icons" margin-auto>
+                            person
+                        </i>
+                        <input class="input" placeholder="{{'full_name' | translate}}" formControlName="fullName"
+                            [ngClass]="{'border':checkIsValid('fullName')}">
+                    </div>
+                </div>
+        </div>
+    </div>
+</form>

@@ -106,5 +106,10 @@ export class UserUpdateModal implements OnInit {
                     this.error = err.error.error;
                 })
     }
+
+
+    public checkIsValid(controlNmae:string):boolean{
+return this.userUpdateGroup.get(controlNmae).hasError('required') && this.userUpdateGroup.get(controlNmae).touched;
+    }
 }
 
