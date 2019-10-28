@@ -7,7 +7,6 @@ import { NgxCarouselModule } from 'ngx-carousel';
 import { GoodTypeListItemComponent, GoodTypeList } from "../../../../components";
 import { SharedModule } from "../../../../shared/shared.module";
 import { CompanyListComponent, CompanyListItemComponent} from "../../../../components";
-import {ProgressBarModule} from 'primeng/progressbar';
 @NgModule({
     declarations: [
         ProductTypesView,
@@ -21,7 +20,6 @@ import {ProgressBarModule} from 'primeng/progressbar';
         CommonModule,
         NgxCarouselModule,
         SharedModule,
-        ProgressBarModule
     ],
     exports: [],
     providers: [RestaurantService]
