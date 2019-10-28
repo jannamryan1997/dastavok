@@ -2,6 +2,8 @@
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Inject } from '@angular/core';
+import { SignUpService } from '../services/signUp.service';
+import { CookieService } from 'angular2-cookie/services/cookies.service';
 
 function checkIsRelativePath(path: string): boolean {
     return path.includes('assets');
@@ -9,15 +11,23 @@ function checkIsRelativePath(path: string): boolean {
 
 export class ApiInterceptor implements HttpInterceptor {
 
-    constructor(@Inject('BASE_URL') private _baseUrl: string) { }
+    constructor(
+        @Inject('BASE_URL') private _baseUrl: string,
+        private _signUpService: SignUpService,
+        private _cookieService: CookieService
+    ) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        let headers = new HttpHeaders();
-        headers = headers.append('Content-Type', 'application/json');
         if (!checkIsRelativePath(req.url)) {
+            let httpHeaders: HttpHeaders = req.headers;
+            if (this._signUpService.isAuthorized) {
+                let token: string = this._cookieService.get('token');
+                httpHeaders = httpHeaders.append('Content-Type', 'application/json');
+                httpHeaders = httpHeaders.append('token', token);
+            }
             const clonedRequest = req.clone({
-                headers: headers,
-                url: `${this._baseUrl}${req.url}`
+                url: `${this._baseUrl}${req.url}`,
+                headers: httpHeaders
             });
             return next.handle(clonedRequest)
         }
