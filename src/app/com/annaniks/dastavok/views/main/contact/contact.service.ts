@@ -6,7 +6,7 @@ import { CookieService } from "angular2-cookie/services/cookies.service";
 
 export class ContactService {
 
-    constructor(@Inject('BASE_URL') private BASEURL, private _httpClient: HttpClient, private cookieService: CookieService) { }
+    constructor(private _httpClient: HttpClient, private cookieService: CookieService) { }
 
 
     public getUserInfo() {
@@ -19,7 +19,7 @@ export class ContactService {
     }
 
     public contact(body: object) {
-        return this._httpClient.post(this.BASEURL+'freeclient/contact', body);
+        return this._httpClient.post('freeclient/contact', body);
     }
 
 

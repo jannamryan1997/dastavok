@@ -94,7 +94,7 @@ export var multi = [
     // }
 ];
 @Component({
-    selector: "app-revie-chart",
+    selector: "app-review-chart",
     templateUrl: "reviw-chart.component.html",
     styleUrls: ["reviw-chart.component.scss"]
 })
@@ -102,7 +102,7 @@ export var multi = [
 export class ReviwChartComponent implements OnInit {
     @HostListener('window:resize',['$event'])
     onresize(){
-        console.log(window.innerWidth);
+        (window.innerWidth);
         if(window.innerWidth<=800 && window.innerWidth>400){
             this.view[0]=300;
             this.view[1]=100;
@@ -156,6 +156,6 @@ export class ReviwChartComponent implements OnInit {
     }
 
     onSelect(event) {
-        console.log(event);
+        (event);
     }
 }

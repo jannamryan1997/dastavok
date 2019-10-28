@@ -43,7 +43,7 @@ export class NewPhoneNumber implements OnInit {
         }).subscribe((data: any) => {
             this._cookieService.put('newPhoneNumberToken', data.data.token)
             this._openVerificationModal();
-            console.log(data);
+            (data);
             this._dialogRef.close();
 
         });

@@ -16,7 +16,7 @@ export class OrderListItemComponent implements OnInit {
     constructor() { }
 
     ngOnInit() {
-console.log(this.orderInfo,"iii");
+(this.orderInfo,"iii");
 
     }
 

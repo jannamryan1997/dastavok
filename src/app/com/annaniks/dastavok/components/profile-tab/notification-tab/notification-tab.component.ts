@@ -30,7 +30,7 @@ export class NotificationTabComponent implements OnInit {
         this._profileService.getNatifocation(this.page, this.pageLength)
             .subscribe((data: ServerResponse<Paginator<any>>) => {
                 this.notifications = data.data.data;
-                console.log(this.notifications,"natification",data)
+                (this.notifications,"natification",data)
                 this.count = data.data.metaData.count;
                 if (this.notifications == []) {
                     this.isEmpty = true;

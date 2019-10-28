@@ -55,7 +55,7 @@ export class SignUpService {
     public getUserInfo() {
         return this._httpClient.get(this.baseURL + "client").pipe(
             map((data: ServerResponse<User>) => {
-                console.log(data);
+                (data);
 
                 this.userInfo = data.data;
                 if (data.data.image !== null) {

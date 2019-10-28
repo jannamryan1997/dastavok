@@ -58,7 +58,7 @@ export class VerificationModal implements OnInit {
             }
             if (this.minute == 0 && this.secend==0)
             this.timerStopped = false;
-            console.log(this.time);
+            (this.time);
 
         }, 1000)
    

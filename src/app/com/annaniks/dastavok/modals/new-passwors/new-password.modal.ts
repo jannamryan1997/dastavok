@@ -37,14 +37,14 @@ export class NewPasswordModals implements OnInit {
             this.loading = false;
             this.newPasswordFormGroup.enable();
             this.dialogRef.close();
-            console.log(data);
+            (data);
 
         },
             err => {
                 this.error = err.error.error;
                 this.loading = false;
                 this.newPasswordFormGroup.enable();
-                console.log(err);
+                (err);
 
             })
     }

@@ -4,7 +4,7 @@ import { HomeView } from "./home.view";
 import { AuthGuard } from "../../../guards/authguard.service";
 
 
-const router: Routes = [
+const homeRoutes: Routes = [
     {
         path: "", component: HomeView, children: [
             { path: "", loadChildren: "./product-types/product-types.module#ProductTypesModule" },
@@ -15,7 +15,7 @@ const router: Routes = [
     }
 ]
 @NgModule({
-    imports: [RouterModule.forChild(router)],
+    imports: [RouterModule.forChild(homeRoutes)],
     exports: [RouterModule]
 })
 export class HomeRoutingModule {

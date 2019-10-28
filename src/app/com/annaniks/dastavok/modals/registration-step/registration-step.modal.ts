@@ -168,7 +168,7 @@ export class RegistrationStep implements OnInit {
             this.loading = false;
             this.phoneNumberForm.enable();
 
-            console.log(data);
+            (data);
         }),
             err => {
                 this.error = err.error.error;
