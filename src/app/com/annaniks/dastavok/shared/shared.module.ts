@@ -20,7 +20,7 @@ import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
 import { ClickOutsideModule } from 'ng-click-outside';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
-import { MessageService } from 'primeng/components/common/messageservice';
+
 import { NgxCarouselModule } from "ngx-carousel";
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -85,7 +85,7 @@ export function createTranslateLoader(http: HttpClient) {
         SliderComponent,
         TranslateModule,
     ],
-    providers: [MessageService]
+    providers: []
 })
 
 export class SharedModule {
