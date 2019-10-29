@@ -35,7 +35,7 @@ export function createTranslateLoader(http: HttpClient) {
   ],
   providers: [
     {
-      provide: 'BASE_URL', useValue: 'http://192.168.0.127:3000/'
+      provide: 'BASE_URL', useValue: 'http://192.168.0.137:13000/'
     },
     {
       provide: 'COMPANY_ID', useValue: '23'

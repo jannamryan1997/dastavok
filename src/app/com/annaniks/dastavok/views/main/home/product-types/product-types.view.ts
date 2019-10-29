@@ -12,7 +12,7 @@ import { ServerResponse, GoodType, Restaurant } from "../../../../models/models"
 export class ProductTypesView implements OnInit {
     public starCount: number = 4;
     public goodTypes: Array<GoodType> = [];
-    public companyId: number = 21;
+    public companyId: number = 23;
     public restaurant: Restaurant;
     public localImage: string = '/assets/images/restaurant.jpg';
     public loading: boolean = false;

@@ -32,7 +32,7 @@
                 <button class="login" margin-auto color-white text-align-center full-height font-weight-bold
                     display-flex [disabled]="loginForm.invalid || loading " [ngClass]="{'opacity':loginForm.invalid || loading}"
                     (click)="loginClient()">
-                    <span margin-auto>LOGIN</span>
+                    <span margin-auto>{{'login' | translate}}</span>
                 </button>
             </div>
         </form>
