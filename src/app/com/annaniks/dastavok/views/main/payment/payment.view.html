@@ -8,11 +8,11 @@
                 <div class="tab_content" display-flex justify-content-space-between full-width>
                     <div class="checkout_item" full-height display-flex [ngClass]="{'active_tab':tab==1}">
                         <span margin-auto font-family-Open-Sans (click)="changeTab(1)" [ngClass]="{'active_tab_text':tab==1}"
-                            font-weight-bold>Checkout</span></div>
+                            font-weight-bold>{{'checkout' | translate}}</span></div>
                     <div class="payment_item" full-height display-flex [ngClass]="{'active_tab':tab==2}"><span
-                            margin-auto font-family-Open-Sans font-weight-bold [ngClass]="{'active_tab_text':tab==2}">Payment</span></div>
+                            margin-auto font-family-Open-Sans font-weight-bold [ngClass]="{'active_tab_text':tab==2}">{{'payment' | translate}}</span></div>
                     <div class="done_item" full-height display-flex [ngClass]="{'active_tab':tab==3}"><span margin-auto
-                            [ngClass]="{'active_tab_text':tab==3}" font-weight-bold font-family-Open-Sans>Done</span></div>
+                            [ngClass]="{'active_tab_text':tab==3}" font-weight-bold font-family-Open-Sans>{{'done' | translate}}</span></div>
                 </div>
 
             </div>

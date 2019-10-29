@@ -1,20 +1,20 @@
 <div>
     <div class="total_conteiner" display-flex>
-        <p class="text" font-family-Roboto>The price of goods</p>
+        <p class="text" font-family-Roboto>{{'The_price_of_goods' | translate}}</p>
         <span class="price" font-family-Roboto>90$</span>
     </div>
 
     <div class="total_conteiner" display-flex>
-        <p class="text" font-family-Roboto>Cost of delivery</p>
+        <p class="text" font-family-Roboto>{{'Cost_of_delivery' | translate}}</p>
         <span class="price" font-family-Roboto>90$</span>
     </div>
 
     <div class="total_conteiner" display-flex>
-        <p class="text" font-family-Roboto>Total cost</p>
+        <p class="text" font-family-Roboto>{{'Total_cost' | translate}}</p>
         <span class="price" font-family-Roboto>{{totalAmoutSum}}$</span>
     </div>
     <div display-flex justify-content-flex-end>
-        <button class="button_item" display-flex (click)="onClickByAll()"><span font-family-Open-Sans color-white margin-auto>BUY ALL</span></button>
+        <button class="button_item" display-flex (click)="onClickByAll()"><span font-family-Open-Sans color-white margin-auto>{{'buy_all' | translate}}</span></button>
     </div>
 
 </div>
