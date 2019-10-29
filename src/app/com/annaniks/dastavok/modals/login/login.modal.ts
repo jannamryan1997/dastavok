@@ -35,8 +35,8 @@ export class LoginModal implements OnInit {
 
     private _formBuilder() {
         this.loginForm = new FormBuilder().group({
-            userName: ["", Validators.required],
-            password: ["", Validators.required]
+            userName: ["karen1", Validators.required],
+            password: ["123456", Validators.required]
         })
     }
 

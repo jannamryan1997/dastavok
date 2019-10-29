@@ -39,18 +39,20 @@
                         (clickOutside)="onClickedOutsideUserProfile($event)">
                         <div class="user_image" [ngStyle]="{'background-image':'url('+signUpService.userImage+')'}"></div>
                         <div display-flex align-items-center>
-                            <span class="user_name" font-weight-bold font-family-Roboto>{{signUpService?.userInfo.fullName}}</span>
-                            <i class="material-icons" (click)="showUserProfile()">
-                                keyboard_arrow_down
-                            </i>
+                            <p class="user_name" display-flex  align-items-center font-weight-bold font-family-Roboto>{{signUpService?.userInfo.fullName}}
+
+                                <i class="material-icons" (click)="showUserProfile()">
+                                    keyboard_arrow_down
+                                </i>
+                            </p>
+                        
                         </div>
                         <div class="user_profile" position-absolute *ngIf="showUserProfileDisplay">
                             <div class="user_singIn">
-                                <span class="user_text" font-family-Roboto font-weight-bold routerLink="/profile"
-                                    cursor-pointer>User profile</span>
-                                <div class="line_content"></div>
-                                <div class="text_signup" font-family-Roboto font-weight-bold (click)="onClickLogOut()"
-                                    cursor-pointer>Log out</div>
+                                <p class="type" font-family-Roboto font-weight-bold routerLink="/profile"
+                                    cursor-pointer>{{'user_profile' | translate}}</p>
+                                <p  class="title" font-family-Roboto font-weight-bold (click)="onClickLogOut()"
+                                    cursor-pointer>{{'log_out' | translate}}</p>
                             </div>
 
                         </div>

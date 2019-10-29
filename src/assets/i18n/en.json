@@ -28,7 +28,9 @@
     "restaurant":"Restaurant",
     "all":"All",
     "about":"About",
-    "save":"Save"
+    "save":"Save",
+    "user_profile":"User Profile",
+    "log_out":"Log Out"
 
 
 }
