@@ -23,13 +23,7 @@ export class AddressEditModal implements OnInit {
         this.clientData = this.data.userData;
         this._formBuilder();
         this._setPachValue();
-
-
-
-
-
     }
-
 
     private _formBuilder() {
         this.userUpdateGroup = new FormBuilder().group({
@@ -53,10 +47,13 @@ export class AddressEditModal implements OnInit {
         }).subscribe((data) => {
             this.dialogRef.close();
             (data);
-         
+
         })
-     
+
+    }
+    public checkIsValid(controlName: string): boolean {
+        return this.userUpdateGroup.get(controlName).hasError('required') && this.userUpdateGroup.get(controlName).touched;
     }
 
- 
+
 }

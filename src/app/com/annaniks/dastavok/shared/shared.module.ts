@@ -24,6 +24,8 @@ import { MessageService } from 'primeng/components/common/messageservice';
 import { NgxCarouselModule } from "ngx-carousel";
 import { TranslateModule } from '@ngx-translate/core';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { InputPrefixDirective } from "../directives/input-prefix.directive";
+import { OnlyNumber } from "../directives/onlynumber.directive";
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     LeftMenuComponent,
     ErrorComponent,
     SliderComponent,
+    InputPrefixDirective,
+    OnlyNumber
   ],
   imports: [
     CommonModule,
@@ -70,6 +74,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     ErrorComponent,
     SliderComponent,
     TranslateModule,
+    InputPrefixDirective,
+    OnlyNumber
   ],
   providers: [MessageService]
 })

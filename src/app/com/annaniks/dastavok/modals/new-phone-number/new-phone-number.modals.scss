@@ -1,74 +1,26 @@
-.phone_content {
-    .phone_conteiner {
-        margin: 70px 0px;
-        .phone_wrapper {
-            .input_content {
-                height: 42px;
-                border-radius: 4px;
-                box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-                background-color: #ffffff;
-                .left_icon {
-                    width: 47.3px;
-                    height: 42px;
-                    border-radius: 4px;
-                    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-                    background-color: #ffffff;
-                    i {
-                        font-size: 16px;
-                        color: #676767;
-                    }
-                }
-                .input {
-                    width: calc(100% - 47.3px);
-                    border: none;
-                    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-                    background-color: #ffffff;
-                }
-            }
-            .buttons_wrapper {
-                margin-top: 100px;
-                height: 42px;
-                .back_button {
-                    display: inline-block;
-                    cursor: pointer;
-                    border: none;
-                    font-size: 16px;
-                    color: #676767;
-                    width: 143.8px;
-                    height: 42px;
-                    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-                    background-color: #ffffff;
-                }
-                .next_button {
-                    width: 143.8px;
-                    display: inline-block;
-                    cursor: pointer;
-                    border: none;
-                    font-size: 16px;
-                    height: 42px;
-                    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-                    background-color: #87bd3c;
-                }
-            }
+@import "../../../../../../assets/scss/mixin.scss";
+@import "../../../../../../assets/scss/global.scss";
+
+.form_conteiner {
+    margin: 90px auto;
+
+    
+        .back{
+            @include button(#ffffff, 20px 50px, #000000);
+        }
+        .next {
+            @include button(#87bd3c, 20px 50px, #ffffff);
         }
     }
+
+.border {
+    border: 1px solid red !important;
+}
+
+.color {
+    color: red !important;
 }
 
 .opacity {
     opacity: 0.5;
-}
-
-@media only screen and (max-width: 900px) {
-    .back_button {
-        width: 110px !important;
-        height: 42px !important;
-    }
-    .next_button {
-        width: 110px !important;
-        height: 42px !important;
-    }
-}
-
-.validators {
-    border: 1px solid #ff6f00 !important;
 }
