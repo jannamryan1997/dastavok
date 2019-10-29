@@ -1,5 +1,5 @@
 
-.container {
+.inf_container {
     width: calc(100% - 297px);
     margin-left: 10px;
     .line_content {
@@ -46,21 +46,13 @@
     }
 }
 
-app-goodType-list {
-    margin-top: 92px;
-    margin-left: 101px;
-    app-goodType-list-item {
-        margin-top: 46px;
-        margin-left: 80px;
-    }
-}
 .ui-progress-spinner{
     width: 200px !important;
     height: 200px !important;
 }
 
 @media only screen and (max-width: 900px) {
-    .container {
+    .inf_container {
         width: calc(100% - 20px);
         margin:10px auto;
     }

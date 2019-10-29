@@ -10,14 +10,14 @@ export class PaginatorComponent implements OnInit, OnDestroy {
     private _pageLength: number = 1;
     @Input('count')
     set count($event) {
-        console.log($event);
+        ($event);
 
         this._itemsCount = $event;
         this._setPagesCount();
     }
     @Input('pageLength')
     set pageLength($event) {
-        console.log($event);
+        ($event);
 
         this._pageLength = $event;
         this._setPagesCount();

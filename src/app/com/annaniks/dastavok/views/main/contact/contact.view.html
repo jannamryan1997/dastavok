@@ -11,25 +11,26 @@
             <div class="form_content">
                 <form [formGroup]="userForm">
                     <div class="form_group">
-                        <input class="input" placeholder="{{'first_name' | translate}}" full-width font-family-Roboto
-                            formControlName="firstName" [ngClass]="{'border':checkIsValid('firstName')}">
+                        <label class="label" [ngClass]="{'color':checkIsValid('firstName')}">{{'first_name' | translate}}</label>
+                        <input class="input" placeholder="{{'first_name' | translate}}" full-width font-family-Roboto formControlName="firstName" [ngClass]="{'border':checkIsValid('firstName')}">
                     </div>
                     <div class="form_group">
-                        <input class="input" placeholder="{{'last_name' | translate}}" full-width font-family-Roboto
-                            formControlName="lastName" [ngClass]="{'border':checkIsValid('lastName')}">
+                        <label class="label" [ngClass]="{'color':checkIsValid('lastName')}">{{'last_name' | translate}}</label>
+                        <input class="input" placeholder="{{'last_name' | translate}}" full-width font-family-Roboto formControlName="lastName" [ngClass]="{'border':checkIsValid('lastName')}">
                     </div>
                     <div class="form_group">
+                        <label class="label" [ngClass]="{'color':checkIsValid('email')}">{{'email' | translate}}</label>
                         <input class="input" placeholder="{{'email' | translate}}" full-width font-family-Roboto formControlName="email" [ngClass]="{'border':checkIsValid('email')}">
                     </div>
                     <div class="form_group">
-                        <input class="input" placeholder="{{'phone_number' | translate}}" full-width font-family-Roboto
-                            formControlName="phoneNumber" [ngClass]="{'border':checkIsValid('phoneNumber')}">
+                        <label class="label" [ngClass]="{'color':checkIsValid('phoneNumber')}">{{'phone_number' | translate}}</label>
+                        <input class="input" placeholder="{{'phone_number' | translate}}" full-width font-family-Roboto formControlName="phoneNumber" [ngClass]="{'border':checkIsValid('phoneNumber')}">
                     </div>
                     <div class="form_group">
-                        <textarea class="input messages_input" placeholder="{{'messages' | translate}}" full-width font-family-Roboto formControlName="messages"
-                        [ngClass]="{'border':checkIsValid('messages')}"></textarea>
+                        <label class="label" [ngClass]="{'color':checkIsValid('messages')}">{{'messages' | translate}}</label>
+                        <textarea class="input messages_input" placeholder="{{'messages' | translate}}" full-width font-family-Roboto formControlName="messages" [ngClass]="{'border':checkIsValid('messages')}"></textarea>
                     </div>
-                    <button class="submit_button" text-align-center display-flex [disabled]="userForm.invalid">
+                    <button class="submit_button" text-align-center display-flex [disabled]="userForm.invalid" (click)="contact()">
                         <span color-white font-family-Open-Sans font-weight-bold margin-auto [ngClass]="{'disable':userForm.invalid}">{{'submit' | translate}}</span>
                     </button>
                 </form>
@@ -56,7 +57,7 @@
 
 
             </div>
-            
+
             <div class="type_content">
                 <h2 class="type" font-family-Open-Sans font-weight-bold>{{'Others_ways_to_connect' | translate}}</h2>
             </div>

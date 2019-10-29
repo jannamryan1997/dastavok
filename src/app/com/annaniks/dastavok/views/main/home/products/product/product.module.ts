@@ -3,9 +3,15 @@ import { ProductView } from "./product.view";
 import { ProductRoutingModule } from "./product.routing.module";
 import { CommonModule } from "@angular/common";
 import { GoodService } from "./product.service";
-import { SharedModule } from "src/app/com/annaniks/dastavok/shared/shared.module";
-import { DescriptionComponent, ReviwComponent, IngredientComponent } from "src/app/com/annaniks/dastavok/components";
+import { SharedModule } from "../../../../../shared/shared.module";
+import {
+    DescriptionComponent,
+    ReviwComponent,
+    IngredientComponent,
+    ReviwChartComponent
+} from "../../../../../components";
 import { ProgressSpinnerModule } from "primeng/progressspinner";
+import { NgxChartsModule } from "@swimlane/ngx-charts";
 
 
 @NgModule({
@@ -13,19 +19,18 @@ import { ProgressSpinnerModule } from "primeng/progressspinner";
         ProductView,
         DescriptionComponent,
         ReviwComponent,
-        IngredientComponent
+        IngredientComponent,
+        ReviwChartComponent
     ],
     imports: [
         ProductRoutingModule,
         CommonModule,
         SharedModule,
-        ProgressSpinnerModule
+        ProgressSpinnerModule,
+        NgxChartsModule
     ],
     providers: [
         GoodService
     ],
-    exports: []
 })
-export class ProductModule {
-
-}
+export class ProductModule { }

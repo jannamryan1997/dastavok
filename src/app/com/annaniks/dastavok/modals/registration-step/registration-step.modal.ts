@@ -91,7 +91,7 @@ export class RegistrationStep implements OnInit {
 
     }
 
-    public nextStep() {
+    public nextStep(): void {
         if (this.tab == 1) {
             this._clientPhoneNumber();
         }
@@ -102,8 +102,6 @@ export class RegistrationStep implements OnInit {
         if (this.tab == 3) {
             this._signUpClient();
         }
-        // this.tab += 1;
-
     }
     public back() {
         this.tab = this.tab - 1;
@@ -168,7 +166,7 @@ export class RegistrationStep implements OnInit {
             this.loading = false;
             this.phoneNumberForm.enable();
 
-            console.log(data);
+            (data);
         }),
             err => {
                 this.error = err.error.error;

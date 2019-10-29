@@ -4,6 +4,7 @@ import { MainComponent } from "./main.view";
 import { SharedModule } from "../../shared/shared.module";
 import { MenuItemsService } from "../../services";
 import { FooterComponent } from "../../components/footer/footer.component";
+
 import {
     LoginModal,
     VerificationModal,
@@ -21,10 +22,8 @@ import { ProfileService } from "./profile/profile.service";
 import { PaymentService } from "./payment/payment.service";
 import { AuthGuard } from "../../guards/authguard.service";
 import { MenuService } from "../../services/menu.service";
-import { HttpClientModule} from '@angular/common/http';
 
 @NgModule({
-
     declarations: [
         MainComponent,
         FooterComponent,
@@ -38,11 +37,11 @@ import { HttpClientModule} from '@angular/common/http';
         RegistrationStep,
         SearchGoodsModals,
         NewPhoneNumber,
-        MessagesModals],
+        MessagesModals
+    ],
     imports: [
         MainRoutingModule,
         SharedModule,
-        HttpClientModule,
     ],
     providers: [
         MenuItemsService,
@@ -62,7 +61,8 @@ import { HttpClientModule} from '@angular/common/http';
         RegistrationStep,
         SearchGoodsModals,
         NewPhoneNumber,
-        MessagesModals],
+        MessagesModals
+    ],
     exports: [],
 })
 

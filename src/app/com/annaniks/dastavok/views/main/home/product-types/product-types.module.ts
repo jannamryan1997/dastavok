@@ -2,12 +2,12 @@ import { NgModule } from "@angular/core"
 import { ProductTypesRoutingModule } from "./product-types.routing.module";
 import { ProductTypesView } from "./product-types.view";
 import { CommonModule } from "@angular/common";
-import { RestaurantService } from "./product-types.service";
+import { ProductTypesService } from "./product-types.service";
 import { NgxCarouselModule } from 'ngx-carousel';
 import { GoodTypeListItemComponent, GoodTypeList } from "../../../../components";
 import { SharedModule } from "../../../../shared/shared.module";
-import { CompanyListComponent, CompanyListItemComponent} from "../../../../components";
-import {ProgressBarModule} from 'primeng/progressbar';
+import { CompanyListComponent, CompanyListItemComponent } from "../../../../components";
+import { ProgressBarModule } from 'primeng/progressbar';
 @NgModule({
     declarations: [
         ProductTypesView,
@@ -24,7 +24,7 @@ import {ProgressBarModule} from 'primeng/progressbar';
         ProgressBarModule
     ],
     exports: [],
-    providers: [RestaurantService]
+    providers: [ProductTypesService]
 })
 
 export class ProductTypesModule {

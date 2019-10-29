@@ -3,13 +3,14 @@ import { HomeView } from "./home.view";
 import { HomeRoutingModule } from "./home.routing.module";
 import { SharedModule } from "../../../shared/shared.module";
 
-
-
 @NgModule({
-    declarations: [HomeView],
-    imports: [HomeRoutingModule, SharedModule],
+    declarations: [
+        HomeView
+    ],
+    imports: [
+        HomeRoutingModule,
+        SharedModule
+    ],
     exports: []
 })
-export class HomeModule {
-
-}
+export class HomeModule {}

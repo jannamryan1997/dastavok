@@ -22,15 +22,14 @@ export class ToolbarComponent implements OnInit {
         { name: 'Русский', image: 'assets/images/russian.jpg' }
     ]
 
-
     constructor(private dialog: MatDialog, public signUpService: SignUpService, private _cookieService: CookieService, private _menuService: MenuService) { }
 
     ngOnInit() {
         if (this.signUpService.isAuthorized == true) {
             this._getUserInfo();
         }
-
     }
+
     public openRegisterStep(): void {
         const dialogRef = this.dialog.open(RegistrationStep, {
             width: "686px",
@@ -40,13 +39,8 @@ export class ToolbarComponent implements OnInit {
     }
 
     public showLoginSignup() {
-        // setTimeout(() => {
-        //     this.showlogin = !this.showlogin;
-        // }, 1)
         this.showlogin = !this.showlogin;
-
     }
-
 
     public openLoginModal(): void {
         const dialogRef = this.dialog.open(LoginModal, {
@@ -70,22 +64,19 @@ export class ToolbarComponent implements OnInit {
         this.showlogin = false;
     }
 
-    public showUserProfile() {
+    public showUserProfile(): void {
         this.showUserProfileDisplay = !this.showUserProfileDisplay;
     }
 
-    public showLanguage() {
-        //     setTimeout(() => {
-        //         this.showLenguage = !this.showLenguage;
-        //     }, 1)
+    public showLanguage(): void {
         this.showLenguage = !this.showLenguage;
     }
 
-    public onClickedOutsideLenguage(e: Event) {
+    public onClickedOutsideLenguage(e: Event): void {
         this.showLenguage = false;
     }
 
-    private _getUserInfo() {
+    private _getUserInfo(): void {
         this.signUpService.getUserInfo().subscribe();
     }
 

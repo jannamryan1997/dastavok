@@ -123,7 +123,7 @@ export class CheckoutTabComponent implements OnInit {
             this.paymentForm.enable();
             this.openPayment();
             this.getAddresValue();
-            console.log(data);
+            (data);
 
         });
         error=>{

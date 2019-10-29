@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core"
+import { Component, OnInit, Input, Inject } from "@angular/core"
 import { OrderHistory } from "../../../models/models";
 
 @Component({
@@ -13,10 +13,9 @@ export class OrderListItemComponent implements OnInit {
     @Input() orderInfo: OrderHistory;
     @Input() loading: boolean;
 
-    constructor() { }
+    constructor(@Inject("BASE_URL") public baseUrl: string) { }
 
     ngOnInit() {
-console.log(this.orderInfo,"iii");
 
     }
 

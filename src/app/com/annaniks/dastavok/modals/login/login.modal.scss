@@ -46,40 +46,26 @@
         }
     }
     .forget_password {
-        margin-top: 12px;
-        height: 14px;
-        font-family: BasicSansSF;
-        font-size: 12px;
-        font-weight: normal;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.17;
-        letter-spacing: normal;
-        text-align: left;
-        color: #ff6f00;
-        cursor: pointer;
-        justify-content: flex-end;
-    }
-    .login_content {
-        height: 90px;
-        margin-top: 54px;
-        padding: 20px;
-        .login {
-            width: 143.8px;
-            border-radius: 4px;
-            box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-            background-color: #87bd3c;
+        .label {
+            @include label();
             cursor: pointer;
-            border: none;
-            display: inline-block;
-            text-decoration: none;
+            color: #ff6f00;
+            justify-content: flex-end;
         }
     }
-    .opacity {
-        opacity: 0.5;
+    .button {
+        @include button(#87bd3c, 20px 50px, #ffffff);
     }
 }
 
-.validators {
-    border: 1px solid #ff6f00 !important;
+.border {
+    border: 1px solid red !important;
+}
+
+.color {
+    color: red !important;
+}
+
+.opacity {
+    opacity: 0.5;
 }

@@ -1,12 +1,11 @@
-import { Component, OnInit} from "@angular/core"
-import { MatDialog, MatDialogRef} from '@angular/material';
+import { Component, OnInit } from "@angular/core"
+import { MatDialog, MatDialogRef } from '@angular/material';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { SignUpService } from "../../services/signUp.service";
 import { Router } from "@angular/router";
-import { ServerResponse, LoginResponse} from "../../models/models";
+import { ServerResponse, LoginResponse } from "../../models/models";
 import { PhoneNumberModal } from "../phone-number/phone-number.modal";
 import { CookieService } from "angular2-cookie/services/cookies.service";
-
 
 
 @Component({
@@ -18,9 +17,14 @@ import { CookieService } from "angular2-cookie/services/cookies.service";
 export class LoginModal implements OnInit {
     public loading: boolean = false;
     public loginForm: FormGroup;
-    public  error:string;
+    public error: string;
 
-    constructor(public dialog: MatDialog, private dialogRef: MatDialogRef<LoginModal>, private signUpService: SignUpService, private router: Router, private _cookieService: CookieService) { }
+    constructor(public dialog: MatDialog,
+        private dialogRef: MatDialogRef<LoginModal>,
+        private signUpService: SignUpService,
+        private router: Router,
+        private _cookieService: CookieService,
+    ) { }
 
     ngOnInit() {
         this._formBuilder()
@@ -41,25 +45,22 @@ export class LoginModal implements OnInit {
             "password": this.loginForm.value.password,
 
         }).subscribe((data: ServerResponse<LoginResponse>) => {
-            console.log(data);
-            
+            (data);
+
             this.loading = false;
             this._cookieService.put("refreshToken", data.data.refreshToken);
             this._cookieService.put('token', data.data.token);
             this.loginForm.enable();
             this.dialogRef.close();
-            
-           
+
+
         },
             err => {
-                console.log(err,this.error);
-                
-                this.error=err.error.error;
+                this.error = err.error.error;
                 this.loading = false;
                 this.loginForm.enable();
-                console.log(err.data);
             })
-            
+
     }
 
     public onClickForgotPassword(): void {
@@ -75,6 +76,10 @@ export class LoginModal implements OnInit {
                 key: 'forgot_password'
             }
         })
+    }
+
+    public checkIsValid(controlName): boolean {
+        return this.loginForm.get(controlName).hasError('required') && this.loginForm.get(controlName).touched;
     }
 
 }
