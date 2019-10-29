@@ -1,5 +1,5 @@
-import { Injectable, Inject } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
 import { CookieService } from "angular2-cookie/services/cookies.service";
 import { map, catchError } from "rxjs/operators";
 import { SignUpService } from "./signUp.service";
