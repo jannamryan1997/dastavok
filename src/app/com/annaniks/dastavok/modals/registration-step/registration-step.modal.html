@@ -28,12 +28,12 @@
                 <div class="form" full-width>
                     <label class="label"
                         [ngClass]="{'color':checkIsValid('phonenumber')}">{{'phonenumber' | translate}}</label>
-                    <div class="form_content" full-height display-flex>
+                    <div class="form_content" full-height display-flex    [ngClass]="{'border':checkIsValid('phonenumber')}">
                         <i class="material-icons" margin-auto>
                             call
                         </i>
                         <input class="input" placeholder="{{'phonenumber' | translate}}" formControlName="phonenumber"
-                            [ngClass]="{'border':checkIsValid('phonenumber')}"     prefix="+7" mask="(000) 000 00 00">
+                              prefix="+7" mask="(000) 000 00 00">
                     </div>
                 </div>
                 <div position-relative>
@@ -92,24 +92,24 @@
                 <div class="form" full-width>
                     <label class="label"
                         [ngClass]="{'color':checkIsValid('user_name')}">{{'user_name' | translate}}</label>
-                    <div class="form_content" full-height display-flex>
+                    <div class="form_content" full-height display-flex    [ngClass]="{'border':checkIsValid('user_name')}">
                         <i class="material-icons" margin-auto>
                             person
                         </i>
                         <input class="input" placeholder="{{'user_name' | translate}}" formControlName="user_name"
-                            [ngClass]="{'border':checkIsValid('user_name')}">
+                         >
                     </div>
                 </div>
 
                 <div class="form" full-width>
                     <label class="label"
                         [ngClass]="{'color':checkIsValid('full_name')}">{{'full_name' | translate}}</label>
-                    <div class="form_content" full-height display-flex>
+                    <div class="form_content" full-height display-flex    [ngClass]="{'border':checkIsValid('full_name')}">
                         <i class="material-icons" margin-auto>
                             person
                         </i>
                         <input class="input" placeholder="{{'full_name' | translate}}" formControlName="full_name"
-                            [ngClass]="{'border':checkIsValid('full_name')}">
+                         >
                     </div>
                 </div>
 
@@ -117,12 +117,12 @@
                 <div class="form" full-width>
                     <label class="label"
                         [ngClass]="{'color':checkIsValid('password')}">{{'password' | translate}}</label>
-                    <div class="form_content" full-height display-flex>
+                    <div class="form_content" full-height display-flex [ngClass]="{'border':checkIsValid('password')}">
                         <i class="material-icons" margin-auto (click)="showPassword()">
                             vpn_key
                         </i>
                         <input class="input" placeholder="{{'password' | translate}}" type="password"
-                            formControlName="password" [ngClass]="{'border':checkIsValid('password')}"
+                            formControlName="password" 
                             [type]="show ? 'text' : 'password'">
                     </div>
 

@@ -3,21 +3,21 @@
         <div class="form_conteiner" full-width>
             <div class="form" full-width>
                 <label class="label" [ngClass]="{'color':checkIsValid('userName')}">{{'user_name' | translate}}</label>
-                <div class="form_content" full-height display-flex>
+                <div class="form_content" full-height display-flex [ngClass]="{'border':checkIsValid('userName')}">
                     <i class="material-icons" margin-auto>
                         person
                     </i>
-                    <input class="input" placeholder="{{'user_name' | translate}}" formControlName="userName" [ngClass]="{'border':checkIsValid('userName')}">
+                    <input class="input" placeholder="{{'user_name' | translate}}" formControlName="userName" >
                 </div>
             </div>
             <div class="form" full-width>
                 <label class="label" [ngClass]="{'color':checkIsValid('password')}">{{'password' | translate}}</label>
-                <div class="form_content" full-height display-flex>
+                <div class="form_content" full-height display-flex [ngClass]="{'border':checkIsValid('password')}">
                     <i class="material-icons" margin-auto (click)="showPassword()">
                         vpn_key
                     </i>
                     <input class="input" placeholder="{{'password' | translate}}" type="password" 
-                    formControlName="password" [ngClass]="{'border':checkIsValid('password')}" [type]="show ? 'text' : 'password'">
+                    formControlName="password"  [type]="show ? 'text' : 'password'">
                 </div>
 
             </div>
