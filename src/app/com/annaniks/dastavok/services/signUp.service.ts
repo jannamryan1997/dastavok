@@ -9,7 +9,7 @@ export class SignUpService {
     public userInfo: User = new User();
     public isAuthorized: boolean = false;
     public userImage: string = "assets/images/userimages.png";
-    constructor(@Inject('BASE_URL') private _baseUrl, private _httpClient: HttpClient, private _cookieService: CookieService) { }
+    constructor(@Inject('FILE_URL') private _fileUrl, private _httpClient: HttpClient, private _cookieService: CookieService) { }
 
     public clientPhoneNumber(body) {
         return this._httpClient.post("freeclient/phone", body)
@@ -61,7 +61,7 @@ export class SignUpService {
 
                 this.userInfo = data.data;
                 if (data.data.image !== null) {
-                    data.data.image = this._baseUrl + "client/image/" + data.data.image;
+                    data.data.image = this._fileUrl + "client/image/" + data.data.image;
 
                 }
                 else {
@@ -82,7 +82,7 @@ export class SignUpService {
 
     private _setImage(data): void {
         if (data.data.image !== null) {
-            data.data.image = this._baseUrl + "client/image/" + data.data.image;
+            data.data.image = this._fileUrl + "client/image/" + data.data.image;
 
         }
         else {

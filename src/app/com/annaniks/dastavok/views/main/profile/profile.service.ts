@@ -1,13 +1,11 @@
-import { Injectable, Inject } from "@angular/core"
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { CookieService } from "angular2-cookie/services/cookies.service";
-import { identifierModuleUrl } from "@angular/compiler";
+import { Injectable } from "@angular/core"
+import { HttpClient } from "@angular/common/http";
 
 @Injectable()
 
 export class ProfileService {
 
-    constructor(@Inject('BASE_URL') private baseURL, private _httpClient: HttpClient, private _cookieService: CookieService) { }
+    constructor(private _httpClient: HttpClient) { }
 
 
     public getClient() {
@@ -43,11 +41,11 @@ export class ProfileService {
     }
 
     public putClientNewPhoneNumberStepTwo(body) {
-        return this._httpClient.put(this.baseURL + "client/phone/steptwo", body)
+        return this._httpClient.put("client/phone/steptwo", body)
     }
 
     public getOrderData(id) {
-        return this._httpClient.get(this.baseURL + "client/driver/" + id)
+        return this._httpClient.get("client/driver/" + id)
     }
 }
 

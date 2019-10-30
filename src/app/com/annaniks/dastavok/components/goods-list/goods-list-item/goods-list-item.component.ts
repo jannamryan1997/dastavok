@@ -14,7 +14,7 @@ export class GoodsListItemComponent implements OnInit {
 
     public goodsImageItem;
 
-    constructor(@Inject("BASE_URL") public baseUrl: string) { }
+    constructor(@Inject("FILE_URL") public fileUrl: string) { }
 
 
     ngOnInit() {

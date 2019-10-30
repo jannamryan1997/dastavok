@@ -20,7 +20,7 @@ export class CardListItemComponent implements OnInit {
     public image: Array<string>;
     public itemImage: string;
 
-    constructor(@Inject("BASE_URL") public baseUrl: string, private _cardService: CardService) { }
+    constructor(@Inject("FILE_URL") public fileUrl: string, private _cardService: CardService) { }
 
     ngOnInit() {
         if (this.cardGoodsImageItem != null) {

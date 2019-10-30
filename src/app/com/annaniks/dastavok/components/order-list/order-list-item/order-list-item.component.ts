@@ -13,7 +13,7 @@ export class OrderListItemComponent implements OnInit {
     @Input() orderInfo: OrderHistory;
     @Input() loading: boolean;
 
-    constructor(@Inject("BASE_URL") public baseUrl: string) { }
+    constructor(@Inject("FILE_URL") public fileUrl: string) { }
 
     ngOnInit() {
 
