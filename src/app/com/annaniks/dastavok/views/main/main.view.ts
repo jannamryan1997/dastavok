@@ -1,4 +1,7 @@
 import { Component, OnInit } from "@angular/core"
+import { MatDialog } from "@angular/material";
+import { SignUpModal } from "../../modals";
+
 
 @Component({
     selector: "app-main",
@@ -8,6 +11,8 @@ import { Component, OnInit } from "@angular/core"
 
 export class MainComponent implements OnInit {
 
-    ngOnInit() {}
+    constructor() { }
+
+    ngOnInit() { }
 
 }
