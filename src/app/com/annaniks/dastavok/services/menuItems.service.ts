@@ -1,28 +1,18 @@
 import { Injectable } from "@angular/core"
 import { MenuItem } from "../models/models";
+import { TranslateService } from "@ngx-translate/core";
 
 @Injectable()
-
 export class MenuItemsService {
     private _menuItems: Array<MenuItem> = [
-        { label: "HOME", routerLink: "/"},
-        { label: "CONTACT", routerLink: "/contact" },
+        { label: "home", routerLink: "/"},
+        { label: "contact", routerLink: "/contact" },
     ]
 
-    private _homeContentItems: Array<MenuItem> = [
-        { label: "SHOP", routerLink: "#" },
-        { label: "COMPANY", routerLink: "/home/information" },
-        { label: "ALL", routerLink: "#" },
-
-    ]
-
-    constructor() { }
+    constructor(private _translateService:TranslateService) { }
 
     public getMenuItems(): Array<MenuItem> {
         return this._menuItems;
     }
 
-    public getHomeContentItems(): Array<MenuItem> {
-        return this._homeContentItems;
-    }
 }

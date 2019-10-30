@@ -19,8 +19,8 @@ export class ReviwComponent implements OnInit {
     constructor() { }
 
     ngOnInit() {
-        console.log(this.reviewData);
-        console.log(this.reviewDataTime);
+        (this.reviewData);
+        (this.reviewDataTime);
 
 
 

@@ -29,7 +29,7 @@ export class UserUpdateModal implements OnInit {
         this._formBuilder();
         this.clientData = this.data.clientData;
         this._setUserUpdateValue();
-        console.log(this.clientData.image);
+        (this.clientData.image);
 
     }
 
@@ -38,7 +38,7 @@ export class UserUpdateModal implements OnInit {
         this.userUpdateGroup = new FormBuilder().group({
             full_name: ["", Validators.required],
             location: ["", Validators.required],
-            phone_number: ["", Validators.required]
+            // phone_number: ["", Validators.required]
         })
     }
     private _setUserUpdateValue() {
@@ -56,8 +56,8 @@ export class UserUpdateModal implements OnInit {
         this.userUpdateGroup.disable();
         return this._profileService.updateClient({
             "fullName": this.userUpdateGroup.value.full_name,
-            //  "location": this.userUpdateGroup.value.location,
-            // "phoneNumber": this.userUpdateGroup.value.phone_number,
+             "location": this.userUpdateGroup.value.location,
+            "phoneNumber": this.userUpdateGroup.value.phone_number,
         })
     }
 
@@ -98,13 +98,19 @@ export class UserUpdateModal implements OnInit {
                 this.loading = false;
                 this.userUpdateGroup.enable();
                 this._dialogRef.close();
-                console.log(data);
-                console.log(data);
+                (data);
+                (data);
 
             },
                 err => {
                     this.error = err.error.error;
                 })
     }
+
+
+    public checkIsValid(controlName): boolean {
+        return this.userUpdateGroup.get(controlName).hasError('required') && this.userUpdateGroup.get(controlName).touched;
+    }
+
 }
 

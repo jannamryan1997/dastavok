@@ -14,7 +14,6 @@ import { MessagesModals } from "../../../../../modals/messages/messages.modals";
 })
 
 export class ProductView implements OnInit {
-    private _companyId: number;
     private _goodId: number;
     public starCount: number = 4;
     public countSum: number = 1;
@@ -36,29 +35,17 @@ export class ProductView implements OnInit {
         private _goodService: GoodService,
         private _dialog: MatDialog,
         private _signUpService: SignUpService,
-        @Inject('BASE_URL') private _baseUrl: string
+        @Inject('FILE_URL') public fileUrl: string,
+        @Inject('COMPANY_ID') private _companyId: number
     ) {
         this._activatedRoute.params.subscribe((params) => {
-            this._companyId = +params.companyId;
-            this._goodId = +params.good;
+            this._goodId = Number(params.goodId);
         })
     }
 
     ngOnInit() {
         this._getGood();
         this._getReview();
-    }
-
-    public openDescription(): void {
-        this.tab = 1;
-    }
-
-    public openReview(): void {
-        this.tab = 2;
-    }
-
-    public openIngredient(): void {
-        this.tab = 3;
     }
 
     public countdAdd(): void {
@@ -73,7 +60,7 @@ export class ProductView implements OnInit {
     }
 
     public setActiveImage(image): void {
-        this.activeImage = this._baseUrl + 'static/company/' + image;
+        this.activeImage = this.fileUrl + image;
     }
 
     public onClickBuy(): void {
@@ -110,7 +97,7 @@ export class ProductView implements OnInit {
                     element.toppingValue = 0;
                 })
                 if (data.data.thumbnail) {
-                    this.activeImage = this._baseUrl + 'static/company/' + data.data.thumbnail;
+                    this.activeImage = this.fileUrl + data.data.thumbnail;
                 }
                 if (data.data.images) {
                     this.goodImage = data.data.images.split(",")
@@ -118,7 +105,9 @@ export class ProductView implements OnInit {
             })
     }
 
-
+    public changeTab(tab: number): void {
+        this.tab = tab;
+    }
 
     private _openMessageModal(type: string): void {
         const dialogRef = this._dialog.open(MessagesModals, {
@@ -132,7 +121,7 @@ export class ProductView implements OnInit {
 
     }
 
-    private _orderChart() {
+    private _orderChart(): void {
         let briefToppings: Array<BriefToppings> = [];
         this.toppings.forEach((element: Topping) => {
             briefToppings.push(
@@ -181,18 +170,19 @@ export class ProductView implements OnInit {
         // // this._goodService.getReview(this._companyId, this._goodId, this.pageCount, this.pageLength)
         // this._goodService.getReview(1, 1, this.page, this.pageLength)
         //     .subscribe((data: ServerResponse<Review[]>) => {
-        //         console.log(data);
+        //         (data);
 
         //         //     this.reviewData = data.ddwqata.data;
         //         //   //this.pageCount = data.data.metaData.count;
         //         //     this.reviewDataTime=data.data.data.reviewDate;
         //         //     this.count=data.data.metaData.count;
-        //         //     console.log(this.reviewData);
+        //         //     (this.reviewData);
 
         //     })
     }
-    paginate($event) {
-        console.log($event);
+
+    public paginate($event): void {
+        ($event);
         this.page = $event.pageNumber;
         this._getReview();
     }

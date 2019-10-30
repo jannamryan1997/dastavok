@@ -150,6 +150,7 @@ export class ReviwChartComponent implements OnInit {
 
     constructor(@Inject(PLATFORM_ID) private platformId) {
         this.isBrowser = isPlatformBrowser(platformId);
+        console.log(this.isBrowser);
         Object.assign(this, { single, multi })
     }
 
@@ -158,6 +159,6 @@ export class ReviwChartComponent implements OnInit {
     }
 
     onSelect(event) {
-        console.log(event);
+        (event);
     }
 }

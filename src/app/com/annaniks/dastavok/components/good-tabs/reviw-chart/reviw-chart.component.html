@@ -11,8 +11,8 @@
                 <div class="reviw_messages">
                     <p font-family-Roboto>- 0.0 No movment negarding your raiting</p>
                 </div>
-                <div class="chart" full-width>
-                    <ngx-charts-bar-horizontal   [view]="view"  [scheme]="colorScheme" [results]="single" [gradient]="gradient"
+                <div class="chart" full-width *ngIf="isBrowser">
+                    <ngx-charts-bar-horizontal  [view]="view"  [scheme]="colorScheme" [results]="single" [gradient]="gradient"
                         [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel"
                         [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel"  [showDataLabel]=" showDataLabel" [barPadding]="43" (select)="onSelect($event)">
                     </ngx-charts-bar-horizontal>

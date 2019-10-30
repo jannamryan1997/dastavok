@@ -6,7 +6,7 @@
                     <i class="material-icons menu_icon" margin-auto>menu</i>
                 </div>
                 <div class="logo">
-                    <img src="assets/images/LOGO.png" width="98px" height="46px">
+                    <img src="assets/images/logo.png" width="98px" height="46px">
                 </div>
                 <div class="search_button">
                    
@@ -22,15 +22,15 @@
                             <i class="material-icons">
                                 person
                             </i>
-                            <span font-weight-bold font-family-Roboto >Login/sign in</span>
+                            <span font-weight-bold font-family-Roboto>{{'login'| translate}}/{{'registration'| translate}}</span>
                         </div>
                         <div class="login right-0" position-absolute display-flex *ngIf="showlogin">
                             <div class="buttons_items" margin-auto width-75 >
                                 <button class="login_button" text-align-center (click)="openLoginModal()">
-                                    <span color-white font-weight-bold font-family-Roboto>LOGIN</span>
+                                    <span color-white font-weight-bold font-family-Roboto>{{'login'| translate}}</span>
                                 </button>
-                                <button class="registration_button" (click)="openPhoneNumberModal()">
-                                    <span color-white font-weight-bold font-family-Roboto>Registration</span>
+                                <button class="registration_button"  text-align-center (click)="openPhoneNumberModal()">
+                                    <span color-white font-weight-bold font-family-Roboto>{{'registration'| translate}}</span>
                                 </button>
                             </div>
                         </div>
@@ -39,18 +39,20 @@
                         (clickOutside)="onClickedOutsideUserProfile($event)">
                         <div class="user_image" [ngStyle]="{'background-image':'url('+signUpService.userImage+')'}"></div>
                         <div display-flex align-items-center>
-                            <span class="user_name" font-weight-bold font-family-Roboto>{{signUpService?.userInfo.fullName}}</span>
-                            <i class="material-icons" (click)="showUserProfile()">
-                                keyboard_arrow_down
-                            </i>
+                            <p class="user_name" display-flex  align-items-center font-weight-bold font-family-Roboto>{{signUpService?.userInfo.fullName}}
+
+                                <i class="material-icons" (click)="showUserProfile()">
+                                    keyboard_arrow_down
+                                </i>
+                            </p>
+                        
                         </div>
                         <div class="user_profile" position-absolute *ngIf="showUserProfileDisplay">
                             <div class="user_singIn">
-                                <span class="user_text" font-family-Roboto font-weight-bold routerLink="/profile"
-                                    cursor-pointer>User profile</span>
-                                <div class="line_content"></div>
-                                <div class="text_signup" font-family-Roboto font-weight-bold (click)="onClickLogOut()"
-                                    cursor-pointer>Log out</div>
+                                <p class="type" font-family-Roboto font-weight-bold routerLink="/profile"
+                                    cursor-pointer>{{'user_profile' | translate}}</p>
+                                <p  class="title" font-family-Roboto font-weight-bold (click)="onClickLogOut()"
+                                    cursor-pointer>{{'log_out' | translate}}</p>
                             </div>
 
                         </div>

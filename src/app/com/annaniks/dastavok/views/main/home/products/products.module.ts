@@ -8,12 +8,13 @@ import { ProductsService } from "./products.service";
 
 @NgModule({
     declarations: [
-        ProductsView
+        ProductsView,
     ],
     imports: [
         ProductsRoutingModule,
         CommonModule,
-        SharedModule
+        SharedModule,
+
     ],
     providers: [ProductsService],
     exports: [],

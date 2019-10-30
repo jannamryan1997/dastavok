@@ -1,15 +1,12 @@
 <div class="menu_content" margin-auto>
     <div>
-        <div class="line-count" full-width></div>
-        <div class="meal_content" margin-auto>
-            <div class="meal_images" position-relative>
+        <div class="type_content" margin-auto>
+            <img class="type_image" position-relative [src]="image" />
+            <div class="type_text">
+                <p class="type_text_item_one" color-black color-white font-weight-bold font-family-Roboto>
+                    {{goodTypeInfo?.name}}</p>
+                <span class="type_text_item_two" font-family-Roboto>{{goodTypeInfo?.description}}</span>
             </div>
-            <div class="meal_text">
-                <p class="meal_text_item_one" color-black color-white font-weight-bold font-family-Roboto>{{goodTypeInfo?.name}}</p>
-                <span class="meal_text_item_two" font-family-Roboto>{{goodTypeInfo?.description}}</span>
-
-            </div>
-
         </div>
     </div>
 </div>

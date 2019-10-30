@@ -1,43 +1,45 @@
 <div class="contact_content" full-width>
     <div class="contact_conteiner" display-flex margin-auto>
         <div class="left_content">
-            <div class="text_items">
-                <p class="text_item_one" font-weight-bold font-family-Open-Sans>Reach out to us!</p>
-                <span class="text_item_two" font-weight-bold font-family-Roboto>Lorem ipsum dolor sit, amet consectetur
+            <div class="contact_type">
+                <h2 class="type" font-weight-bold font-family-Open-Sans>{{'reach_out_to_us' | translate}}</h2>
+                <span class="title" font-weight-bold font-family-Roboto>Lorem ipsum dolor sit, amet consectetur
                     adipisicing elit. Tempora autem
                     labore reiciendis corporis impedit facere saepe enim, vero porro quas, neque molestiae. Placeat
                     asperiores magnam iste blanditiis facere culpa quis.</span>
             </div>
-            <div class="input_items">
+            <div class="form_content">
                 <form [formGroup]="userForm">
                     <div class="form_group">
-                        <input class="first_name_input" placeholder="First Name" full-width font-family-Roboto
-                            formControlName="first_name">
+                        <label class="label" [ngClass]="{'color':checkIsValid('firstName')}">{{'first_name' | translate}}</label>
+                        <input class="input" placeholder="{{'first_name' | translate}}" full-width font-family-Roboto formControlName="firstName" [ngClass]="{'border':checkIsValid('firstName')}">
                     </div>
                     <div class="form_group">
-                        <input class="last_name_input" placeholder="Last Name" full-width font-family-Roboto
-                            formControlName="last_name">
+                        <label class="label" [ngClass]="{'color':checkIsValid('lastName')}">{{'last_name' | translate}}</label>
+                        <input class="input" placeholder="{{'last_name' | translate}}" full-width font-family-Roboto formControlName="lastName" [ngClass]="{'border':checkIsValid('lastName')}">
                     </div>
                     <div class="form_group">
-                        <input class="email" placeholder="Email" full-width font-family-Roboto formControlName="email">
+                        <label class="label" [ngClass]="{'color':checkIsValid('email')}">{{'email' | translate}}</label>
+                        <input class="input" placeholder="{{'email' | translate}}" full-width font-family-Roboto formControlName="email" [ngClass]="{'border':checkIsValid('email')}">
                     </div>
                     <div class="form_group">
-                        <input class="phone_number" placeholder="Phone Number" full-width font-family-Roboto
-                            formControlName="phone_number">
+                        <label class="label" [ngClass]="{'color':checkIsValid('phoneNumber')}">{{'phone_number' | translate}}</label>
+                        <input class="input" placeholder="{{'phone_number' | translate}}" full-width font-family-Roboto formControlName="phoneNumber" [ngClass]="{'border':checkIsValid('phoneNumber')}">
                     </div>
                     <div class="form_group">
-                        <textarea class="messages" placeholder="Messages" full-width font-family-Roboto formControlName="messages"></textarea>
+                        <label class="label" [ngClass]="{'color':checkIsValid('messages')}">{{'messages' | translate}}</label>
+                        <textarea class="input messages_input" placeholder="{{'messages' | translate}}" full-width font-family-Roboto formControlName="messages" [ngClass]="{'border':checkIsValid('messages')}"></textarea>
                     </div>
-                    <button class="submit_button" text-align-center display-flex [disabled]="userForm.invalid">
-                        <span color-white font-family-Open-Sans font-weight-bold margin-auto [ngClass]="{'disable':userForm.invalid}">Submit</span>
+                    <button class="submit_button" text-align-center display-flex [disabled]="userForm.invalid" (click)="contact()">
+                        <span color-white font-family-Open-Sans font-weight-bold margin-auto [ngClass]="{'disable':userForm.invalid}">{{'submit' | translate}}</span>
                     </button>
                 </form>
             </div>
         </div>
         <div class="right_content">
-            <div class="text_items">
-                <p class="text_item_one" font-weight-bold font-family-Open-Sans>Reach out to us!</p>
-                <span class="text_item_two" font-weight-bold font-family-Roboto>Lorem ipsum dolor sit, amet consectetur
+            <div class="type_content">
+                <h2 class="type" font-weight-bold font-family-Open-Sans>{{'reach_out_to_us' | translate}}</h2>
+                <span class="title" font-weight-bold font-family-Roboto>Lorem ipsum dolor sit, amet consectetur
                     adipisicing elit. Tempora autem
                     labore reiciendis corporis impedit facere saepe enim, vero porro quas, neque molestiae. Placeat
                     asperiores magnam iste blanditiis facere culpa quis.</span>
@@ -47,46 +49,25 @@
                     <img class="img" src="assets/images/user.png" full-width full-height>
                 </div>
                 <div class="data">
-                    <p class="data_first_name" font-family-Open-Sans font-weight-bold>klara</p>
-                    <p class="data_last_name" font-family-Roboto>klara klara</p>
-                    <p class="data_phone_number" font-weight-bold font-family-Roboto>+374545454545</p>
-                </div>
-            </div>
-            <div class="customer_info_item" display-flex align-items-center>
-                <div class="img_info">
-                    <img class="img" src="assets/images/user.png" full-width full-height>
-                </div>
-                <div class="data">
-                    <p class="data_first_name" font-family-Open-Sans font-weight-bold>klara</p>
-                    <p class="data_last_name" font-family-Roboto>klara klara</p>
-                    <p class="data_phone_number" font-weight-bold font-family-Roboto>+3745454545</p>
+                    <p class="data_title" font-family-Open-Sans font-weight-bold>klara</p>
+                    <p class="data_title" font-family-Roboto>klara klara</p>
+                    <p class="data_title" font-weight-bold font-family-Roboto>+3745454545</p>
 
                 </div>
 
 
             </div>
-            <div class="text_other">
-                <span class="text_other_item" font-family-Open-Sans font-weight-bold>Others ways to connect</span>
+
+            <div class="type_content">
+                <h2 class="type" font-family-Open-Sans font-weight-bold>{{'Others_ways_to_connect' | translate}}</h2>
             </div>
             <div class="contact">
-                <div class="fb_contact" display-flex lign-items-center>
+                <div class="contact_descriptiont" display-flex lign-items-center>
                     <div class="img_contact">
                         <img src="assets/images/fb.png" full-height>
                     </div>
-                    <div class="contact_text">
-                        <span font-family-Roboto>Lorem ipsum dolor sit amet consectetur
-                            adipisicing
-                            elit. Ipsum nisi
-                            explicabo modi, impedit eos iure vel exercitationem repellat consequatur obcaecati nobis
-                            laudantium nihil, praesentium libero sed doloribus aperiam adipisci ratione?</span>
-                    </div>
-                </div>
-                <div class="twinter_content" display-flex lign-items-center>
-                    <div class="img_contact">
-                        <img src="assets/images/twinter.png" full-height>
-                    </div>
-                    <div class="contact_text">
-                        <span font-family-Roboto>Lorem ipsum dolor sit amet consectetur
+                    <div class="contact_type">
+                        <span class="type" font-family-Roboto>Lorem ipsum dolor sit amet consectetur
                             adipisicing
                             elit. Ipsum nisi
                             explicabo modi, impedit eos iure vel exercitationem repellat consequatur obcaecati nobis
@@ -94,7 +75,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 
 </div>

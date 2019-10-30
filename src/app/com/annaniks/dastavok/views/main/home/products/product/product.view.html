@@ -8,8 +8,8 @@
             <div class="image_content" full-width [ngStyle]="{'background-image':'url('+activeImage+')'}"></div>
 
             <div class="images" display-flex flex-wrap-wrap>
-                <div class="image_items" *ngFor="let item of goodImage" [ngStyle]="{'background-image':'url('+'http://192.168.0.114:4000/static/company/'+item+')'}"
-                    (click)="setActiveImage(item)"></div>
+                <div class="image_items" *ngFor="let item of goodImage"
+                    [ngStyle]="{'background-image':'url('+ fileUrl + item +')'}" (click)="setActiveImage(item)"></div>
             </div>
 
         </div>
@@ -21,12 +21,12 @@
             </div>
             <div class="line_content"></div>
             <div class="price_content" display-flex justify-content-space-between>
-                <p class="price_text" font-family-Roboto>price</p>
+                <p class="price_text" font-family-Roboto>{{'price' | translate}}</p>
                 <p class="mony_text" font-family-Roboto>{{good?.price}}$</p>
             </div>
             <div class="under_line_content"></div>
             <div class="quarity_content" display-flex justify-content-space-between>
-                <p class="price_text" font-family-Roboto>quarity</p>
+                <p class="price_text" font-family-Roboto>{{'quarity' | translate}}</p>
                 <div class="quarity_item" display-flex>
                     <p class="remove" font-family-Roboto (click)="countremove()">-</p>
                     <p class="count_text" font-family-Roboto> {{countSum}} </p>
@@ -35,9 +35,10 @@
             </div>
             <div class="button_item" display-flex>
                 <div margin-auto display-flex>
-                    <button class="left_button" color-white font-family-Open-Sans margin-auto (click)="onClickOrder('card')"><span>CART</span></button>
-                    <button class="right_button" color-white font-family-Open-Sans margin-auto (click)="onClickBuy()"><span>BUY</span></button>
-                    <!-- routerLink="cart" -->
+                    <button class="left_button" color-white font-family-Open-Sans margin-auto
+                        (click)="onClickOrder('card')"><span>{{'cart' | translate}}</span></button>
+                    <button class="right_button" color-white font-family-Open-Sans margin-auto
+                        (click)="onClickBuy()"><span>{{'buy'| translate}}</span></button>
                 </div>
 
             </div>
@@ -47,22 +48,26 @@
     </div>
     <div [ngSwitch]="tab">
         <div class="tab_content" display-flex justify-content-space-between>
-            <div class="tab_item" display-flex (click)="openDescription()" [ngClass]="{'active_tab':tab==1}">
-                <span margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==1}">DESCRIPTION</span>
+            <div class="tab_item" display-flex (click)="changeTab(1)" [ngClass]="{'active_tab':tab==1}">
+                <span margin-auto font-family-Open-Sans
+                    [ngClass]="{'text_active_tab':tab==1}">{{'description'| translate}}</span>
             </div>
-            <div class="tab_item" display-flex (click)="openReview()" [ngClass]="{'active_tab':tab==2}">
-                <span margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==2}">REVIEW</span>
+            <div class="tab_item" display-flex (click)="changeTab(2)" [ngClass]="{'active_tab':tab==2}">
+                <span margin-auto font-family-Open-Sans
+                    [ngClass]="{'text_active_tab':tab==2}">{{'review'| translate}}</span>
             </div>
-            <div class="tab_item" display-flex (click)="openIngredient()" [ngClass]="{'active_tab':tab==3}">
-                <span margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==3}">INGREDIENT</span>
+            <div class="tab_item" display-flex (click)="changeTab(3)" [ngClass]="{'active_tab':tab==3}">
+                <span margin-auto font-family-Open-Sans
+                    [ngClass]="{'text_active_tab':tab==3}">{{'ingredient'| translate}}</span>
             </div>
         </div>
         <div *ngSwitchCase="1">
             <app-description [descriptionData]="good?.description"></app-description>
         </div>
         <div *ngSwitchCase="2">
-                <app-review-chart></app-review-chart>
-            <app-review *ngFor="let item of reviewData" [reviewData]="item" [reviewDataTime]="item.reviewDate"></app-review>
+            <app-review-chart></app-review-chart>
+            <app-review *ngFor="let item of reviewData" [reviewData]="item" [reviewDataTime]="item.reviewDate">
+            </app-review>
             <app-paginator [count]="count" [pageLength]="pageLength" (paginate)="paginate($event)"></app-paginator>
         </div>
         <div *ngSwitchCase="3">

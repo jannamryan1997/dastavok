@@ -1,28 +1,31 @@
-<div class="phone_content" full-width display-flex>
-    <div class="phone_wrapper" width-75 margin-auto>
+<form [formGroup]="phoneNumberForm">
+    <div class="container">
         <app-error [error]="error"></app-error>
-        <form [formGroup]="phoneNumberForm">
-            <div class="input_content" full-width display-flex [ngClass]="{'validators':phoneNumberForm.get('phonenumber').hasError('required') && phoneNumberForm.get('phonenumber').touched}">
-                <div class="left_icon" full-height display-flex [ngClass]="{'validators':phoneNumberForm.get('phonenumber').hasError('required') && phoneNumberForm.get('phonenumber').touched}">
+        <div class="form_conteiner" full-width>
+            <div class="form" full-width>
+                <label class="label" [ngClass]="{'color':checkIsValid('phonenumber')}">{{'phonenumber' | translate}}</label>
+                <div class="form_content" full-height display-flex>
                     <i class="material-icons" margin-auto>
-                        call
-                    </i>
+                                call
+                        </i>
+                    <input class="input" placeholder="{{'phonenumber' | translate}}" 
+                    formControlName="phonenumber" 
+                    [ngClass]="{'border':checkIsValid('phonenumber')}" 
+                    prefix="+7" mask="(000) 000 00 00">
                 </div>
-                <input type="text" class="input" formControlName="phonenumber">
             </div>
-            <div  position-relative>
-                    <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading>
+            <div position-relative>
+                <!-- <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading> -->
             </div>
-            <div class="buttons_wrapper" display-flex>
-                <div class="buttons_items" margin-auto full-height>
-                    <button class="back_button" full-height font-weight-bold (click)="closePhoneModal()">BACK</button>
-                    <button class="next_button" full-height font-weight-bold color-white (click)="postPhoneNumber()"
-                        [disabled]="phoneNumberForm.invalid  || loading" [ngClass]="{'opacity':phoneNumberForm.invalid  || loading}">NEXT</button>
+            <div class="button_item">
+                <button class="button back" display-flex margin-auto [disabled]="phoneNumberForm.invalid || loading" [ngClass]="{'opacity':phoneNumberForm.invalid || loading}" (click)="closePhoneModal()">
+                            <span margin-auto>{{'back' | translate}}</span>
+                        </button>
+                <button class="button next" display-flex margin-auto [disabled]="phoneNumberForm.invalid || loading" [ngClass]="{'opacity':phoneNumberForm.invalid || loading}" (click)="postPhoneNumber()">
+                        <span margin-auto>{{'next' | translate}}</span>
+                    </button>
+            </div>
 
-                </div>
-            </div>
-        </form>
-       
+        </div>
     </div>
-  
-</div>
+</form>

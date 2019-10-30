@@ -12,15 +12,11 @@ export class TopbarComponent implements OnInit {
 
     constructor(public menuItemsService: MenuItemsService, private _menuService: MenuService) { }
 
-    ngOnInit() {
-
-
-    }
+    ngOnInit() {}
 
 
     public openFiltersMenu() {
         this._menuService.openFitersMenu();
-
     }
 
     public onClickedOutside(e: Event) {

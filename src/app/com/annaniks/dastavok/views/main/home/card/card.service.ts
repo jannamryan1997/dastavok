@@ -4,13 +4,11 @@ import { CookieService } from "angular2-cookie/services/cookies.service";
 
 
 @Injectable()
-
 export class CardService {
 
     constructor(
         private _httpClient: HttpClient,
         private _cookieService: CookieService) { }
-
 
     public getOrderChart() {
         return this._httpClient.get("client/orders/chart")

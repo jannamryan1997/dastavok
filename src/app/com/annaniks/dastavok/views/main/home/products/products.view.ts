@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core"
+import { Component, OnInit, Inject } from "@angular/core"
 import { ActivatedRoute } from "@angular/router";
 import { Good, ServerResponse, Paginator } from "./../../../../models/models";
 import { ProductsService } from "./products.service";
@@ -10,7 +10,6 @@ import { ProductsService } from "./products.service";
 })
 
 export class ProductsView implements OnInit {
-    private _companyId: number;
     private _goodTypeId: number;
     public pageLength: number = 10;
     public goodsInfo: Array<Good> = [];
@@ -18,9 +17,12 @@ export class ProductsView implements OnInit {
     public goodsImage: string;
     public loading: boolean = false;
 
-    constructor(private activatedRoute: ActivatedRoute, private _productsService: ProductsService) {
+    constructor(
+        @Inject("COMPANY_ID") private _companyId: number,
+        private activatedRoute: ActivatedRoute,
+        private _productsService: ProductsService
+    ) {
         this.activatedRoute.params.subscribe((params) => {
-            this._companyId = params.companyId;
             this._goodTypeId = params.goodTypeId;
         })
     }
@@ -32,6 +34,7 @@ export class ProductsView implements OnInit {
         this.loading = true;
         this._productsService.getGoods(companyId, goodTypeId, page, count)
             .subscribe((data: ServerResponse<Paginator<Array<Good>>>) => {
+                console.log(data);
                 this.loading = false;
                 this.goodsInfo = data.data.data;
                 this.count = data.data.metaData.count;

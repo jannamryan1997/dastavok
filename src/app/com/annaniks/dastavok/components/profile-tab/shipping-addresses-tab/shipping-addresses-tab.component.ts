@@ -23,7 +23,7 @@ export class ShippingAddressesComponent implements OnInit {
         this._profileService.getOrderData(this.clientId)
         .subscribe((data:ServerResponse<ClientDriver>)=>{
             this.orderData=data.data;
-            console.log(this.orderData,"gfd");
+            (this.orderData,"gfd");
             
         })
 

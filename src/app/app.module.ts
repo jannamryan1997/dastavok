@@ -3,14 +3,20 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app.routing.module';
-import { HttpClientModule } from '@angular/common/http';
 import { CheckToken } from './com/annaniks/dastavok/guards/checkToken.service';
 import { ApiService } from './com/annaniks/dastavok/services/api.service';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { SignUpService } from './com/annaniks/dastavok/services/signUp.service';
 import { CookieOptions, BaseCookieOptions } from 'angular2-cookie/services/base-cookie-options';
+import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
+import { ApiInterceptor } from './com/annaniks/dastavok/interceptors/api.interceptor';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -21,25 +27,41 @@ import { CookieOptions, BaseCookieOptions } from 'angular2-cookie/services/base-
     BrowserModule.withServerTransition({ appId: 'app-dastavok' }),
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    TranslateModule.forRoot(
+      {
+        loader: {
+          provide: TranslateLoader,
+          useFactory: createTranslateLoader,
+          deps: [HttpClient]
+        }
+      }
+    )
   ],
   providers: [
     {
-      provide: 'BASE_URL', useValue: 'http://192.168.0.127:3000/'
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiInterceptor,
+      multi: true
     },
     {
-      provide: 'COMPANY_ID', useValue: '23'
+      provide: 'BASE_URL', useValue: 'http://annaniks.com:16004/'
+    },
+    {
+      provide: 'FILE_URL', useValue: 'http://annaniks.com:16000/static/company/'
+    },
+    {
+      provide: 'COMPANY_ID', useValue: 23
     },
     CheckToken,
     ApiService,
     CookieService,
     {
       provide: CookieOptions,
-      useFactory: BaseCookieOptions
+      useValue: BaseCookieOptions
     },
     SignUpService
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-

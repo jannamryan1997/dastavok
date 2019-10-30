@@ -1,7 +1,6 @@
 import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
-
-import { renderModuleFactory } from '@angular/platform-server';
+import { ngExpressEngine } from '@nguniversal/express-engine';
 import { enableProdMode } from '@angular/core';
 
 import * as express from 'express';
@@ -19,10 +18,28 @@ const DIST_FOLDER = join(process.cwd(), 'dist');
 const domino = require('domino');
 const fs = require('fs');
 const path = require('path');
-const template = fs.readFileSync(path.join('.','dist', 'browser', 'index.html')).toString();
+const template = fs.readFileSync(path.join('.', 'dist', 'browser', 'index.html')).toString();
 const win = domino.createWindow(template);
 global['window'] = win;
 global['document'] = win.document;
+global['DOMTokenList'] = win.DOMTokenList;
+global['Node'] = win.Node;
+global['Text'] = win.Text;
+global['HTMLElement'] = win.HTMLElement;
+global['navigator'] = win.navigator;
+global['MutationObserver'] = getMockMutationObserver();
+
+function getMockMutationObserver() {
+  return class {
+    observe(node, options) {
+    }
+    disconnect() {
+    }
+    takeRecords() {
+      return [];
+    }
+  };
+}
 
 
 // Our index.html we'll use as our template
@@ -31,19 +48,12 @@ const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./dist/server/mai
 
 const { provideModuleMap } = require('@nguniversal/module-map-ngfactory-loader');
 
-app.engine('html', (_, options, callback) => {
-  renderModuleFactory(AppServerModuleNgFactory, {
-    // Our index.html
-    document: template,
-    url: options.req.url,
-    // DI so that we can get lazy-loading to work differently (since we need it to just instantly render it)
-    extraProviders: [
-      provideModuleMap(LAZY_MODULE_MAP)
-    ]
-  }).then(html => {
-    callback(null, html);
-  });
-});
+app.engine('html', ngExpressEngine({
+  bootstrap: AppServerModuleNgFactory,
+  providers: [
+    provideModuleMap(LAZY_MODULE_MAP)
+  ]
+}));
 
 app.set('view engine', 'html');
 app.set('views', join(DIST_FOLDER, 'browser'));

@@ -19,13 +19,12 @@ export class OrdersTabComponent implements OnInit {
     ngOnInit() {
         this._clientOrderHistory();
     }
-    
+
     private _clientOrderHistory() {
         this._profileService.clientOrderDriver()
             .subscribe((data: ServerResponse<OrderHistory[]>) => {
                 this.orderInfo = data.data;
-                console.log(data, '285');
-                if (this.orderInfo == []) {
+                if (this.orderInfo && this.orderInfo.length == 0) {
                     this.isEmpty = true;
                 }
                 else {

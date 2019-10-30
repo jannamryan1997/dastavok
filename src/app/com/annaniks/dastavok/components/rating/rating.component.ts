@@ -22,6 +22,6 @@ export class RatingComponent implements OnInit {
         if (this.changeRating == true) {
             this.currentIndex = index;
         }
-        console.log(this.currentIndex)
+        (this.currentIndex)
     }
 }

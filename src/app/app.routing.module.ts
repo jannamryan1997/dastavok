@@ -7,7 +7,7 @@ const router: Routes = [
 ]
 
 @NgModule({
-    imports: [RouterModule.forRoot(router)],
+    imports: [RouterModule.forRoot(router, { initialNavigation: "enabled" })],
     exports: [RouterModule],
 })
 

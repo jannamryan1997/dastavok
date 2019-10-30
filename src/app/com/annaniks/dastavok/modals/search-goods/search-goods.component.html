@@ -1,7 +1,7 @@
 <div class="search_content" full-width display-flex full-height>
     <div class="search_conteiner" width-75 margin-auto display-flex>
     <div class="top_content" full-width display-flex>
-        <input class="input" placeholder="Search Product Hear" [(ngModel)]="search">
+        <input class="input" placeholder="{{'search_product_hear' | translate}}" [(ngModel)]="search">
         <div class="search" display-flex (click)="onClickSearch()">
             <i class="material-icons" color-white  margin-auto > 
                 search
