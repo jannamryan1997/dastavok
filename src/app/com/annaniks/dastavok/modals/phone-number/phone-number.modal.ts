@@ -26,7 +26,7 @@ export class PhoneNumberModal implements OnInit {
 
     private _formBuilder() {
         this.phoneNumberForm = new FormBuilder().group({
-            phonenumber: ["+37494598259", Validators.required]
+            phonenumber: ["", Validators.required]
         })
     }
 

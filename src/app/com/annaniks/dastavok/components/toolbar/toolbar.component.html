@@ -47,10 +47,9 @@
                         <div class="user_profile" position-absolute *ngIf="showUserProfileDisplay">
                             <div class="user_singIn">
                                 <span class="user_text" font-family-Roboto font-weight-bold routerLink="/profile"
-                                    cursor-pointer>User profile</span>
-                                <div class="line_content"></div>
+                                    cursor-pointer>{{'user_profile' | translate}}</span>
                                 <div class="text_signup" font-family-Roboto font-weight-bold (click)="onClickLogOut()"
-                                    cursor-pointer>Log out</div>
+                                    cursor-pointer>{{'log_out' | translate}}</div>
                             </div>
 
                         </div>
