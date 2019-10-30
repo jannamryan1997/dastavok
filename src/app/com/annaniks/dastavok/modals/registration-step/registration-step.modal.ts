@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core"
 import { Validators, FormGroup, FormBuilder } from "@angular/forms"
 import { SignUpService } from "../../services/signUp.service";
-import { CookieService } from "angular2-cookie/services/cookies.service";
+import { CookieService } from "ngx-cookie";
 import { ServerResponse, PhoneVerification, Verification } from "../../models/models";
 import { MatDialogRef } from "@angular/material";
 

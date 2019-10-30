@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef, MatDialog } from "@angular/material";
 import { ProfileService } from "../../views/main/profile/profile.service";
 import { VerificationModal } from "../verification/verification.modal";
-import { CookieService } from "angular2-cookie/services/cookies.service";
+import { CookieService } from "ngx-cookie";
 
 @Component({
     selector: "app-new-phone-number",

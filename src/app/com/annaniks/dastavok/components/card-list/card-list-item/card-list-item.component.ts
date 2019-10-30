@@ -1,9 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, Inject } from "@angular/core"
 import { ServerResponse, Card } from "../../../models/models";
-import { CardService } from "../../../views/main/home/card/card.service";
-
-
-
+import { BasketService } from "../../../views/main/home/basket/basket.service";
 
 @Component({
     selector: "app-card-list-item",
@@ -20,7 +17,7 @@ export class CardListItemComponent implements OnInit {
     public image: Array<string>;
     public itemImage: string;
 
-    constructor(@Inject("FILE_URL") public fileUrl: string, private _cardService: CardService) { }
+    constructor(@Inject("FILE_URL") public fileUrl: string, private _basketService: BasketService) { }
 
     ngOnInit() {
         if (this.cardGoodsImageItem != null) {
@@ -36,7 +33,7 @@ export class CardListItemComponent implements OnInit {
     }
 
     private _deleteOrder(): void {
-        this._cardService.deleteOrderChart(this.cardInfo.orderId, this.cardInfoOrderGoodId)
+        this._basketService.deleteOrderChart(this.cardInfo.orderId, this.cardInfoOrderGoodId)
             .subscribe((data) => {
                 this._deletecardGoodItems();
             })

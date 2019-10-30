@@ -4,7 +4,7 @@ import { MatDialog } from "@angular/material";
 import { LoginModal, PhoneNumberModal } from "../../modals";
 import { SignUpService } from "../../services/signUp.service";
 import { Router } from "@angular/router";
-import { CookieService } from "angular2-cookie/services/cookies.service";
+import { CookieService } from "ngx-cookie";
 
 @Component({
     selector: "app-slide-nav",
