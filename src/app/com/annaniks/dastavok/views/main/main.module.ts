@@ -43,6 +43,7 @@ import { MessageService } from "primeng/api";
     imports: [
         MainRoutingModule,
         SharedModule,
+        ToastModule
     ],
     providers: [
         MenuItemsService,
