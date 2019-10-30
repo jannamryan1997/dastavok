@@ -18,14 +18,15 @@
     "next":"Next",
     "new_password":"New Password",
     "QUICK_LINKS":"QUICK LINKS",
-    "home":"Home",
-    "contact":"Contact",
+    "home":"HOME",
+    "contact":"CONTACT",
     "special":"Special",
     "CATEGORIES":"CATEGORIES",
     "shop":"Shop",
     "restaurant":"Restaurant",
     "all":"All",
-    "about":"About"
+    "about":"About",
+    "profile":"Profile"
 
 
 }
