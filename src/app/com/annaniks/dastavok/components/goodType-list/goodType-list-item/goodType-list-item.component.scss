@@ -1,50 +1,52 @@
 .menu_content {
-    margin-top: 69.4px;
-    width: 100%;
-    cursor: pointer;
-    .type_content {
-        width: calc(100% - 52px);
-        margin-top: 34.4px;
-        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-        background-color: #ffffff;
-        .type_image {
-            height: 220.3px;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-image: url("/assets/images/wine.jpg");
-        }
-        .type_text {
-            padding:2rem;
-            font-size: 22px;
-            font-style: normal;
-            font-stretch: normal;
-            line-height: 1.23;
-            letter-spacing: normal;
-            text-align: left;
-            color: #191919;
-            width: 100%;
-            display: block;
-            word-wrap: break-word;
-            .meal_text_item_one {
-                margin-bottom: 0px;
-                margin-top: 0px;
-                width: 100%;
-                display: block;
-                word-wrap: break-word;
-            }
-            .meal_text_item_two {
-                margin-top: 11.6px;
-                display: block;
-                word-wrap: break-word;
-                white-space: normal;
-                width: 255px;
-                font-size: 14px;
-                color: #cfcfcf;
-                width: 100%;
-                display: block;
-                word-wrap: break-word;
-            }
-        }
+  margin-top: 69.4px;
+  width: 100%;
+  cursor: pointer;
+  .type_content {
+    width: calc(100% - 52px);
+    margin-top: 34.4px;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+    background-color: #ffffff;
+    .type_image {
+      height: 220.3px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-image: url("/assets/images/wine.jpg");
+      width: 100%;
+      object-fit: cover;
     }
+    .type_text {
+      padding: 2rem;
+      font-size: 22px;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.23;
+      letter-spacing: normal;
+      text-align: left;
+      color: #191919;
+      width: 100%;
+      display: block;
+      word-wrap: break-word;
+      .meal_text_item_one {
+        margin-bottom: 0px;
+        margin-top: 0px;
+        width: 100%;
+        display: block;
+        word-wrap: break-word;
+      }
+      .meal_text_item_two {
+        margin-top: 11.6px;
+        display: block;
+        word-wrap: break-word;
+        white-space: normal;
+        width: 255px;
+        font-size: 14px;
+        color: #cfcfcf;
+        width: 100%;
+        display: block;
+        word-wrap: break-word;
+      }
+    }
+  }
 }

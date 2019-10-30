@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app.routing.module';
 import { CheckToken } from './com/annaniks/dastavok/guards/checkToken.service';
 import { ApiService } from './com/annaniks/dastavok/services/api.service';
-import { CookieService } from 'angular2-cookie/services/cookies.service';
+import { CookieService, CookieModule, COOKIE_OPTIONS, CookieOptionsProvider } from 'ngx-cookie';
 import { SignUpService } from './com/annaniks/dastavok/services/signUp.service';
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { ApiInterceptor } from './com/annaniks/dastavok/interceptors/api.interceptor';
@@ -27,6 +27,7 @@ export function createTranslateLoader(http: HttpClient) {
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    CookieModule.forRoot(),
     TranslateModule.forRoot(
       {
         loader: {
@@ -39,6 +40,10 @@ export function createTranslateLoader(http: HttpClient) {
   ],
   providers: [
     {
+      provide: COOKIE_OPTIONS,
+      useValue: CookieOptionsProvider
+    },
+    {
       provide: HTTP_INTERCEPTORS,
       useClass: ApiInterceptor,
       multi: true
@@ -48,6 +53,9 @@ export function createTranslateLoader(http: HttpClient) {
     },
     {
       provide: 'FILE_URL', useValue: 'http://annaniks.com:16000/static/company/'
+    },
+    {
+       provide:'ADMIN_FILE_URL', useValue:'http://annaniks.com:4454/files/' 
     },
     {
       provide: 'COMPANY_ID', useValue: 23

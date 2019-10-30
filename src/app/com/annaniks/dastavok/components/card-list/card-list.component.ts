@@ -1,9 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core"
-import { Card, OrderInfo, ServerResponse } from "../../models/models";
+import { Card, OrderInfo } from "../../models/models";
 import { Router } from "@angular/router";
-import { CardService } from "../../views/main/home/card/card.service";
-
-
+import { BasketService } from "../../views/main/home/basket/basket.service";
 
 @Component({
     selector: "app-card-list",
@@ -16,7 +14,7 @@ export class CardListComponent implements OnInit {
     @Output() deleted: EventEmitter<boolean> = new EventEmitter();
     public orderGoodId;
 
-    constructor(private _router: Router, private _cardService: CardService) { }
+    constructor(private _router: Router, private _basketService: BasketService) { }
 
     ngOnInit() {
         for (var i = 0; i < this.cardInfo.goods.length; i++) {
@@ -49,7 +47,7 @@ export class CardListComponent implements OnInit {
  
      }*/
     public deleteAllOrderChart() {
-        this._cardService.deleteItemOrderChart(this.cardInfo.orderId)
+        this._basketService.deleteItemOrderChart(this.cardInfo.orderId)
             .subscribe((data) => {
                 this._deleteChartGood()
             })
