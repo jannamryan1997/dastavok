@@ -57,3 +57,4 @@ export function createTranslateLoader(http: HttpClient) {
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+//'http://annaniks.com:16000/'
