@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core"
+import { Component, OnInit, Input, Inject } from "@angular/core"
 import { BriefCompany } from "../../../models/models";
 
 @Component({
@@ -13,7 +13,7 @@ export class CompanyListItemComponent implements OnInit {
     public localImage: string = '/assets/images/restaurant.jpg';
 
 
-    constructor() { }
+    constructor(@Inject('BASE_URL') private _baseUrl: string) { }
 
     ngOnInit() {
         this._setCompanyImage();
@@ -21,7 +21,7 @@ export class CompanyListItemComponent implements OnInit {
 
     private _setCompanyImage(): void {
         if (this.companyItem.image) {
-            this.localImage = 'http://192.168.0.114:4000/static/company/'+this.companyItem.image;
+            this.localImage = this._baseUrl + this.companyItem.image;
         }
     }
 }
