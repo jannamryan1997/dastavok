@@ -6,22 +6,22 @@
                     <input type="file" border-none margin-auto (change)="setServicePhoto($event)">
                 <div class="form" full-width>
                     <label class="label" [ngClass]="{'color':checkIsValid('full_name')}">{{'full_name' | translate}}</label>
-                    <div class="form_content" full-height display-flex>
+                    <div class="form_content" full-height display-flex [ngClass]="{'border':checkIsValid('full_name')}">
                         <i class="material-icons" margin-auto>
                                 person
                             </i>
-                        <input class="input" placeholder="{{'full_name' | translate}}" formControlName="full_name" [ngClass]="{'border':checkIsValid('full_name')}">
+                        <input class="input" placeholder="{{'full_name' | translate}}" formControlName="full_name" >
                     </div>
     
                 </div>
 
                 <div class="form" full-width>
                         <label class="label" [ngClass]="{'color':checkIsValid('location')}">{{'location' | translate}}</label>
-                        <div class="form_content" full-height display-flex>
+                        <div class="form_content" full-height display-flex [ngClass]="{'border':checkIsValid('location')}">
                             <i class="material-icons" margin-auto>
                                     place
                                 </i>
-                            <input class="input" placeholder="{{'location' | translate}}" formControlName="location" [ngClass]="{'border':checkIsValid('location')}">
+                            <input class="input" placeholder="{{'location' | translate}}" formControlName="location" >
                         </div>
         
                     </div>

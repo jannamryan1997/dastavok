@@ -26,6 +26,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { InputPrefixDirective } from "../directives/input-prefix.directive";
 import { OnlyNumber } from "../directives/onlynumber.directive";
 import { NgxMaskModule } from 'ngx-mask';
+import { SlicetextPipe } from "../pipe/slicetext.pipe";
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { NgxMaskModule } from 'ngx-mask';
     ErrorComponent,
     SliderComponent,
     InputPrefixDirective,
-    OnlyNumber
+    OnlyNumber,
+    SlicetextPipe
   ],
   imports: [
     CommonModule,
@@ -78,7 +80,8 @@ import { NgxMaskModule } from 'ngx-mask';
     TranslateModule,
     InputPrefixDirective,
     OnlyNumber,
-    NgxMaskModule
+    NgxMaskModule,
+    SlicetextPipe
   ],
   providers: []
 })
