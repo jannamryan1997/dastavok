@@ -25,17 +25,8 @@
                 <p class="label" display-flex>{{'forgot_password' | translate}}</p>
             </div>
             <div position-relative>
-                    <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading>
+                    <!-- <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading> -->
                 </div>
-
-            <div class="login_content" full-width display-flex>
-
-                <button class="login" margin-auto color-white text-align-center full-height font-weight-bold
-                    display-flex [disabled]="loginForm.invalid || loading " [ngClass]="{'opacity':loginForm.invalid || loading}"
-                    (click)="loginClient()">
-                    <span margin-auto>{{'login' | translate}}</span>
-                </button>
-            </div>
             <button class="button" display-flex margin-auto [disabled]="loginForm.invalid || loading" [ngClass]="{'opacity':loginForm.invalid || loading}" (click)="loginClient()">
                 <span margin-auto>{{'login' | translate}}</span>
             </button>

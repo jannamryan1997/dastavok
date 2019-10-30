@@ -43,7 +43,7 @@
             <textarea full-width class="textarea_content" formControlName="comment"></textarea>
         </div>
         <div position-relative>
-                <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading>
+                <!-- <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading> -->
             </div>
         <div class="button_item" display-flex>
             <button class="save_button" display-flex (click)="onClickSave()"  [disabled]="paymentForm.invalid || loading " [ngClass]="{'opacity':paymentForm.invalid || loading}"><span margin-auto color-white
