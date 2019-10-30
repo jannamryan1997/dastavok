@@ -1,5 +1,6 @@
 .goods_content {
     margin-top: 15.6px;
+
     .goods_main {
         height: 257.6px;
         border-radius: 4px;
@@ -9,18 +10,20 @@
         background-repeat: no-repeat;
         background-position: center;
     }
-    app-goods-list-item{
-        width: 50%;
-        min-width: fit-content;
+
+    app-goods-list-item {
+        width: 33.3333%;
+        padding: 1.2em;
     }
-   
+
 }
 
-@media only screen and (max-width: 900px) {
-    .goods_content{
-        margin:10px 21px !important;
+@media only screen and (max-width: 1400px) {
+    .goods_content {
+        margin: 10px 21px !important;
     }
-    app-goods-list-item{
+
+    app-goods-list-item {
         width: 100% !important;
     }
 }
