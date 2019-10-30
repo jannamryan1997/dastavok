@@ -19,10 +19,14 @@ export class RegistrationStep implements OnInit {
     public controlsItems: string;
     public disabled: boolean = false;
     public loading: boolean = false;
-    public secend: number = 0;
-    public minute: number = 2;
-    public time: string;
     public error: string;
+    public minute: number = 2;
+    public secend: number = 0;
+    public time: string;
+    public isTimerStopped: boolean = false;
+    public interVal;
+    public timerStopped: boolean = true;
+    public show:boolean=false;
 
     constructor(private _signUpService: SignUpService, private _cookieService: CookieService, private dialogRef: MatDialogRef<RegistrationStep>) { }
 
@@ -44,7 +48,7 @@ export class RegistrationStep implements OnInit {
 
     timer() {
         setInterval(() => {
-
+            this.isTimerStopped = false;
             if (this.secend == 0 && this.minute == 0) {
                 return;
             }
@@ -55,6 +59,7 @@ export class RegistrationStep implements OnInit {
             this.secend = this.secend - 1;
             if (this.secend < 10) {
                 this.time = '0' + this.minute + ':0' + this.secend;
+                this.isTimerStopped = true;
             }
             else {
                 this.time = '0' + this.minute + ':' + this.secend;
@@ -62,6 +67,8 @@ export class RegistrationStep implements OnInit {
 
         }, 1000)
     }
+
+
 
     private _formBuilder() {
         this.phoneNumberForm = new FormBuilder().group({
@@ -84,7 +91,6 @@ export class RegistrationStep implements OnInit {
             user_name: ["", Validators.required],
             full_name: ["", Validators.required],
             password: ["", Validators.required],
-            confirm_password: ["", Validators.required],
         },
             { validator: this.matchingPasswords('password', 'confirm_password') }
         )
@@ -102,6 +108,8 @@ export class RegistrationStep implements OnInit {
         if (this.tab == 3) {
             this._signUpClient();
         }
+        console.log(this.tab);
+
     }
     public back() {
         this.tab = this.tab - 1;
@@ -141,7 +149,7 @@ export class RegistrationStep implements OnInit {
             this.phoneNumberForm.enable();
             this._cookieService.put("refreshToken", data.data.refreshToken);
             this._cookieService.put('token', data.data.token);
-            this._formBuilderSignUpForm();
+             this._formBuilderSignUpForm();
             this._signUpService.isAuthorized = true;
             this.tab = this.tab + 1;
         },
@@ -178,4 +186,20 @@ export class RegistrationStep implements OnInit {
     }
 
 
+    public checkIsValid(controlName: string): boolean {
+if(this.tab==1){
+    return this.phoneNumberForm.get(controlName).hasError('required') && this.phoneNumberForm.get(controlName).touched;
+}
+    else if(this.tab==2) {
+        return this.verificationForm.get(controlName).hasError('required') && this.verificationForm.get(controlName).touched;
+    }
+
+    else if (this.tab==3){
+        return this.signUpForm.get(controlName).hasError('required') && this.signUpForm.get(controlName).touched;
+    }
+    }
+
+    public showPassword():void{
+        this.show =! this.show;
+      }
 }

@@ -18,12 +18,15 @@ export class LoginModal implements OnInit {
     public loading: boolean = false;
     public loginForm: FormGroup;
     public error: string;
+    public show:boolean=false;
 
     constructor(public dialog: MatDialog,
         private dialogRef: MatDialogRef<LoginModal>,
         private signUpService: SignUpService,
         private router: Router,
         private _cookieService: CookieService,
+     
+
     ) { }
 
     ngOnInit() {
@@ -32,8 +35,8 @@ export class LoginModal implements OnInit {
 
     private _formBuilder() {
         this.loginForm = new FormBuilder().group({
-            userName: ["", Validators.required],
-            password: ["", Validators.required]
+            userName: ["karen1", Validators.required],
+            password: ["123456", Validators.required]
         })
     }
 
@@ -82,4 +85,7 @@ export class LoginModal implements OnInit {
         return this.loginForm.get(controlName).hasError('required') && this.loginForm.get(controlName).touched;
     }
 
+    public showPassword():void{
+        this.show =! this.show;
+      }
 }
