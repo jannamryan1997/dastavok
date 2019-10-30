@@ -7,9 +7,12 @@ import { CheckToken } from './com/annaniks/dastavok/guards/checkToken.service';
 import { ApiService } from './com/annaniks/dastavok/services/api.service';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { SignUpService } from './com/annaniks/dastavok/services/signUp.service';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
+import { ApiInterceptor } from './com/annaniks/dastavok/interceptors/api.interceptor';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -24,20 +27,27 @@ export function createTranslateLoader(http: HttpClient) {
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: createTranslateLoader,
-        deps: [HttpClient]
+    TranslateModule.forRoot(
+      {
+        loader: {
+          provide: TranslateLoader,
+          useFactory: createTranslateLoader,
+          deps: [HttpClient]
+        }
       }
-    })
+    )
   ],
   providers: [
     {
-      provide: 'BASE_URL', useValue: 'http://192.168.0.137:13000/'
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiInterceptor,
+      multi: true
     },
     {
-      provide: 'COMPANY_ID', useValue: '23'
+      provide: 'BASE_URL', useValue: 'http://annaniks.com:16000/'
+    },
+    {
+      provide: 'COMPANY_ID', useValue: 23
     },
     CheckToken,
     ApiService,
@@ -47,5 +57,3 @@ export function createTranslateLoader(http: HttpClient) {
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-////http://annaniks.com:16004/

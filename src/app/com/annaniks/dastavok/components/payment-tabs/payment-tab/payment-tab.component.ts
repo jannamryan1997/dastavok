@@ -31,7 +31,7 @@ export class PaymentTabComponent implements OnInit {
 
     ngOnInit() {
         this.userData = this._signUpService.userInfo;
-        console.log(this.userData);
+        (this.userData);
 
 
     }
@@ -51,7 +51,7 @@ export class PaymentTabComponent implements OnInit {
         dialogRef.afterClosed().subscribe((data)=>{
          this._signUpService.getUserInfo().subscribe((data)=>{
              this.userData=data.data;
-             console.log(data);
+             (data);
              
          });
         })

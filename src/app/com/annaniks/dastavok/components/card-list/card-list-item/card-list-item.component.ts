@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core"
+import { Component, OnInit, Input, Output, EventEmitter, Inject } from "@angular/core"
 import { ServerResponse, Card } from "../../../models/models";
 import { CardService } from "../../../views/main/home/card/card.service";
 
@@ -20,7 +20,7 @@ export class CardListItemComponent implements OnInit {
     public image: Array<string>;
     public itemImage: string;
 
-    constructor(private _cardService: CardService) { }
+    constructor(@Inject("BASE_URL") public baseUrl: string, private _cardService: CardService) { }
 
     ngOnInit() {
         if (this.cardGoodsImageItem != null) {
@@ -29,10 +29,6 @@ export class CardListItemComponent implements OnInit {
                 this.itemImage = this.image[1];
             }
         }
-      //  console.log(this.cardGoodsInfo);
-
-
-
     }
 
     public onClickDelete(): void {
@@ -40,13 +36,9 @@ export class CardListItemComponent implements OnInit {
     }
 
     private _deleteOrder(): void {
-    //    console.log(this.cardInfoOrderGoodId);
-
         this._cardService.deleteOrderChart(this.cardInfo.orderId, this.cardInfoOrderGoodId)
             .subscribe((data) => {
                 this._deletecardGoodItems();
-                console.log(data);
-
             })
 
     }

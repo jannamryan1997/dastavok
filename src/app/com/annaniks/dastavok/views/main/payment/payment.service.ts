@@ -3,10 +3,9 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { CookieService } from "angular2-cookie/services/cookies.service";
 
 @Injectable()
-
 export class PaymentService {
 
-    constructor(@Inject('BASE_URL') private _baseUrl:string, private _httpClient: HttpClient, private _cookieService: CookieService) { }
+    constructor(private _httpClient: HttpClient, private _cookieService: CookieService) { }
 
     public createOrder(body) {
         let token = this._cookieService.get("token");
@@ -14,7 +13,7 @@ export class PaymentService {
             'token': token,
             'Content-type': "application/json"
         })
-        return this._httpClient.post(this._baseUrl + "client/order", body, { headers })
+        return this._httpClient.post("client/order", body, { headers })
     }
 
     public getOrderProcessing() {
@@ -23,7 +22,7 @@ export class PaymentService {
             'token': token,
             'Content-type': "application/json"
         })
-        return this._httpClient.get(this._baseUrl + "client/orders/processing", { headers })
+        return this._httpClient.get("client/orders/processing", { headers })
 
     }
     public putClient(body) {
@@ -32,7 +31,7 @@ export class PaymentService {
             'token': token,
             'Contact-type': "application/json"
         })
-        return this._httpClient.put(this._baseUrl + "client", body, { headers })
+        return this._httpClient.put("client", body, { headers })
     }
 
     public putOrders(body) {
@@ -41,6 +40,6 @@ export class PaymentService {
             'token': token,
             'Contact-type': "application/json"
         })
-        return this._httpClient.put(this._baseUrl + "client/chart/orders/status", body,{ headers })
+        return this._httpClient.put("client/chart/orders/status", body, { headers })
     }
 }

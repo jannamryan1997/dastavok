@@ -80,14 +80,14 @@ export class SlideNawComponent implements OnInit {
         this.signUpService.getUserInfo().subscribe();
     }
     public navToPage(route: string) {
-        console.log("hi");
+        ("hi");
         
         this._menuService.closeMenu();
         this.roter.navigate([route])
     }
 
     public logOut() {
-        console.log("fgfgfg");
+        ("fgfgfg");
         
         this._cookieService.remove('refreshToken');
         this._cookieService.remove('token');

@@ -13,23 +13,21 @@ declare var google;
 
 export class DeliveryListItemComponent implements OnInit {
     @Input() index: number;
-    @Input() orderData:ClientDriver;
+    @Input() orderData: ClientDriver;
     private _map;
     private _marker;
     public showDetails: boolean = false;
     public detailsinfoheigth: string;
     public directionsService = new google.maps.DirectionsService();
     public directionsDisplay = new google.maps.DirectionsRenderer();
-   
 
-    constructor( ) { }
+
+    constructor() { }
 
     ngOnInit() {
         this._initMap();
         this.setDetailsHeight();
         this.calcRoute();
-        console.log(this.orderData,"fg");
-        
     }
 
     private _initMap() {
@@ -74,7 +72,7 @@ export class DeliveryListItemComponent implements OnInit {
 
     calcRoute() {
         var origin = new google.maps.LatLng(this.orderData.companydata.address.lat, this.orderData.companydata.address.lng);
-        var destination = new google.maps.LatLng(this.orderData.orderdata.address.lat,this.orderData.orderdata.address.lng);
+        var destination = new google.maps.LatLng(this.orderData.orderdata.address.lat, this.orderData.orderdata.address.lng);
         var request = {
             origin: origin,
             destination: destination,
@@ -84,16 +82,12 @@ export class DeliveryListItemComponent implements OnInit {
             travelMode: google.maps.TravelMode['DRIVING']
         };
         this.directionsService.route(request, (response, status) => {
-            console.log(status);
-
             if (status == 'OK') {
-                console.log(response);
-
                 this.directionsDisplay.setDirections(response);
             }
         });
     }
-    
+
 
 
 
