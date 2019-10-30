@@ -20,7 +20,6 @@ import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
 import { ClickOutsideModule } from 'ng-click-outside';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
-import { MessageService } from 'primeng/components/common/messageservice';
 import { NgxCarouselModule } from "ngx-carousel";
 import { TranslateModule } from '@ngx-translate/core';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
@@ -71,7 +70,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     SliderComponent,
     TranslateModule,
   ],
-  providers: [MessageService]
+  providers: []
 })
 
 export class SharedModule { }

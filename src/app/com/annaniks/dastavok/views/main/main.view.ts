@@ -1,4 +1,4 @@
-import {Component} from "@angular/core"
+import {Component, OnInit} from "@angular/core"
 
 @Component({
     selector:"app-main",
@@ -6,6 +6,15 @@ import {Component} from "@angular/core"
     styleUrls:["main.view.scss"]
 })
 
-export class MainComponent{
+export class MainComponent implements OnInit{
 
+    constructor(){
+      
+    }
+
+    ngOnInit(){
+
+    }
+
+    
 }
