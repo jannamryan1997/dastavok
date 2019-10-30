@@ -1,7 +1,7 @@
 <div class="topbar_wrapper" full-width>
     <div class="topbar_container" display-flex align-items-center>
         <div class="topbar_item" display-flex cursor-pointer *ngFor="let item of menuItemsService.getMenuItems()"
-            [routerLink]="item.routerLink" routerLinkActive="topbar_item_active">
+            routerLink="{{item.routerLink}}" routerLinkActive="topbar_item_active">
             <p class="item_label" font-weight-bold margin-auto font-family-Open-Sans>{{item.label | translate}}</p>
         </div>
     </div>
