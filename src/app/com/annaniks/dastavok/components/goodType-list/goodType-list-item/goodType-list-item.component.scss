@@ -2,19 +2,19 @@
     margin-top: 69.4px;
     width: 100%;
     cursor: pointer;
-    .meal_content {
+    .type_content {
         width: calc(100% - 52px);
         margin-top: 34.4px;
         box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
         background-color: #ffffff;
-        .meal_images {
+        .type_image {
             height: 220.3px;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
             background-image: url("/assets/images/wine.jpg");
         }
-        .meal_text {
+        .type_text {
             padding:2rem;
             font-size: 22px;
             font-style: normal;

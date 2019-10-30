@@ -35,6 +35,7 @@ export class ProductTypesView implements OnInit {
             .subscribe((data: ServerResponse<Array<GoodType>>) => {
                 this.loading = false;
                 this.goodTypes = data.data;
+                console.log(data);
             })
     }
 

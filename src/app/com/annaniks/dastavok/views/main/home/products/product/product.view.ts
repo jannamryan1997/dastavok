@@ -35,7 +35,7 @@ export class ProductView implements OnInit {
         private _goodService: GoodService,
         private _dialog: MatDialog,
         private _signUpService: SignUpService,
-        @Inject('BASE_URL') private _baseUrl: string,
+        @Inject('BASE_URL') public baseUrl: string,
         @Inject('COMPANY_ID') private _companyId: number
     ) {
         this._activatedRoute.params.subscribe((params) => {
@@ -60,7 +60,7 @@ export class ProductView implements OnInit {
     }
 
     public setActiveImage(image): void {
-        this.activeImage = this._baseUrl + 'static/company/' + image;
+        this.activeImage = this.baseUrl + 'static/company/' + image;
     }
 
     public onClickBuy(): void {
@@ -97,7 +97,7 @@ export class ProductView implements OnInit {
                     element.toppingValue = 0;
                 })
                 if (data.data.thumbnail) {
-                    this.activeImage = this._baseUrl + 'static/company/' + data.data.thumbnail;
+                    this.activeImage = this.baseUrl + 'static/company/' + data.data.thumbnail;
                 }
                 if (data.data.images) {
                     this.goodImage = data.data.images.split(",")
