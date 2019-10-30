@@ -52,7 +52,7 @@ export class AddressEditModal implements OnInit {
             "fullName": this.userUpdateGroup.value.full_name,
         }).subscribe((data) => {
             this.dialogRef.close();
-            console.log(data);
+            (data);
          
         })
      

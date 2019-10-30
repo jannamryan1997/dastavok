@@ -2,18 +2,19 @@ import { NgModule } from "@angular/core"
 import { ProductsRoutingModule } from "./products.routing.module";
 import { ProductsView } from "./products.view";
 import { CommonModule } from '@angular/common';
-import { SharedModule } from "src/app/com/annaniks/dastavok/shared/shared.module";
+import { SharedModule } from "./../../../../shared/shared.module";
 import { ProductsService } from "./products.service";
 
 
 @NgModule({
     declarations: [
-        ProductsView
+        ProductsView,
     ],
     imports: [
         ProductsRoutingModule,
         CommonModule,
-        SharedModule
+        SharedModule,
+        
     ],
     providers: [ProductsService],
     exports: [],

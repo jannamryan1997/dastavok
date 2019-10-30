@@ -29,7 +29,7 @@ export class UserUpdateModal implements OnInit {
         this._formBuilder();
         this.clientData = this.data.clientData;
         this._setUserUpdateValue();
-        console.log(this.clientData.image);
+        (this.clientData.image);
 
     }
 
@@ -98,8 +98,8 @@ export class UserUpdateModal implements OnInit {
                 this.loading = false;
                 this.userUpdateGroup.enable();
                 this._dialogRef.close();
-                console.log(data);
-                console.log(data);
+                (data);
+                (data);
 
             },
                 err => {

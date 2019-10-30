@@ -3,7 +3,6 @@ import { MenuItem } from "../models/models";
 import { TranslateService } from "@ngx-translate/core";
 
 @Injectable()
-
 export class MenuItemsService {
     private _menuItems: Array<MenuItem> = [
         { label: "home", routerLink: "/"},

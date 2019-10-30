@@ -1,5 +1,4 @@
 <div class="topbar_wrapper" full-width>
-
     <div class="topbar_container" display-flex align-items-center>
         <div class="topbar_item" display-flex cursor-pointer *ngFor="let item of menuItemsService.getMenuItems()"
             routerLink="{{item.routerLink}}" routerLinkActive="topbar_item_active">
@@ -15,7 +14,6 @@
                 shopping_cart
             </i>
         </div>
-
        <app-filters-list></app-filters-list>
     </div>
     

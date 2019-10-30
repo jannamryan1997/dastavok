@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from "@angular/core"
 import { ActivatedRoute, Router } from "@angular/router";
-import { RestaurantService } from "./product-types.service";
+import { ProductTypesService } from "./product-types.service";
 import { ServerResponse, GoodType, Restaurant } from "../../../../models/models";
 
 @Component({
@@ -12,16 +12,16 @@ import { ServerResponse, GoodType, Restaurant } from "../../../../models/models"
 export class ProductTypesView implements OnInit {
     public starCount: number = 4;
     public goodTypes: Array<GoodType> = [];
-    public companyId: number = 21;
     public restaurant: Restaurant;
     public localImage: string = '/assets/images/restaurant.jpg';
     public loading: boolean = false;
 
     constructor(
         @Inject("BASE_URL") private _baseUrl: string,
+        @Inject("COMPANY_ID") public companyId: number,
         private _router: Router,
         private _activatedRoute: ActivatedRoute,
-        private _restaurantService: RestaurantService
+        private _productTypesService: ProductTypesService
     ) { }
 
     ngOnInit() {
@@ -31,19 +31,20 @@ export class ProductTypesView implements OnInit {
 
     private _getGoodTypes(companyId: number): void {
         this.loading = true;
-        this._restaurantService.getGoodTypes(companyId)
+        this._productTypesService.getGoodTypes(companyId)
             .subscribe((data: ServerResponse<Array<GoodType>>) => {
                 this.loading = false;
                 this.goodTypes = data.data;
+                console.log(data);
             })
     }
 
     public onClickItem(goodType: GoodType) {
-        this._router.navigate([goodType.id], { relativeTo: this._activatedRoute })
+        this._router.navigate([`${goodType.id}/products`], { relativeTo: this._activatedRoute })
     }
 
     private _getRestaurant() {
-        this._restaurantService.getRestaurantById(this.companyId)
+        this._productTypesService.getRestaurantById(this.companyId)
             .subscribe((data: ServerResponse<Restaurant>) => {
                 this.restaurant = data.data;
             })

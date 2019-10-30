@@ -69,8 +69,8 @@ export class ProfileView implements OnInit {
                     this.clientImage = data.data.image;
                 }
 
-                console.log(data);
-              //  console.log(this.clientId);
+                (data);
+              //  (this.clientId);
                 
             })
 
@@ -80,7 +80,7 @@ export class ProfileView implements OnInit {
     private _clientOrdersProcessing() {
         this._profileService.clientOrderProcessing()
             .subscribe((data) => {
-                console.log(data);
+                (data);
 
             })
     }

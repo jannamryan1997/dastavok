@@ -1,11 +1,11 @@
-<div class="good_item" (click)="navToDetails()">
-    <div class="item_img" [ngStyle]="{'background-image':'url('+'http://192.168.0.114:4000/static/company/'+goodsImageItem+')'}"></div>
+<div class="good_item">
+    <div class="item_img" [ngStyle]="{'background-image':'url('+baseUrl+'static/company/'+goodsImageItem+')'}"></div>
     <div class="item_text">
-        <p class="label_text" font-weight-bold font-family-Roboto routerLink="{{goodInfo?.router}}">{{goodInfo?.name}}</p>
+        <p class="label_text" font-weight-bold font-family-Roboto>{{goodInfo?.name}}
+        </p>
         <div display-flex justify-content-space-between align-items-center>
             <p class="title_text" font-family-Roboto>{{goodInfo?.description}}</p>
             <span class="money_text" font-weight-bold font-family-Roboto>{{goodInfo?.price}}$</span>
         </div>
-
     </div>
 </div>
