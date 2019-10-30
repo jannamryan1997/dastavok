@@ -47,6 +47,9 @@ export function createTranslateLoader(http: HttpClient) {
       provide: 'BASE_URL', useValue: 'http://annaniks.com:16004/'
     },
     {
+      provide: 'FILE_URL', useValue: 'http://annaniks.com:16000/static/company/'
+    },
+    {
       provide: 'COMPANY_ID', useValue: 23
     },
     CheckToken,

@@ -12,10 +12,10 @@ export class GoodTypeListItemComponent implements OnInit {
 
     @Input() goodTypeInfo;
 
-    constructor(@Inject("BASE_URL") private _baseUrl: string) { }
+    constructor(@Inject("FILE_URL") private _fileUrl: string) { }
 
     ngOnInit() {
-        this.image = `${this._baseUrl}static/company/${this.goodTypeInfo.image}`
+        this.image = `${this._fileUrl}${this.goodTypeInfo.image}`
     }
 
 

@@ -17,7 +17,7 @@ export class ProductTypesView implements OnInit {
     public loading: boolean = false;
 
     constructor(
-        @Inject("BASE_URL") private _baseUrl: string,
+        @Inject("FILE_URL") private _fileUrl: string,
         @Inject("COMPANY_ID") public companyId: number,
         private _router: Router,
         private _activatedRoute: ActivatedRoute,
@@ -52,7 +52,7 @@ export class ProductTypesView implements OnInit {
 
     private _setCompanyImage(): void {
         if (this.restaurant.image) {
-            this.localImage = `${this._baseUrl}/static/company/` + this.restaurant.image;
+            this.localImage = `${this._fileUrl}${this.restaurant.image}`;
         }
     }
 

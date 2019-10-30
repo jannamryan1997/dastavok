@@ -9,7 +9,7 @@
 
             <div class="images" display-flex flex-wrap-wrap>
                 <div class="image_items" *ngFor="let item of goodImage"
-                    [ngStyle]="{'background-image':'url('+ baseUrl + item +')'}" (click)="setActiveImage(item)"></div>
+                    [ngStyle]="{'background-image':'url('+ fileUrl + item +')'}" (click)="setActiveImage(item)"></div>
             </div>
 
         </div>
@@ -35,7 +35,7 @@
             </div>
             <div class="button_item" display-flex>
                 <div margin-auto display-flex>
-                    <button class="left_button" color-white font-family-Open-Sans margin-auto (click)="onClickOrder('card')"><span>{{'cart' | TRANSLATE}}</span></button>
+                    <button class="left_button" color-white font-family-Open-Sans margin-auto (click)="onClickOrder('card')"><span>{{'cart' | translate}}</span></button>
                     <button class="right_button" color-white font-family-Open-Sans margin-auto (click)="onClickBuy()"><span>{{'buy'| translate}}</span></button>
                 </div>
 
@@ -46,25 +46,14 @@
     </div>
     <div [ngSwitch]="tab">
         <div class="tab_content" display-flex justify-content-space-between>
-<<<<<<< HEAD
-            <div class="tab_item" display-flex (click)="openDescription()" [ngClass]="{'active_tab':tab==1}">
-                <span margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==1}">{{{{'description'| translate}}}}</span>
-            </div>
-            <div class="tab_item" display-flex (click)="openReview()" [ngClass]="{'active_tab':tab==2}">
-                <span margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==2}">{{'review'| translate}}</span>
-            </div>
-            <div class="tab_item" display-flex (click)="openIngredient()" [ngClass]="{'active_tab':tab==3}">
-                <span margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==3}">{{'ingredient'| translate}}</span>
-=======
             <div class="tab_item" display-flex (click)="changeTab(1)" [ngClass]="{'active_tab':tab==1}">
-                <span margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==1}">DESCRIPTION</span>
+                <span margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==1}">{{'description'| translate}}</span>
             </div>
             <div class="tab_item" display-flex (click)="changeTab(2)" [ngClass]="{'active_tab':tab==2}">
-                <span margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==2}">REVIEW</span>
+                <span margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==2}">{{'review'| translate}}</span>
             </div>
             <div class="tab_item" display-flex (click)="changeTab(3)" [ngClass]="{'active_tab':tab==3}">
-                <span margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==3}">INGREDIENT</span>
->>>>>>> 7fa4e1ba7315ebc61075a884685d64655b6d512a
+                <span margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==3}">{{'ingredient'| translate}}</span>
             </div>
         </div>
         <div *ngSwitchCase="1">
