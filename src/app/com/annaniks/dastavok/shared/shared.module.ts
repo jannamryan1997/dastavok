@@ -25,6 +25,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { InputPrefixDirective } from "../directives/input-prefix.directive";
 import { OnlyNumber } from "../directives/onlynumber.directive";
+import { NgxMaskModule } from 'ngx-mask';
+
 
 @NgModule({
   declarations: [
@@ -53,7 +55,8 @@ import { OnlyNumber } from "../directives/onlynumber.directive";
     ProgressSpinnerModule,
     NgxCarouselModule,
     TranslateModule.forChild(),
-    NgxChartsModule
+    NgxMaskModule.forRoot(),
+    NgxChartsModule,
   ],
   exports: [
     LeftMenuComponent,
@@ -74,7 +77,8 @@ import { OnlyNumber } from "../directives/onlynumber.directive";
     SliderComponent,
     TranslateModule,
     InputPrefixDirective,
-    OnlyNumber
+    OnlyNumber,
+    NgxMaskModule
   ],
   providers: []
 })

@@ -1,6 +1,6 @@
 <div class="card_content" width-75 margin-control>
         <div position-relative>
-                <app-loading class="loading" [loading]="loading" [height]="150" [width]="150"></app-loading>
+                <!-- <app-loading class="loading" [loading]="loading" [height]="150" [width]="150"></app-loading> -->
             </div>
     <div class="card_conteiner" *ngIf="cardInfo.length>0 && loading==false">
         <app-card-list *ngFor="let item of cardInfo" [cardInfo]="item" (deleted)="deletedOrder($event)">

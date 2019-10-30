@@ -11,11 +11,11 @@
                     <input class="input" placeholder="{{'new_phone_number' | translate}}" 
                     formControlName="phonenumber" 
                     [ngClass]="{'border':checkIsValid('phonenumber')}" 
-                    OnlyNumber="true" input-prefix  prefix='+'  [val]="phoneNumberForm.get('phonenumber').value">
+                    prefix="+7" mask="(000) 000 00 00">
                 </div>
             </div>
             <div position-relative>
-                <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading>
+                <!-- <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading> -->
             </div>
             <div class="button_item">
                 <button class="button back" display-flex margin-auto [disabled]="phoneNumberForm.invalid || loading" [ngClass]="{'opacity':phoneNumberForm.invalid || loading}" (click)="closeNewPhoneNumberMoadal()">

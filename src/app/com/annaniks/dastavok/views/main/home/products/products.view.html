@@ -3,7 +3,7 @@
     </div>
     <div full-width class="good">
         <div position-relative>
-            <app-loading class="loading" [loading]="loading" [height]="150" [width]="150"></app-loading>
+            <!-- <app-loading class="loading" [loading]="loading" [height]="150" [width]="150"></app-loading> -->
         </div>
         <app-goods-list>
             <app-goods-list-item *ngFor="let item of goodsInfo" [goodInfo]="item" [routerLink]="item.id" [goodsImage]="item.images"></app-goods-list-item>
