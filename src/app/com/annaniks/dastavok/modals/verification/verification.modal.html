@@ -9,7 +9,7 @@
                     <input class="item_label" formControlName="control_4"  [ngClass]="{'border':checkIsValid('control_4')}">
             </div>
             <div class="type_content" display-flex margin-auto>
-                    <p class="type" *ngIf="!isTimerStopped">Enter the verification code <b color-orange>{{time}}</b></p>
+                    <p class="type" *ngIf="!isTimerStopped">{{'Enter_the_verification_code' | translate}}<b color-orange>{{time}}</b></p>
                     <p class="type" color-orange cursor-pointer *ngIf="isTimerStopped"   (click)="getVerifivationCode()">Get code again</p>
                 </div>
 

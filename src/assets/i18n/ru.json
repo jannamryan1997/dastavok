@@ -52,5 +52,6 @@
     "buy_all":"КУПИТЬ ВСЕ",
     "new":"новый",
     "new_phone_number":"Новый номер телефона",
-    "confirm_password":"Подтвердите пароль"
+    "confirm_password":"Подтвердите пароль",
+    "Enter_the_verification_code":"Введите проверочный код"
 }
