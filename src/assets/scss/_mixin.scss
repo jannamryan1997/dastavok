@@ -32,3 +32,17 @@
     text-decoration: none;
     padding: $padding;
 }
+
+@mixin flex-spase-between{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+@mixin after-before($margin,$border){
+    content: "";
+    display: block;
+    width: 100%;
+    border:$border;
+    margin:$margin;
+}
