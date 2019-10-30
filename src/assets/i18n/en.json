@@ -20,8 +20,8 @@
     "next":"Next",
     "new_password":"New Password",
     "QUICK_LINKS":"QUICK LINKS",
-    "home":"Home",
-    "contact":"Contact",
+    "home":"HOME",
+    "contact":"CONTACT",
     "special":"Special",
     "CATEGORIES":"CATEGORIES",
     "shop":"Shop",
@@ -30,7 +30,9 @@
     "about":"About",
     "save":"Save",
     "user_profile":"User Profile",
-    "log_out":"Log Out"
+    "log_out":"Log Out",
+    "new_phone_number":"New Phone Number",
+    "confirm_password":"Confirm Password"
 
 
 }

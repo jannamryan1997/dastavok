@@ -4,7 +4,7 @@ import { MainComponent } from "./main.view";
 import { SharedModule } from "../../shared/shared.module";
 import { MenuItemsService } from "../../services";
 import { FooterComponent } from "../../components/footer/footer.component";
-
+import { ToastModule } from 'primeng/toast';
 import {
     LoginModal,
     VerificationModal,
@@ -22,6 +22,7 @@ import { ProfileService } from "./profile/profile.service";
 import { PaymentService } from "./payment/payment.service";
 import { AuthGuard } from "../../guards/authguard.service";
 import { MenuService } from "../../services/menu.service";
+import { MessageService } from "primeng/api";
 
 @NgModule({
     declarations: [
@@ -48,7 +49,8 @@ import { MenuService } from "../../services/menu.service";
         ProfileService,
         PaymentService,
         AuthGuard,
-        MenuService
+        MenuService,
+        MessageService
     ],
     entryComponents: [
         VerificationModal,

@@ -8,7 +8,10 @@
                     <i class="material-icons" margin-auto>
                                 call
                         </i>
-                    <input class="input" placeholder="{{'phonenumber' | translate}}" formControlName="phonenumber" [ngClass]="{'border':checkIsValid('phonenumber')}">
+                    <input class="input" placeholder="{{'phonenumber' | translate}}" 
+                    formControlName="phonenumber" 
+                    [ngClass]="{'border':checkIsValid('phonenumber')}" 
+                    OnlyNumber="true" input-prefix  prefix='+'  [val]="phoneNumberForm.get('phonenumber').value">
                 </div>
             </div>
             <div position-relative>
