@@ -49,7 +49,7 @@ export function createTranslateLoader(http: HttpClient) {
       multi: true
     },
     {
-      provide: 'BASE_URL', useValue: 'http://annaniks.com:16004/'
+      provide: 'BASE_URL', useValue: 'http://192.168.0.137:13000/'
     },
     {
       provide: 'FILE_URL', useValue: 'http://annaniks.com:16000/static/company/'
