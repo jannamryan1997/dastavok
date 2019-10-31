@@ -1,10 +1,12 @@
-import { Component, OnInit, Input } from "@angular/core"
+import { Component, OnInit, Input, OnDestroy } from "@angular/core"
 import { UserUpdateModal } from "../../../modals/user-update/user-update.modal";
 import { MatDialog } from "@angular/material"
 import { ProfileService } from "./profile.service";
 import { ServerResponse, User, OrderHistory } from "../../../models/models";
 import { NewPhoneNumber } from "../../../modals";
 import { SignUpService } from "../../../services/signUp.service";
+import { Subject } from "rxjs";
+import { takeUntil } from "rxjs/operators";
 
 
 @Component({
@@ -13,8 +15,7 @@ import { SignUpService } from "../../../services/signUp.service";
     styleUrls: ["profile.view.scss"]
 })
 
-export class ProfileView implements OnInit {
-
+export class ProfileView implements OnInit, OnDestroy {
     public orderInfo: OrderHistory;
     public tab: number = 1;
     public clientData: User;
@@ -23,11 +24,14 @@ export class ProfileView implements OnInit {
     public count: number = 0;
     public notifications: Array<object> = [];
     public clientImage: string = "/assets/images/userimages.png";
+    public clientId: number;
+    private _unsubscribe$: Subject<void> = new Subject<void>();
 
-     public clientId:number;
-
-
-    constructor(private dialog: MatDialog, private _profileService: ProfileService,private _signUpService:SignUpService) { }
+    constructor(
+        private dialog: MatDialog,
+        private _profileService: ProfileService,
+        private _signUpService: SignUpService
+    ) { }
 
     ngOnInit() {
         this._clientGet();
@@ -39,58 +43,52 @@ export class ProfileView implements OnInit {
         const dialogref = this.dialog.open(UserUpdateModal, {
             width: "686px",
             panelClass: ['margin-10'],
-            data:{
-                clientData:clientData,
+            data: {
+                clientData: clientData,
             }
         });
-        dialogref.afterClosed().subscribe((data) => {
+        dialogref.afterClosed().subscribe(() => {
             this._clientGet();
         })
 
     }
-    public showNotification() {
-        this.tab = 1;
-
+    public changeTab(tab: number): void {
+        this.tab = tab;
     }
-    public showOrderHistory() {
-        this.tab = 2;
-    }
-    public showTrackDelivery() {
-        this.tab = 3;
-    }
-
 
     private _clientGet() {
         this._signUpService.getUserInfo()
+            .pipe(
+                takeUntil(this._unsubscribe$)
+            )
             .subscribe((data: ServerResponse<User>) => {
                 this.clientData = data.data;
-                this.clientId=data.data.id;
+                this.clientId = data.data.id;
                 if (data.data.image !== null) {
                     this.clientImage = data.data.image;
                 }
-
-                (data);
-              //  (this.clientId);
-                
             })
 
 
     }
 
-    private _clientOrdersProcessing() {
+    private _clientOrdersProcessing(): void {
         this._profileService.clientOrderProcessing()
-            .subscribe((data) => {
-                (data);
-
-            })
+            .pipe(takeUntil(this._unsubscribe$))
+            .subscribe((data) => { })
     }
 
-    public openNewPhoneNumberModal(){
-        const dialogref=this.dialog.open(NewPhoneNumber,{
+    public openNewPhoneNumberModal() {
+        const dialogref = this.dialog.open(NewPhoneNumber, {
             width: "686px",
-            height:"444px",
+            height: "444px",
         })
 
+    }
+
+    ngOnDestroy() {
+        this._unsubscribe$.next();
+        this._unsubscribe$.complete();
     }
 
 
