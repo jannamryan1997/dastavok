@@ -1,4 +1,4 @@
-<div class="home_content" full-width>
+<!-- <div class="home_content" full-width>
     <div class="container" display-flex justify-content-space-between>
         <div class="logo">
             <img src="assets/images/logo.png">
@@ -28,4 +28,39 @@
         </div>
     </div>
     <router-outlet></router-outlet>
-</div>
+</div> -->
+
+<section>
+    <div class="container">
+        <div class="home_container">
+        <header>
+            <div class="heder_content">
+                <div class="logo">  
+                    <img class="image" src="assets/images/logo.png" full-width>
+                </div>
+                  
+                    <div class="search">
+                        <input class="serach_input"  placeholder="{{'search_product_hear' | translate}}"  [(ngModel)]="search">
+                        <button class="search_btn" display-flex (click)="onClickSearch()">
+                                <i class="material-icons" margin-auto color-white>
+                                    search
+                                </i>
+                            </button>
+                            <div class="trash">
+                                    <i class="material-icons" cursor-pointer>
+                                            shopping_cart
+                                        </i>
+                                        <p class="title">({{signUpService.userInfo.chartOrdersCount}})</p>
+                                        <i class="material-icons icon" cursor-pointer routerLink="card">
+                                                keyboard_arrow_down
+                                            </i>
+                            </div>
+                           
+                    </div>
+            </div>
+        </header>
+    </div>
+  
+    </div>
+    <router-outlet></router-outlet>
+</section>
