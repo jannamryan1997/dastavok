@@ -2,7 +2,7 @@
         <div position-relative>
                 <!-- <app-loading class="loading" [loading]="loading" [height]="150" [width]="150"></app-loading> -->
             </div>
-    <div class="card_conteiner" *ngIf="cardInfo.length>0 && loading==false">
+    <div class="card_conteiner" *ngIf="cardInfo.length>0">
         <app-card-list *ngFor="let item of cardInfo" [cardInfo]="item" (deleted)="deletedOrder($event)">
             <app-card-list-item full-width *ngFor="let good of item.goods" [cardInfo]="item" [cardGoodsInfo]="good"
                 [cardGoodsImageItem]="good.images" [cardInfoOrderGoodId]="good.orderGoodId" (deleted)="deletedOrder($event)"></app-card-list-item>

@@ -21,19 +21,20 @@
             </div>
         </div>
     </div>
-    <form [formGroup]="phoneNumberForm">
-        <div class="container" *ngSwitchCase="1">
-            <app-error [error]="error"></app-error>
+    <form [formGroup]="phoneNumberForm" *ngSwitchCase="1">
+        <div class="container">
+            <app-error [error]="error" *ngIf="error"></app-error>
             <div class="form_conteiner" full-width>
                 <div class="form" full-width>
                     <label class="label"
                         [ngClass]="{'color':checkIsValid('phonenumber')}">{{'phonenumber' | translate}}</label>
-                    <div class="form_content" full-height display-flex    [ngClass]="{'border':checkIsValid('phonenumber')}">
+                    <div class="form_content" full-height display-flex
+                        [ngClass]="{'border':checkIsValid('phonenumber')}">
                         <i class="material-icons" margin-auto>
                             call
                         </i>
                         <input class="input" placeholder="{{'phonenumber' | translate}}" formControlName="phonenumber"
-                              prefix="+7" mask="(000) 000 00 00">
+                            prefix="+7" mask="(000) 000 00 00">
                     </div>
                 </div>
                 <div position-relative>
@@ -47,18 +48,18 @@
             </div>
         </div>
     </form>
-    <form [formGroup]="verificationForm">
-        <div class="container" *ngSwitchCase="2">
+    <form [formGroup]="verificationForm" *ngSwitchCase="2">
+        <div class="container">
             <div class="verification_conteiner">
                 <div class="verification_item" display-flex width-75 margin-auto display-flex>
                     <input class="item_label" formControlName="control_1"
-                        [ngClass]="{'border':checkIsValid('control_1')}">
+                        [ngClass]="{'border':checkIsValid('control_1')}" OnlyNumber="true">
                     <input class="item_label" formControlName="control_2"
-                        [ngClass]="{'border':checkIsValid('control_2')}">
+                        [ngClass]="{'border':checkIsValid('control_2')}" OnlyNumber="true">
                     <input class="item_label" formControlName="control_3"
-                        [ngClass]="{'border':checkIsValid('control_3')}">
+                        [ngClass]="{'border':checkIsValid('control_3')}" OnlyNumber="true">
                     <input class="item_label" formControlName="control_4"
-                        [ngClass]="{'border':checkIsValid('control_4')}">
+                        [ngClass]="{'border':checkIsValid('control_4')}" OnlyNumber="true">
                 </div>
 
                 <div class="text_content" margin-auto justify-content-flex-end display-flex>
@@ -82,38 +83,29 @@
             </div>
         </div>
     </form>
-
-
-    <form [formGroup]="signUpForm">
-        <div class="container" *ngSwitchCase="3">
+    <form [formGroup]="signUpForm" *ngSwitchCase="3">
+        <div class="container">
             <div class="form_conteiner" full-width>
-
-
                 <div class="form" full-width>
                     <label class="label"
                         [ngClass]="{'color':checkIsValid('user_name')}">{{'user_name' | translate}}</label>
-                    <div class="form_content" full-height display-flex    [ngClass]="{'border':checkIsValid('user_name')}">
+                    <div class="form_content" full-height display-flex [ngClass]="{'border':checkIsValid('user_name')}">
                         <i class="material-icons" margin-auto>
                             person
                         </i>
-                        <input class="input" placeholder="{{'user_name' | translate}}" formControlName="user_name"
-                         >
+                        <input class="input" placeholder="{{'user_name' | translate}}" formControlName="user_name">
                     </div>
                 </div>
-
                 <div class="form" full-width>
                     <label class="label"
                         [ngClass]="{'color':checkIsValid('full_name')}">{{'full_name' | translate}}</label>
-                    <div class="form_content" full-height display-flex    [ngClass]="{'border':checkIsValid('full_name')}">
+                    <div class="form_content" full-height display-flex [ngClass]="{'border':checkIsValid('full_name')}">
                         <i class="material-icons" margin-auto>
                             person
                         </i>
-                        <input class="input" placeholder="{{'full_name' | translate}}" formControlName="full_name"
-                         >
+                        <input class="input" placeholder="{{'full_name' | translate}}" formControlName="full_name">
                     </div>
                 </div>
-
-
                 <div class="form" full-width>
                     <label class="label"
                         [ngClass]="{'color':checkIsValid('password')}">{{'password' | translate}}</label>
@@ -122,13 +114,21 @@
                             vpn_key
                         </i>
                         <input class="input" placeholder="{{'password' | translate}}" type="password"
-                            formControlName="password" 
-                            [type]="show ? 'text' : 'password'">
+                            formControlName="password" [type]="show ? 'text' : 'password'">
                     </div>
-
                 </div>
-
-
+                <div class="form">
+                    <label class="label"
+                        [ngClass]="{'color':checkIsValid('password')}">{{'repeat_password' | translate}}</label>
+                    <div class="form_content" full-height display-flex
+                        [ngClass]="{'border':checkIsValid('confirm_password')}">
+                        <i class="material-icons" margin-auto>
+                            vpn_key
+                        </i>
+                        <input class="input" placeholder="{{'repeat_password' | translate}}" type="password"
+                            formControlName="confirm_password">
+                    </div>
+                </div>
                 <div position-relative>
                     <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading>
                 </div>

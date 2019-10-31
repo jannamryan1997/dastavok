@@ -25,9 +25,7 @@ export class SignUpService {
     }
 
     public signUpClient(body) {
-        let verificationToken: string = this._cookieService.get('verificationtoken');
-        let headers = new HttpHeaders({ 'token': verificationToken });
-        return this._httpClient.post("client", body, { headers })
+        return this._httpClient.post("client", body)
     }
 
     public loginClient(body) {

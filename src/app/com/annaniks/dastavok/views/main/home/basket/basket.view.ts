@@ -30,8 +30,8 @@ export class BasketView implements OnInit {
             .subscribe((data: any) => {
                 this.loading = false;
                 this.totalSum = 0;
-                if (data && data.data && data.data.data) {
-                    this.cardInfo = data.data.data;
+                if (data && data.data) {
+                    this.cardInfo = data.data;
                     for (var i = 0; i < this.cardInfo.length; i++) {
                         this.totalSum = this.totalSum + this.cardInfo[i].totalAmount;
                     }

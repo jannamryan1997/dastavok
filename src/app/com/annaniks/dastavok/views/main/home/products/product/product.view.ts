@@ -147,7 +147,7 @@ export class ProductView implements OnInit, OnDestroy {
 
             }
         }).subscribe((data) => {
-            this._router.navigate(['home/card'])
+            this._router.navigate(['/basket'])
         })
 
     }
@@ -188,7 +188,6 @@ export class ProductView implements OnInit, OnDestroy {
     }
 
     public paginate($event): void {
-        ($event);
         this.page = $event.pageNumber;
         this._getReview();
     }
