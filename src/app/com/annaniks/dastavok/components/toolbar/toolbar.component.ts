@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core"
 import { MatDialog } from "@angular/material";
 import { LoginModal, PhoneNumberModal, RegistrationStep, SearchGoodsModals } from "../../modals";
 import { SignUpService } from "../../services/signUp.service";
-import { CookieService } from "angular2-cookie/services/cookies.service";
+import { CookieService } from "ngx-cookie";
 import { MenuService } from "../../services/menu.service";
 
 

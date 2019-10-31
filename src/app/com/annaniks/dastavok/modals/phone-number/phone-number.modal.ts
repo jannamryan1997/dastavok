@@ -3,7 +3,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms"
 import { VerificationModal } from "../verification/verification.modal";
 import { SignUpService } from "../../services/signUp.service";
-import { CookieService } from 'angular2-cookie/services/cookies.service';
+import { CookieService } from 'ngx-cookie';
 import { PhoneVerification, ServerResponse } from "../../models/models";
 
 @Component({

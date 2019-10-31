@@ -3,7 +3,7 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpHeaders } fro
 import { Observable } from 'rxjs';
 import { Inject } from '@angular/core';
 import { SignUpService } from '../services/signUp.service';
-import { CookieService } from 'angular2-cookie/services/cookies.service';
+import { CookieService } from 'ngx-cookie';
 
 function checkIsRelativePath(path: string): boolean {
     return path.includes('assets');

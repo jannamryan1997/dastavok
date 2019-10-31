@@ -12,7 +12,7 @@ export class GoodTypeListItemComponent implements OnInit {
 
     @Input() goodTypeInfo;
 
-    constructor(@Inject("FILE_URL") private _fileUrl: string) { }
+    constructor(@Inject("ADMIN_FILE_URL") private _fileUrl: string) { }
 
     ngOnInit() {
         this.image = `${this._fileUrl}${this.goodTypeInfo.image}`
