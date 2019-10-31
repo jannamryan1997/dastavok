@@ -288,17 +288,19 @@ section {
                 display: flex;
                 width: 100%;
 
-                .image_item {
-                    width: 31%;
-                    height: 78px;
-                    border-radius: 4px;
-                    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+                .goods_image{
+                    width: 33.333333%;
                     padding: 1.2em;
-                    margin: 10px 10px 10px 0;
-                    transition: 0.5s;
-                    cursor: pointer;
-
+                    .image_item {
+                        width: 100%;
+                        height: 78px;
+                        border-radius: 4px;
+                        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+                        cursor: pointer;
+    
+                    }
                 }
+                
             }
         }
 
@@ -330,10 +332,11 @@ section {
 
             }
 
-            .button_items {
+            .button_item {
                 justify-content: space-between;
                 display: flex;
                 width: fit-content;
+                margin: 20px 0;
 
                 .back {
                     @include button(#87bd3c, 20px 50px, #ffffff);
@@ -350,32 +353,55 @@ section {
     }
 
     .tab_content {
-        height: 55px;
         border-radius: 4px;
         box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-        margin-top: 74px;
 
         .tab_item {
             @include text(#444444,20px);
             width: 33.333333%;
             cursor: pointer;
+            transition: 1s;
+            padding: 20px 0;
         }
     }
 }
 
-@media only screen and (max-width:1400px) {
+@media only screen and (max-width:1400px){
     .product_content {
         flex-direction: column !important;
 
         .product_images,
         .prodict_description {
-            width: 50% !important;
+            width: 100% !important;
             margin: auto !important;
         }
+    }  
+    .tab{
+        width: 100% !important;
+        margin: auto;
+    }
+  
+}
+
+@media only screen and (max-width:1400px) and (min-width:475px)  {
+
+}
+
+@media only screen and (max-width:900px) {
+    .button{
+        padding: 20px 20px !important;
+        font-size: 10px !important;
+    }
+    .tab_item{
+        font-size: 10px !important;
     }
 }
 
-
+@media only screen and (max-width:475px){
+    .goods_image{
+        width: 50% !important;
+    }
+}
 
 .active_tab {
     background: #87bd3c;

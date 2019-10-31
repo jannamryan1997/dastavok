@@ -77,8 +77,10 @@
         <div class="product_images">
             <div class="image main_images" [ngStyle]="{'background-image':'url('+activeImage+')'}"></div>
             <div class="product_images_item">
-                <div class="image image_item" *ngFor="let item of goodImage"
+                <div class="goods_image" *ngFor="let item of goodImage">
+                <div class="image image_item" 
                     [ngStyle]="{'background-image':'url('+ fileUrl + item +')'}" (click)="setActiveImage(item)"></div>
+                    </div>
             </div>
 
         </div>
@@ -102,7 +104,7 @@
                 </div>
             </div>
 
-            <div class="button_items">
+            <div class="button_item">
                 <button class="button back" display-flex margin-auto (click)="onClickOrder('card')">
                     <span margin-auto>{{'cart' | translate}}</span>
                 </button>
@@ -113,16 +115,16 @@
         </div>
        
     </div>
-    <div [ngSwitch]="tab">
+    <div [ngSwitch]="tab" class="tab" full-width>
             <div class="tab_content" display-flex justify-content-space-between>
                 <div class="tab_item" display-flex (click)="changeTab(1)" [ngClass]="{'active_tab':tab==1}">
-                    <span margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==1}">{{'description'| translate}}</span>
+                    <p margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==1}">{{'description'| translate}}</p>
                 </div>
                 <div class="tab_item" display-flex (click)="changeTab(2)" [ngClass]="{'active_tab':tab==2}">
-                    <span margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==2}">{{'review'| translate}}</span>
+                    <p margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==2}">{{'review'| translate}}</p>
                 </div>
                 <div class="tab_item" display-flex (click)="changeTab(3)" [ngClass]="{'active_tab':tab==3}">
-                    <span margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==3}">{{'ingredient'| translate}}</span>
+                    <p margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==3}">{{'ingredient'| translate}}</p>
                 </div>
             </div>
             <div *ngSwitchCase="1">
