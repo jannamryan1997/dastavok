@@ -1,7 +1,9 @@
-import { Component, OnInit, Inject } from "@angular/core"
+import { Component, OnInit, Inject, OnDestroy } from "@angular/core"
 import { ActivatedRoute } from "@angular/router";
 import { Good, ServerResponse, Paginator, GoodsResponse } from "src/app/com/annaniks/dastavok/models/models";
 import { ProductsService } from "./products.service";
+import { Subject } from "rxjs";
+import { takeUntil } from "rxjs/operators";
 
 @Component({
     selector: "app-products",
@@ -9,13 +11,14 @@ import { ProductsService } from "./products.service";
     styleUrls: ["products.view.scss"]
 })
 
-export class ProductsView implements OnInit {
+export class ProductsView implements OnInit, OnDestroy {
     private _goodTypeId: number;
     public pageLength: number = 10;
     public goodsInfo: Array<Good> = [];
     public count: number;
     public goodTypeImage: string = '';
     public loading: boolean = false;
+    private _unsubscribe$: Subject<void> = new Subject<void>();
 
     constructor(
         @Inject("COMPANY_ID") private _companyId: number,
@@ -34,6 +37,7 @@ export class ProductsView implements OnInit {
     private _getGoods(companyId: number, goodTypeId: number, page, count): void {
         this.loading = true;
         this._productsService.getGoods(companyId, goodTypeId, page, count)
+            .pipe(takeUntil(this._unsubscribe$))
             .subscribe((data: ServerResponse<Paginator<GoodsResponse>>) => {
                 this.loading = false;
                 this.goodsInfo = data.data.data.goods;
@@ -44,5 +48,10 @@ export class ProductsView implements OnInit {
 
     public paginate($event): void {
         this._getGoods(this._companyId, this._goodTypeId, $event.pageNumber, this.pageLength);
+    }
+
+    ngOnDestroy() {
+        this._unsubscribe$.next();
+        this._unsubscribe$.complete();
     }
 }
