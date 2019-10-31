@@ -25,5 +25,7 @@
     "shop":"Магазин",
     "restaurant":"Ресторан",
     "all":"Все",
-    "about":"Около"
+    "about":"Около",
+    "To_complete_the_order_you_must_register":"Для завершения заказа необходимо зарегистрироваться"
+
 }

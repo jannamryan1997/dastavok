@@ -25,7 +25,8 @@
     "shop":"Shop",
     "restaurant":"Restaurant",
     "all":"All",
-    "about":"About"
+    "about":"About",
+    "To_complete_the_order_you_must_register":"To complete the order you must register"
 
 
 }
