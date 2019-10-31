@@ -17,7 +17,7 @@ export class SearchView implements OnInit {
     public companyItem: BriefCompany[];
     public page: number = 1;
     public pageLength: number = 10;
-    public loading:boolean=false;
+    public loading: boolean = false;
 
     ngOnInit() {
         this._checkQueryParams()
@@ -31,16 +31,14 @@ export class SearchView implements OnInit {
             (params);
             this.companyItem = [];
             this._getSearchGoods(this.page, this.pageLength, params.search)
-        
         })
     }
 
     private _getSearchGoods(page, limit, text) {
         this._searchService.getSearchGoods(page, limit, text)
             .subscribe((data: ServerResponse<Paginator<Good[]>>) => {
-                this.loading=false;
+                this.loading = false;
                 this.goods = data.data.data;
-
             })
         err => {
             (err);

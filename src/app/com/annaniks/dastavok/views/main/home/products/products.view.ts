@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from "@angular/core"
 import { ActivatedRoute } from "@angular/router";
-import { Good, ServerResponse, Paginator } from "src/app/com/annaniks/dastavok/models/models";
+import { Good, ServerResponse, Paginator, GoodsResponse } from "src/app/com/annaniks/dastavok/models/models";
 import { ProductsService } from "./products.service";
 
 @Component({
@@ -14,11 +14,12 @@ export class ProductsView implements OnInit {
     public pageLength: number = 10;
     public goodsInfo: Array<Good> = [];
     public count: number;
-    public goodsImage: string;
+    public goodTypeImage: string = '';
     public loading: boolean = false;
 
     constructor(
         @Inject("COMPANY_ID") private _companyId: number,
+        @Inject("ADMIN_FILE_URL") public fileUrl: string,
         private activatedRoute: ActivatedRoute,
         private _productsService: ProductsService
     ) {
@@ -33,11 +34,11 @@ export class ProductsView implements OnInit {
     private _getGoods(companyId: number, goodTypeId: number, page, count): void {
         this.loading = true;
         this._productsService.getGoods(companyId, goodTypeId, page, count)
-            .subscribe((data: ServerResponse<Paginator<Array<Good>>>) => {
-                console.log(data);
+            .subscribe((data: ServerResponse<Paginator<GoodsResponse>>) => {
                 this.loading = false;
-                this.goodsInfo = data.data.data;
+                this.goodsInfo = data.data.data.goods;
                 this.count = data.data.metaData.count;
+                this.goodTypeImage = `${this.fileUrl}${data.data.data.goodType.image}`
             })
     }
 
