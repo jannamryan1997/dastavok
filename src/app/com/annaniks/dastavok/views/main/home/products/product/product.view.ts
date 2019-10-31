@@ -53,11 +53,11 @@ export class ProductView implements OnInit, OnDestroy {
         this._getReview();
     }
 
-    public countdAdd(): void {
+    public countIncrement(): void {
         this.countSum++;
     }
 
-    public countremove(): void {
+    public countDecrement(): void {
         if (this.countSum == 1) {
             return;
         }

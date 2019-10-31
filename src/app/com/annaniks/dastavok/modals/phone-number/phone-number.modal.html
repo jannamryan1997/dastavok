@@ -4,21 +4,18 @@
         <div class="form_conteiner" full-width>
             <div class="form" full-width>
                 <label class="label" [ngClass]="{'color':checkIsValid('phonenumber')}">{{'phonenumber' | translate}}</label>
-                <div class="form_content" full-height display-flex  [ngClass]="{'border':checkIsValid('phonenumber')}">
+                <div class="form_content" full-height display-flex [ngClass]="{'border':checkIsValid('phonenumber')}">
                     <i class="material-icons" margin-auto>
                                 call
                         </i>
-                    <input class="input" placeholder="{{'phonenumber' | translate}}" 
-                    formControlName="phonenumber" 
-                    
-                    prefix="+7" mask="(000) 000 00 00">
+                    <input class="input" placeholder="{{'phonenumber' | translate}}" formControlName="phonenumber" prefix="+7" mask="(000) 000 00 00">
                 </div>
             </div>
             <div position-relative>
                 <!-- <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading> -->
             </div>
             <div class="button_item">
-                <button class="button back" display-flex margin-auto [disabled]="phoneNumberForm.invalid || loading" [ngClass]="{'opacity':phoneNumberForm.invalid || loading}" (click)="closePhoneModal()">
+                <button class="button back" display-flex margin-auto (click)="closePhoneModal()">
                             <span margin-auto>{{'back' | translate}}</span>
                         </button>
                 <button class="button next" display-flex margin-auto [disabled]="phoneNumberForm.invalid || loading" [ngClass]="{'opacity':phoneNumberForm.invalid || loading}" (click)="postPhoneNumber()">

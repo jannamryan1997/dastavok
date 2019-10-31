@@ -17,9 +17,9 @@ export class SignUpModal implements OnInit {
     public signUpForm: FormGroup;
     public loading: boolean = false;
     public error: string;
-    public show:boolean=false;
-    public showConfirmPassword:boolean=false;
-    
+    public show: boolean = false;
+    public showConfirmPassword: boolean = false;
+
     constructor(private dialogRef: MatDialogRef<SignUpModal>,
         @Inject(MAT_DIALOG_DATA) public data: DialogData, private signUpService: SignUpService, private router: Router) { }
 
@@ -66,30 +66,26 @@ export class SignUpModal implements OnInit {
             this.loading = false;
             this.signUpForm.enable();
             this.dialogRef.close();
-            this.router.navigate(["/contact"])
-
         }, err => {
-            this.error = err.error.error;
+            if (err && err.error && err.error.error)
+                this.error = err.error.error;
             this.loading = false;
             this.signUpForm.enable();
 
         })
     }
 
-
-
     public checkIsValid(controlName: string): boolean {
-            return this.signUpForm.get(controlName).hasError('required') && this.signUpForm.get(controlName).touched;
-        
-            }
-        
-            public showPassword(tab):void{
-                if(tab==1){
-                    this.show =! this.show;
-                }
-                if(tab==2){
-                    this.showConfirmPassword =! this.showConfirmPassword;
-                }
-              }
+        return this.signUpForm.get(controlName).hasError('required') && this.signUpForm.get(controlName).touched;
+    }
+
+    public showPassword(tab): void {
+        if (tab == 1) {
+            this.show = !this.show;
+        }
+        if (tab == 2) {
+            this.showConfirmPassword = !this.showConfirmPassword;
+        }
+    }
 
 }

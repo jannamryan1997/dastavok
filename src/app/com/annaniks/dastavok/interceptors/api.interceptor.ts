@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Inject } from '@angular/core';
 import { SignUpService } from '../services/signUp.service';
 import { CookieService } from 'ngx-cookie';
+import { PARAMETERS } from '@angular/core/src/util/decorators';
 
 function checkIsRelativePath(path: string): boolean {
     return path.includes('assets');
@@ -20,8 +21,8 @@ export class ApiInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         if (!checkIsRelativePath(req.url)) {
             let httpHeaders: HttpHeaders = req.headers;
-            if (this._signUpService.isAuthorized) {
-                let token: string = this._cookieService.get('token');
+            if (this._signUpService.isAuthorized || req.params.get('isAuthorized') === 'true') {
+                let token: string = this._cookieService.get('token') || '';
                 httpHeaders = httpHeaders.append('Content-Type', 'application/json');
                 httpHeaders = httpHeaders.append('token', token);
             }

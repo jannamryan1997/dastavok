@@ -1,38 +1,25 @@
-
 <form [formGroup]="verificationForm">
     <div class="container">
         <div class="verification_conteiner">
             <div class="verification_item" display-flex width-75 margin-auto display-flex>
-                    <input class="item_label" formControlName="control_1"  [ngClass]="{'border':checkIsValid('control_1')}">
-                    <input class="item_label" formControlName="control_2"  [ngClass]="{'border':checkIsValid('control_2')}">
-                    <input class="item_label" formControlName="control_3"  [ngClass]="{'border':checkIsValid('control_3')}">
-                    <input class="item_label" formControlName="control_4"  [ngClass]="{'border':checkIsValid('control_4')}">
+                <input class="item_label" OnlyNumber="true" formControlName="control_1" [ngClass]="{'border':checkIsValid('control_1')}">
+                <input class="item_label" OnlyNumber="true" formControlName="control_2" [ngClass]="{'border':checkIsValid('control_2')}">
+                <input class="item_label" OnlyNumber="true" formControlName="control_3" [ngClass]="{'border':checkIsValid('control_3')}">
+                <input class="item_label" OnlyNumber="true" formControlName="control_4" [ngClass]="{'border':checkIsValid('control_4')}">
             </div>
             <div class="type_content" display-flex margin-auto>
-                    <p class="type" *ngIf="!isTimerStopped">{{'Enter_the_verification_code' | translate}}<b color-orange>{{time}}</b></p>
-                    <p class="type" color-orange cursor-pointer *ngIf="isTimerStopped"   (click)="getVerifivationCode()">Get code again</p>
-                </div>
+                <p class="type" *ngIf="!isTimerStopped">{{'Enter_the_verification_code' | translate}}<b color-orange>{{time}}</b></p>
+                <p class="type" color-orange cursor-pointer *ngIf="isTimerStopped" (click)="getVerifivationCode()">Get code again</p>
+            </div>
 
-
-                <div class="button_item">
-                        <button class="button back" display-flex margin-auto [disabled]="verificationForm.invalid || loading" [ngClass]="{'opacity':verificationForm.invalid || loading}"
-                        (click)="closeVerification()">
+            <div class="button_item">
+                <button class="button back" display-flex margin-auto (click)="closeVerification()">
                         <span margin-auto>{{'back' | translate}}</span>
                     </button>
-                    <button class="button next" display-flex margin-auto *ngIf="timerStopped" [disabled]="verificationForm.invalid || loading" [ngClass]="{'opacity':verificationForm.invalid || loading}"
-                    (click)="postVerification()">
+                <button class="button next" display-flex margin-auto [disabled]="verificationForm.invalid || loading" [ngClass]="{'opacity':verificationForm.invalid || loading}" (click)="postVerification()">
                     <span margin-auto>{{'next' | translate}}</span>
                 </button>
-                </div>
-
-
-
-
-
-
-
-
-
+            </div>
         </div>
     </div>
 </form>
