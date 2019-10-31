@@ -49,11 +49,11 @@ export class ProductView implements OnInit {
     }
 
     public countdAdd(): void {
-        this.count++;
+        this.countSum++;
     }
 
     public countremove(): void {
-        if (this.count == 1) {
+        if (this.countSum == 1) {
             return;
         }
         this.countSum--;
