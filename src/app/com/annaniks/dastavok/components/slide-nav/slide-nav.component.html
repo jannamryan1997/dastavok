@@ -1,5 +1,5 @@
 <div>
-    <div class="slide_naw_content" [ngClass]="{'open':_menuService.isOpen,'close':!_menuService.isOpen}">
+    <div class="slide_naw_content" [ngClass]="{'open':menuService.isOpen,'close':!menuService.isOpen}">
         <div class="slide_top" full-width display-flex>
             <div class="conteiner" full-width>
                 <div class="lenguage" position-relative display-flex (click)="showLanguage()" (clickOutside)="onClickedOutside($event)">

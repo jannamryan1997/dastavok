@@ -15,8 +15,8 @@ import { CookieService } from "ngx-cookie";
 export class SlideNawComponent implements OnInit {
     @HostListener('window:resize', ['$event'])
     onresize($event) {
-        if (window.innerWidth > 900 && this._menuService.isOpen) {
-            this._menuService.closeMenu();
+        if (window.innerWidth > 900 && this.menuService.isOpen) {
+            this.menuService.closeMenu();
         }
     }
     public showLangualeMenu: boolean = false;
@@ -27,7 +27,7 @@ export class SlideNawComponent implements OnInit {
 
     ]
 
-    constructor(private _menuService: MenuService, private dialog: MatDialog, public signUpService: SignUpService, private roter: Router, private _cookieService: CookieService) { }
+    constructor(public menuService: MenuService, private dialog: MatDialog, public signUpService: SignUpService, private roter: Router, private _cookieService: CookieService) { }
 
     ngOnInit() {
         if(this.signUpService.isAuthorized)
@@ -36,7 +36,7 @@ export class SlideNawComponent implements OnInit {
 
 
     public closeMenu() {
-        this._menuService.closeMenu();
+        this.menuService.closeMenu();
     }
     public showLanguage() {
         this.showLangualeMenu = !this.showLangualeMenu;
@@ -82,7 +82,7 @@ export class SlideNawComponent implements OnInit {
     public navToPage(route: string) {
         ("hi");
         
-        this._menuService.closeMenu();
+        this.menuService.closeMenu();
         this.roter.navigate([route])
     }
 
@@ -91,7 +91,7 @@ export class SlideNawComponent implements OnInit {
         
         this._cookieService.remove('refreshToken');
         this._cookieService.remove('token');
-        this._menuService.closeMenu();
+        this.menuService.closeMenu();
         this.roter.navigate(['/home'])
         this.signUpService.isAuthorized=false;
     }

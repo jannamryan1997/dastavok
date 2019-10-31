@@ -18,6 +18,10 @@ export class ProductTypesView implements OnInit, OnDestroy {
     public localImage: string = '/assets/images/restaurant.jpg';
     public loading: boolean = false;
     private _unsubscribe$: Subject<void> = new Subject<void>();
+    public page: number = 1;
+    public count: number = 0;
+    public pageLength: number = 0;
+
 
     constructor(
         @Inject("FILE_URL") private _fileUrl: string,
