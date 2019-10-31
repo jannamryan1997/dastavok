@@ -1,0 +1,22 @@
+<div class="review_content" full-width>
+    <div class="review_conteiner">
+        <div class="chat_info" full-width>
+            <div class="chat_conteiner" display-flex>
+                <div class="image_content"></div>
+                <div class="chat_content" width-75>
+                    <div class="rating">
+                        <app-rating [currentIndex]="reviewData?.review-1" [changeRating]="true"></app-rating>
+                    </div>
+
+                    <span font-family-Roboto>{{reviewData?.comment}}</span>
+                </div>
+                <div class="data_info" margin-auto>
+                    <span font-family-Roboto>{{reviewDataTime | date:'short'}}</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

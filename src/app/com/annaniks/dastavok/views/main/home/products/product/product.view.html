@@ -1,0 +1,81 @@
+<section>
+    <div class="product_content">
+        <div class="product_images">
+            <div class="image main_images" [ngStyle]="{'background-image':'url('+activeImage+')'}"></div>
+            <div class="product_images_item">
+                <div class="goods_image" *ngFor="let item of goodImage">
+                <div class="image image_item" 
+                    [ngStyle]="{'background-image':'url('+ fileUrl + item +')'}" (click)="setActiveImage(item)"></div>
+                    </div>
+            </div>
+
+        </div>
+        <div class="prodict_description">
+            <p class="type" font-family-Roboto font-weight-bold>{{good?.name}}</p>
+
+            <app-rating [currentIndex]="good?.review-1" [changeRating]="false"></app-rating>
+            <p class="title" font-family-Roboto>{{good?.description}}</p>
+            <div class="price_content" display-flex justify-content-space-between>
+                <p class="description_title" font-family-Roboto>{{'price' | translate}}</p>
+                <p class="after_title description_title" font-family-Roboto>{{good?.price}}$</p>
+            </div>
+            <div class="quarity">
+                <div class="quarity_content" display-flex justify-content-space-between>
+                    <p class="description_title" font-family-Roboto>{{'quarity' | translate}}</p>
+                    <div class="quarity_item">
+                            <button class="quarity_btn remove" font-family-Roboto cursor-pointer (click)="countremove()"><i
+                                class="material-icons">
+                                keyboard_arrow_down
+                            </i></button>
+                            <div class="quarity_count">
+                                    <p class="count_title" font-family-Roboto margin-auto> {{countSum}}</p>
+                            </div>
+                        
+                        <button class=" quarity_btn add" font-family-Roboto cursor-pointer (click)="countadd()">
+                            <i class="material-icons">
+                                keyboard_arrow_up
+                            </i>
+                        </button>
+                     </div>
+        
+                </div>
+            </div>
+
+            <div class="button_item">
+                <button class="button back" display-flex margin-auto (click)="onClickOrder('card')">
+                    <span margin-auto>{{'cart' | translate}}</span>
+                </button>
+                <button class="button next" display-flex margin-auto (click)="onClickBuy()">
+                    <span margin-auto>{{'buy' | translate}}</span>
+                </button>
+            </div>
+        </div>
+       
+    </div>
+    <div [ngSwitch]="tab" class="tab" full-width>
+            <div class="tab_content" display-flex justify-content-space-between>
+                <div class="tab_item" display-flex (click)="changeTab(1)" [ngClass]="{'active_tab':tab==1}">
+                    <p margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==1}">{{'description'| translate}}</p>
+                </div>
+                <div class="tab_item" display-flex (click)="changeTab(2)" [ngClass]="{'active_tab':tab==2}">
+                    <p margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==2}">{{'review'| translate}}</p>
+                </div>
+                <div class="tab_item" display-flex (click)="changeTab(3)" [ngClass]="{'active_tab':tab==3}">
+                    <p margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==3}">{{'ingredient'| translate}}</p>
+                </div>
+            </div>
+            <div *ngSwitchCase="1">
+                <app-description [descriptionData]="good?.description"></app-description>
+            </div>
+            <div *ngSwitchCase="2">
+                <app-review-chart></app-review-chart>
+                <app-review *ngFor="let item of reviewData" [reviewData]="item" [reviewDataTime]="item.reviewDate">
+                </app-review>
+                <app-paginator [count]="count" [pageLength]="pageLength" (paginate)="paginate($event)"></app-paginator>
+            </div>
+            <div *ngSwitchCase="3">
+                <app-ingredient *ngFor="let topping of toppings" [topping]="topping"></app-ingredient>
+    
+            </div>
+        </div>
+</section>

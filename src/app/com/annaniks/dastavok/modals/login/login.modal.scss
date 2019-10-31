@@ -1,0 +1,31 @@
+@import "../../../../../../assets/scss/mixin.scss";
+@import "../../../../../../assets/scss/global.scss";
+
+.form_conteiner {
+    margin: 40px auto;
+
+    .forget_password {
+        .label {
+            @include label();
+            cursor: pointer;
+            color: #ff6f00;
+            justify-content: flex-end;
+        }
+    }
+
+    .button {
+        @include button(#87bd3c, 20px 50px, #ffffff);
+    }
+}
+
+.border {
+    border: 1px solid red !important;
+}
+
+.color {
+    color: red !important;
+}
+
+.opacity {
+    opacity: 0.5;
+}

@@ -1,0 +1,23 @@
+import { NgModule } from "@angular/core"
+import { RouterModule, Routes } from "@angular/router"
+import { HomeView } from "./home.view";
+import { AuthGuard } from "../../../guards/authguard.service";
+
+
+const homeRoutes: Routes = [
+    {
+        path: "", component: HomeView, children: [
+            { path: "", loadChildren: "./product-types/product-types.module#ProductTypesModule" },
+            { path: "basket", loadChildren: "./basket/basket.module#BasketModule", canActivate: [AuthGuard] },
+            { path: "search", loadChildren: "./search/search.module#SearchModule" },
+            { path: ":goodTypeId/products", loadChildren: "./products/products.module#ProductsModule" }
+        ]
+    }
+]
+@NgModule({
+    imports: [RouterModule.forChild(homeRoutes)],
+    exports: [RouterModule]
+})
+export class HomeRoutingModule {
+
+}

@@ -1,0 +1,30 @@
+<form [formGroup]="phoneNumberForm">
+    <div class="container">
+        <app-error [error]="error"></app-error>
+        <div class="form_conteiner" full-width>
+            <div class="form" full-width>
+                <label class="label" [ngClass]="{'color':checkIsValid('phonenumber')}">{{'new_phone_number' | translate}}</label>
+                <div class="form_content" full-height display-flex [ngClass]="{'border':checkIsValid('phonenumber')}">
+                    <i class="material-icons" margin-auto>
+                                call
+                        </i>
+                    <input class="input" placeholder="{{'new_phone_number' | translate}}" 
+                    formControlName="phonenumber" 
+                  
+                    prefix="+7" mask="(000) 000 00 00">
+                </div>
+            </div>
+            <div position-relative>
+                <!-- <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading> -->
+            </div>
+            <div class="button_item">
+                <button class="button back" display-flex margin-auto [disabled]="phoneNumberForm.invalid || loading" [ngClass]="{'opacity':phoneNumberForm.invalid || loading}" (click)="closeNewPhoneNumberMoadal()">
+                            <span margin-auto>{{'back' | translate}}</span>
+                        </button>
+                <button class="button next" display-flex margin-auto [disabled]="phoneNumberForm.invalid || loading" [ngClass]="{'opacity':phoneNumberForm.invalid || loading}"  (click)="putClientNewPhoneNumberStepOne()">
+                        <span margin-auto>{{'next' | translate}}</span>
+                    </button>
+            </div>
+        </div>
+    </div>
+</form>

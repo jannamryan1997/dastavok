@@ -1,0 +1,50 @@
+<section full-width>
+    <div class="profile_container">
+        <div class="profile_content" full-width justify-content-space-between display-flex>
+            <div class="image client_image" full-width [ngStyle]="{'background-image':'url('+clientImage+')'}"></div>
+            <div class="information">
+                <p class="lable"> <i class="material-icons">
+                        room
+                    </i>{{clientData?.fullName}}</p>
+                <p class="lable"> <i class="material-icons">
+                        call
+                    </i>{{clientData?.phoneNumber}}</p>
+                <p class="lable">
+                    <i class="material-icons" cursor-pointer>
+                        create
+                    </i>
+                    {{clientData?.address[0]?.text}}</p>
+            </div>
+            <button class="button" display-flex margin-auto (click)="openUserUpdateModal(clientData)">
+                <span margin-auto>{{'save' | translate}}</span>
+            </button>
+        </div>
+        <div [ngSwitch]="tab">
+            <div class="tabs_content" full-width display-flex>
+                <div class="notification" full-height display-flex [ngClass]="{'active_tab':tab==1}"
+                    (click)="changeTab(1)" cursor-pointer>
+                    <span class="label" margin-auto [ngClass]="{'active_tab_text':tab==1}">Notification</span>
+                </div>
+                <div class="notification" full-height display-flex [ngClass]="{'active_tab':tab==2}" cursor-pointer
+                    (click)="changeTab(2)">
+                    <span class="label" margin-auto [ngClass]="{'active_tab_text':tab==2}">Order History</span>
+                </div>
+                <div class="notification" full-height display-flex [ngClass]="{'active_tab':tab==3}" cursor-pointer
+                    (click)="changeTab(3)">
+                    <span class="label" margin-auto [ngClass]="{'active_tab_text':tab==3}">Track Delivery</span>
+                </div>
+            </div>
+            <div *ngSwitchCase="1">
+                <app-notification-tab></app-notification-tab>
+            </div>
+            <div *ngSwitchCase="2">
+                <app-orders-tab></app-orders-tab>
+            </div>
+
+            <div *ngSwitchCase="3">
+                <app-shipping-addresses-tab [clientId]="clientId"></app-shipping-addresses-tab>
+            </div>
+
+        </div>
+    </div>
+</section>

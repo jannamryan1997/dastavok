@@ -1,0 +1,106 @@
+
+@import "../../../../../../../assets/scss/mixin.scss";
+.profile_container{
+.profile_content {
+    padding: 140px 0;
+    .client_image {
+        width: 202px;
+        height: 202px;
+        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+        border-radius: 50%;
+    }
+    .information{
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        .lable{
+            @include text(#444444,30px);
+        }
+    }
+    .button {
+        @include button(#ffffff, 30px 115px, #444444);
+        border: 1px solid grey;
+    }
+
+
+}
+.tabs_content {
+    border-radius: 4px;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+    .notification {
+        width: 33.333333%;
+        padding: 20px;
+    }
+    .label {
+        @include text(#444444,30px);
+        margin: auto;
+    }
+}
+
+}
+@media only screen and (max-width: 1100px){
+.profile_content{
+    flex-direction: column !important;
+    margin: auto !important;
+    .client_image{
+        margin: auto !important;
+    }
+}
+.tabs_content{
+    flex-direction: column !important;
+    .notification{
+        width: 100% !important;
+    }
+}
+
+}
+.active_tab {
+    background-color: #87bd3c !important;
+    border: 1px solid #87bd3c !important;
+}
+.active_tab_text {
+    color: white !important;
+}
+
+
+
+
+
+
+//     .notification_items {
+//         margin-left: 113px;
+//         margin-top: 67px;
+//         .text_item {
+//             display: flex;
+//             font-size: 20px;
+//             font-weight: normal;
+//             font-style: normal;
+//             font-stretch: normal;
+//             line-height: 1.2;
+//             letter-spacing: normal;
+//             text-align: left;
+//             color: rgba(134, 130, 130, 0.98);
+//             .notification_data {
+//                 margin-left: 223px;
+//                 font-size: 20px;
+//                 font-weight: normal;
+//                 font-style: normal;
+//                 font-stretch: normal;
+//                 line-height: 1.2;
+//                 letter-spacing: normal;
+//                 text-align: left;
+//                 color: #565656;
+//             }
+//             .text {
+//                 width: 691px;
+//             }
+//         }
+//         .border_line {
+//             margin-top: 33px;
+//             margin-left: 85px;
+//             width: 824px;
+//             height: 0;
+//             border: solid 1px #707070;
+//         }
+//     }
+// }

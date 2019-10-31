@@ -1,0 +1,136 @@
+@mixin text($fintSize, $color) {
+    font-size: $fintSize;
+    color: $color;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.37;
+    letter-spacing: normal;
+    text-decoration: none;
+    font-family: 'Open Sans';
+    margin-top: 0;
+    display: block;
+    word-wrap: break-word;
+    width: 100%;
+}
+
+.contact_conteiner {
+    .left_content {
+        margin-left: 97px;
+        width: 50%;
+        .contact_type {
+            margin-top: 73px;
+            .type {
+                @include text(30px, #444444);
+            }
+            .title {
+                @include text(18px, #707070);
+            }
+        }
+        .form_content {
+            .form_group {
+                margin-top: 26.5px;
+                .label {
+                    @include text(17px, #848181);
+                }
+                .input {
+                    width: 100%;
+                    height: 42px;
+                    object-fit: contain;
+                    border-radius: 4px;
+                    border: solid 1px #707070;
+                    background-color: #ffffff;
+                    padding-left: 16px;
+                }
+                .messages_input {
+                    min-height: 151px;
+                    max-height: 151px;
+                    resize: vertical;
+                    padding-left: 16px;
+                }
+            }
+            .submit_button {
+                font-size: 20px;
+                padding: 15px 35px;
+                border-radius: 4px;
+                background-color: #87bd3c;
+                border: none;
+                text-decoration: none;
+                margin-left: auto;
+                margin-top: 26.5px;
+                cursor: pointer;
+            }
+        }
+    }
+    .right_content {
+        width: 50%;
+        margin-left: 84px;
+        .type_content {
+            margin-top: 73px;
+            .type {
+                @include text(30px, #444444);
+            }
+            .title {
+                @include text(18px, #707070);
+            }
+        }
+        .customer_info {
+            .img_info {
+                margin-top: 33.1px;
+                width: 85px;
+                height: 85px;
+            }
+            .data {
+                margin-left: 16px;
+                .data_title {
+                    @include text(20px, #707070);
+                    text-align: left;
+                    margin-bottom: 0;
+                }
+            }
+        }
+        .contact {
+            margin-top: 47.5px;
+            .contact_descriptiont {
+                .img_contact {
+                    height: 84px;
+                    width: 84px;
+                }
+                .contact_text {
+                    @include text(18px, #707070);
+                    margin-left: 16px;
+                }
+            }
+        }
+    }
+}
+
+.input::placeholder {
+    @include text(15px, #c2c2c2);
+}
+
+.border {
+    border: 1px solid red !important;
+}
+
+.disable {
+    opacity: 0.5;
+}
+
+.color {
+    color: red !important;
+}
+
+@media only screen and (max-width: 900px) {
+    .contact_conteiner {
+        flex-direction: column;
+        margin: 0 21px;
+    }
+    .right_content {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+    .left_content {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+}

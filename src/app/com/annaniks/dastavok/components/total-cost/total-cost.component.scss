@@ -1,0 +1,50 @@
+.total_conteiner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+.text{
+    font-size: 15px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #979797;
+  
+}
+.price{
+    font-size: 25px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.2;
+    letter-spacing: normal;
+    text-align: left;
+    color: #979797;
+  }
+
+}
+.button_item{
+    width: 228px;
+    height: 65px;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+    background-color: #ff6f00;
+    font-family: 'OpenSans';
+    font-size: 20px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.35;
+    letter-spacing: normal;
+    text-align: left;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 47px;
+}

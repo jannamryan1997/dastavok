@@ -1,0 +1,41 @@
+.messages_conteiner {
+    .messages_content {
+        margin-top: 80px;
+        .messages_text {
+            font-size: 28px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.23;
+            letter-spacing: normal;
+            text-align: left;
+            color: #ff6f00;
+        }
+        .button_item {
+            margin-top: 80px;
+            justify-content: flex-end;
+            padding: 60px;
+            .next {
+                width: 110px;
+                height: 42px;
+                box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+                background-color: #87bd3c;
+                display: inline-block;
+                border: none;
+                font-size: 17px;
+                font-weight: bold;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.2;
+                letter-spacing: normal;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .messages_text {
+        font-size: 14px !important;
+    }
+}

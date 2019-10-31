@@ -1,0 +1,38 @@
+@import "../../../../../../../assets/scss/mixin";
+
+.good_item {
+    border-radius: 4px;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+    cursor: pointer;
+
+    &:first-child {
+        margin-left: 0px;
+    }
+
+    .item_image {
+        height: 165.1px;
+    }
+
+    .title_item {
+        padding: 15px;
+        .type {
+            @include text(#191919, 16px);
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .title {
+            @include text(#706f6f, 10px);
+            width: 80%;
+        }
+
+        .money_text {
+            @include text(#191919, 15px);
+            word-break: unset;
+        }
+    }
+
+
+}

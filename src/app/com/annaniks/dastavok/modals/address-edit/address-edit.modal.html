@@ -1,0 +1,47 @@
+<form [formGroup]="userUpdateGroup">
+    <div class="container">
+        <div class="form_conteiner" full-width>
+            <div class="form" full-width>
+                <label class="label" [ngClass]="{'color':checkIsValid('full_name')}">{{'full_name' | translate}}</label>
+                <div class="form_content" full-height display-flex>
+                    <i class="material-icons" margin-auto>
+                        person
+                    </i>
+                    <input class="input" placeholder="{{'full_name' | translate}}" formControlName="full_name"
+                        [ngClass]="{'border':checkIsValid('full_name')}">
+                </div>
+            </div>
+
+            <div class="form" full-width>
+                <label class="label" [ngClass]="{'color':checkIsValid('location')}">{{'location' | translate}}</label>
+                <div class="form_content" full-height display-flex>
+                    <i class="material-icons" margin-auto>
+                        place
+                    </i>
+                    <input class="input" placeholder="{{'location' | translate}}" formControlName="location"
+                        [ngClass]="{'border':checkIsValid('location')}">
+                </div>
+            </div>
+
+            <div class="form" full-width>
+                <label class="label"
+                    [ngClass]="{'color':checkIsValid('phone_number')}">{{'phone_number' | translate}}</label>
+                <div class="form_content" full-height display-flex>
+                    <i class="material-icons" margin-auto>
+                        call
+                    </i>
+                    <input class="input" placeholder="{{'phone_number' | translate}}" formControlName="phone_number"
+                        [ngClass]="{'border':checkIsValid('phone_number')}" OnlyNumber="true" input-prefix prefix='+'
+                        [val]="userUpdateGroup.get('phone_number').value">
+                </div>
+            </div>
+            <div position-relative>
+                <!-- <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading> -->
+            </div>
+            <button class="button" display-flex margin-auto [disabled]="userUpdateGroup.invalid || loading"
+                [ngClass]="{'opacity':userUpdateGroup.invalid || loading}" (click)="putClient()">
+                <span margin-auto>{{'save' | translate}}</span>
+            </button>
+        </div>
+    </div>
+</form>

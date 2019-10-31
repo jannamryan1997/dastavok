@@ -1,0 +1,23 @@
+<div class="review_content" full-width>
+    <div class="review_conteiner">
+        <div class="top_content" width-75 margin-auto>
+            <div class="reviw_content">
+                <div class="review" display-flex>
+                    <span font-family-Open-Sans>4.5</span>
+                    <div class="rating">
+                        <app-rating margin-auto [currentIndex]="ratingCount" [changeRating]="false"></app-rating>
+                    </div>
+                </div>
+                <div class="reviw_messages">
+                    <p font-family-Roboto>- 0.0 No movment negarding your raiting</p>
+                </div>
+                <div class="chart" full-width>
+                    <ngx-charts-bar-horizontal   [view]="view"  [scheme]="colorScheme" [results]="single" [gradient]="gradient"
+                        [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel"
+                        [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel"  [showDataLabel]=" showDataLabel" [barPadding]="43" (select)="onSelect($event)">
+                    </ngx-charts-bar-horizontal>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

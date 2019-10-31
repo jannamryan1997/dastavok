@@ -1,0 +1,111 @@
+.deliver_items {
+    .container {
+        //  width: 748px;
+        //  margin: 0 auto;
+        .order_info {
+            .company_name {
+                font-size: 30px;
+                font-weight: normal;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.23;
+                letter-spacing: normal;
+                text-align: left;
+                color: #3b3b3b;
+                margin-bottom: 0px;
+            }
+            .price_info {
+                display: flex;
+                justify-content: space-between;
+                width: 250px;
+            }
+        }
+        .track_info {
+            .points {
+                display: flex;
+                justify-content: space-between;
+                .point {
+                    .circle {
+                        width: 43.9px;
+                        height: 43.9px;
+                        background-color: #87bd3c;
+                        border-radius: 50%;
+                        border: 2px solid #87bd3c;
+                        .start_point {
+                            width: 23.9px;
+                            height: 23.9px;
+                            border-radius: 50%;
+                            background-color: #ff6f00;
+                            display: none;
+                        }
+                    }
+                }
+            }
+            .line {
+                width: 100%;
+                height: 3px;
+                background-color: #87bd3c;
+                margin-top: -21.95px;
+                border: none;
+            }
+        }
+        .button_content {
+            justify-content: flex-end;
+            padding: 57px 0 35px 0;
+            .button {
+                width: 287px;
+                height: 60px;
+                border-radius: 4px;
+                box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+                border: solid 1px grey;
+                background-color: white;
+                border: none;
+                font-size: 20px;
+                font-weight: normal;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.2;
+                letter-spacing: normal;
+                text-align: left;
+                color: #3b3b3b;
+                cursor: pointer;
+            }
+        }
+        .line {
+            height: 0;
+            border: solid 0.5px #707070;
+            margin: 0 auto;
+        }
+        .map_content {
+            #map {
+                height: 576.2px;
+                margin: 0 auto; // width: 604px;
+            }
+        }
+        .details-open {
+            overflow: hidden;
+            transition-delay: 2s;
+            transition: max-height 0.3s ease-out;
+        }
+        .details-close {
+            overflow: hidden;
+            border-top: 1px solid #D5D5D5;
+            width: 100%;
+            transition: max-height 0.3s ease-out;
+        }
+    }
+}
+
+.activeOrderData {
+    background-color: white !important;
+    border: 2px solid #87bd3c !important;
+}
+.activeOrderDataCircl{
+  display: block !important;
+}
+
+@media only screen and (max-width: 900px) {
+    #map {
+        height: 300px !important;
+    }
+}

@@ -1,0 +1,214 @@
+.slider_content {
+    margin-top: 48px;
+    .slider_container {
+        height: 476px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    .leftRs {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: fit-content;
+        height: fit-content;
+        user-select: none;
+        margin: auto 0;
+        cursor: pointer;
+        i {
+            font-size: 50px;
+        }
+    }
+    .rightRs {
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        user-select: none;
+        cursor: pointer;
+        margin: auto 0;
+        width: fit-content;
+        height: fit-content;
+        i {
+            font-size: 50px;
+        }
+    }
+    // .shop_now {
+    //     padding: 20px 35px;
+    //     font-size: 17px;
+    //     border-radius: 4px;
+    //     background-color: #87bd3c;
+    //     border: none;
+    //     text-decoration: none;
+    //     display: inline-block;
+    //     left: 0;
+    //     right: 0;
+    //     bottom: 103.3px;
+    //     margin: auto;
+    //     cursor: pointer;
+    // }
+    .second_slider {
+        .leftRs_config {
+            display: block !important;
+            color: #444444;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto 0;
+            width: fit-content;
+            height: fit-content;
+            user-select: none;
+            cursor: pointer;
+            i {
+                font-size: 34px;
+            }
+        }
+        .slider_item {
+            margin: 0 auto;
+            object-fit: contain;
+            width: 129.4px;
+            height: 137.1px;
+            border-radius: 4px;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
+            background-color: white;
+            .slider_image {
+                height: 87.7px;
+                border-radius: 4px;
+            }
+            .information_content {
+                .information_name {
+                    font-size: 9px;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.22;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: #191919;
+                    margin-bottom: 0px;
+                }
+                .carency {
+                    font-size: 9px;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.22;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: #191919;
+                    margin-bottom: 0px;
+                }
+            }
+            .information_text {
+                font-size: 6px;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.33;
+                letter-spacing: normal;
+                text-align: left;
+                color: #191919;
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
+        }
+        .rightRs_config {
+            color: #444444;
+            display: block !important;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto 0;
+            width: fit-content;
+            height: fit-content;
+            user-select: none;
+            i {
+                font-size: 34px;
+            }
+        }
+    }
+}
+
+:host /deep/ {
+    .second_slider {
+        .ngxcarousel {
+            padding: 0 74px;
+        }
+        .ngxcarousel-items {
+            // display: flex;
+            // justify-content: space-around;
+        }
+    }
+}
+
+:host::ng-deep .ngxcarouselPointDefault {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 21.88px;
+}
+
+:host::ng-deep .active {
+    background-color: #87bd3c !important;
+}
+
+:host::ng-deep li {
+    background-color: transparent !important;
+    border: 2px solid darkgrey;
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+}
+
+.second_slider {
+    ngx-carousel {
+        ngx-item {
+            //width: fit-content;
+            //margin-left: 66px;
+        }
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .slider_content {
+        //margin-top: 0px;
+        .slider_container {
+            height: 250px !important;
+        }
+        .shop_now {
+            font-size: 8px !important;
+        }
+    }
+    .slider_item {
+        width: 85.7px !important;
+        height: 90.8px !important;
+        .slider_image {
+            height: 58.8px !important;
+        }
+        .rating_star {
+            font-size: 7px;
+        }
+        .carency {
+            font-size: 4px !important;
+        }
+        .information_text {
+            font-size: 6px !important;
+        }
+        .information_name {
+            font-size: 4px !important;
+        }
+    }
+    :host /deep/ {
+        .second_slider {
+            .ngxcarousel {
+                padding: 0px 25px !important;
+            }
+        }
+    }
+}

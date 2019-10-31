@@ -1,0 +1,41 @@
+<form [formGroup]="userUpdateGroup">
+        <div class="container">
+            <app-error [error]="error"></app-error>
+            <div class="form_conteiner" full-width>
+                    <div class="image" margin-auto full-width full-height [ngStyle]="{'background-image':'url('+localImage+')'}"></div>
+                    <input type="file" border-none margin-auto (change)="setServicePhoto($event)">
+                <div class="form" full-width>
+                    <label class="label" [ngClass]="{'color':checkIsValid('full_name')}">{{'full_name' | translate}}</label>
+                    <div class="form_content" full-height display-flex [ngClass]="{'border':checkIsValid('full_name')}">
+                        <i class="material-icons" margin-auto>
+                                person
+                            </i>
+                        <input class="input" placeholder="{{'full_name' | translate}}" formControlName="full_name" >
+                    </div>
+    
+                </div>
+
+                <div class="form" full-width>
+                        <label class="label" [ngClass]="{'color':checkIsValid('location')}">{{'location' | translate}}</label>
+                        <div class="form_content" full-height display-flex [ngClass]="{'border':checkIsValid('location')}">
+                            <i class="material-icons" margin-auto>
+                                    place
+                                </i>
+                            <input class="input" placeholder="{{'location' | translate}}" formControlName="location" >
+                        </div>
+        
+                    </div>
+                    <div position-relative>
+                            <!-- <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading> -->
+                        </div>
+
+                        <button class="button" display-flex margin-auto [disabled]="userUpdateGroup.invalid || loading" [ngClass]="{'opacity':userUpdateGroup.invalid || loading}" (click)="updeteClientData()">
+                                <span margin-auto>{{'save' | translate}}</span>
+                            </button>
+    
+            </div>
+
+
+            
+        </div>
+    </form>

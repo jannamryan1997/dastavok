@@ -1,0 +1,14 @@
+@import "../../../../../../../assets/scss/mixin";
+
+.description_content {
+    @include text(#706f6f,20px);
+    margin-top: 48px;
+    color: #706f6f;
+    .description_text {
+    //    width: 707px;
+        margin-bottom: 0px;
+        margin-top: 0px;
+        display: block;
+    word-wrap: break-word;
+    }
+}

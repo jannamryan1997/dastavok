@@ -1,0 +1,76 @@
+.review_content {
+    .review_conteiner {
+        .top_content {
+            margin-top: 26px;
+            .reviw_content {
+                .review {
+                    font-size: 65px;
+                    font-weight: normal;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.12;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: #444444;
+                    .rating {
+                        margin-top: 30px;
+                    }
+                }
+                .reviw_messages {
+                    font-size: 15px;
+                    font-weight: normal;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.2;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: #706f6f;
+                }
+                .chart {}
+            }
+        }
+        .chat_info {
+            margin-top: 142px;
+            .chat_conteiner {
+                .image_content {
+                    width: 85px;
+                    height: 85px;
+                    border-radius: 4px;
+                  background-image: url("/assets/images/user.jpg");
+                    background-position: center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                }
+                .chat_content {
+                    font-size: 15px;
+                    font-weight: normal;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.2;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: #706f6f;
+                    display: block;
+                    word-wrap: break-word;
+                    margin-left: 20px;
+                    .rating {
+                        margin-top: 20px;
+                    }
+                    .data_info {
+                        font-size: 15px;
+                        font-weight: normal;
+                        font-style: normal;
+                        font-stretch: normal;
+                        line-height: 1.13;
+                        letter-spacing: normal;
+                        text-align: left;
+                        color: #706f6f;
+                        display: block;
+                        word-wrap: break-word;
+                    }
+                }
+             
+            }
+        }
+    }
+}

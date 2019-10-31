@@ -1,0 +1,31 @@
+<div class="home_content" full-width>
+    <div class="container" display-flex justify-content-space-between>
+        <div class="logo">
+            <img src="assets/images/logo.png">
+        </div>
+        <div class="choose_bar" *ngIf="chooseBarVisiblity">
+            <div class="search-content" full-width display-flex>
+                <div class="search_wrapper" display-flex>
+                    <input class="search-input" placeholder="{{'search_product_hear' | translate}}" full-width [(ngModel)]="search">
+                    <div class="search" display-flex (click)="onClickSearch()">
+                        <i class="material-icons" margin-auto color-white>
+                            search
+                        </i>
+                    </div>
+                </div>
+                <div class="trash">
+                    <div class="content">
+                        <i class="material-icons" cursor-pointer>
+                            shopping_cart
+                        </i>
+                        <div class="count">({{signUpService.userInfo.chartOrdersCount}})</div>
+                        <i class="material-icons icon" cursor-pointer routerLink="card">
+                            keyboard_arrow_down
+                        </i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+</div>

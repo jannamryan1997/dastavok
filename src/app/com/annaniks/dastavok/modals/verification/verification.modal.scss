@@ -1,0 +1,48 @@
+@import "../../../../../../assets/scss/mixin.scss";
+@import "../../../../../../assets/scss/global.scss";
+
+
+
+
+
+.verification_conteiner {
+    margin: 110px auto;
+    .verification_item {
+        .item_label {
+            width: 25%;
+            padding: 1.2em;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+            background-color: #ffffff;
+            margin-left: 20.7px;
+            border: none;
+            &:first-child {
+                margin-left: 0px;
+            }
+        }
+    }
+    .type{
+        @include text(#aeaeae,12px);
+        margin: 13px auto;
+    }
+    .back{
+        @include button(#ffffff, 20px 50px, #000000);
+    }
+    .next {
+        @include button(#87bd3c, 20px 50px, #ffffff);
+    }
+}
+
+.border {
+    border: 1px solid #ff6f00 !important;
+}
+
+.opacity{
+    opacity: 0.5;
+}
+
+@media only screen and (max-width: 900px) {
+    .item_label {
+        width: 55px !important;
+    }
+}

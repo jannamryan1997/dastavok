@@ -1,0 +1,23 @@
+.container {
+    width: calc(100% - 297px);
+    margin-left: 10px;
+    .serach{
+        justify-content: space-around; 
+    }
+}
+
+app-goods-list-item{
+    width: 32.333333%;
+}
+
+// .ui-progress-spinner {
+//     width: 200px !important;
+//     height: 200px !important;
+// }
+
+@media only screen and (max-width: 900px) {
+    .container {
+        width: calc(100% - 20px);
+        margin: 10px auto;
+    }
+}

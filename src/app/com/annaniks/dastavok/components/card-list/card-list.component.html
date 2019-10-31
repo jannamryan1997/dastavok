@@ -1,0 +1,24 @@
+<div class="card_content" full-width>
+    <div class="delete_items" position-relative>
+        <i class="material-icons close" position-absolute cursor-pointer (click)="deleteAllOrderChart()">
+            close
+        </i>
+    </div>
+    <div class="restaurant_data">
+        <p class="restaurant_name" font-family-Roboto>{{cardInfo?.companyName}}</p>
+        <p class="delivery_text" font-family-Roboto>Cost of delivery<span>3$</span></p>
+        <p class="detalis" font-family-Roboto>Product Detalis</p>
+    </div>
+    <div class="card_item" full-width >
+        <ng-content full-width></ng-content>
+       
+    </div>
+    <div class="card_total" display-flex>
+        <p class="card_text" font-family-Roboto font-weight-bold>Total coast</p>
+        <p class="price" font-family-Roboto font-weight-bold>{{cardInfo?.totalAmount}}$</p>
+    </div>
+    <div class="batton_content" (click)="navToPayment()" width-fit margin-left-auto>
+        <button class="button" display-flex ><span margin-auto font-family-Open-Sans>BUY</span></button>
+    </div>
+    <div class="line" margin-auto full-75></div>
+</div>
