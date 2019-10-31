@@ -4,7 +4,7 @@ import { ProductsView } from "./products.view";
 
 const productsRoutes: Routes = [
     { path: "", component: ProductsView },
-    { path: ":good", loadChildren: "./product/product.module#ProductModule" }
+    { path: ":goodId", loadChildren: "./product/product.module#ProductModule" }
 ]
 @NgModule({
     imports: [RouterModule.forChild(productsRoutes)],

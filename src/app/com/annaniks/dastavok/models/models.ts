@@ -110,6 +110,19 @@ export interface MetaData {
     pages: number;
 }
 
+export interface GoodsResponse {
+    goods: Good[],
+    goodType: {
+        createdAt: string;
+        description: string;
+        id: number;
+        image: string;
+        name: string;
+        parentGoodTypeId: string;
+        updatedAt: string;
+    }
+}
+
 export interface BriefCompany {
     address: string;
     code: number;
@@ -139,8 +152,8 @@ interface Address {
     latitude: number,
     longitude: number,
     text: string,
-    lat:number;
-    lng:number;
+    lat: number;
+    lng: number;
 }
 interface Cordinate {
     latitude: number,

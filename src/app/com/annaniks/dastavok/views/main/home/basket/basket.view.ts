@@ -1,15 +1,15 @@
 import { Component, OnInit } from "@angular/core"
-import { CardService } from "./card.service";
-import { ServerResponse, Card, OrderInfo, } from "src/app/com/annaniks/dastavok/models/models";
+import { BasketService } from "./basket.service";
+import { Card, OrderInfo } from "src/app/com/annaniks/dastavok/models/models";
 import { Router } from "@angular/router";
 
 @Component({
-    selector: "app-card",
-    templateUrl: "card.view.html",
-    styleUrls: ["card.view.scss"]
+    selector: "app-basket",
+    templateUrl: "basket.view.html",
+    styleUrls: ["basket.view.scss"]
 })
 
-export class CardView implements OnInit {
+export class BasketView implements OnInit {
     public loading: boolean = false;
     public cardInfo: Card[] = [];
     public cardGoodsInfo: Array<any>;
@@ -18,19 +18,17 @@ export class CardView implements OnInit {
     public totalSum: number = 0;
     public amount: number = 0;
 
-
-    constructor(private _cardService: CardService, private _router: Router) { }
+    constructor(private _basketService: BasketService, private _router: Router) { }
 
     ngOnInit() {
         this._getOrderChard();
-
     }
 
     private _getOrderChard() {
         this.loading = true;
-        this._cardService.getOrderChart()
+        this._basketService.getOrderChart()
             .subscribe((data: any) => {
-               this.loading = false;
+                this.loading = false;
                 this.totalSum = 0;
                 if (data && data.data && data.data.data) {
                     this.cardInfo = data.data.data;
@@ -41,7 +39,7 @@ export class CardView implements OnInit {
             })
     }
 
-    byAllEvent(event) {
+    public byAllEvent(event): void {
         let ordersId: Array<number> = [];
         for (var i = 0; i < this.cardInfo.length; i++) {
             ordersId.push(this.cardInfo[i].orderId)

@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef, MatDialog } from "@angular/material";
 import { ProfileService } from "../../views/main/profile/profile.service";
 import { VerificationModal } from "../verification/verification.modal";
-import { CookieService } from "angular2-cookie/services/cookies.service";
+import { CookieService } from "ngx-cookie";
 
 @Component({
     selector: "app-new-phone-number",
@@ -29,7 +29,7 @@ export class NewPhoneNumber implements OnInit {
 
     private _formBuilder() {
         this.phoneNumberForm = new FormBuilder().group({
-            newPhonenumber: ["", Validators.required]
+            phonenumber: ["", Validators.required]
         })
     }
 
@@ -39,11 +39,11 @@ export class NewPhoneNumber implements OnInit {
 
     public putClientNewPhoneNumberStepOne() {
         this._profileService.putClientNewPhoneNumberStepOne({
-            phoneNumber: this.phoneNumberForm.value.newPhonenumber,
+            phoneNumber: this.phoneNumberForm.value.phonenumber,
         }).subscribe((data: any) => {
             this._cookieService.put('newPhoneNumberToken', data.data.token)
             this._openVerificationModal();
-            console.log(data);
+            (data);
             this._dialogRef.close();
 
         });
@@ -57,10 +57,14 @@ export class NewPhoneNumber implements OnInit {
             width: "686px",
             height: "444px",
             data: {
-                phoneNumber: this.phoneNumberForm.value.newPhonenumber,
+                phoneNumber: this.phoneNumberForm.value.phonenumber,
                 key: 'new-phone-number',
             }
         })
+    }
+
+    public checkIsValid(controlName: string): boolean {
+        return this.phoneNumberForm.get(controlName).hasError('required') && this.phoneNumberForm.get(controlName).touched;
     }
 
 }

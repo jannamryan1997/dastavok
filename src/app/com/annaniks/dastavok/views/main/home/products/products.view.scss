@@ -1,26 +1,25 @@
 .goods_content {
-    margin-top: 15.6px;
-    .goods_main {
-        height: 257.6px;
-        border-radius: 4px;
-        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-        background-image: url("/assets/images/salads.main.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
-    app-goods-list-item{
-        width: 50%;
-        min-width: fit-content;
-    }
-   
+  margin-top: 15.6px;
+
+  .goods_main {
+    height: 257.6px;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+    object-fit: cover;
+  }
+
+  app-goods-list-item {
+    width: 33.3333%;
+    padding: 1.2em;
+  }
 }
 
-@media only screen and (max-width: 900px) {
-    .goods_content{
-        margin:10px 21px !important;
-    }
-    app-goods-list-item{
-        width: 100% !important;
-    }
+@media only screen and (max-width: 1400px) {
+  .goods_content {
+    margin: 10px 21px !important;
+  }
+
+  app-goods-list-item {
+    width: 100% !important;
+  }
 }

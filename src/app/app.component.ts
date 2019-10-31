@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {TranslateService} from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,16 +9,18 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class AppComponent {
   title = 'dastavok';
-  user = {
-    name: 'Arthur',
-    age: 42
-  };
 
-constructor(private translate: TranslateService){
-  translate.setDefaultLang('ru');
-}
-switchLanguage(language: string) {
-  this.translate.use(language);
-}
+  constructor(private _translate: TranslateService, private _router: Router) {
+    _translate.setDefaultLang('ru');
+    this._router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        window.scrollTo(0, 0);
+      }
+    })
+  }
+
+  private _switchLanguage(language: string): void {
+    this._translate.use(language);
+  }
 
 }

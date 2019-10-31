@@ -3,11 +3,10 @@ import { MatDialogRef, MatDialog, MAT_DIALOG_DATA } from "@angular/material";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { SignUpModal } from "../signUp/signUp.modal";
 import { SignUpService } from "../../services/signUp.service";
-import { CookieService } from "angular2-cookie/services/cookies.service";
-import { NewPasswordModals } from "../new-passwors/new-password.modal";
+import { CookieService } from "ngx-cookie";
+import { NewPasswordModals } from "../new-password/new-password.modal";
 import { ProfileService } from "../../views/main/profile/profile.service";
 import { PhoneVerification, ServerResponse } from "../../models/models";
-import { locateHostElement } from "@angular/core/src/render3/instructions";
 
 @Component({
     selector: "app-verification",
@@ -58,7 +57,7 @@ export class VerificationModal implements OnInit {
             }
             if (this.minute == 0 && this.secend==0)
             this.timerStopped = false;
-            console.log(this.time);
+            (this.time);
 
         }, 1000)
    

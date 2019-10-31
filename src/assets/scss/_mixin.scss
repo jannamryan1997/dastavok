@@ -14,10 +14,7 @@
     font-stretch: normal;
     line-height: 1.2;
     letter-spacing: normal;
-    text-align: left;
     color: $color;
-    margin-top: 13px;
-    display: block;
     word-break: break-all;
     text-decoration: none;
 }
@@ -33,4 +30,18 @@
     border: none;
     text-decoration: none;
     padding: $padding;
+}
+
+@mixin flex-spase-between{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+@mixin after-before($margin,$border){
+    content: "";
+    display: block;
+    width: 100%;
+    border:$border;
+    margin:$margin;
 }

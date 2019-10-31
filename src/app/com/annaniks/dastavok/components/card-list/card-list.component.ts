@@ -1,9 +1,7 @@
-import { Component, OnInit, Input, Output,EventEmitter } from "@angular/core"
-import { Card, OrderInfo, ServerResponse } from "../../models/models";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core"
+import { Card, OrderInfo } from "../../models/models";
 import { Router } from "@angular/router";
-import { CardService } from "../../views/main/home/card/card.service";
-
-
+import { BasketService } from "../../views/main/home/basket/basket.service";
 
 @Component({
     selector: "app-card-list",
@@ -13,17 +11,17 @@ import { CardService } from "../../views/main/home/card/card.service";
 
 export class CardListComponent implements OnInit {
     @Input() cardInfo: Card = {} as Card;
-    @Output() deleted:EventEmitter<boolean>=new EventEmitter();
+    @Output() deleted: EventEmitter<boolean> = new EventEmitter();
     public orderGoodId;
 
-    constructor(private _router: Router, private _cardService: CardService) { }
+    constructor(private _router: Router, private _basketService: BasketService) { }
 
     ngOnInit() {
         for (var i = 0; i < this.cardInfo.goods.length; i++) {
-            this.orderGoodId=(this.cardInfo.goods[i].orderGoodId)
+            this.orderGoodId = (this.cardInfo.goods[i].orderGoodId)
 
         }
-        
+
     }
 
     public navToPayment() {
@@ -38,27 +36,25 @@ export class CardListComponent implements OnInit {
     }
 
     public onClickDelete(): void {
-      //  this._deleteOrder();
+        //  this._deleteOrder();
     }
 
-   /* private _deleteOrder(): void {
-        this._cardService.deleteOrderChart(this.cardInfo.orderId,this.orderGoodId).subscribe((data) => {
-            console.log(data);
-
-        })
-
-    }*/
-    public deleteAllOrderChart(){
-       this._cardService.deleteItemOrderChart(this.cardInfo.orderId)
-        .subscribe((data)=>{
-        this._deleteChartGood()
-            console.log(data);
-            
-        })
+    /* private _deleteOrder(): void {
+         this._cardService.deleteOrderChart(this.cardInfo.orderId,this.orderGoodId).subscribe((data) => {
+             (data);
+ 
+         })
+ 
+     }*/
+    public deleteAllOrderChart() {
+        this._basketService.deleteItemOrderChart(this.cardInfo.orderId)
+            .subscribe((data) => {
+                this._deleteChartGood()
+            })
     }
 
-private _deleteChartGood(){
-    this.deleted.emit(true)
-}
+    private _deleteChartGood() {
+        this.deleted.emit(true)
+    }
 
 }

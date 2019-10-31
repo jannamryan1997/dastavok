@@ -37,20 +37,20 @@
             font-size: 50px;
         }
     }
-    .shop_now {
-        padding: 20px 35px;
-        font-size: 17px;
-        border-radius: 4px;
-        background-color: #87bd3c;
-        border: none;
-        text-decoration: none;
-        display: inline-block;
-        left: 0;
-        right: 0;
-        bottom: 103.3px;
-        margin: auto;
-        cursor: pointer;
-    }
+    // .shop_now {
+    //     padding: 20px 35px;
+    //     font-size: 17px;
+    //     border-radius: 4px;
+    //     background-color: #87bd3c;
+    //     border: none;
+    //     text-decoration: none;
+    //     display: inline-block;
+    //     left: 0;
+    //     right: 0;
+    //     bottom: 103.3px;
+    //     margin: auto;
+    //     cursor: pointer;
+    // }
     .second_slider {
         .leftRs_config {
             display: block !important;
@@ -79,9 +79,6 @@
             background-color: white;
             .slider_image {
                 height: 87.7px;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
                 border-radius: 4px;
             }
             .information_content {

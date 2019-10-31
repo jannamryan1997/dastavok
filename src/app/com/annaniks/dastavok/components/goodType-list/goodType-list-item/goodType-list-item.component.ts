@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core"
+import { Component, OnInit, Input, Inject } from "@angular/core"
 import { GoodType } from "../../../models/models";
 
 @Component({
@@ -8,13 +8,14 @@ import { GoodType } from "../../../models/models";
 })
 
 export class GoodTypeListItemComponent implements OnInit {
+    public image: string = '';
 
     @Input() goodTypeInfo;
 
-    constructor() { }
+    constructor(@Inject("ADMIN_FILE_URL") private _fileUrl: string) { }
 
-    ngOnInit() { 
-   
+    ngOnInit() {
+        this.image = `${this._fileUrl}${this.goodTypeInfo.image}`
     }
 
 

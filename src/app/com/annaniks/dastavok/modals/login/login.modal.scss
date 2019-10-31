@@ -1,7 +1,9 @@
 @import "../../../../../../assets/scss/mixin.scss";
 @import "../../../../../../assets/scss/global.scss";
+
 .form_conteiner {
-    margin: 50px auto;
+    margin: 40px auto;
+
     .forget_password {
         .label {
             @include label();
@@ -10,6 +12,7 @@
             justify-content: flex-end;
         }
     }
+
     .button {
         @include button(#87bd3c, 20px 50px, #ffffff);
     }

@@ -1,6 +1,5 @@
 @import "../../../../../../assets/scss/mixin.scss";
 
-
 .toolbar_content {
     .toolbar_container {
         height: 66px;
@@ -52,11 +51,11 @@
                     flex-direction: column;
 
                     .login_button {
-                        @include button(#87bd3c,20px 40px,#ffffff);
+                        @include button(#87bd3c, 20px 40px, #ffffff);
                     }
 
                     .registration_button {
-                        @include button(#ff6f00,20px 40px,#ffffff);
+                        @include button(#ff6f00, 20px 40px, #ffffff);
                         margin-top: 42px;
                     }
                 }
@@ -73,14 +72,7 @@
                 }
 
                 .user_name {
-                    font-size: 15px;
-                    font-style: normal;
-                    font-stretch: normal;
-                    line-height: 1.13;
-                    letter-spacing: normal;
-                    text-align: left;
-                    color: #191919;
-                    margin-left: 8px;
+                    @include text(#191919, 15px);
                 }
 
                 i {
@@ -92,23 +84,24 @@
                     z-index: 1;
                     top: 66px;
                     right: 0;
+                    width: 210px;
+                    box-shadow: -4px 4px 6px 0 rgba(0, 0, 0, 0.16);
 
                     .user_singIn {
-                        margin-left: 16px;
+                        padding: 20px 20px;
 
-                        .user_text {
-                          @include text(20px, #191919);
+                        .type {
+                            @include text(#191919,15px);
+                            margin-top: 0;
+                            margin-bottom: 0;
                         }
 
-                        .line_content {
-                            width: 169px;
-                            height: 0;
-                            border: solid 1px #707070;
-                            margin-top: 232px;
+                        .title {
+                            @include text(#191919,15px);
                         }
 
-                        .text_signup {
-                          @include text(20px, #191919);
+                        .title::before {
+                            @include after-before(10px auto, 1px solid #191919);
                         }
                     }
                 }

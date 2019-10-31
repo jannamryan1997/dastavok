@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core"
+import { Component, Input, OnInit, Inject } from "@angular/core"
 import { Good } from "../../../models/models";
 import { ActivatedRoute, Router } from "@angular/router";
 
@@ -14,6 +14,9 @@ export class GoodsListItemComponent implements OnInit {
 
     public goodsImageItem;
 
+    constructor(@Inject("FILE_URL") public fileUrl: string) { }
+
+
     ngOnInit() {
         if (this.goodsImage != null) {
             let images = this.goodsImage.split(",")
@@ -21,12 +24,4 @@ export class GoodsListItemComponent implements OnInit {
         }
 
     }
-
-    constructor(private router: Router, private _activetedRoute: ActivatedRoute) { }
-
-    navToDetails(): void {
-            this.router.navigate([`/home/restaurant/${this.goodInfo.companyId}/${this.goodInfo.goodTypeId}/${this.goodInfo.id}`])
-    
-    }
-
 }

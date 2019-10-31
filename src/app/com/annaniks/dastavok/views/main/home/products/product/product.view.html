@@ -1,73 +1,70 @@
-<div class="good_content" margin-control>
-
-    <div class="good_conteiner" full-width display-flex justify-content-space-between>
-        <div class="loading" display-flex *ngIf="loading">
-            <p-progressSpinner class="spinner"></p-progressSpinner>
-        </div>
-        <div class="left_content">
-            <div class="image_content" full-width [ngStyle]="{'background-image':'url('+activeImage+')'}"></div>
-
-            <div class="images" display-flex flex-wrap-wrap>
-                <div class="image_items" *ngFor="let item of goodImage" [ngStyle]="{'background-image':'url('+'http://192.168.0.114:4000/static/company/'+item+')'}"
-                    (click)="setActiveImage(item)"></div>
+<section>
+    <div class="product_content">
+        <div class="product_images">
+            <div class="image main_images" [ngStyle]="{'background-image':'url('+activeImage+')'}"></div>
+            <div class="product_images_item">
+                <div class="goods_image" *ngFor="let item of goodImage">
+                <div class="image image_item" 
+                    [ngStyle]="{'background-image':'url('+ fileUrl + item +')'}" (click)="setActiveImage(item)"></div>
+                    </div>
             </div>
 
         </div>
-        <div class="right_content">
-            <p class="text_item" font-family-Roboto font-weight-bold>{{good?.name}}</p>
-            <div class="star_items">
-                <app-rating [currentIndex]="good?.review-1" [changeRating]="false"></app-rating>
-                <p class="text" font-family-Roboto>{{good?.description}}</p>
-            </div>
-            <div class="line_content"></div>
+        <div class="prodict_description">
+            <p class="type" font-family-Roboto font-weight-bold>{{good?.name}}</p>
+
+            <app-rating [currentIndex]="good?.review-1" [changeRating]="false"></app-rating>
+            <p class="title" font-family-Roboto>{{good?.description}}</p>
             <div class="price_content" display-flex justify-content-space-between>
-                <p class="price_text" font-family-Roboto>price</p>
-                <p class="mony_text" font-family-Roboto>{{good?.price}}$</p>
+                <p class="description_title" font-family-Roboto>{{'price' | translate}}</p>
+                <p class="after_title description_title" font-family-Roboto>{{good?.price}}$</p>
             </div>
-            <div class="under_line_content"></div>
-            <div class="quarity_content" display-flex justify-content-space-between>
-                <p class="price_text" font-family-Roboto>quarity</p>
-                <div class="quarity_item" display-flex>
-                    <p class="remove" font-family-Roboto (click)="countremove()">-</p>
-                    <p class="count_text" font-family-Roboto> {{countSum}} </p>
-                    <p class="add" font-family-Roboto (click)="countdAdd()">+</p>
+            <div class="quarity">
+                <div class="quarity_content" display-flex justify-content-space-between>
+                    <p class="description_title" font-family-Roboto>{{'quarity' | translate}}</p>
+                    <div class="quarity_item" display-flex>
+                        <p class="description_title" font-family-Roboto (click)="countremove()">-</p>
+                        <p class="description_title" font-family-Roboto> {{countSum}} </p>
+                        <p class="before_title description_title" font-family-Roboto (click)="countdAdd()">+</p>
+                    </div>
                 </div>
             </div>
-            <div class="button_item" display-flex>
-                <div margin-auto display-flex>
-                    <button class="left_button" color-white font-family-Open-Sans margin-auto (click)="onClickOrder('card')"><span>CART</span></button>
-                    <button class="right_button" color-white font-family-Open-Sans margin-auto (click)="onClickBuy()"><span>BUY</span></button>
-                    <!-- routerLink="cart" -->
+
+            <div class="button_item">
+                <button class="button back" display-flex margin-auto (click)="onClickOrder('card')">
+                    <span margin-auto>{{'cart' | translate}}</span>
+                </button>
+                <button class="button next" display-flex margin-auto (click)="onClickBuy()">
+                    <span margin-auto>{{'buy' | translate}}</span>
+                </button>
+            </div>
+        </div>
+       
+    </div>
+    <div [ngSwitch]="tab" class="tab" full-width>
+            <div class="tab_content" display-flex justify-content-space-between>
+                <div class="tab_item" display-flex (click)="changeTab(1)" [ngClass]="{'active_tab':tab==1}">
+                    <p margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==1}">{{'description'| translate}}</p>
                 </div>
-
+                <div class="tab_item" display-flex (click)="changeTab(2)" [ngClass]="{'active_tab':tab==2}">
+                    <p margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==2}">{{'review'| translate}}</p>
+                </div>
+                <div class="tab_item" display-flex (click)="changeTab(3)" [ngClass]="{'active_tab':tab==3}">
+                    <p margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==3}">{{'ingredient'| translate}}</p>
+                </div>
             </div>
-
-        </div>
-
-    </div>
-    <div [ngSwitch]="tab">
-        <div class="tab_content" display-flex justify-content-space-between>
-            <div class="tab_item" display-flex (click)="openDescription()" [ngClass]="{'active_tab':tab==1}">
-                <span margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==1}">DESCRIPTION</span>
+            <div *ngSwitchCase="1">
+                <app-description [descriptionData]="good?.description"></app-description>
             </div>
-            <div class="tab_item" display-flex (click)="openReview()" [ngClass]="{'active_tab':tab==2}">
-                <span margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==2}">REVIEW</span>
+            <div *ngSwitchCase="2">
+                <app-review-chart></app-review-chart>
+                <app-review *ngFor="let item of reviewData" [reviewData]="item" [reviewDataTime]="item.reviewDate">
+                </app-review>
+                <app-paginator [count]="count" [pageLength]="pageLength" (paginate)="paginate($event)"></app-paginator>
             </div>
-            <div class="tab_item" display-flex (click)="openIngredient()" [ngClass]="{'active_tab':tab==3}">
-                <span margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==3}">INGREDIENT</span>
+            <div *ngSwitchCase="3">
+                <app-ingredient *ngFor="let topping of toppings" [topping]="topping"></app-ingredient>
+    
             </div>
         </div>
-        <div *ngSwitchCase="1">
-            <app-description [descriptionData]="good?.description"></app-description>
-        </div>
-        <div *ngSwitchCase="2">
-                <app-revie-chart></app-revie-chart>
-            <app-review *ngFor="let item of reviewData" [reviewData]="item" [reviewDataTime]="item.reviewDate"></app-review>
-            <app-paginator [count]="count" [pageLength]="pageLength" (paginate)="paginate($event)"></app-paginator>
-        </div>
-        <div *ngSwitchCase="3">
-            <app-ingredient *ngFor="let topping of toppings" [topping]="topping"></app-ingredient>
-
-        </div>
-    </div>
-</div>
+</section>

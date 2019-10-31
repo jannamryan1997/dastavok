@@ -1,8 +1,6 @@
 import { Injectable } from "@angular/core"
-import { CanActivate, ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from "@angular/router";
-import { Observable, of } from "rxjs";
-import { ApiService } from "../services/api.service";
-import { CookieService } from "angular2-cookie/services/cookies.service";
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from "@angular/router";
+import { Observable, } from "rxjs";
 import { SignUpService } from "../services/signUp.service";
 
 
@@ -18,7 +16,7 @@ export class AuthGuard implements CanActivate {
             return true;
         }
         else{
-            this._router.navigate(['/home/information']);
+            this._router.navigate(['/']);
             return false;
         }
         
