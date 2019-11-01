@@ -1,9 +1,10 @@
-
+.product_item{
+    margin-top: 50px;
 .inf_container {
     width: calc(100% - 297px);
     margin-left: 10px;
     .line_content {
-        margin-top: 47px;
+        // margin-top: 47px;
         .text_content {
             .text{
                 text-transform: uppercase;
@@ -35,7 +36,7 @@
         margin-top: 56px;
     }
     .top_line_content {
-        margin-top: 47px;
+        // margin-top: 47px;
         .line {
             margin: auto;
             margin-left: 38px;
@@ -44,6 +45,7 @@
             border: solid 2px #c5c3c3;
         }
     }
+}
 }
 
 .ui-progress-spinner{
