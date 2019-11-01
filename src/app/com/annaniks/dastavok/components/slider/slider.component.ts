@@ -75,7 +75,7 @@ export class SliderComponent implements OnInit {
             touch: true
         }
         this.carouselConfig2 = {
-            grid: { xs: 3, sm: 3, md: 4, lg: 4, all:0 },
+            grid: { xs: 2, sm: 2, md: 2, lg: 4, all:0 },
             slide: 1,
             speed: 400,
             interval: 2000,

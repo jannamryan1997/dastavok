@@ -41,7 +41,7 @@
 @mixin after-before($margin,$border){
     content: "";
     display: block;
-    width: 100%;
+    // width: 100%;
     border:$border;
     margin:$margin;
 }

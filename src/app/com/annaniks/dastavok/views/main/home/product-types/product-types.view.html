@@ -1,6 +1,6 @@
-<div full-width>
+<!-- <div full-width>
     <app-slider [sliderMode]="1"></app-slider>
-    <div class="product_item" display-flex flex-wrap-wrap>
+    <div class="product_item" display-flex>
         <app-menu></app-menu>
         <div class="inf_container">
             <div class="line_content" full-width display-flex>
@@ -12,7 +12,7 @@
             <app-slider [sliderMode]="2"></app-slider>
             <div class="under_line"></div>
             <div class="load" position-relative *ngIf="loading">
-                <!-- <p-progressBar class="loading" mode="indeterminate" [style]="{'height': '8px'}"></p-progressBar> -->
+                <p-progressBar class="loading" mode="indeterminate" [style]="{'height': '8px'}"></p-progressBar>
             </div>
             <app-goodType-list>
                 <app-goodType-list-item *ngFor="let item of goodTypes" [goodTypeInfo]="item"
@@ -21,4 +21,27 @@
             <app-paginator [count]="count" [pageLength]="pageLength" (paginate)="paginate($event)"></app-paginator>
         </div>
     </div>
-</div>
+</div> -->
+
+
+<section full-width> 
+<header>
+        <app-slider [sliderMode]="1"></app-slider>
+    </header>
+        <div class="product_type_content">
+                <app-menu></app-menu>
+                <div class="product_type_conteiner">
+                    <div class="slider_contnet">
+                            <app-slider class="slider" [sliderMode]="2"></app-slider>
+                    </div>
+                    <app-goodType-list>
+                            <app-goodType-list-item *ngFor="let item of goodTypes" [goodTypeInfo]="item"
+                                (click)="onClickItem(item)"></app-goodType-list-item>
+                        </app-goodType-list>
+                    
+                </div>
+                <app-paginator [count]="count" [pageLength]="pageLength" (paginate)="paginate($event)"></app-paginator>
+        </div>
+
+
+</section>
