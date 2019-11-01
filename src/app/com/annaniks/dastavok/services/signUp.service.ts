@@ -25,8 +25,9 @@ export class SignUpService {
     }
 
     public signUpClient(body) {
-        let verificationToken: string = this._cookieService.get('verificationtoken');
-        let headers = new HttpHeaders({ 'token': verificationToken });
+        let headers = new HttpHeaders({
+            'token': this._cookieService.get('verificationtoken') || ''
+        })
         return this._httpClient.post("client", body, { headers })
     }
 
@@ -57,18 +58,14 @@ export class SignUpService {
     public getUserInfo() {
         return this._httpClient.get("client").pipe(
             map((data: ServerResponse<User>) => {
-                (data);
-
                 this.userInfo = data.data;
                 if (data.data.image !== null) {
                     data.data.image = this._fileUrl + "client/image/" + data.data.image;
-
                 }
                 else {
                     data.data.image = "/assets/images/userimages.png";
                 }
                 this.userImage = data.data.image;
-
                 this._setImage(data);
                 return data;
 
@@ -83,7 +80,6 @@ export class SignUpService {
     private _setImage(data): void {
         if (data.data.image !== null) {
             data.data.image = this._fileUrl + "client/image/" + data.data.image;
-
         }
         else {
             data.data.image = "/assets/images/userimages.png";

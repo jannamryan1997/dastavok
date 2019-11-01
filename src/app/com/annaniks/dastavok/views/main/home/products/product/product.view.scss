@@ -57,6 +57,42 @@ section {
                 &::before {
                     @include after-before(20px 0px 0px 0px, 1px solid #c7c5c5)
                 }
+                .quarity_content{
+                    padding: 10px 0;
+                    .description_title{
+                        margin-top: 0px;
+                        margin-bottom: 0px;
+                    }
+                    .quarity_item{
+                        display: flex;
+                        justify-content: space-between;
+                        .quarity_btn{
+                         border: none;
+                         padding: 0;
+                         display: flex;
+                         cursor: pointer;
+                         background-color: transparent;
+                         border: 1px solid #d0d6dc;
+                         height: 30px;
+                         i{
+                          margin: auto;
+                         font-size: 18px;
+                         color: #444444;
+                         }
+                     }
+                    .quarity_count{
+                      height: 30px;
+                     width: 35px;
+                     border: 1px solid #d0d6dc;
+                     border-radius: 0;
+                     margin: 0 8px;
+                     text-align: center;
+                     color: #444444;
+                     display: flex;
+                     
+                    }
+                    }
+                }
             }
 
             .description_title {

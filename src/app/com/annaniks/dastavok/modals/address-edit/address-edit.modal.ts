@@ -16,7 +16,7 @@ export class AddressEditModal implements OnInit {
 
     public userUpdateGroup: FormGroup;
     public clientData: User;
-
+    public loading: boolean;
     constructor(@Inject(MAT_DIALOG_DATA) private data: any, private _paymentService: PaymentService, private dialogRef: MatDialogRef<AddressEditModal>, private _signUpService: SignUpService) { }
 
     ngOnInit() {

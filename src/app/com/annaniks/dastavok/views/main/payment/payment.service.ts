@@ -26,12 +26,7 @@ export class PaymentService {
 
     }
     public putClient(body) {
-        let token = this._cookieService.get('token');
-        let headers = new HttpHeaders({
-            'token': token,
-            'Contact-type': "application/json"
-        })
-        return this._httpClient.put("client", body, { headers })
+                return this._httpClient.put("client", body, { params:{ authorization:'true' } })
     }
 
     public putOrders(body) {

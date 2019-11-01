@@ -7,6 +7,7 @@ import { CookieService } from "ngx-cookie";
 import { NewPasswordModals } from "../new-password/new-password.modal";
 import { ProfileService } from "../../views/main/profile/profile.service";
 import { PhoneVerification, ServerResponse } from "../../models/models";
+import { Subscription, interval } from "rxjs";
 
 @Component({
     selector: "app-verification",
@@ -21,26 +22,27 @@ export class VerificationModal implements OnInit {
     public minute: number = 2;
     public secend: number = 0;
     public time: string;
-    public isTimerStopped: boolean = false;
-    public interVal;
     public error: string;
-    public timerStopped: boolean = true;
-    constructor(@Inject(MAT_DIALOG_DATA) private data: any, private dialoRef: MatDialogRef<VerificationModal>, private signUpService: SignUpService, private dialog: MatDialog,
+    public isTimerStopped: boolean = false;
+    private _intervalSubscription: Subscription = new Subscription();
+
+    constructor(@Inject(MAT_DIALOG_DATA) private data: any, private dialoRef: MatDialogRef<VerificationModal>, private _signUpService: SignUpService, private dialog: MatDialog,
         private cookieService: CookieService, private _profileService: ProfileService) { }
 
     ngOnInit() {
         this._formBuilder();
-        this._timer();
+        this._startTimer();
     }
 
-    private _timer() {
+    private _startTimer(): void {
         this.isTimerStopped = false;
-        this.timerStopped=true;
+        this._intervalSubscription.unsubscribe();
+        this.time = undefined;
         this.minute = 2;
         this.secend = 0;
-        clearInterval(this.interVal);
-        this.interVal = setInterval(() => {
+        this._intervalSubscription = interval(1000).subscribe(() => {
             if (this.secend == 0 && this.minute == 0) {
+                this._intervalSubscription.unsubscribe();
                 this.isTimerStopped = true;
                 return;
             }
@@ -55,21 +57,15 @@ export class VerificationModal implements OnInit {
             else {
                 this.time = '0' + this.minute + ':' + this.secend;
             }
-            if (this.minute == 0 && this.secend==0)
-            this.timerStopped = false;
-            (this.time);
-
-        }, 1000)
-   
-            
+        })
     }
 
     private _formBuilder() {
         this.verificationForm = new FormBuilder().group({
-            control_1: ["", Validators.required],
-            control_2: ["", Validators.required],
-            control_3: ["", Validators.required],
-            control_4: ["", Validators.required],
+            control_1: ["", [Validators.required, Validators.maxLength(1), Validators.minLength(1)]],
+            control_2: ["", [Validators.required, Validators.maxLength(1), Validators.minLength(1)]],
+            control_3: ["", [Validators.required, Validators.maxLength(1), Validators.minLength(1)]],
+            control_4: ["", [Validators.required, Validators.maxLength(1), Validators.minLength(1)]],
         })
     }
 
@@ -81,6 +77,7 @@ export class VerificationModal implements OnInit {
 
         })
         dialoRef.afterClosed().subscribe((data) => {
+            this._signUpService.getUserInfo().subscribe();
             this.dialog.closeAll()
         })
     }
@@ -97,7 +94,7 @@ export class VerificationModal implements OnInit {
         this.controlsItems = this.verificationForm.value.control_1 + this.verificationForm.value.control_2 +
             this.verificationForm.value.control_3 + this.verificationForm.value.control_4;
         if (this.data.key == "registration") {
-            this.signUpService.clientVerification({
+            this._signUpService.clientVerification({
                 "phoneNumber": this.data.phone,
                 "verifyCode": parseInt(this.controlsItems)
             }).subscribe(
@@ -105,16 +102,18 @@ export class VerificationModal implements OnInit {
                     this.loading = false;
                     this.verificationForm.enable();
                     this.cookieService.put("verificationtoken", data.data.token)
+                    this._signUpService.isAuthorized = true;
                     this.openSignUpModalModal();
                 }, (err) => {
                     this.loading = false;
                     this.verificationForm.enable();
-                    this.error = err.error.error;
+                    if (err)
+                        this.error = err.error.error;
                 })
         }
 
         if (this.data.key == "forgot_password")
-            this.signUpService.forgetPasswordVerification({
+            this._signUpService.forgetPasswordVerification({
                 "phoneNumber": this.data.phone,
                 "verifyCode": +(this.controlsItems)
             }).subscribe(
@@ -138,7 +137,6 @@ export class VerificationModal implements OnInit {
 
 
     private _putClientNewPhoneNumberStepTwo() {
-
         this.controlsItems = this.verificationForm.value.control_1 + this.verificationForm.value.control_2 +
             this.verificationForm.value.control_3 + this.verificationForm.value.control_4;
         this._profileService.putClientNewPhoneNumberStepTwo({
@@ -153,11 +151,10 @@ export class VerificationModal implements OnInit {
     }
 
     public getVerifivationCode() {
-        this.signUpService.clientPhoneNumber({
+        this._signUpService.clientPhoneNumber({
             "phoneNumber": this.data.phone,
         }).subscribe((data: ServerResponse<PhoneVerification>) => {
-
-            this._timer();
+            this._startTimer();
         })
     }
 
@@ -166,8 +163,8 @@ export class VerificationModal implements OnInit {
     }
 
 
-    public checkIsValid(controlName:string):boolean{
-        return this.verificationForm.get(controlName).hasError('required') && this.verificationForm.get(controlName).touched;
+    public checkIsValid(controlName: string): boolean {
+        return (this.verificationForm.get(controlName).hasError('required') && this.verificationForm.get(controlName).touched) || this.verificationForm.get(controlName).hasError('maxlength') || this.verificationForm.get(controlName).hasError('minlength');
     }
 }
 
