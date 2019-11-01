@@ -54,5 +54,8 @@
     "new_phone_number": "Новый номер телефона",
     "confirm_password": "Подтвердите пароль",
     "Enter_the_verification_code": "Введите проверочный код",
-    "repeat_password": ""
+    "repeat_password": "Подтвердите пароль",
+    "Product_detalis":"Информация о продукте",
+    "go_main_page":"ПЕРЕЙТИ НА ГЛАВНУЮ СТРАНИЦУ",
+    "your_chart_is_empty":"ВАША КОРЗИНА ПУСТО"
 }
