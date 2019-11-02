@@ -23,8 +23,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { NgxCarouselModule } from "ngx-carousel";
 import { TranslateModule } from '@ngx-translate/core';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { InputPrefixDirective } from "../directives/input-prefix.directive";
-import { OnlyNumber } from "../directives/onlynumber.directive";
+import { InputPrefixDirective, OnlyNumber, FocusNextInputDriective } from "../directives";
 import { NgxMaskModule } from 'ngx-mask';
 import { SlicetextPipe } from "../pipe/slicetext.pipe";
 
@@ -45,7 +44,8 @@ import { SlicetextPipe } from "../pipe/slicetext.pipe";
     SliderComponent,
     InputPrefixDirective,
     OnlyNumber,
-    SlicetextPipe
+    SlicetextPipe,
+    FocusNextInputDriective
   ],
   imports: [
     CommonModule,
@@ -81,7 +81,8 @@ import { SlicetextPipe } from "../pipe/slicetext.pipe";
     InputPrefixDirective,
     OnlyNumber,
     NgxMaskModule,
-    SlicetextPipe
+    SlicetextPipe,
+    FocusNextInputDriective
   ],
   providers: []
 })

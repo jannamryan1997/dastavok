@@ -47,10 +47,10 @@
         <div class="container">
             <div class="verification_conteiner">
                 <div class="verification_item" display-flex width-75 margin-auto display-flex>
-                    <input class="item_label" formControlName="control_1" [ngClass]="{'border':checkIsValid('control_1')}" OnlyNumber="true">
-                    <input class="item_label" formControlName="control_2" [ngClass]="{'border':checkIsValid('control_2')}" OnlyNumber="true">
-                    <input class="item_label" formControlName="control_3" [ngClass]="{'border':checkIsValid('control_3')}" OnlyNumber="true">
-                    <input class="item_label" formControlName="control_4" [ngClass]="{'border':checkIsValid('control_4')}" OnlyNumber="true">
+                    <input class="item_label" [max-count]="1" app-focus-next-input maxLength="1" formControlName="control_1" [ngClass]="{'border':checkIsValid('control_1')}" OnlyNumber="true">
+                    <input class="item_label" [max-count]="1" app-focus-next-input maxLength="1" formControlName="control_2" [ngClass]="{'border':checkIsValid('control_2')}" OnlyNumber="true">
+                    <input class="item_label" [max-count]="1" app-focus-next-input maxLength="1" formControlName="control_3" [ngClass]="{'border':checkIsValid('control_3')}" OnlyNumber="true">
+                    <input class="item_label" [max-count]="1" app-focus-next-input maxLength="1" formControlName="control_4" [ngClass]="{'border':checkIsValid('control_4')}" OnlyNumber="true">
                 </div>
 
                 <div class="text_content" margin-auto justify-content-flex-end display-flex>

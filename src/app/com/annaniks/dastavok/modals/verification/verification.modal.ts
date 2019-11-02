@@ -88,6 +88,7 @@ export class VerificationModal implements OnInit {
             panelClass: ['margin-10'],
         })
     }
+
     public postVerification() {
         this.loading = true;
         this.verificationForm.disable();
