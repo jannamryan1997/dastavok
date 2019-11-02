@@ -16,7 +16,7 @@ export class SearchView implements OnInit, OnDestroy {
     public page: number = 1;
     public pageLength: number = 10;
     public loading: boolean = false;
-    public count: number = 30;
+    public count: number = 0;
     private _query: string = '';
     private _unsubscribe$: Subject<void> = new Subject<void>();
 
@@ -27,7 +27,7 @@ export class SearchView implements OnInit, OnDestroy {
     constructor(
         private _searchService: SearchService,
         private _activatedRoute: ActivatedRoute,
-        @Inject('COMPANY_ID') private _companyId: string
+        @Inject('COMPANY_ID') public companyId: string
     ) { }
 
 
@@ -42,7 +42,7 @@ export class SearchView implements OnInit, OnDestroy {
     }
 
     private _searchGoods(page, limit, text): void {
-        this._searchService.getSearchGoods(page, this._companyId, limit, text)
+        this._searchService.getSearchGoods(page, this.companyId, limit, text)
             .pipe(takeUntil(this._unsubscribe$))
             .subscribe((data: ServerResponse<Paginator<{ goods: Good[] }>>) => {
                 this.loading = false;
