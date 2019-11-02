@@ -1,23 +1,31 @@
-.container {
-    width: calc(100% - 297px);
-    margin-left: 10px;
-    .serach{
-        justify-content: space-around; 
-    }
+@import "../../../../../../../../assets/scss/mixin";  
+
+.search_content{
+@include flex-spase-between();
+margin-top: 50px;
+.search_container{
+    width: calc(100% - 240px);
+    margin-left: 50px;
+}
 }
 
 app-goods-list-item{
-    width: 32.333333%;
+    width: 50%;
+    padding: 1.2em;
 }
 
-// .ui-progress-spinner {
-//     width: 200px !important;
-//     height: 200px !important;
-// }
+@media only screen and (max-width:1400px){
+    .search_container {
+        flex-direction: column !important;
+    }
+    app-goods-list-item{
+        width: 100% !important;
+    }
+}
 
-@media only screen and (max-width: 900px) {
-    .container {
-        width: calc(100% - 20px);
-        margin: 10px auto;
+@media only screen and (max-width:900px){
+    .search_container{
+        width: 100% !important;
+        margin: auto !important;
     }
 }

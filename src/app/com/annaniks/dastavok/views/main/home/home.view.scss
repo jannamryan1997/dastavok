@@ -18,11 +18,13 @@ border-radius: 4px;
     width: calc(100% - 220px);
     margin-left: 50px;
 }
-    .serach_input{
+    .search_input{
      width: calc(100% - 46.5px);
      border-radius: 4px;
      background-color: #e5e5e5;
      border: none;
+     padding-left: 16px;
+     color: #b5b5b5;
     }
     .search_btn{
         width: 46.5px;
@@ -44,13 +46,6 @@ border-radius: 4px;
     }
 }
 }
-
-input::placeholder {
-    color: #b5b5b5;
-    margin-left: 12px;
-    font-size: 12px;
-}
-
 @media only screen and (max-width:900px){
     .container{
         width:100% !important;
