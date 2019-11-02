@@ -77,8 +77,7 @@ export class VerificationModal implements OnInit {
 
         })
         dialoRef.afterClosed().subscribe((data) => {
-            this._signUpService.getUserInfo().subscribe();
-            this.dialog.closeAll()
+            this._signUpService.getUserInfo().subscribe(() => this.dialog.closeAll());
         })
     }
     public openNewPasswordModal(): void {

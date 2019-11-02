@@ -1,15 +1,22 @@
 import { Injectable, Inject } from "@angular/core"
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { CookieService } from "ngx-cookie";
 import { map } from "rxjs/operators";
 import { User, ServerResponse, LoginResponse } from "../models/models";
+import { Utility } from "../utility/utility";
 
 @Injectable()
-export class SignUpService {
+export class SignUpService extends Utility {
     public userInfo: User = new User();
     public isAuthorized: boolean = false;
     public userImage: string = "assets/images/userimages.png";
-    constructor(@Inject('FILE_URL') private _fileUrl, private _httpClient: HttpClient, private _cookieService: CookieService) { }
+    constructor(
+        @Inject('FILE_URL') private _fileUrl,
+        private _httpClient: HttpClient,
+        private _cookieService: CookieService
+    ) {
+        super();
+    }
 
     public clientPhoneNumber(body) {
         return this._httpClient.post("freeclient/phone", body)
@@ -56,7 +63,7 @@ export class SignUpService {
     }
 
     public getUserInfo() {
-        return this._httpClient.get("client").pipe(
+        return this._httpClient.get("client", { params: this._setAuthorizedParams() }).pipe(
             map((data: ServerResponse<User>) => {
                 this.userInfo = data.data;
                 if (data.data.image !== null) {

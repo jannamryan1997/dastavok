@@ -1,8 +1,8 @@
 import { Component, OnInit, Inject } from "@angular/core"
 import { FormGroup, FormBuilder, Validators } from "@angular/forms"
-import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from "@angular/material";
 import { SignUpService } from "../../services/signUp.service";
-import { Router } from "@angular/router";
+import { MessageService } from "primeng/api";
 
 export interface DialogData {
     animal: string;
@@ -21,7 +21,10 @@ export class SignUpModal implements OnInit {
     public showConfirmPassword: boolean = false;
 
     constructor(private dialogRef: MatDialogRef<SignUpModal>,
-        @Inject(MAT_DIALOG_DATA) public data: DialogData, private signUpService: SignUpService, private router: Router) { }
+        @Inject(MAT_DIALOG_DATA) public data: DialogData,
+        private _signUpService: SignUpService,
+        private _dialog: MatDialog,
+        private _messageService: MessageService) { }
 
     ngOnInit() {
         this._formBuilder()
@@ -58,14 +61,15 @@ export class SignUpModal implements OnInit {
     signUpClient() {
         this.loading = true;
         this.signUpForm.disable();
-        this.signUpService.signUpClient({
+        this._signUpService.signUpClient({
             "userName": this.signUpForm.value.user_name,
             "fullName": this.signUpForm.value.full_name,
             "password": this.signUpForm.value.password,
         }).subscribe((data) => {
             this.loading = false;
             this.signUpForm.enable();
-            this.dialogRef.close();
+            this._messageService.add({ severity: 'success', summary: 'Server message', detail: 'Registration Completed' })
+            this._dialog.closeAll();
         }, err => {
             if (err && err.error && err.error.error)
                 this.error = err.error.error;

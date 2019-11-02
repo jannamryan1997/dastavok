@@ -11,6 +11,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common
 import { ApiInterceptor } from './com/annaniks/dastavok/interceptors/api.interceptor';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -55,7 +56,7 @@ export function createTranslateLoader(http: HttpClient) {
       provide: 'FILE_URL', useValue: 'http://annaniks.com:16000/static/company/'
     },
     {
-       provide:'ADMIN_FILE_URL', useValue:'http://annaniks.com:4454/files/' 
+      provide: 'ADMIN_FILE_URL', useValue: 'http://annaniks.com:4454/files/'
     },
     {
       provide: 'COMPANY_ID', useValue: 23
