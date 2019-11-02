@@ -1,20 +1,23 @@
-<div class="card_content" width-75 margin-control>
-        <div position-relative>
-                <!-- <app-loading class="loading" [loading]="loading" [height]="150" [width]="150"></app-loading> -->
-            </div>
-    <div class="card_conteiner" *ngIf="cardInfo.length>0">
+
+<!-- <div class="total" display-flex>
+        <app-total-cost [totalAmoutSum]="totalSum" (byAll)="byAllEvent($event)"></app-total-cost>
+    </div> -->
+
+<section full-width>
+    <div class="basket_container">
+    <div class="basket_content" *ngIf="cardInfo.length>0">
         <app-card-list *ngFor="let item of cardInfo" [cardInfo]="item" (deleted)="deletedOrder($event)">
             <app-card-list-item full-width *ngFor="let good of item.goods" [cardInfo]="item" [cardGoodsInfo]="good"
-                [cardGoodsImageItem]="good.images" [cardInfoOrderGoodId]="good.orderGoodId" (deleted)="deletedOrder($event)"></app-card-list-item>
+                [cardGoodsImageItem]="good.images" [cardInfoOrderGoodId]="good.orderGoodId"
+                (deleted)="deletedOrder($event)"></app-card-list-item>
         </app-card-list>
-        <div class="total" display-flex>
-            <app-total-cost [totalAmoutSum]="totalSum" (byAll)="byAllEvent($event)"></app-total-cost>
-        </div>
     </div>
-    <div class="card_empty" *ngIf="cardInfo.length==0 && loading==false">
-        <p font-family-Open-Sans>YOUR CHART IS EMPTY</p>
-        <div >
-            <button class="button_item" routerLink="/"><span margin-auto color-white font-weight-bold>Go main page</span></button>
+    <div class="message" *ngIf="cardInfo.length==0 && loading==false">
+            <p class="type" font-family-Open-Sans>{{'your_chart_is_empty' | translate}}</p>
+            <button class="button" display-flex margin-auto   routerLink="/">
+                    <p margin-auto>{{'go_main_page' | translate}}</p>
+                </button>
+           
         </div>
-    </div>
-</div>
+        </div>
+</section>

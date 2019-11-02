@@ -6,6 +6,6 @@ export * from './new-password/new-password.modal';
 export * from './user-update/user-update.modal';
 export * from "./address-edit/address-edit.modal";
 export * from "./registration-step/registration-step.modal";
-export * from "./search-goods/search-goods.component";
+export * from "./search-goods/search-goods.modal";
 export * from "./new-phone-number/new-phone-number.modals";
 export * from "./messages/messages.modals";

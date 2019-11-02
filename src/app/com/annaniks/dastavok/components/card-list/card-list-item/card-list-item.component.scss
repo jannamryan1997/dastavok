@@ -1,128 +1,64 @@
-.detal_item {
-    margin-top: 20px;
-    .card_items {
-        .left_item {
-            align-items: center;
-            .image {
-                width: 146.6px;
-                height: 96px;
-                box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-            }
-            .text_item {
-                margin-left: 55px;
-                max-width: 230px;
-                .goodInfo_name {
-                    font-size: 15px;
-                    font-style: normal;
-                    font-stretch: normal;
-                    line-height: 1.2;
-                    letter-spacing: normal;
-                    color: #716b6b;
-                    display: block;
-                    word-wrap: break-word;
-                    width: 100%;
-                }
-                .goodInfo_description {
-                    font-size: 15px;
-                    font-weight: normal;
-                    font-style: normal;
-                    font-stretch: normal;
-                    line-height: 1.2;
-                    letter-spacing: normal;
-                    text-align: left;
-                    color: #706f6f;
-                    display: block;
-                    word-wrap: break-word;
-                }
-            }
-        }
-        .right_item {
-            width: 50%;
-            justify-content: space-between;
-            .price_text,
-            .quarity_text,
-            .delete_text {
-                font-size: 15px;
-                font-style: normal;
-                font-stretch: normal;
-                line-height: 1.2;
-                letter-spacing: normal;
-                text-align: left;
-                color: #979797;
-            }
-            .price_item {
-                font-size: 25px;
-                font-style: normal;
-                font-stretch: normal;
-                line-height: 1.2;
-                letter-spacing: normal;
-                text-align: left;
-                color: #979797;
-                margin-top: 0px;
-                margin-bottom: 0px;
-            }
-            .quarity {
-                .remove {
-                    font-size: 25px;
-                    font-weight: normal;
-                    font-style: normal;
-                    font-stretch: normal;
-                    line-height: 1.14;
-                    letter-spacing: normal;
-                    text-align: left;
-                    color: #686767;
-                    cursor: pointer;
-                    margin-top: 0px;
-                    margin-bottom: 0px;
-                }
-                .quarity_item {
-                    font-size: 25px;
-                    font-style: normal;
-                    font-stretch: normal;
-                    line-height: 1.14;
-                    letter-spacing: normal;
-                    text-align: left;
-                    color: #686767;
-                    margin-top: 0px;
-                    margin-bottom: 0px;
-                }
-                .add {
-                    font-size: 25px;
-                    font-weight: normal;
-                    font-style: normal;
-                    font-stretch: normal;
-                    line-height: 1.14;
-                    letter-spacing: normal;
-                    text-align: left;
-                    color: #686767;
-                    cursor: pointer;
-                    margin-top: 0px;
-                    margin-bottom: 0px;
-                }
-            }
-            .delete_items {
-                color: #979797;
-                font-size: 25px;
-                cursor: pointer;
-            }
-        }
-    }
-}
+@import "../../../../../../../assets/scss/mixin";
 
-@media only screen and (max-width: 900px) {
-    .card_items {
-        flex-direction: column;
+.card_list_content {
+    width: 100%;
+    @include flex-spase-between();
+    .card_list_item {
+        width: 33%;
+        padding: 1.2em;
+        .type {
+            @include text(#979797, 18px);
+        }
+
+        .product_image {
+            width: 146.6px;
+            height: 96px;
+            box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+        }
+
+        .product_description {
+            font-size: 10px;
+        }
+
+        .quarity {
+            display: flex;
+
+            .quarity_btn {
+                border: none;
+                padding: 0;
+                display: flex;
+                cursor: pointer;
+                background-color: transparent;
+                border: 1px solid #d0d6dc;
+                padding: 10px 10px;
+
+                i {
+                    margin: auto;
+                    font-size: 18px;
+                    color: #444444;
+                }
+            }
+
+            .quarity_count {
+                padding: 10px 10px;
+                border: 1px solid #d0d6dc;
+                border-radius: 0;
+                margin: 0 8px;
+                text-align: center;
+                color: #444444;
+                display: flex;
+
+                .type {
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
+
+            }
+        }
     }
-    .left_item {
-        width: fit-content
-    }
-    .text_item {
-        width: fit-content;
-    }
-    .right_item {
-        width: 100% !important;
+    .close {
+        color: #979797;
+        font-size: 25px;
+        cursor: pointer;
     }
 }

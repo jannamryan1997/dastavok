@@ -4,8 +4,8 @@ import { MatDialogRef } from "@angular/material";
 
 @Component({
     selector: "app-search-goods",
-    templateUrl: "search-goods.component.html",
-    styleUrls: ["search-goods.component.scss"]
+    templateUrl: "search-goods.modal.html",
+    styleUrls: ["search-goods.modal.scss"]
 })
 
 export class SearchGoodsModals implements OnInit {

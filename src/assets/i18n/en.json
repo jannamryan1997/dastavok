@@ -54,5 +54,9 @@
     "buy_all": "BUY ALL",
     "new": "NEW",
     "Enter_the_verification_code": "Enter the verification code",
-    "repeat_password": ""
+    "repeat_password": "Repeat password",
+    "Product_detalis":"Product detalis",
+    "go_main_page":"GO MAIN PAGE",
+    "your_chart_is_empty":"YOUR CHART IS EMPTY"
+  
 }
