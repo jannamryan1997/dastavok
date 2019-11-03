@@ -1,11 +1,12 @@
-import { Component, OnInit, Inject } from "@angular/core"
+import { Component, OnInit, Inject, OnDestroy } from "@angular/core"
 import { Router, ActivatedRoute } from "@angular/router";
 import { GoodService } from "./product.service";
 import { Good, ServerResponse, Topping, BriefToppings, OrderInfo } from "../../../../../models/models";
 import { MatDialog } from "@angular/material"
-import { RegistrationStep } from "../../../../../modals";
+import { RegistrationStep, MessagesModals } from "../../../../../modals";
 import { SignUpService } from "../../../../../services/signUp.service";
-import { MessagesModals } from "../../../../../modals/messages/messages.modals";
+import { Subject } from "rxjs";
+import { takeUntil } from "rxjs/operators";
 
 @Component({
     selector: "product-view",
@@ -13,7 +14,7 @@ import { MessagesModals } from "../../../../../modals/messages/messages.modals";
     styleUrls: ["product.view.scss"]
 })
 
-export class ProductView implements OnInit {
+export class ProductView implements OnInit, OnDestroy {
     private _goodId: number;
     public starCount: number = 4;
     public countSum: number = 1;
@@ -28,6 +29,7 @@ export class ProductView implements OnInit {
     public page: number = 1;
     public pageLength: number = 10;
     public loading: boolean = false;
+    private _unsubcribe$: Subject<void> = new Subject<void>();
 
     constructor(
         private _router: Router,
@@ -38,9 +40,11 @@ export class ProductView implements OnInit {
         @Inject('FILE_URL') public fileUrl: string,
         @Inject('COMPANY_ID') private _companyId: number
     ) {
-        this._activatedRoute.params.subscribe((params) => {
-            this._goodId = Number(params.goodId);
-        })
+        this._activatedRoute.params
+            .pipe(takeUntil(this._unsubcribe$))
+            .subscribe((params) => {
+                this._goodId = Number(params.goodId);
+            })
     }
 
     ngOnInit() {
@@ -48,12 +52,12 @@ export class ProductView implements OnInit {
         this._getReview();
     }
 
-    public countdAdd(): void {
-        this.count++;
+    public countIncrement(): void {
+        this.countSum++;
     }
 
-    public countremove(): void {
-        if (this.count == 1) {
+    public countDecrement(): void {
+        if (this.countSum == 1) {
             return;
         }
         this.countSum--;
@@ -89,6 +93,7 @@ export class ProductView implements OnInit {
     private _getGood(): void {
         this.loading = true;
         this._goodService.getGood(this._goodId)
+            .pipe(takeUntil(this._unsubcribe$))
             .subscribe((data: ServerResponse<Good>) => {
                 this.loading = false;
                 this.good = data.data;
@@ -141,11 +146,11 @@ export class ProductView implements OnInit {
 
             }
         }).subscribe((data) => {
-            this._router.navigate(['home/card'])
+            this._router.navigate(['/basket'])
         })
 
     }
-    public onClickOrder(type: string) {
+    public onClickOrder(type: string): void {
         if (this._signUpService.isAuthorized == false) {
             this._openMessageModal(type);
         }
@@ -158,7 +163,7 @@ export class ProductView implements OnInit {
             }
         }
     }
-    public openRegistrationStepModal() {
+    public openRegistrationStepModal(): void {
         const dialogRef = this._dialog.open(RegistrationStep, {
             width: "686px",
             maxWidth: '100vw',
@@ -182,9 +187,13 @@ export class ProductView implements OnInit {
     }
 
     public paginate($event): void {
-        ($event);
         this.page = $event.pageNumber;
         this._getReview();
+    }
+
+    ngOnDestroy() {
+        this._unsubcribe$.next();
+        this._unsubcribe$.complete();
     }
 
 }

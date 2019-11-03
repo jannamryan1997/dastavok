@@ -13,11 +13,15 @@ import { SignUpService } from "../../services/signUp.service";
 })
 
 export class AddressEditModal implements OnInit {
-    public loading: boolean = false;
     public userUpdateGroup: FormGroup;
     public clientData: User;
-
-    constructor(@Inject(MAT_DIALOG_DATA) private data: any, private _paymentService: PaymentService, private dialogRef: MatDialogRef<AddressEditModal>, private _signUpService: SignUpService) { }
+    public loading: boolean;
+    constructor(
+        @Inject(MAT_DIALOG_DATA) private data: any,
+        private _paymentService: PaymentService,
+        private dialogRef: MatDialogRef<AddressEditModal>,
+        private _signUpService: SignUpService
+    ) { }
 
     ngOnInit() {
         this.clientData = this.data.userData;

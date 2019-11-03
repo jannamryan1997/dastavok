@@ -1,20 +1,18 @@
-<div>
-    <div class="total_conteiner" display-flex>
-        <p class="text" font-family-Roboto>{{'The_price_of_goods' | translate}}</p>
-        <span class="price" font-family-Roboto>90$</span>
+<div class="total_container">
+    <div class="total_price_item">
+            <p class="type" font-family-Roboto>{{'The_price_of_goods' | translate}}</p>
+            <p class="type total_text" font-family-Roboto>90$</p>
+    </div>
+    <div class="total_price_item">
+            <p class="type" font-family-Roboto>{{'Cost_of_delivery' | translate}}</p>
+            <p class="type total_text" font-family-Roboto>90$</p>
+    </div>
+    <div class="total_price_item">
+            <p class="type" font-family-Roboto>{{'Total_cost' | translate}}</p>
+            <p class="type total_text" font-family-Roboto>{{totalAmoutSum}}$</p>
     </div>
 
-    <div class="total_conteiner" display-flex>
-        <p class="text" font-family-Roboto>{{'Cost_of_delivery' | translate}}</p>
-        <span class="price" font-family-Roboto>90$</span>
-    </div>
-
-    <div class="total_conteiner" display-flex>
-        <p class="text" font-family-Roboto>{{'Total_cost' | translate}}</p>
-        <span class="price" font-family-Roboto>{{totalAmoutSum}}$</span>
-    </div>
-    <div display-flex justify-content-flex-end>
-        <button class="button_item" display-flex (click)="onClickByAll()"><span font-family-Open-Sans color-white margin-auto>{{'buy_all' | translate}}</span></button>
-    </div>
-
+    <button class="button" display-flex margin-auto  (click)="onClickByAll()">
+            <p margin-auto>{{'buy_all' | translate}}</p>
+        </button>
 </div>

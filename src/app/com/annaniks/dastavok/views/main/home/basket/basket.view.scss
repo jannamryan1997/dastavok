@@ -1,0 +1,13 @@
+@import "../../../../../../../../assets/scss/mixin";
+
+.basket_container{
+    .message{
+        .type{
+            @include text( #ff6f00 ,30px);
+            text-align: center;
+        }
+        .button {
+            @include button(#ff6f00, 20px 50px, #ffffff);
+          }
+    }
+}

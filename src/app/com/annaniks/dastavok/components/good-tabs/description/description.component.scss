@@ -1,14 +1,8 @@
+@import "../../../../../../../assets/scss/mixin";
+
 .description_content {
+    @include text(#706f6f,20px);
     margin-top: 48px;
-    margin-left: 23px;
-    font-family: 'Roboto';
-    font-size: 20px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.2;
-    letter-spacing: normal;
-    text-align: left;
     color: #706f6f;
     .description_text {
     //    width: 707px;

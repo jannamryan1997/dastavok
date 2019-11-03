@@ -14,9 +14,7 @@
     font-stretch: normal;
     line-height: 1.2;
     letter-spacing: normal;
-    text-align: left;
     color: $color;
-    margin-top: 13px;
     word-break: break-all;
     text-decoration: none;
 }
@@ -32,4 +30,51 @@
     border: none;
     text-decoration: none;
     padding: $padding;
+}
+
+@mixin flex-spase-between{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+@mixin after-before($margin,$border){
+    content: "";
+    display: block;
+    // width: 100%;
+    border:$border;
+    margin:$margin;
+}
+
+@mixin leftRs($fontSize)  {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: fit-content;
+    height: fit-content;
+    user-select: none;
+    margin: auto 0;
+    cursor: pointer;
+    i {
+        font-size: $fontSize;
+    }
+}
+
+@mixin  rightRs ($fontSize){
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    user-select: none;
+    cursor: pointer;
+    margin: auto 0;
+    width: fit-content;
+    height: fit-content;
+    i {
+        font-size: $fontSize;
+    }
 }

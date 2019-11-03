@@ -1,7 +1,9 @@
-import { Component, OnInit, PLATFORM_ID, Inject } from "@angular/core"
+import { Component, OnInit, OnDestroy, PLATFORM_ID, Inject } from "@angular/core"
 import { MenuItemsService } from "../../../services";
 import { SignUpService } from "../../../services/signUp.service";
 import { Router, NavigationEnd, ActivatedRoute } from "@angular/router";
+import { Subject } from "rxjs";
+import { takeUntil } from "rxjs/operators";
 import { isPlatformBrowser } from "@angular/common";
 
 @Component({
@@ -9,7 +11,8 @@ import { isPlatformBrowser } from "@angular/common";
     templateUrl: "home.view.html",
     styleUrls: ["home.view.scss"]
 })
-export class HomeView implements OnInit {
+export class HomeView implements OnInit, OnDestroy {
+    private _unsubscribe$: Subject<void> = new Subject<void>();
     public chooseBarVisiblity: boolean = true;
     public search: string;
     public isBrowser: boolean;
@@ -26,6 +29,19 @@ export class HomeView implements OnInit {
         this._checkWindowSize();
     }
 
+    private _checkSearchQuery(): void {
+        this._activatedRoute.queryParams
+            .pipe(takeUntil(this._unsubscribe$))
+            .subscribe((params) => {
+                if (params && params.search && this._router.url.includes('/search?search=')) {
+                    this.search = params.search;
+                }
+                else {
+                    this.search = '';
+                }
+            })
+    }
+
     private _checkWindowSize() {
         if (this.isBrowser) {
             if (this._router.url != '/home/information' && window.innerWidth <= 900) {
@@ -40,7 +56,11 @@ export class HomeView implements OnInit {
 
     public onClickSearch(): void {
         this._router.navigate(['/search'], { queryParams: { search: this.search } })
+    }
 
+    ngOnDestroy() {
+        this._unsubscribe$.next();
+        this._unsubscribe$.complete();
     }
 
 }

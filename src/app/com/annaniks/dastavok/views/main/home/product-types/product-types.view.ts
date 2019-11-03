@@ -1,7 +1,9 @@
-import { Component, OnInit, Inject } from "@angular/core"
+import { Component, OnInit, Inject, OnDestroy } from "@angular/core"
 import { ActivatedRoute, Router } from "@angular/router";
 import { ProductTypesService } from "./product-types.service";
 import { ServerResponse, GoodType, Restaurant } from "../../../../models/models";
+import { Subject } from "rxjs";
+import { takeUntil } from "rxjs/operators";
 
 @Component({
     selector: "app-product-types",
@@ -9,14 +11,18 @@ import { ServerResponse, GoodType, Restaurant } from "../../../../models/models"
     styleUrls: ["product-types.view.scss"]
 })
 
-export class ProductTypesView implements OnInit {
+export class ProductTypesView implements OnInit, OnDestroy {
     public starCount: number = 4;
     public goodTypes: Array<GoodType> = [];
     public restaurant: Restaurant;
     public localImage: string = '/assets/images/restaurant.jpg';
     public loading: boolean = false;
-    public count: number;
-    public pageLength: number;
+    private _unsubscribe$: Subject<void> = new Subject<void>();
+    public page: number = 1;
+    public count: number = 0;
+    public pageLength: number = 0;
+
+
     constructor(
         @Inject("FILE_URL") private _fileUrl: string,
         @Inject("COMPANY_ID") public companyId: number,
@@ -33,10 +39,10 @@ export class ProductTypesView implements OnInit {
     private _getGoodTypes(companyId: number): void {
         this.loading = true;
         this._productTypesService.getGoodTypes(companyId)
+            .pipe(takeUntil(this._unsubscribe$))
             .subscribe((data: ServerResponse<Array<GoodType>>) => {
                 this.loading = false;
                 this.goodTypes = data.data;
-                console.log(data);
             })
     }
 
@@ -44,8 +50,9 @@ export class ProductTypesView implements OnInit {
         this._router.navigate([`${goodType.id}/products`], { relativeTo: this._activatedRoute })
     }
 
-    private _getRestaurant() {
+    private _getRestaurant(): void {
         this._productTypesService.getRestaurantById(this.companyId)
+            .pipe(takeUntil(this._unsubscribe$))
             .subscribe((data: ServerResponse<Restaurant>) => {
                 this.restaurant = data.data;
             })
@@ -59,6 +66,11 @@ export class ProductTypesView implements OnInit {
         if (this.restaurant.image) {
             this.localImage = `${this._fileUrl}${this.restaurant.image}`;
         }
+    }
+    
+    ngOnDestroy() {
+        this._unsubscribe$.next();
+        this._unsubscribe$.complete();
     }
 
 

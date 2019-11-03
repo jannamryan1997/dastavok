@@ -111,6 +111,19 @@ export interface MetaData {
     pages: number;
 }
 
+export interface GoodsResponse {
+    goods: Good[],
+    goodType: {
+        createdAt: string;
+        description: string;
+        id: number;
+        image: string;
+        name: string;
+        parentGoodTypeId: string;
+        updatedAt: string;
+    }
+}
+
 export interface BriefCompany {
     address: string;
     code: number;
@@ -122,7 +135,7 @@ export interface BriefCompany {
     name: string;
     phoneNumber: string;
     zipCode: number;
-    review:string;
+    review: string;
 }
 
 export interface Restaurant {
@@ -141,8 +154,8 @@ interface Address {
     latitude: number,
     longitude: number,
     text: string,
-    lat:number;
-    lng:number;
+    lat: number;
+    lng: number;
 }
 interface Cordinate {
     latitude: number,
@@ -180,9 +193,9 @@ export interface Card {
     totalAmount: number;
     orderId: number;
     goods: CardGoods[];
-    price:number;
-    count:number;
-    name:number;
+    name: string;
+    price: string;
+    count: string;
 }
 
 interface CardGoods {

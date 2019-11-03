@@ -1,19 +1,14 @@
-<div full-width>
-    <div display-flex flex-wrap-wrap>
+<section full-width>
+    <div class="search_content">
         <app-menu></app-menu>
-        <div class="container">
-            <div position-relative>
-                <!-- <app-loading class="loading" [loading]="loading" [height]="150" [width]="150"></app-loading> -->
-            </div>
+        <div class="search_container">
             <app-goods-list>
-                <app-goods-list-item *ngFor="let item of goods" [goodInfo]="item" [goodsImage]="item.images">
-                </app-goods-list-item>
+                <a [routerLink]="'/'+companyId+'/products/'+item.id" *ngFor="let item of goods">
+                    <app-goods-list-item [goodInfo]="item" [goodsImage]="item.images">
+                    </app-goods-list-item>
+                </a>
             </app-goods-list>
-
-            <!-- <app-paginator [count]="count" [pageLength]="pageLength" (paginate)="paginate($event)"></app-paginator> -->
-
+            <app-paginator [count]="count" [pageLength]="pageLength" (paginate)="paginate($event)"></app-paginator>
         </div>
-
     </div>
-
-</div>
+</section>

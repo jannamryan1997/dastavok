@@ -1,15 +1,22 @@
 import { Injectable, Inject } from "@angular/core"
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { CookieService } from "angular2-cookie/services/cookies.service";
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
+import { CookieService } from "ngx-cookie";
 import { map } from "rxjs/operators";
 import { User, ServerResponse, LoginResponse } from "../models/models";
+import { Utility } from "../utility/utility";
 
 @Injectable()
-export class SignUpService {
+export class SignUpService extends Utility {
     public userInfo: User = new User();
     public isAuthorized: boolean = false;
     public userImage: string = "assets/images/userimages.png";
-    constructor(@Inject('FILE_URL') private _fileUrl, private _httpClient: HttpClient, private _cookieService: CookieService) { }
+    constructor(
+        @Inject('FILE_URL') private _fileUrl,
+        private _httpClient: HttpClient,
+        private _cookieService: CookieService
+    ) {
+        super();
+    }
 
     public clientPhoneNumber(body) {
         return this._httpClient.post("freeclient/phone", body)
@@ -25,8 +32,9 @@ export class SignUpService {
     }
 
     public signUpClient(body) {
-        let verificationToken: string = this._cookieService.get('verificationtoken');
-        let headers = new HttpHeaders({ 'token': verificationToken });
+        let headers = new HttpHeaders({
+            'token': this._cookieService.get('verificationtoken') || ''
+        })
         return this._httpClient.post("client", body, { headers })
     }
 
@@ -55,20 +63,17 @@ export class SignUpService {
     }
 
     public getUserInfo() {
-        return this._httpClient.get("client").pipe(
+        return this._httpClient.get("client", { params: this._setAuthorizedParams() }).pipe(
             map((data: ServerResponse<User>) => {
-                (data);
-
+                console.log(data);
                 this.userInfo = data.data;
                 if (data.data.image !== null) {
                     data.data.image = this._fileUrl + "client/image/" + data.data.image;
-
                 }
                 else {
                     data.data.image = "/assets/images/userimages.png";
                 }
                 this.userImage = data.data.image;
-
                 this._setImage(data);
                 return data;
 
@@ -83,7 +88,6 @@ export class SignUpService {
     private _setImage(data): void {
         if (data.data.image !== null) {
             data.data.image = this._fileUrl + "client/image/" + data.data.image;
-
         }
         else {
             data.data.image = "/assets/images/userimages.png";

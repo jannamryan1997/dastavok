@@ -1,10 +1,12 @@
-import { Component, OnInit, Inject } from "@angular/core";
+import { Component, OnInit, Inject, OnDestroy } from "@angular/core";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms"
 import { VerificationModal } from "../verification/verification.modal";
 import { SignUpService } from "../../services/signUp.service";
-import { CookieService } from 'angular2-cookie/services/cookies.service';
+import { CookieService } from 'ngx-cookie';
 import { PhoneVerification, ServerResponse } from "../../models/models";
+import { Subject } from "rxjs";
+import { takeUntil } from "rxjs/operators";
 
 @Component({
     selector: "app-phonenumber",
@@ -12,16 +14,22 @@ import { PhoneVerification, ServerResponse } from "../../models/models";
     styleUrls: ["phone-number.modal.scss"]
 })
 
-export class PhoneNumberModal implements OnInit {
+export class PhoneNumberModal implements OnInit, OnDestroy {
     public loading: boolean = false;
     public phoneNumberForm: FormGroup;
     public error: string;
+    private _unsubscribe$: Subject<void> = new Subject<void>();
 
-    constructor(@Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<PhoneNumberModal>, public dialog: MatDialog, private signUpService: SignUpService, private cookieService: CookieService) { }
+    constructor(
+        @Inject(MAT_DIALOG_DATA) public data: any,
+        private dialogRef: MatDialogRef<PhoneNumberModal>,
+        public dialog: MatDialog,
+        private signUpService: SignUpService,
+        private cookieService: CookieService
+    ) { }
 
     ngOnInit() {
         this._formBuilder();
-
     }
 
     private _formBuilder() {
@@ -30,7 +38,7 @@ export class PhoneNumberModal implements OnInit {
         })
     }
 
-    public closePhoneModal() {
+    public closePhoneModal(): void {
         this.dialogRef.close();
     }
 
@@ -43,21 +51,18 @@ export class PhoneNumberModal implements OnInit {
                 phone: this.phoneNumberForm.value.phonenumber,
                 key: key,
             }
-
         })
-
-
     }
 
     public postPhoneNumber() {
         this.loading = true;
         this.phoneNumberForm.disable();
         if (this.data.key == "registration") {
-
             this.signUpService.clientPhoneNumber({
                 "phoneNumber": this.phoneNumberForm.value.phonenumber
-            }).subscribe(
-                (data: ServerResponse<PhoneVerification>) => {
+            })
+            .pipe(takeUntil(this._unsubscribe$))
+            .subscribe((data: ServerResponse<PhoneVerification>) => {
                     this.loading = false;
                     this.phoneNumberForm.enable();
                     this.cookieService.put('phone_token', data.data.token);
@@ -73,7 +78,9 @@ export class PhoneNumberModal implements OnInit {
             if (this.data.key === 'forgot_password') {
                 this.signUpService.forgetPasswordPhoneNumber({
                     "phoneNumber": this.phoneNumberForm.value.phonenumber
-                }).subscribe((data: ServerResponse<PhoneVerification>) => {
+                })
+                .pipe(takeUntil(this._unsubscribe$))
+                .subscribe((data: ServerResponse<PhoneVerification>) => {
                     this.loading = false;
                     this.cookieService.put('forgot_token', data.data.token)
                     this.openVerificationModal('forgot_password');
@@ -93,6 +100,11 @@ export class PhoneNumberModal implements OnInit {
 
     public checkIsValid(controlName): boolean {
         return this.phoneNumberForm.get(controlName).hasError('required') && this.phoneNumberForm.get(controlName).touched;
+    }
+
+    ngOnDestroy() {
+        this._unsubscribe$.next();
+        this._unsubscribe$.complete();
     }
 }
 

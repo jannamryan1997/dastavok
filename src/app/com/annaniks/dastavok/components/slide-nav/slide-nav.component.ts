@@ -4,8 +4,8 @@ import { MatDialog } from "@angular/material";
 import { LoginModal, PhoneNumberModal } from "../../modals";
 import { SignUpService } from "../../services/signUp.service";
 import { Router } from "@angular/router";
-import { CookieService } from "angular2-cookie/services/cookies.service";
 import { isPlatformBrowser } from "@angular/common";
+import { CookieService } from "ngx-cookie";
 
 @Component({
     selector: "app-slide-nav",
@@ -18,6 +18,9 @@ export class SlideNawComponent implements OnInit {
     @HostListener('window:resize', ['$event'])
     onresize($event) {
         if (this.isBrowser) {
+            if (window.innerWidth > 900 && this.menuService.isOpen) {
+                this.menuService.closeMenu();
+            }
             if (window.innerWidth > 900 && this.menuService.isOpen) {
                 this.menuService.closeMenu();
             }

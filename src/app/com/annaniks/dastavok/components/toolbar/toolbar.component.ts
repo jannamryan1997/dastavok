@@ -2,7 +2,7 @@ import { Component, OnInit, Inject, PLATFORM_ID } from "@angular/core"
 import { MatDialog } from "@angular/material";
 import { LoginModal, PhoneNumberModal, RegistrationStep, SearchGoodsModals } from "../../modals";
 import { SignUpService } from "../../services/signUp.service";
-import { CookieService } from "angular2-cookie/services/cookies.service";
+import { CookieService } from "ngx-cookie";
 import { MenuService } from "../../services/menu.service";
 import { isPlatformBrowser } from "@angular/common";
 
@@ -39,15 +39,7 @@ export class ToolbarComponent implements OnInit {
             this._getUserInfo();
         }
     }
-
-    public openRegisterStep(): void {
-        const dialogRef = this.dialog.open(RegistrationStep, {
-            width: "686px",
-            maxWidth: '100vw',
-            panelClass: ['margin-10'],
-        })
-    }
-
+    
     public showLoginSignup() {
         this.showlogin = !this.showlogin;
     }

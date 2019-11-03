@@ -1,59 +1,92 @@
-
-.inf_container {
-    width: calc(100% - 297px);
-    margin-left: 10px;
-    .line_content {
-        margin-top: 47px;
-        .text_content {
-            .text{
-                text-transform: uppercase;
-            }
-        }
-        .line {
-            margin: auto 0;
-            margin-left: 38px;
-            width: calc(100% - 150px);
-            height: 0;
-            border: solid 2px #c5c3c3;
-        }
-    }
-    .under_line {
-        margin: auto 0;
-        margin-left: 85px;
-        width: calc(100% - 150px);
-        height: 0;
-        border: solid 2px #c5c3c3;
-        margin-top: 55px;
-    }
-    .load{
-        width: 80%;
-        margin: auto;
-        margin-top: 20px;
+// .product_item{
+//     margin-top: 50px;
+// .inf_container {
+//     width: calc(100% - 297px);
+//     margin-left: 10px;
+//     .line_content {
+//         // margin-top: 47px;
+//         .text_content {
+//             .text{
+//                 text-transform: uppercase;
+//             }
+//         }
+//         .line {
+//             margin: auto 0;
+//             margin-left: 38px;
+//             width: calc(100% - 150px);
+//             height: 0;
+//             border: solid 2px #c5c3c3;
+//         }
+//     }
+//     .under_line {
+//         margin: auto 0;
+//         margin-left: 85px;
+//         width: calc(100% - 150px);
+//         height: 0;
+//         border: solid 2px #c5c3c3;
+//         margin-top: 55px;
+//     }
+//     .load{
+//         width: 80%;
+//         margin: auto;
+//         margin-top: 20px;
        
-    }
-    .bottom_slider {
-        margin-top: 56px;
-    }
-    .top_line_content {
-        margin-top: 47px;
-        .line {
-            margin: auto;
-            margin-left: 38px;
-            width: 723px;
-            height: 0;
-            border: solid 2px #c5c3c3;
+//     }
+//     .bottom_slider {
+//         margin-top: 56px;
+//     }
+//     .top_line_content {
+//         // margin-top: 47px;
+//         .line {
+//             margin: auto;
+//             margin-left: 38px;
+//             width: 723px;
+//             height: 0;
+//             border: solid 2px #c5c3c3;
+//         }
+//     }
+// }
+// }
+
+// .ui-progress-spinner{
+//     width: 200px !important;
+//     height: 200px !important;
+// }
+
+// @media only screen and (max-width: 900px) {
+//     .inf_container {
+//         width: calc(100% - 20px);
+//         margin:10px auto;
+//     }
+// }
+
+@import "../../../../../../../../assets/scss/mixin";  
+
+.product_type_content{
+    margin-top: 50px;
+    @include flex-spase-between();
+    .product_type_conteiner{
+        width: calc(100% - 240px);
+        margin-left: 50px;
+        .slider_contnet{
+            @include flex-spase-between();
+            .slider{
+                width: 100%;
+                &::after{
+                    @include after-before(30px 0,solid 2px #c5c3c3)
+                 }
+                 &::before{
+                     @include after-before(30px 0,solid 2px #c5c3c3)
+                  }
+            }
+           
         }
     }
 }
 
-.ui-progress-spinner{
-    width: 200px !important;
-    height: 200px !important;
-}
-
-@media only screen and (max-width: 900px) {
-    .inf_container {
-        width: calc(100% - 20px);
-        margin:10px auto;
+@media only screen and (max-width:900px){
+    .product_type_conteiner{
+        width: 100% !important;
+        margin: auto !important;
     }
 }

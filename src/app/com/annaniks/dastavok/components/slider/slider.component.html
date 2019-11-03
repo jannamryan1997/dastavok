@@ -1,8 +1,8 @@
-<div class="slider_content" full-width [ngSwitch]="sliderMode">
+<div class="slider_content " full-width [ngSwitch]="sliderMode">
     <div position-relative *ngSwitchCase="1" class="first">
         <ngx-carousel [inputs]="carouselConfig">
             <ngx-item *ngFor="let item of items" NgxCarouselItem>
-                <div class="slider_container" [ngStyle]="{'background-image':'url('+item.title+')'}">
+                <div class="image slider_container" [ngStyle]="{'background-image':'url('+item.title+')'}">
                 </div>
 
             </ngx-item>
@@ -16,10 +16,6 @@
                     keyboard_arrow_right
                 </i></div>
         </ngx-carousel>
-        <button class="shop_now" color-white font-family-Open-Sans font-weight-bold displey-flex text-align-center
-            position-absolute>
-            <span>{{'shop_now' | translate}}</span>
-        </button>
     </div>
     <div *ngSwitchCase="2" class="second_slider">
         <ngx-carousel [inputs]="carouselConfig2">
@@ -30,12 +26,13 @@
             </div>
                 <ngx-item *ngFor="let item of items" NgxCarouselItem>
                     <div class="slider_item">
-                            <div class="slider_image" [ngStyle]="{'background-image':'url('+item.title+')'}"></div>
+                            <div class="image slider_image" [ngStyle]="{'background-image':'url('+item.title+')'}"></div>
                             <div class="information_content" display-flex justify-content-space-between>
-                                    <p class="information_name" font-weight-bold font-family-Roboto>{{item.label}}</p>
-                                    <p class="carency" ont-weight-bold font-family-Roboto>15$</p>
+                                    <p class="title" font-weight-bold font-family-Roboto>{{item.label}}</p>
+                                    <p class="title" ont-weight-bold font-family-Roboto>15$</p>
+                                   
                                 </div>
-                                <p class="information_text" ont-weight-bold font-family-Roboto>{{item.text}}</p>
+                                <p class="type" ont-weight-bold font-family-Roboto>{{item.text}}</p>
                                 <app-rating [currentIndex]="starCount" [changeRating]="false" [starSize]="7" ></app-rating>
                     </div>
                 </ngx-item>

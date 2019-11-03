@@ -1,20 +1,22 @@
 import { Injectable, Inject } from "@angular/core"
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { CookieService } from "angular2-cookie/services/cookies.service";
+import { CookieService } from "ngx-cookie";
+import { Utility } from "../../../utility/utility";
 
 @Injectable()
 
-export class ContactService {
+export class ContactService extends Utility {
 
-    constructor(private _httpClient: HttpClient, private cookieService: CookieService) { }
+    constructor(private _httpClient: HttpClient, private cookieService: CookieService) {
+        super();
+    }
 
 
     public getUserInfo() {
-        return this._httpClient.get("client")
+        return this._httpClient.get("client", { params: this._setAuthorizedParams() })
     }
 
     public freeClient() {
-        let token = this.cookieService.get("token");
         return this._httpClient.get("client/driver/2")
     }
 
