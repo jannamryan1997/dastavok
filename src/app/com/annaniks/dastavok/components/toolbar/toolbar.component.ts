@@ -29,15 +29,7 @@ export class ToolbarComponent implements OnInit {
             this._getUserInfo();
         }
     }
-
-    public openRegisterStep(): void {
-        const dialogRef = this.dialog.open(RegistrationStep, {
-            width: "686px",
-            maxWidth: '100vw',
-            panelClass: ['margin-10'],
-        })
-    }
-
+    
     public showLoginSignup() {
         this.showlogin = !this.showlogin;
     }

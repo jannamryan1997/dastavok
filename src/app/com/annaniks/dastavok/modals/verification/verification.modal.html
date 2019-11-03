@@ -13,10 +13,10 @@
             </div>
 
             <div class="button_item">
-                <button class="button back" display-flex margin-auto (click)="closeVerification()">
+                <button type="button" class="button back" display-flex margin-auto (click)="closeVerification()">
                         <span margin-auto>{{'back' | translate}}</span>
                     </button>
-                <button class="button next" display-flex margin-auto [disabled]="verificationForm.invalid || loading" [ngClass]="{'opacity':verificationForm.invalid || loading}" (click)="postVerification()">
+                <button type="submit" class="button next" display-flex margin-auto [disabled]="verificationForm.invalid || loading" [ngClass]="{'opacity':verificationForm.invalid || loading}" (click)="postVerification()">
                     <span margin-auto>{{'next' | translate}}</span>
                 </button>
             </div>

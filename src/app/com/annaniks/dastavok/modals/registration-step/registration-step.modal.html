@@ -36,7 +36,7 @@
                 <div position-relative>
                     <!-- <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading> -->
                 </div>
-                <button class="button" display-flex margin-auto [disabled]="phoneNumberForm.invalid || loading" [ngClass]="{'opacity':phoneNumberForm.invalid || loading}" (click)="nextStep()">
+                <button type="submit" class="button" display-flex margin-auto [disabled]="phoneNumberForm.invalid || loading" [ngClass]="{'opacity':phoneNumberForm.invalid || loading}" (click)="nextStep()">
                     <span margin-auto>{{'next' | translate}}</span>
                 </button>
 
@@ -61,10 +61,10 @@
                 </div>
 
                 <div class="button_item">
-                    <button class="button back" display-flex margin-auto (click)="back()">
+                    <button type="button" class="button back" display-flex margin-auto (click)="back()">
                         <p margin-auto>{{'back' | translate}}</p>
                     </button>
-                    <button class="button next" display-flex margin-auto [disabled]="verificationForm.invalid || loading" [ngClass]="{'opacity':verificationForm.invalid || loading}" (click)="nextStep()">
+                    <button type="submit" class="button next" display-flex margin-auto [disabled]="verificationForm.invalid || loading" [ngClass]="{'opacity':verificationForm.invalid || loading}" (click)="nextStep()">
                         <p margin-auto>{{'next' | translate}}</p>
                     </button>
                 </div>
@@ -115,10 +115,10 @@
                     <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading>
                 </div>
                 <div class="button_item">
-                    <button class="button back" display-flex margin-auto (click)="back()">
+                    <button type="button" class="button back" display-flex margin-auto (click)="back()">
                         <span margin-auto>{{'back' | translate}}</span>
                     </button>
-                    <button class="button next" display-flex margin-auto [disabled]="signUpForm.invalid || loading" [ngClass]="{'opacity':signUpForm.invalid || loading}" (click)="nextStep()">
+                    <button type="submit" class="button next" display-flex margin-auto [disabled]="signUpForm.invalid || loading" [ngClass]="{'opacity':signUpForm.invalid || loading}" (click)="nextStep()">
                         <span margin-auto>{{'next' | translate}}</span>
                     </button>
                 </div>

@@ -65,6 +65,7 @@ export class SignUpService extends Utility {
     public getUserInfo() {
         return this._httpClient.get("client", { params: this._setAuthorizedParams() }).pipe(
             map((data: ServerResponse<User>) => {
+                console.log(data);
                 this.userInfo = data.data;
                 if (data.data.image !== null) {
                     data.data.image = this._fileUrl + "client/image/" + data.data.image;

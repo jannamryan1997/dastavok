@@ -1,31 +1,29 @@
 @import "../../../../../../../assets/scss/mixin";
-
 .gootType_content {
-  width: 100%;
-  cursor: pointer;
-  .type_content {
-    margin: 30px 0;
-    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-    background-color: #ffffff;
-    .type_image {
-      height: 300px;
-      background-image: url("/assets/images/wine.jpg");
-      width: 100%;
+    width: 100%;
+    cursor: pointer;
+    .type_content {
+        margin: 30px 0;
+        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+        background-color: #ffffff;
+        .type_image {
+            height: 300px;
+            object-fit: cover;
+            object-position: center;
+            ;
+            width: 100%;
+        }
+        .type {
+            @include text(#191919, 22px);
+            .tite {
+                @include text(#191919, 14px);
+            }
+        }
     }
-    .type {
-      @include text(#191919,22px);
-  
-     .tite{
-      @include text(#191919,14px);
-     }
-    }
-  }
 }
 
-
-
-@media only screen and (max-width:900px){
-  .type_image{
-     height: 200px !important;
-  }
+@media only screen and (max-width:900px) {
+    .type_image {
+        height: 200px !important;
+    }
 }

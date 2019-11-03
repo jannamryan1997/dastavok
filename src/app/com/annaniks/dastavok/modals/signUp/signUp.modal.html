@@ -29,22 +29,18 @@
                     <i class="material-icons" margin-auto (click)="showPassword(1)">
                         vpn_key
                     </i>
-                    <input class="input" placeholder="{{'password' | translate}}" type="password"
-                        formControlName="password" [type]="show ? 'text' : 'password'">
+                    <input class="input" placeholder="{{'password' | translate}}" type="password" formControlName="password" [type]="show ? 'text' : 'password'">
                 </div>
 
             </div>
 
             <div class="form" full-width>
-                <label class="label"
-                    [ngClass]="{'color':checkIsValid('confirm_password')}">{{'confirm_password' | translate}}</label>
-                <div class="form_content" full-height display-flex
-                    [ngClass]="{'border':checkIsValid('confirm_password')}">
+                <label class="label" [ngClass]="{'color':checkIsValid('confirm_password') || signUpForm.hasError('mismatchedPasswords')}">{{'confirm_password' | translate}}</label>
+                <div class="form_content" full-height display-flex [ngClass]="{'border':checkIsValid('confirm_password') || signUpForm.hasError('mismatchedPasswords')}">
                     <i class="material-icons" margin-auto (click)="showPassword(2)">
                         vpn_key
                     </i>
-                    <input class="input" placeholder="{{'confirm_password' | translate}}" type="password"
-                        formControlName="confirm_password" [type]="showConfirmPassword ? 'text' : 'password'">
+                    <input class="input" placeholder="{{'confirm_password' | translate}}" type="password" formControlName="confirm_password" [type]="showConfirmPassword ? 'text' : 'password'">
                 </div>
 
             </div>
@@ -52,11 +48,10 @@
                 <!-- <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading> -->
             </div>
             <div class="button_item">
-                <button class="button back" display-flex margin-auto (click)="backVerificationModal()">
+                <button type="button" class="button back" display-flex margin-auto (click)="backVerificationModal()">
                     <span margin-auto>{{'back' | translate}}</span>
                 </button>
-                <button class="button next" display-flex margin-auto [disabled]="signUpForm.invalid || loading"
-                    [ngClass]="{'opacity':signUpForm.invalid || loading}" (click)="signUpClient()">
+                <button type="submit" class="button next" display-flex margin-auto [disabled]="signUpForm.invalid || loading" [ngClass]="{'opacity':signUpForm.invalid || loading}" (click)="signUpClient()">
                     <span margin-auto>{{'next' | translate}}</span>
                 </button>
             </div>

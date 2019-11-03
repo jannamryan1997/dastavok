@@ -28,6 +28,8 @@ export class RegistrationStep implements OnInit {
     public show: boolean = false;
     private _unsubscribe$: Subject<void> = new Subject<void>();
     private _intervalSubscription: Subscription = new Subscription();
+    private _clientVerificationSubscription: Subscription = new Subscription();
+    private _signUpClientSubscription: Subscription = new Subscription();
 
     constructor(
         private _signUpService: SignUpService,
@@ -117,6 +119,12 @@ export class RegistrationStep implements OnInit {
     }
 
     public back(): void {
+        if (this.tab == 2) {
+            this._clientVerificationSubscription.unsubscribe();
+        }
+        if (this.tab == 3) {
+            this._signUpClientSubscription.unsubscribe();
+        }
         this.tab = this.tab - 1;
     }
 
@@ -149,7 +157,7 @@ export class RegistrationStep implements OnInit {
         this.phoneNumberForm.disable();
         this.controlsItems = this.verificationForm.value.control_1 + this.verificationForm.value.control_2 +
             this.verificationForm.value.control_3 + this.verificationForm.value.control_4;
-        this._signUpService.clientVerification({
+        this._clientVerificationSubscription = this._signUpService.clientVerification({
             "phoneNumber": this.phoneNumberForm.value.phonenumber,
             "verifyCode": parseInt(this.controlsItems),
         })
@@ -175,7 +183,7 @@ export class RegistrationStep implements OnInit {
     private _signUpClient() {
         this.loading = true;
         this.phoneNumberForm.disable();
-        this._signUpService.signUpClient({
+        this._signUpClientSubscription = this._signUpService.signUpClient({
             "userName": this.signUpForm.value.user_name,
             "fullName": this.signUpForm.value.full_name,
             "password": this.signUpForm.value.password,

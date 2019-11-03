@@ -31,7 +31,7 @@ export class SignUpModal implements OnInit {
 
 
     }
-    private matchingPasswords(passwordKey: string, confirmPasswordKey: string) {
+    private _matchingPasswords(passwordKey: string, confirmPasswordKey: string) {
         return (group: FormGroup): { [key: string]: any } => {
             let password = group.controls[passwordKey];
             let confirmPassword = group.controls[confirmPasswordKey];
@@ -50,7 +50,7 @@ export class SignUpModal implements OnInit {
             password: ["", Validators.required],
             confirm_password: ["", Validators.required],
         },
-            { validator: this.matchingPasswords('password', 'confirm_password') }
+            { validator: this._matchingPasswords('password', 'confirm_password') }
         )
     }
 
@@ -58,7 +58,7 @@ export class SignUpModal implements OnInit {
         this.dialogRef.close();
     }
 
-    signUpClient() {
+    public signUpClient(): void {
         this.loading = true;
         this.signUpForm.disable();
         this._signUpService.signUpClient({

@@ -15,10 +15,10 @@
                 <!-- <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading> -->
             </div>
             <div class="button_item">
-                <button class="button back" display-flex margin-auto (click)="closePhoneModal()">
+                <button type="button" class="button back" display-flex margin-auto (click)="closePhoneModal()">
                             <span margin-auto>{{'back' | translate}}</span>
                         </button>
-                <button class="button next" display-flex margin-auto [disabled]="phoneNumberForm.invalid || loading" [ngClass]="{'opacity':phoneNumberForm.invalid || loading}" (click)="postPhoneNumber()">
+                <button type="submit" class="button next" display-flex margin-auto [disabled]="phoneNumberForm.invalid || loading" [ngClass]="{'opacity':phoneNumberForm.invalid || loading}" (click)="postPhoneNumber()">
                         <span margin-auto>{{'next' | translate}}</span>
                     </button>
             </div>

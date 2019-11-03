@@ -77,7 +77,10 @@ export class VerificationModal implements OnInit {
 
         })
         dialoRef.afterClosed().subscribe((data) => {
-            this._signUpService.getUserInfo().subscribe(() => this.dialog.closeAll());
+            this._signUpService.getUserInfo().subscribe((data) => {
+                console.log(data);
+                this.dialog.closeAll()
+            });
         })
     }
     public openNewPasswordModal(): void {
@@ -101,6 +104,7 @@ export class VerificationModal implements OnInit {
                 (data: any) => {
                     this.loading = false;
                     this.verificationForm.enable();
+                    console.log(data);
                     this.cookieService.put("verificationtoken", data.data.token)
                     this._signUpService.isAuthorized = true;
                     this.openSignUpModalModal();
