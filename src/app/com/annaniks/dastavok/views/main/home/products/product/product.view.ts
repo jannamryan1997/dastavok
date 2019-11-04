@@ -3,11 +3,11 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { GoodService } from "./product.service";
 import { Good, ServerResponse, Topping, BriefToppings, OrderInfo } from "../../../../../models/models";
 import { MatDialog } from "@angular/material"
-import { RegistrationStep } from "../../../../../modals";
+import { RegistrationStep, MessagesModals } from "../../../../../modals";
 import { SignUpService } from "../../../../../services/signUp.service";
-import { MessagesModals } from "src/app/com/annaniks/dastavok/modals/messages/messages.modals";
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
+import { MessageService } from 'primeng/api';
 
 @Component({
     selector: "product-view",
@@ -38,6 +38,9 @@ export class ProductView implements OnInit, OnDestroy {
         private _goodService: GoodService,
         private _dialog: MatDialog,
         private _signUpService: SignUpService,
+        private _messageService: MessageService,
+
+
         @Inject('FILE_URL') public fileUrl: string,
         @Inject('COMPANY_ID') private _companyId: number
     ) {
@@ -88,7 +91,8 @@ export class ProductView implements OnInit, OnDestroy {
                 toppings: briefToppings
             }
         };
-        this._router.navigate(['/payment'], { queryParams: { order: JSON.stringify(orderInfo) } })
+        this._router.navigate(['/payment'], { queryParams: { order: JSON.stringify(orderInfo) } });
+      
     }
 
     private _getGood(): void {
@@ -147,7 +151,9 @@ export class ProductView implements OnInit, OnDestroy {
 
             }
         }).subscribe((data) => {
-            this._router.navigate(['/basket'])
+            this._router.navigate(['/basket']);
+            this._messageService.add({ severity: 'success', detail: 'Товар был добавлен в корзину' });
+
         })
 
     }
@@ -161,8 +167,11 @@ export class ProductView implements OnInit, OnDestroy {
             }
             if (type && type == "buy") {
                 this.onClickBuy();
+              
             }
         }
+      
+
     }
     public openRegistrationStepModal(): void {
         const dialogRef = this._dialog.open(RegistrationStep, {
