@@ -1,34 +1,42 @@
-
 @import "../../../../../../assets/scss/mixin";
-.card_content{
+
+.card_content {
     width: 100%;
-    .type{
-        @include text(#444444,22px);
+
+    .type {
+        @include text(#444444, 22px);
         font-weight: bold;
     }
-     .title{
-        @include text(#979797,15px);
+
+    .title {
+        @include text(#979797, 15px);
     }
-    .delivery_title{
+
+    .delivery_title {
         margin-left: 30px;
     }
-    .product_description{
+
+    .product_description {
         border: 1px solid black;
         @include flex-spase-between();
         flex-wrap: wrap;
     }
-    .total_coast{
+
+    .total_coast {
         display: flex;
         justify-content: flex-end;
-        .type{
-            @include text(#979797,15px);
+
+        .type {
+            @include text(#979797, 15px);
         }
-        .type_amout{
+
+        .type_amout {
             margin-left: 100px;
-}
-        }
-        .button {
-            @include button(#ff6f00, 20px 50px, #ffffff);
-            margin-right: 0;
         }
     }
+
+    .button {
+        @include button(#ff6f00, 20px 50px, #ffffff);
+        margin-right: 0;
+    }
+}
