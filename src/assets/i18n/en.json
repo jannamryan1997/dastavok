@@ -57,6 +57,13 @@
     "repeat_password": "Repeat password",
     "Product_detalis":"Product detalis",
     "go_main_page":"GO MAIN PAGE",
-    "your_chart_is_empty":"YOUR CHART IS EMPTY"
+    "your_chart_is_empty":"YOUR CHART IS EMPTY",
+    "apartment":"apartment",
+    "domaphone":"domaphone",
+    "lift":"lift",
+    "comment":"comment",
+    "cancel":"cancel",
+    "work":"work",
+    "dont_work":"don't work"
   
 }

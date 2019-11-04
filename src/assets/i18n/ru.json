@@ -57,5 +57,12 @@
     "repeat_password": "Подтвердите пароль",
     "Product_detalis":"Информация о продукте",
     "go_main_page":"ПЕРЕЙТИ НА ГЛАВНУЮ СТРАНИЦУ",
-    "your_chart_is_empty":"ВАША КОРЗИНА ПУСТО"
+    "your_chart_is_empty":"ВАША КОРЗИНА ПУСТО",
+    "apartment":"квартира",
+    "domaphone":"есть домофоне",
+    "lift":"есть лифт",
+    "comment":"комментарий",
+    "cancel":"Отмена",
+    "work":"работает",
+    "dont_work":"не работает"
 }

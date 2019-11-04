@@ -60,11 +60,11 @@
                     <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading>
                 </div>
 
-                <div class="button_item">
-                    <button type="button" class="button back" display-flex margin-auto (click)="back()">
+                <div class="button_item" width-50 margin-auto>
+                    <button type="button" class="button back" display-flex (click)="back()">
                         <p margin-auto>{{'back' | translate}}</p>
                     </button>
-                    <button type="submit" class="button next" display-flex margin-auto [disabled]="verificationForm.invalid || loading" [ngClass]="{'opacity':verificationForm.invalid || loading}" (click)="nextStep()">
+                    <button type="submit" class="button next" display-flex  [disabled]="verificationForm.invalid || loading" [ngClass]="{'opacity':verificationForm.invalid || loading}" (click)="nextStep()">
                         <p margin-auto>{{'next' | translate}}</p>
                     </button>
                 </div>
@@ -114,11 +114,11 @@
                 <div position-relative>
                     <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading>
                 </div>
-                <div class="button_item">
-                    <button type="button" class="button back" display-flex margin-auto (click)="back()">
+                <div class="button_item" width-50 margin-auto>
+                    <button type="button" class="button back" display-flex (click)="back()">
                         <span margin-auto>{{'back' | translate}}</span>
                     </button>
-                    <button type="submit" class="button next" display-flex margin-auto [disabled]="signUpForm.invalid || loading" [ngClass]="{'opacity':signUpForm.invalid || loading}" (click)="nextStep()">
+                    <button type="submit" class="button next" display-flex [disabled]="signUpForm.invalid || loading" [ngClass]="{'opacity':signUpForm.invalid || loading}" (click)="nextStep()">
                         <span margin-auto>{{'next' | translate}}</span>
                     </button>
                 </div>
