@@ -24,7 +24,7 @@ export class CheckoutTabComponent implements OnInit {
     public directionsService = new google.maps.DirectionsService();
     public directionsDisplay = new google.maps.DirectionsRenderer();
     public ordersParams: OrderInfo;
-    public domaphoreValue: boolean;
+    public domaphoneValue: boolean;
     public loading: boolean = false;
     public error:string;
     @Input() paymentTab: number;
@@ -50,9 +50,9 @@ export class CheckoutTabComponent implements OnInit {
         this.paymentForm = new FormBuilder().group({
             address: ["", Validators.required],
             apartment: ["", Validators.required],
-            domaphore: ["", Validators.required],
-            lift: ["", Validators.required],
-            comment: ["", Validators.required]
+            domaphone: [""],
+            lift: [""],
+            comment: [""]
         })
     }
 
@@ -168,7 +168,7 @@ export class CheckoutTabComponent implements OnInit {
                     lng: this._longitude,
                     text: this.paymentForm.value.address,
                 },
-                domaphore: true,
+                domaphone: true,
                 lift: false,
                 apartment: +this.paymentForm.value.apartment,
             }
@@ -186,6 +186,10 @@ export class CheckoutTabComponent implements OnInit {
         )
     ;
        
+    }
+
+    public checkIsValid(controlName:string):boolean{
+        return this.paymentForm.get(controlName).hasError('required') && this.paymentForm.get(controlName).touched;
     }
 
 }

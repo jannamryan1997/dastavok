@@ -17,11 +17,11 @@
             <div position-relative>
                 <!-- <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading> -->
             </div>
-            <div class="button_item">
-                <button class="button back" display-flex margin-auto [disabled]="phoneNumberForm.invalid || loading" [ngClass]="{'opacity':phoneNumberForm.invalid || loading}" (click)="closeNewPhoneNumberMoadal()">
+            <div class="button_item" width-50 margin-auto>
+                <button class="button back" display-flex [disabled]="phoneNumberForm.invalid || loading" [ngClass]="{'opacity':phoneNumberForm.invalid || loading}" (click)="closeNewPhoneNumberMoadal()">
                             <span margin-auto>{{'back' | translate}}</span>
                         </button>
-                <button class="button next" display-flex margin-auto [disabled]="phoneNumberForm.invalid || loading" [ngClass]="{'opacity':phoneNumberForm.invalid || loading}"  (click)="putClientNewPhoneNumberStepOne()">
+                <button class="button next" display-flex  [disabled]="phoneNumberForm.invalid || loading" [ngClass]="{'opacity':phoneNumberForm.invalid || loading}"  (click)="putClientNewPhoneNumberStepOne()">
                         <span margin-auto>{{'next' | translate}}</span>
                     </button>
             </div>

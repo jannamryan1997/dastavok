@@ -1,150 +1,63 @@
-.payment_tab_content {
-    width: 791px;
-    margin-top: 55px;
-    .payment_tab_text {
-        font-size: 20px;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.1;
-        letter-spacing: normal;
-        color: #444444;
-        margin-bottom: 0px;
-        margin-top: 0px;
+@import "../../../../../../../assets/scss/mixin";
+@import "../../../../../../../assets/scss/global";
+
+.checkout_content {
+    margin: auto;
+    width: 75%;
+
+    .type {
+        @include text(#444444, 20px);
     }
+
     #map {
         height: 300px;
         width: 100%;
     }
-    .form {
-        margin-top: 79px;
-        .form_group {
-            margin-top: 23.5px;
-        }
-        .address_text {
-            font-size: 20px;
-            font-weight: normal;
-            font-style: normal;
-            font-stretch: normal;
-            line-height: 1.2;
-            letter-spacing: normal;
-            text-align: left;
-            color: #ff6f00;
-        }
-        .input_content {
-            border-bottom: 1px solid grey;
-            border-left: none;
-            border-right: none;
-            border-top: none;
-            text-align: right;
-            font-family: 'Roboto';
-            font-size: 20px;
-            font-weight: normal;
-            font-style: normal;
-            font-stretch: normal;
-            line-height: 1.2;
-            letter-spacing: normal;
-            color: #8b8b8b;
-            padding-left: 80px;
-        }
+
+    .form_conteiner {
+        margin: 40px auto;
+
         .input_checkbox {
-            top: 0;
-            bottom: 0;
-            right: 381px;
+            width: 30px;
+            height: 30px;
         }
-        .text_content {
-            font-size: 20px;
-            font-weight: normal;
-            font-style: normal;
-            font-stretch: normal;
-            line-height: 1.2;
-            letter-spacing: normal;
-            text-align: left;
-            color: #8b8b8b;
-            top: 0;
-            right: 325px;
-        }
-        .input_checkbox_item {
-            top: 0;
-            bottom: 0;
-            right: 106px;
-        }
-        .text_content_item {
-            font-size: 20px;
-            font-weight: normal;
-            font-style: normal;
-            font-stretch: normal;
-            line-height: 1.2;
-            letter-spacing: normal;
-            text-align: left;
-            color: #8b8b8b;
-            top: 0;
-            right: 0;
-        }
-        .textarea_content {
-            border-bottom: 1px solid grey;
-            text-align: right;
-            font-family: 'Roboto';
-            font-size: 20px;
-            font-weight: normal;
-            font-style: normal;
-            font-stretch: normal;
-            line-height: 1.2;
-            letter-spacing: normal;
-            color: #8b8b8b;
-            padding-left: 92px;
-            height: 168px;
-           // max-width: 799px;
-          //  min-width: 799px;
-        }
-        .button_item {
-            margin-top: 25px;
-            justify-content: flex-end;
-            .save_button {
-                width: 143.8px;
-                height: 42px;
-                box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-                background-color: #87bd3c;
-                font-size: 12px;
-                font-style: normal;
-                font-stretch: normal;
-                line-height: 1.42;
-                letter-spacing: normal;
-                text-align: left;
-                border: none;
-                cursor: pointer;
-            }
-            .cancel_button {
-                width: 143.8px;
-                height: 42px;
-                box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-                background-color: #ff6f00;
-                font-size: 12px;
-                font-style: normal;
-                font-stretch: normal;
-                line-height: 1.42;
-                letter-spacing: normal;
-                text-align: left;
-                border: none;
-                cursor: pointer;
-            }
-        }
+    }
+
+    .lable {
+        @include text(#aeaeae, 20px);
     }
 }
 
-.border_bottom_grey {
-    border-bottom: 1px solid grey;
-}
+.button_item {
+    justify-content: flex-end;
 
-.checkbox_wrapper {
-    margin-right: 76px;
-}
+    .next {
+        @include button(#ffffff, 20px 50px, #000000);
+    }
 
-@media only screen and (max-width: 900px) {
-.payment_tab_content{
-    width: 100%;
-}
+    .back {
+        @include button(#87bd3c, 20px 50px, #ffffff);
+    }
 }
 
 .opacity {
     opacity: 0.5;
+}
+
+.border {
+    border: 1px solid red !important;
+}
+
+.color {
+    color: red !important;
+}
+
+
+@media  only screen and (max-width:900px){
+    .checkout_content{
+        width: 100% !important;
+    }
+    .button_item{
+        width: 100% !important;
+    }
 }
