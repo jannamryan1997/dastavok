@@ -1,16 +1,12 @@
-<div class="order_content" width-75 margin-auto>
-    <div position-relative>
-        <!-- <app-loading class="loading" [loading]="loading" [height]="150" [width]="150"></app-loading> -->
+<section full-width>
+    <div class="order_content">
+            <div class="order_item">
+                    <div class="image" [ngStyle]="{'background-image':'url('+fileUrl+orderInfo.companydata.image+')'}"></div>
+                    <p class="type" ont-family-Roboto>{{orderInfo?.companydata.name}}</p>
+                    <p class="title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum eos itaque dolores
+                            nam, blanditiis odio repellat consectetur vel eveniet sed officia mollitia, libero doloribus error!
+                            Minus temporibus ipsa nam repellendus!</p>
+            </div>
     </div>
-    <div class="order_item" display-flex>
-        <div class="image_item" [ngStyle]="{'background-image':'url('+fileUrl+orderInfo.companydata.image+')'}"></div>
-        <div class="order_info">
-            <p class="name_data" ont-family-Roboto>{{orderInfo?.companydata.name}}</p>
-            <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum eos itaque dolores
-                nam, blanditiis odio repellat consectetur vel eveniet sed officia mollitia, libero doloribus error!
-                Minus temporibus ipsa nam repellendus!</p>
-        </div>
-    </div>
-    <div class="line" full-width></div>
-
-</div>
+   
+</section>

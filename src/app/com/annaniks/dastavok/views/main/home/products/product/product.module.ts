@@ -27,7 +27,7 @@ import { NgxChartsModule } from "@swimlane/ngx-charts";
         CommonModule,
         SharedModule,
         ProgressSpinnerModule,
-        NgxChartsModule
+        NgxChartsModule,
     ],
     providers: [
         GoodService
