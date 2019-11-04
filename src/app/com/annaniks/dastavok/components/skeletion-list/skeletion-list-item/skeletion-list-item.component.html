@@ -1,0 +1,21 @@
+<div class="skeletion_list_item">
+    <div class="skeletion_list_item_content skeleton" [ngSwitch]="skeletionType">
+        <div class="gootType_content" margin-auto *ngSwitchCase="'goodType'">
+            <div class="type_content" margin-auto>
+                <div class="image type_image" position-relative></div>
+                <p class="type" font-weight-bold font-family-Roboto></p>
+                <span class="title" font-family-Roboto></span>
+            </div>
+        </div>
+        <div class="good_item" *ngSwitchCase="'good'">
+            <img class="image item_image" />
+            <div class="title_item">
+                <p class="type" font-weight-bold font-family-Roboto></p>
+                <div>
+                    <p class="title" font-family-Roboto></p>
+                    <p class="money_text" font-weight-bold font-family-Roboto></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
