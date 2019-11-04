@@ -1,10 +1,8 @@
 import { Injectable } from "@angular/core"
 import { HttpClient } from "@angular/common/http";
-import { CookieService } from "ngx-cookie";
 import { Utility } from "./../../../../../utility/utility";
 
 @Injectable()
-
 export class GoodService extends Utility {
 
     constructor(

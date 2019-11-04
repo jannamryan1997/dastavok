@@ -3,7 +3,7 @@
         <app-menu></app-menu>
         <div class="search_container">
             <app-goods-list>
-                <a [routerLink]="'/'+companyId+'/products/'+item.id" *ngFor="let item of goods">
+                <a [routerLink]="'/'+companyId+'/products/'+item.id" *ngFor="let item of goods" full-width>
                     <app-goods-list-item [goodInfo]="item" [goodsImage]="item.images">
                     </app-goods-list-item>
                 </a>

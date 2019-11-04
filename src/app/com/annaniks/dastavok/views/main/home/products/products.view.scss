@@ -8,7 +8,8 @@
     object-fit: cover;
   }
 
-  app-goods-list-item {
+  app-goods-list-item,
+  app-skeletion-list-item {
     width: 33.3333%;
     padding: 1.2em;
   }
@@ -19,7 +20,8 @@
     margin: 10px 21px !important;
   }
 
-  app-goods-list-item {
+  app-goods-list-item,
+  app-skeletion-list-item {
     width: 100% !important;
   }
 }
