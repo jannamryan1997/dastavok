@@ -30,7 +30,7 @@
                         <label class="label" [ngClass]="{'color':checkIsValid('messages')}">{{'messages' | translate}}</label>
                         <textarea class="input messages_input" placeholder="{{'messages' | translate}}" full-width font-family-Roboto formControlName="messages" [ngClass]="{'border':checkIsValid('messages')}"></textarea>
                     </div>
-                    <button class="submit_button" text-align-center display-flex [disabled]="userForm.invalid" (click)="contact()">
+                    <button class="button" text-align-center display-flex [disabled]="userForm.invalid" (click)="contact()">
                         <span color-white font-family-Open-Sans font-weight-bold margin-auto [ngClass]="{'disable':userForm.invalid}">{{'submit' | translate}}</span>
                     </button>
                 </form>

@@ -24,7 +24,7 @@ export class MenuService {
     }
 
     public openFitersMenu() {
-        this.isOpenFilter = true;
+        this.isOpenFilter =! this.isOpenFilter;
         this.isOpen = false;
         if (this.isOpenFilter == true) {
             document.getElementById('body').style.overflowY = "hidden";

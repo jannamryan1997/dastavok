@@ -1,14 +1,79 @@
-.topbar_wrapper {
+// .topbar_wrapper {
+//     background-color: #444444;
+//     box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.24);
+//     height: 75px;
+
+//     .topbar_container {
+//         margin: 0 auto;
+//         height: 100%;
+//         max-width: 1220px;
+//         .topbar_item {
+
+//             width: 186px;
+//             border-radius: 4px;
+//             -webkit-border-radius: 4px;
+//             -moz-border-radius: 4px;
+//             -ms-border-radius: 4px;
+//             -o-border-radius: 4px;
+//             padding: 26px 0;
+//             .item_label{
+//                 font-size: 20px;
+//                 line-height: 1.15;
+//                 letter-spacing: normal;
+//                 text-align: left;
+//                 color: #ffffff;
+//             }
+//         }
+//     }
+//     .topbar_middle{
+//         display: none;
+//         background-color: #444444;
+//         box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.24);
+//         height: 75px;
+//         margin: 0 auto;
+//         width: 100%;
+
+//         justify-content: flex-end;
+//         .container{
+//             margin:0 16px;
+//             .icon_shopping{
+//                 font-size: 27px;
+//                 color: white;
+//                 cursor: pointer;
+//             }
+//         }
+
+//     }
+// }
+// .topbar_item_active{
+//     background: #87bd3c;
+// }
+
+// @media only screen and (max-width: 900px) {
+//     .topbar_container {
+//         display: none;
+//         z-index: -1;
+//     }
+//     .topbar_middle{
+//         display: flex !important;
+//     }
+
+// }
+
+@import "../../../../../../assets/scss/mixin";
+
+.header_content {
     background-color: #444444;
     box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.24);
-    height: 75px;
-  
-    .topbar_container {
-        margin: 0 auto;
-        height: 100%;
-        max-width: 1220px;
+
+    .toolbar_content {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        width: 75%; 
+        margin: auto;
+
         .topbar_item {
-            
             width: 186px;
             border-radius: 4px;
             -webkit-border-radius: 4px;
@@ -16,46 +81,41 @@
             -ms-border-radius: 4px;
             -o-border-radius: 4px;
             padding: 26px 0;
-            .item_label{
-                font-size: 20px;
-                line-height: 1.15;
-                letter-spacing: normal;
-                text-align: left;
-                color: #ffffff;
+
+            .type {
+                @include text(#ffffff, 20px);
             }
         }
     }
-    .topbar_middle{
+
+    .topbar_middle {
+        text-align: center;
         display: none;
-        background-color: #444444;
-        box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.24);
-        height: 75px;
-        margin: 0 auto;
-        width: 100%;
-        
+        align-items: center;
         justify-content: flex-end;
-        .container{
-            margin:0 16px;
-            .icon_shopping{
-                font-size: 27px;
-                color: white;
-                cursor: pointer;
-            }
+
+        i {
+            font-size: 27px;
+            color: white;
+            cursor: pointer;
+            margin: 20px;
         }
-        
     }
+
 }
-.topbar_item_active{
+
+.topbar_item_active {
     background: #87bd3c;
 }
 
+
 @media only screen and (max-width: 900px) {
-    .topbar_container {
-        display: none;
+    .toolbar_content {
+        display: none !important;
         z-index: -1;
     }
-    .topbar_middle{
+
+    .topbar_middle {
         display: flex !important;
     }
-    
 }
