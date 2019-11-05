@@ -13,7 +13,7 @@ import { takeUntil } from "rxjs/operators";
 
 export class ProductsView implements OnInit, OnDestroy {
     private _goodTypeId: number;
-    public pageLength: number = 10;
+    public pageLength: number = 9;
     public goodsInfo: Array<Good> = [];
     public count: number;
     public goodTypeImage: string = '';
