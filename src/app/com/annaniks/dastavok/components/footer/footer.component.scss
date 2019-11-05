@@ -1,59 +1,148 @@
 @import "../../../../../../assets/scss/mixin.scss";
 @import "../../../../../../assets/scss/global.scss";
 
+// .footer_content {
+//     width: 100%;
+//     background: #444444;
+
+//     .footer_conteiner {
+//         display: flex;
+//         justify-content: space-between;
+//         padding: 20px 0 130px 0;
+
+//         .description {
+//            width: 320px;
+//             .title {
+//                 @include text(#919191,12px);
+//             }
+//         }
+//         .nav{
+//             margin: 30px 0 0 100px;
+//         width: calc(100% - 420px);
+//             .menu{
+//                 width: 100%;
+//                 display: flex;
+//                 justify-content: space-between;
+//                 flex-wrap: wrap;
+//                .menu_item{
+//                 .type{
+//                     @include text(#ffffff,15px);
+//                     font-weight: bold;
+
+//                 }
+//                 .title{
+//                     @include text(#919191,12px);
+//                     line-height: 8px;
+//                     cursor: pointer;
+//                     margin-top: 13px;
+//                 }
+//                } 
+//             }
+
+//         }
+//     }
+// }
+
+// @media only screen and (max-width:900px){
+//     .footer_conteiner{
+//         flex-direction: column !important;
+//         .nav{
+//             width: 100% !important;
+//         }
+//     }
+// }
+
+// @media only screen and (max-width:650px){
+
+//         .menu_item{
+//             width: 50% !important;
+//             &:last-child{
+//                 margin: 20px 0 !important;
+//             }
+//         }
+// }
+
+
+// @media only screen and (max-width:500px){
+//     .menu{
+//         flex-direction: column !important;
+//         .menu_item{
+//             margin: 20px 0 ;
+//         }
+//     }
+// }
+
+
 .footer_content {
     width: 100%;
     background: #444444;
 
-    .footer_conteiner {
+    .footer_container {
         display: flex;
-        justify-content: space-between;
-        padding: 20px 0 130px 0;
+        width: 75%;
+        padding: 60px 0;
+        margin: auto;
+        flex-wrap: wrap;
 
         .description {
-            width: 25%;
+            width: 300px;
+
             .title {
-                @include text(#919191,12px);
+                @include text(#919191, 12px);
             }
         }
-        .nav{
-            margin: 60px auto;
-            width: 60%;
-            .menu{
-                width: 100%;
+
+        .nav {
+            margin-left: 100px;
+            width: calc(100% - 400px);
+
+            .menu {
                 display: flex;
                 justify-content: space-between;
-               .menu_item{
-                   width: 30%;
-                .type{
-                    @include text(#ffffff,15px);
-                    font-weight: bold;
-    
+                flex-wrap: wrap;
+
+                .menu_item {
+                    width: 33.33333%;
+                  margin-top: 20px ;
+
+                    .type {
+                        @include text(#ffffff, 15px);
+                        font-weight: bold;
+
+                    }
+
+                    .title {
+                        @include text(#919191, 12px);
+                        line-height: 8px;
+                        cursor: pointer;
+                        margin-top: 13px;
+                    }
                 }
-                .title{
-                    @include text(#919191,12px);
-                    line-height: 8px;
-                    cursor: pointer;
-                    margin-top: 13px;
-                }
-               } 
             }
-          
         }
     }
 }
 
-@media only screen and (max-width:900px){
-    .footer_conteiner{
-        flex-direction: column !important;
-        .nav{
-            width: 100% !important;
-        }
+@media only screen and (max-width:1400px) and (min-width:550px)  {
+
+} 
+@media only screen and (max-width:1400px){
+    .menu_item{
+        width: 50% !important;
     }
 }
+@media only screen and (max-width:920px){
+    .nav {
+        margin-left:0px !important;
+        width:100% !important;
+}
+}
 
-@media only screen and (max-width:500px){
-    .menu{
-        flex-direction: column !important;
-    }
+@media only screen and (max-width:550px){
+    .menu_item,.description {
+        width:100% !important;
+}
+.menu{
+    flex-direction: column !important;
+}
 }
