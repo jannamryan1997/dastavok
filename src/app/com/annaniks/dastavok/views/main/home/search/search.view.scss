@@ -15,7 +15,6 @@ app-skeletion-list-item {
   padding: 1.2em;
 }
 
-<<<<<<< HEAD
 @media only screen and (max-width:1400px){
     .search_container {
         flex-direction: column !important;
@@ -23,7 +22,7 @@ app-skeletion-list-item {
     app-goods-list-item{
         width: 50% !important;
     }
-=======
+  }
 @media only screen and (max-width: 1400px) {
   .search_container {
     flex-direction: column !important;
@@ -32,7 +31,6 @@ app-skeletion-list-item {
   app-skeletion-list-item {
     width: 100% !important;
   }
->>>>>>> a42e40cb1afea4f833b8217ddfabf2d0b61e1ea2
 }
 
 @media only screen and (max-width: 900px) {
