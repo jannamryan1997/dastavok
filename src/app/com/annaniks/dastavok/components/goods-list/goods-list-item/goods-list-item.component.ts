@@ -19,6 +19,8 @@ export class GoodsListItemComponent implements OnInit {
 
     ngOnInit() {
             this.goodsImageItem = this.goodInfo.thumbnail;
+            console.log("gfdgdfgfdgdfgd");
+            
 
     }
 }
