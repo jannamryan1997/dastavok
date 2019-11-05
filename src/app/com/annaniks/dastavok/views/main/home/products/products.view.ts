@@ -33,6 +33,8 @@ export class ProductsView implements OnInit, OnDestroy {
 
     ngOnInit() {
         this._getGoods(this._companyId, this._goodTypeId, 1, this.pageLength);
+        console.log(this.pageLength);
+        
     }
 
     private _getGoods(companyId: number, goodTypeId: number, page, count): void {
