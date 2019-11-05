@@ -1,5 +1,6 @@
 <form [formGroup]="userUpdateGroup">
     <div class="container">
+            <app-error [error]="error"></app-error>
         <div class="form_conteiner" full-width>
             <div class="form" full-width>
                 <label class="label" [ngClass]="{'color':checkIsValid('full_name')}">{{'full_name' | translate}}</label>

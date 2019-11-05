@@ -17,6 +17,7 @@ export class AddressEditModal implements OnInit {
     public userUpdateGroup: FormGroup;
     public clientData: User;
     public loading: boolean;
+    public error:string;
     constructor(@Inject(MAT_DIALOG_DATA) private data: any, private _paymentService: PaymentService, private dialogRef: MatDialogRef<AddressEditModal>, private _signUpService: SignUpService) { }
 
     ngOnInit() {
@@ -48,7 +49,12 @@ export class AddressEditModal implements OnInit {
             this.dialogRef.close();
             (data);
 
-        })
+        },
+        err=>{
+            this.error = err.error.error;
+            this.userUpdateGroup.enable();
+        }
+        )
 
     }
     public checkIsValid(controlName: string): boolean {

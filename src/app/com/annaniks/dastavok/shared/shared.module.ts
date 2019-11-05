@@ -82,7 +82,8 @@ import { SlicetextPipe } from "../pipe/slicetext.pipe";
     OnlyNumber,
     NgxMaskModule,
     SlicetextPipe,
-    FocusNextInputDriective
+    FocusNextInputDriective,
+    ProgressSpinnerModule
   ],
   providers: []
 })

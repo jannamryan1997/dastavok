@@ -49,6 +49,7 @@ export class NewPhoneNumber implements OnInit {
         });
         err => {
             this.error = err.error.error;
+            this.phoneNumberForm.enable();
         }
     }
 
