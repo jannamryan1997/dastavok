@@ -8,17 +8,19 @@ import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angu
 export class PaginatorComponent implements OnInit, OnDestroy {
     private _itemsCount: number;
     private _pageLength: number = 1;
+    @Input('page')
+    set page($event) {
+        this.currentPage = $event;
+        this._checkCurrentPage(this.currentPage);
+    }
+
     @Input('count')
     set count($event) {
-        ($event);
-
         this._itemsCount = $event;
         this._setPagesCount();
     }
     @Input('pageLength')
     set pageLength($event) {
-        ($event);
-
         this._pageLength = $event;
         this._setPagesCount();
     }
@@ -35,7 +37,6 @@ export class PaginatorComponent implements OnInit, OnDestroy {
         if (this._itemsCount % this._pageLength > 0) {
             pageCount += 1;
         }
-
         for (let i = 0; i < pageCount; i++) {
             this.pages.push(i + 1);
         }
@@ -64,6 +65,13 @@ export class PaginatorComponent implements OnInit, OnDestroy {
 
     private _onPageChange(pageNumber: number): void {
         this._paginateEvent.emit({ pageNumber: pageNumber });
+    }
+
+    private _checkCurrentPage(currentPage: number | string) {
+        if (!this.pages.includes(+currentPage)) {
+            this.currentPage = 1;
+            this._onPageChange(this.currentPage);
+        }
     }
 
     ngOnDestroy() { }

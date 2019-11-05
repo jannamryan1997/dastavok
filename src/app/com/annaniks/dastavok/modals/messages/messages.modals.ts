@@ -11,13 +11,13 @@ import { RegistrationStep } from "../registration-step/registration-step.modal";
 
 export class MessagesModals implements OnInit {
 
-    constructor(private _dialog: MatDialog, private _dialogRef: MatDialogRef<MessagesModals>) { }
+    constructor(private _dialogRef: MatDialogRef<MessagesModals>) { }
 
     ngOnInit() { }
 
-    public closeModal() {
-        this._dialogRef.close();
+    public closeModal(): void {
+        this._dialogRef.close(true);
     }
 
- 
+
 }
