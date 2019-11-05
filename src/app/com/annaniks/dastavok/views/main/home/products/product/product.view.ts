@@ -92,7 +92,7 @@ export class ProductView implements OnInit, OnDestroy {
             }
         };
         this._router.navigate(['/payment'], { queryParams: { order: JSON.stringify(orderInfo) } });
-      
+
     }
 
     private _getGood(): void {
@@ -126,7 +126,9 @@ export class ProductView implements OnInit, OnDestroy {
             panelClass: ['margin-10'],
         })
         dialogRef.afterClosed().subscribe((data) => {
-            this.openRegistrationStepModal();
+            if (data) {
+                this._openRegistrationStepModal();
+            }
         })
 
     }
@@ -167,13 +169,13 @@ export class ProductView implements OnInit, OnDestroy {
             }
             if (type && type == "buy") {
                 this.onClickBuy();
-              
+
             }
         }
-      
+
 
     }
-    public openRegistrationStepModal(): void {
+    private _openRegistrationStepModal(): void {
         const dialogRef = this._dialog.open(RegistrationStep, {
             width: "686px",
             maxWidth: '100vw',

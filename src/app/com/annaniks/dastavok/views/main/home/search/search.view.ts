@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject, OnDestroy } from "@angular/core"
 import { SearchService } from "./search.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { ServerResponse, Paginator, Good, BriefCompany } from "../../../../models/models";
 import { takeUntil } from "rxjs/operators";
 import { Subject } from "rxjs";
@@ -12,7 +12,6 @@ import { Subject } from "rxjs";
 })
 export class SearchView implements OnInit, OnDestroy {
     public goods: Good[] = [];
-    public companyItem: BriefCompany[] = [];
     public page: number = 1;
     public pageLength: number = 10;
     public loading: boolean = false;
@@ -27,6 +26,7 @@ export class SearchView implements OnInit, OnDestroy {
     constructor(
         private _searchService: SearchService,
         private _activatedRoute: ActivatedRoute,
+        private _router: Router,
         @Inject('COMPANY_ID') public companyId: string
     ) { }
 
@@ -35,13 +35,14 @@ export class SearchView implements OnInit, OnDestroy {
         this._activatedRoute.queryParams
             .pipe(takeUntil(this._unsubscribe$))
             .subscribe((params) => {
-                this.companyItem = [];
                 this._query = params.search;
+                this.page = params.page || 1;
                 this._searchGoods(this.page, this.pageLength, params.search)
             })
     }
 
-    private _searchGoods(page, limit, text): void {
+    private _searchGoods(page: number, limit: number, text: string): void {
+        this.loading = true;
         this._searchService.getSearchGoods(page, this.companyId, limit, text)
             .pipe(takeUntil(this._unsubscribe$))
             .subscribe((data: ServerResponse<Paginator<{ goods: Good[] }>>) => {
@@ -53,7 +54,7 @@ export class SearchView implements OnInit, OnDestroy {
 
     public paginate($event): void {
         this.page = $event.pageNumber;
-        this._searchGoods(this.page, this.pageLength, this._query);
+        this._router.navigate([], { relativeTo: this._activatedRoute, queryParams: { page: this.page }, queryParamsHandling: 'merge' })
     }
 
     ngOnDestroy() {

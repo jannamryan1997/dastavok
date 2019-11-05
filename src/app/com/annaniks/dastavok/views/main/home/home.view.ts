@@ -55,6 +55,10 @@ export class HomeView implements OnInit, OnDestroy {
         this._router.navigate(['/search'], { queryParams: { search: this.search } })
     }
 
+    get isAuthorized(): boolean {
+        return this.signUpService.isAuthorized;
+    }
+
     ngOnDestroy() {
         this._unsubscribe$.next();
         this._unsubscribe$.complete();
