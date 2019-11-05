@@ -48,13 +48,13 @@ export class CheckoutTabComponent implements OnInit {
 
     private _formBuilder() {
         this.paymentForm = new FormBuilder().group({
-            address: ["", Validators.required],
-            apartment: ["", Validators.required],
-            domaphone: [""],
-            lift: [""],
-            comment: [""]
+            address: [null, Validators.required],
+            apartment: [null, Validators.required],
+            domaphone: [false,Validators.required],
+            lift: [false,Validators.required],
+            comment: [null]
         })
-    }
+    } 
 
     public openPayment() {
         this.changeTab.emit(this.paymentTab);

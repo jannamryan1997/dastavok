@@ -1,0 +1,92 @@
+@import "../../../../../../../assets/scss/skeletion";
+@import "../../../../../../../assets/scss/mixin";
+.gootType_content {
+  width: 100%;
+  .type_content {
+    margin: 30px 0;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+    .type_image {
+      height: 300px;
+      width: 100%;
+    }
+    .type {
+      @include text(#191919, 22px);
+      .tite {
+        @include text(#191919, 14px);
+      }
+    }
+  }
+}
+
+.good_item {
+  border-radius: 4px;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+  cursor: pointer;
+
+  &:first-child {
+    margin-left: 0px;
+  }
+
+  .item_image {
+    width: 100%;
+    height: 165.1px;
+  }
+
+  .title_item {
+    padding: 15px;
+    .type {
+      @include text(#191919, 16px);
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .title {
+      @include text(#706f6f, 10px);
+      width: 80%;
+    }
+
+    .money_text {
+      @include text(#191919, 15px);
+      word-break: unset;
+    }
+  }
+}
+
+.skeleton {
+  .image,
+  span,
+  p {
+    background: #f6f7f8;
+    background-image: -webkit-linear-gradient(right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+    background-repeat: no-repeat;
+    animation: loading 1.7s infinite linear;
+  }
+
+  span {
+    display: block;
+    height: 22px;
+  }
+
+  p {
+    width: 100%;
+    height: 18px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .type_image {
+    height: 200px !important;
+  }
+}
+
+@keyframes loading {
+  0% {
+    background-position: -880px;
+  }
+
+  100% {
+    background-position: 200px;
+  }
+}

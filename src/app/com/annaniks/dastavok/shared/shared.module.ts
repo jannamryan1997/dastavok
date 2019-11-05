@@ -12,6 +12,8 @@ import {
   LeftMenuComponent,
   ErrorComponent,
   SliderComponent,
+  SkeletionListComponent,
+  SkeletionListItemComponent,
 } from "../components";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router"
@@ -45,7 +47,9 @@ import { SlicetextPipe } from "../pipe/slicetext.pipe";
     InputPrefixDirective,
     OnlyNumber,
     SlicetextPipe,
-    FocusNextInputDriective
+    FocusNextInputDriective,
+    SkeletionListComponent,
+    SkeletionListItemComponent
   ],
   imports: [
     CommonModule,
@@ -83,7 +87,8 @@ import { SlicetextPipe } from "../pipe/slicetext.pipe";
     NgxMaskModule,
     SlicetextPipe,
     FocusNextInputDriective,
-    ProgressSpinnerModule
+    SkeletionListComponent,
+    SkeletionListItemComponent
   ],
   providers: []
 })
