@@ -14,6 +14,7 @@ import {
   SliderComponent,
   SkeletionListComponent,
   SkeletionListItemComponent,
+  EmptyResultComponent
 } from "../components";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router"
@@ -49,7 +50,8 @@ import { SlicetextPipe } from "../pipe/slicetext.pipe";
     SlicetextPipe,
     FocusNextInputDriective,
     SkeletionListComponent,
-    SkeletionListItemComponent
+    SkeletionListItemComponent,
+    EmptyResultComponent
   ],
   imports: [
     CommonModule,
@@ -88,7 +90,8 @@ import { SlicetextPipe } from "../pipe/slicetext.pipe";
     SlicetextPipe,
     FocusNextInputDriective,
     SkeletionListComponent,
-    SkeletionListItemComponent
+    SkeletionListItemComponent,
+    EmptyResultComponent
   ],
   providers: []
 })
