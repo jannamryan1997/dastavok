@@ -1,5 +1,6 @@
 <section full-width> 
 <div class="checkout_content">
+        <app-error [error]="error"></app-error>
     <p class="type" >{{'please_fill_in_the_shipping_address' | translate}}</p>
     <div id="map"></div>
     <form [formGroup]="paymentForm">
@@ -50,7 +51,7 @@
                                                 <button type="button" class="button back" display-flex  (click)="onClickSave()"  [disabled]="paymentForm.invalid || loading " [ngClass]="{'opacity':paymentForm.invalid || loading}">
                                                             <span margin-auto>{{'save' | translate}}</span>
                                                         </button>
-                                                <button type="submit" class="button next" display-flex  routerLink="/home/information">
+                                                <button type="submit" class="button next" display-flex  routerLink="/">
                                                         <span margin-auto>{{'cancel' | translate}}</span>
                                                     </button>
                                             </div>

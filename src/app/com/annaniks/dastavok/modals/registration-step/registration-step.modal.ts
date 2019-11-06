@@ -170,6 +170,7 @@ export class RegistrationStep implements OnInit {
                 this._formBuilderSignUpForm();
                 this._signUpService.isAuthorized = true;
                 this.tab = this.tab + 1;
+                this.error="";
             },
                 err => {
                     this.error = err.error.error;
@@ -193,6 +194,7 @@ export class RegistrationStep implements OnInit {
                 this.loading = false;
                 this.phoneNumberForm.enable();
                 this.dialogRef.close();
+                this.error="";
             }),
             err => {
                 this.error = err.error.error;
