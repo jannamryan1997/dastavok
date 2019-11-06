@@ -36,3 +36,4 @@ export * from "src/app/com/annaniks/dastavok/components/error/error.component";
 export * from "src/app/com/annaniks/dastavok/components/good-tabs/reviw-chart/reviw-chart.component";
 export * from './skeletion-list/skeletion-list-item/skeletion-list-item.component';
 export * from './skeletion-list/skeletion-list.component';
+export *from './empty-result/empti-result.component';

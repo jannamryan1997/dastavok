@@ -6,8 +6,10 @@
                 <a class="goods-list-item" [routerLink]="'/'+companyId+'/products/'+item.id" *ngFor="let item of goods" full-width>
                     <app-goods-list-item [goodInfo]="item" [goodsImage]="item.images">
                     </app-goods-list-item>
+               
                 </a>
             </app-goods-list>
+            <empty-result *ngIf="goods.length==0 && !loading"></empty-result>
             <app-skeletion-list *ngIf="loading" full-width display-flex justify-content-space-between>
                 <app-skeletion-list-item [type]="'good'"></app-skeletion-list-item>
                 <app-skeletion-list-item [type]="'good'"></app-skeletion-list-item>

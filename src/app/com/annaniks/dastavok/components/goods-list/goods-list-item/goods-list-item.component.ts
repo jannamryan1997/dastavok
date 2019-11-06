@@ -18,10 +18,9 @@ export class GoodsListItemComponent implements OnInit {
 
 
     ngOnInit() {
-        if (this.goodsImage != null) {
-            let images = this.goodsImage.split(",")
-            this.goodsImageItem = images[0];
-        }
+            this.goodsImageItem = this.goodInfo.thumbnail;
+            console.log("gfdgdfgfdgdfgd");
+            
 
     }
 }
