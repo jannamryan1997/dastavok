@@ -29,7 +29,7 @@ export class ProductView implements OnInit, OnDestroy {
     public count: number = 0;
     public page: number = 1;
     public pageLength: number = 10;
-    public loading: boolean = false;
+    public loading: boolean = true;
     private _unsubcribe$: Subject<void> = new Subject<void>();
 
     constructor(
@@ -54,6 +54,9 @@ export class ProductView implements OnInit, OnDestroy {
     ngOnInit() {
         this._getGood();
         this._getReview();
+        this.loading=true;
+        console.log(this.loading);
+        
     }
 
     public countIncrement(): void {
@@ -92,7 +95,7 @@ export class ProductView implements OnInit, OnDestroy {
             }
         };
         this._router.navigate(['/payment'], { queryParams: { order: JSON.stringify(orderInfo) } });
-      
+
     }
 
     private _getGood(): void {
@@ -126,7 +129,9 @@ export class ProductView implements OnInit, OnDestroy {
             panelClass: ['margin-10'],
         })
         dialogRef.afterClosed().subscribe((data) => {
-            this.openRegistrationStepModal();
+            if (data) {
+                this._openRegistrationStepModal();
+            }
         })
 
     }
@@ -167,13 +172,13 @@ export class ProductView implements OnInit, OnDestroy {
             }
             if (type && type == "buy") {
                 this.onClickBuy();
-              
+
             }
         }
-      
+
 
     }
-    public openRegistrationStepModal(): void {
+    private _openRegistrationStepModal(): void {
         const dialogRef = this._dialog.open(RegistrationStep, {
             width: "686px",
             maxWidth: '100vw',

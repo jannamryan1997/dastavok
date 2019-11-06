@@ -14,6 +14,10 @@ export class IngredientComponent implements OnInit {
     constructor() { }
 
     ngOnInit() { 
+        if(!this.topping){
+            console.log(this.topping,"gfdgfg");
+        }
+    
         
     }
 

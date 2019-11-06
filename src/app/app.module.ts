@@ -41,10 +41,6 @@ export function createTranslateLoader(http: HttpClient) {
   ],
   providers: [
     {
-      provide: COOKIE_OPTIONS,
-      useValue: CookieOptionsProvider
-    },
-    {
       provide: HTTP_INTERCEPTORS,
       useClass: ApiInterceptor,
       multi: true

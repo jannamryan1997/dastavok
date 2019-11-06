@@ -2,7 +2,6 @@
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Inject } from '@angular/core';
-import { SignUpService } from '../services/signUp.service';
 import { CookieService } from 'ngx-cookie';
 
 function checkIsRelativePath(path: string): boolean {

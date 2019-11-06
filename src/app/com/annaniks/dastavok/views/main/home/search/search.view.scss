@@ -1,17 +1,18 @@
-@import "../../../../../../../../assets/scss/mixin";  
+@import "../../../../../../../../assets/scss/mixin";
 
-.search_content{
-@include flex-spase-between();
-margin-top: 50px;
-.search_container{
+.search_content {
+  @include flex-spase-between();
+  margin-top: 50px;
+  .search_container {
     width: calc(100% - 240px);
     margin-left: 50px;
-}
+  }
 }
 
-app-goods-list-item{
-    width: 50%;
-    padding: 1.2em;
+.goods-list-item,
+app-skeletion-list-item {
+  width: 50%;
+  padding: 1.2em;
 }
 
 @media only screen and (max-width:1400px){
@@ -19,13 +20,22 @@ app-goods-list-item{
         flex-direction: column !important;
     }
     app-goods-list-item{
-        width: 100% !important;
+        width: 50% !important;
     }
+  }
+@media only screen and (max-width: 1400px) {
+  .search_container {
+    flex-direction: column !important;
+  }
+  .goods-list-item,
+  app-skeletion-list-item {
+    width: 100% !important;
+  }
 }
 
-@media only screen and (max-width:900px){
-    .search_container{
-        width: 100% !important;
-        margin: auto !important;
-    }
+@media only screen and (max-width: 900px) {
+  .search_container {
+    width: 100% !important;
+    margin: auto !important;
+  }
 }

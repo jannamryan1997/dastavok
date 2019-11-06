@@ -1,0 +1,23 @@
+@import "../../../../../../assets/scss/mixin";
+
+.empty_content{
+    align-content: center;
+    text-align: center;
+    margin: 20px 0;
+    i{
+        font-size: 60px;
+    }
+.type{
+    @include text(#444444,50px)
+}
+}
+
+
+@media only screen and (max-width:900px){
+    i{
+        font-size: 40px !important;
+    }
+    .type{
+        font-size: 24px !important;
+    }
+}

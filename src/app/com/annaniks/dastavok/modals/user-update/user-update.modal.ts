@@ -104,6 +104,7 @@ export class UserUpdateModal implements OnInit {
             },
                 err => {
                     this.error = err.error.error;
+                    this.userUpdateGroup.enable();
                 })
     }
 

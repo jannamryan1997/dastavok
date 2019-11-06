@@ -1,6 +1,7 @@
 <form [formGroup]="userUpdateGroup">
         <div class="container">
             <app-error [error]="error"></app-error>
+            
             <div class="form_conteiner" full-width>
                     <div class="image" margin-auto full-width full-height [ngStyle]="{'background-image':'url('+localImage+')'}"></div>
                     <input type="file" border-none margin-auto (change)="setServicePhoto($event)">

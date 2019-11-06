@@ -41,7 +41,9 @@ export class ProductTypesView implements OnInit, OnDestroy {
         this._productTypesService.getGoodTypes(companyId)
             .pipe(takeUntil(this._unsubscribe$))
             .subscribe((data: ServerResponse<Array<GoodType>>) => {
-                this.loading = false;
+                setTimeout(()=>{
+                    this.loading = false;
+                },5000)
                 this.goodTypes = data.data;
             })
     }

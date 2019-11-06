@@ -13,7 +13,7 @@ import { takeUntil } from "rxjs/operators";
 
 export class ProductsView implements OnInit, OnDestroy {
     private _goodTypeId: number;
-    public pageLength: number = 10;
+    public pageLength: number = 9;
     public goodsInfo: Array<Good> = [];
     public count: number;
     public goodTypeImage: string = '';
@@ -30,8 +30,11 @@ export class ProductsView implements OnInit, OnDestroy {
             this._goodTypeId = params.goodTypeId;
         })
     }
+
     ngOnInit() {
         this._getGoods(this._companyId, this._goodTypeId, 1, this.pageLength);
+        console.log(this.pageLength);
+        
     }
 
     private _getGoods(companyId: number, goodTypeId: number, page, count): void {

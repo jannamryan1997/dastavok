@@ -151,6 +151,7 @@ export class VerificationModal implements OnInit {
         });
         err => {
             this.error = err.error.error;
+            this.verificationForm.enable();
         }
     }
 

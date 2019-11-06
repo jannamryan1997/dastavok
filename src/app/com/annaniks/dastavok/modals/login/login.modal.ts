@@ -49,8 +49,7 @@ export class LoginModal implements OnInit {
 
         }).subscribe((data: ServerResponse<LoginResponse>) => {
             this.loading = false;
-            this._cookieService.put("refreshToken", data.data.refreshToken);
-            this._cookieService.put('token', data.data.token);
+            this._rememberUser(data.data.token, data.data.refreshToken);
             this.loginForm.enable();
             this.dialogRef.close();
         },
@@ -84,4 +83,13 @@ export class LoginModal implements OnInit {
     public showPassword(): void {
         this.show = !this.show;
     }
+
+    private _rememberUser(token: string, refreshToken: string): void {
+        const expires: number = 3 * 1000 * 60 * 60 * 24;
+        const expiresDate: Date = new Date(new Date().getTime() + expires);
+        this._cookieService.put('token', token, { expires: expiresDate });
+        this._cookieService.put("refreshToken", refreshToken, { expires: expiresDate, path: '/' });
+
+    }
+
 }
