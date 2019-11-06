@@ -22,6 +22,7 @@
 
             .type {
                 @include text(#ffffff, 20px);
+                text-transform: uppercase;
             }
         }
     }

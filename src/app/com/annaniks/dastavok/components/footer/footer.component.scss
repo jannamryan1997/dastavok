@@ -1,78 +1,6 @@
 @import "../../../../../../assets/scss/mixin.scss";
 @import "../../../../../../assets/scss/global.scss";
 
-// .footer_content {
-//     width: 100%;
-//     background: #444444;
-
-//     .footer_conteiner {
-//         display: flex;
-//         justify-content: space-between;
-//         padding: 20px 0 130px 0;
-
-//         .description {
-//            width: 320px;
-//             .title {
-//                 @include text(#919191,12px);
-//             }
-//         }
-//         .nav{
-//             margin: 30px 0 0 100px;
-//         width: calc(100% - 420px);
-//             .menu{
-//                 width: 100%;
-//                 display: flex;
-//                 justify-content: space-between;
-//                 flex-wrap: wrap;
-//                .menu_item{
-//                 .type{
-//                     @include text(#ffffff,15px);
-//                     font-weight: bold;
-
-//                 }
-//                 .title{
-//                     @include text(#919191,12px);
-//                     line-height: 8px;
-//                     cursor: pointer;
-//                     margin-top: 13px;
-//                 }
-//                } 
-//             }
-
-//         }
-//     }
-// }
-
-// @media only screen and (max-width:900px){
-//     .footer_conteiner{
-//         flex-direction: column !important;
-//         .nav{
-//             width: 100% !important;
-//         }
-//     }
-// }
-
-// @media only screen and (max-width:650px){
-
-//         .menu_item{
-//             width: 50% !important;
-//             &:last-child{
-//                 margin: 20px 0 !important;
-//             }
-//         }
-// }
-
-
-// @media only screen and (max-width:500px){
-//     .menu{
-//         flex-direction: column !important;
-//         .menu_item{
-//             margin: 20px 0 ;
-//         }
-//     }
-// }
-
-
 .footer_content {
     width: 100%;
     background: #444444;
@@ -123,7 +51,7 @@
     }
 }
 
-@media only screen and (max-width:1400px) and (min-width:550px)  {
+@media only screen and (max-width:1400px) and (min-width:600px)  {
 
 } 
 @media only screen and (max-width:1400px){
@@ -131,14 +59,14 @@
         width: 50% !important;
     }
 }
-@media only screen and (max-width:920px){
+@media only screen and (max-width:1000px){
     .nav {
         margin-left:0px !important;
         width:100% !important;
 }
 }
 
-@media only screen and (max-width:550px){
+@media only screen and (max-width:600px){
     .menu_item,.description {
         width:100% !important;
 }
