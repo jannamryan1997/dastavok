@@ -1,6 +1,5 @@
 import { Component, Input, OnInit, Inject } from "@angular/core"
 import { Good } from "../../../models/models";
-import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
     selector: "app-goods-list-item",
@@ -19,8 +18,5 @@ export class GoodsListItemComponent implements OnInit {
 
     ngOnInit() {
             this.goodsImageItem = this.goodInfo.thumbnail;
-            console.log("gfdgdfgfdgdfgd");
-            
-
     }
 }
