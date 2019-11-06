@@ -65,14 +65,12 @@
                 .user_image {
                     width: 36px;
                     height: 36px;
-                    background-position: center;
-                    background-size: cover;
-                    background-repeat: no-repeat;
                     border-radius: 50%;
                 }
 
                 .user_name {
                     @include text(#191919, 15px);
+                    margin-left: 20px;
                 }
 
                 i {
