@@ -18,7 +18,6 @@ export class PaymentView implements OnInit {
         this._activatedRoute.queryParams.subscribe((params) => {
             if (params.order) {
                 this.orderInfo = JSON.parse(params.order);
-               // (this.orderInfo);
             }
         })
     }
