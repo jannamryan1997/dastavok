@@ -51,7 +51,7 @@ import { SlicetextPipe } from "../pipe/slicetext.pipe";
     FocusNextInputDriective,
     SkeletionListComponent,
     SkeletionListItemComponent,
-    EmptyResultComponent
+    EmptyResultComponent,
   ],
   imports: [
     CommonModule,

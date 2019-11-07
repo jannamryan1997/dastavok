@@ -24,26 +24,29 @@
                     keyboard_arrow_left
                 </i>
             </div>
-                <ngx-item *ngFor="let item of items" NgxCarouselItem>
-                    <div class="slider_item">
-                            <div class="image slider_image" [ngStyle]="{'background-image':'url('+item.title+')'}"></div>
-                            <div class="information_content" display-flex justify-content-space-between>
-                                    <p class="title" font-weight-bold font-family-Roboto>{{item.label}}</p>
-                                    <p class="title" ont-weight-bold font-family-Roboto>15$</p>
-                                   
-                                </div>
-                                <p class="type" ont-weight-bold font-family-Roboto>{{item.text}}</p>
-                                <app-rating [currentIndex]="starCount" [changeRating]="false" [starSize]="7" ></app-rating>
+            <ngx-item *ngFor="let item of items" NgxCarouselItem [routerLink]="'/'+item.goodTypeId+'/products/'+item.id"
+                cursor-pointer>
+                <div class="slider_item">
+                    <div class="image slider_image" [ngStyle]="{'background-image':'url('+fileUrl+item.thumbnail+')'}">
                     </div>
-                </ngx-item>
-                <div NgxCarouselPrev class="leftRs_config">
-                        <i class="material-icons">
-                            keyboard_arrow_left
-                        </i>
+                    <div class="information_content" display-flex justify-content-space-between>
+                        <p class="title" font-weight-bold font-family-Roboto>{{item?.name}}</p>
+                        <p class="title" ont-weight-bold font-family-Roboto>{{item?.description | slicetextPipe : 50}}$
+                        </p>
+
                     </div>
-                    <div NgxCarouselNext class="rightRs_config"><i class="material-icons">
-                            keyboard_arrow_right
-                        </i></div>
+                    <p class="type" ont-weight-bold font-family-Roboto>{{item?.text}}</p>
+                    <!-- <app-rating [currentIndex]="starCount" [changeRating]="false" [starSize]="7" ></app-rating> -->
+                </div>
+            </ngx-item>
+            <div NgxCarouselPrev class="leftRs_config">
+                <i class="material-icons">
+                    keyboard_arrow_left
+                </i>
+            </div>
+            <div NgxCarouselNext class="rightRs_config"><i class="material-icons">
+                    keyboard_arrow_right
+                </i></div>
 
         </ngx-carousel>
     </div>
