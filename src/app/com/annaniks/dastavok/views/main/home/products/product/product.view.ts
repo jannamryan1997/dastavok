@@ -39,8 +39,6 @@ export class ProductView implements OnInit, OnDestroy {
         private _dialog: MatDialog,
         private _signUpService: SignUpService,
         private _messageService: MessageService,
-
-
         @Inject('FILE_URL') public fileUrl: string,
         @Inject('COMPANY_ID') private _companyId: number
     ) {
@@ -54,9 +52,6 @@ export class ProductView implements OnInit, OnDestroy {
     ngOnInit() {
         this._getGood();
         this._getReview();
-        this.loading=true;
-        console.log(this.loading);
-        
     }
 
     public countIncrement(): void {
@@ -114,6 +109,7 @@ export class ProductView implements OnInit, OnDestroy {
                 }
                 if (data.data.images) {
                     this.goodImage = data.data.images.split(",")
+                    this.goodImage.unshift(data.data.thumbnail);
                 }
             })
     }
