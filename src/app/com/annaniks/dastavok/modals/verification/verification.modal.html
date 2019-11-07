@@ -1,7 +1,7 @@
 <form [formGroup]="verificationForm">
     <div class="container">
-            <app-error [error]="error"></app-error>
         <div class="verification_conteiner">
+                <app-error [error]="error"></app-error>
             <div class="verification_item" display-flex width-75 margin-auto display-flex>
                 <input class="item_label" [max-count]="1" app-focus-next-input maxLength="1" OnlyNumber="true" formControlName="control_1" [ngClass]="{'border':checkIsValid('control_1')}">
                 <input class="item_label" [max-count]="1" app-focus-next-input maxLength="1" OnlyNumber="true" formControlName="control_2" [ngClass]="{'border':checkIsValid('control_2')}">

@@ -65,6 +65,9 @@
     "cancel":"cancel",
     "work":"work",
     "dont_work":"don't work",
-    "sad_not_result":"SAD NOT RESULT"
+    "sad_not_result":"SAD NOT RESULT",
+    "sign_in":"Sign In",
+    "sign_up":"Sign Up",
+    "notification":"Notification"
   
 }
