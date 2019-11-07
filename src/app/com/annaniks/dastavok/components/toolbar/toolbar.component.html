@@ -37,7 +37,7 @@
                     </div>
                     <div class="user_data" full-height display-flex align-items-center position-relative *ngIf="signUpService.isAuthorized"
                         (clickOutside)="onClickedOutsideUserProfile($event)">
-                        <div class="user_image" [ngStyle]="{'background-image':'url('+signUpService.userImage+')'}"></div>
+                        <div class="image user_image" [ngStyle]="{'background-image':'url('+signUpService.userImage+')'}"></div>
                         <div display-flex align-items-center>
                             <p class="user_name" display-flex  align-items-center font-weight-bold font-family-Roboto>{{signUpService?.userInfo.fullName}}
 
