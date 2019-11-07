@@ -24,13 +24,15 @@
                     keyboard_arrow_left
                 </i>
             </div>
-            <ngx-item *ngFor="let item of items" NgxCarouselItem>
+            <ngx-item *ngFor="let item of items" NgxCarouselItem [routerLink]="'/'+item.goodTypeId+'/products/'+item.id"
+                cursor-pointer>
                 <div class="slider_item">
                     <div class="image slider_image" [ngStyle]="{'background-image':'url('+fileUrl+item.thumbnail+')'}">
                     </div>
                     <div class="information_content" display-flex justify-content-space-between>
                         <p class="title" font-weight-bold font-family-Roboto>{{item?.name}}</p>
-                        <p class="title" ont-weight-bold font-family-Roboto>{{item?.description | slicetextPipe : 50}}$</p>
+                        <p class="title" ont-weight-bold font-family-Roboto>{{item?.description | slicetextPipe : 50}}$
+                        </p>
 
                     </div>
                     <p class="type" ont-weight-bold font-family-Roboto>{{item?.text}}</p>
