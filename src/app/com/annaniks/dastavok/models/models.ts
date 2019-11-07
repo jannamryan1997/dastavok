@@ -2,6 +2,11 @@ export interface MenuItem {
     label: string,
     routerLink: string;
 }
+export interface SlideItem{
+    icon:string,
+    link:string,
+    routerLink: string;
+}
 
 export interface ServerResponse<T> {
     data: T;

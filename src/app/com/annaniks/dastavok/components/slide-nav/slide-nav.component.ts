@@ -5,6 +5,7 @@ import { LoginModal, PhoneNumberModal } from "../../modals";
 import { SignUpService } from "../../services/signUp.service";
 import { Router } from "@angular/router";
 import { CookieService } from "ngx-cookie";
+import { SlideItem } from "../../models/models";
 
 @Component({
     selector: "app-slide-nav",
@@ -26,7 +27,11 @@ export class SlideNawComponent implements OnInit {
         { name: "Pусский", image: 'assets/images/russion.jpg' }
 
     ]
-
+    
+    public menuItem:SlideItem[]=[
+        {icon:"home",link:"home",routerLink:'/'},
+        {icon:"contacts",link:"contact",routerLink:'/contact'}
+    ]
     constructor(public menuService: MenuService, private dialog: MatDialog, public signUpService: SignUpService, private roter: Router, private _cookieService: CookieService) { }
 
     ngOnInit() {
@@ -42,6 +47,7 @@ export class SlideNawComponent implements OnInit {
         this.showLangualeMenu = !this.showLangualeMenu;
 
     }
+
 
     // public showLogin() {
     //     this.showLoginMenu = !this.showLoginMenu;

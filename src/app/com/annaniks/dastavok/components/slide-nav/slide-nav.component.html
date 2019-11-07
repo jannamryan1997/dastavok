@@ -1,107 +1,51 @@
-<div>
-    <div class="slide_naw_content" [ngClass]="{'open':menuService.isOpen,'close':!menuService.isOpen}">
-        <div class="slide_top" full-width display-flex>
-            <div class="conteiner" full-width>
-                <div class="lenguage" position-relative display-flex (click)="showLanguage()" (clickOutside)="onClickedOutside($event)">
-                    <div display-flex>
-                        <div class="flag_img"></div>
-                    </div>
-
-
-                    <p class="lenguage_name" font-family-Roboto>English</p>
-                    <i class="material-icons">
-                        keyboard_arrow_down
-                    </i>
-                    <div class="language_menu">
-                        <div class="language_menu_content" position-absolute display-flex [ngClass]="{'showLanguage':showLangualeMenu,'hideLanguage':!showLangualeMenu}">
-                            <div class="language_menu_top" width-75 margin-side-auto>
-                                <div class="language_item" *ngFor="let item of languageItem">
-                                    <div display-flex>
-                                        <div class="flag_img" [ngStyle]="{'background-image':'url('+item.image+')'}"></div>
-                                        <p class="lenguage_name" font-family-Roboto>{{item.name}}</p>
-                                    </div>
-                                    <div class="line" full-width></div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class=radius_content width-75 margin-auto display-flex>
+<section [ngClass]="{'open':menuService.isOpen,'close':!menuService.isOpen}">
+    <div class="slide_nav_content">
+        <div class="top_content">
+            <div class="slide_nav_container">
+                <div class="user_data_content">
                     <div class="radius" *ngIf="!signUpService.isAuthorized"></div>
-                    <div class="img_content" *ngIf="signUpService.isAuthorized"[ngStyle]="{'background-image':'url('+signUpService.userImage+')'}"></div>
-                   <div class="user_name" *ngIf="signUpService.isAuthorized" width-75 margin-auto>
-                  <p color-white  font-family-Roboto>{{signUpService?.userInfo.fullName}}</p> 
-                  
-                </div> 
+                    <div class="image" *ngIf="signUpService.isAuthorized"
+                        [ngStyle]="{'background-image':'url('+signUpService.userImage+')'}"></div>
+                    <p class="type" *ngIf="signUpService.isAuthorized"> {{signUpService?.userInfo.fullName}}</p>
                 </div>
-                <div class="login_menu" position-relative (clickOutside)="onClickedOutsideLoginMenu($event)" *ngIf="!signUpService.isAuthorized">
-                    <div class="login_signin" width-75 margin-auto (click)="showLogin()">
-                        <p class="login_text" font-family-Roboto>login/sign in</p>
-                    </div>
-                    <div class="top_login" position-absolute display-flex *ngIf="showLenguage">
-                        <div class="button_item" width-75 margin-auto>
-                            <button class="login_button">
-                                <span color-white font-family-Roboto text-align-center (click)="openLoginDialog()">LOGIN</span>
-                            </button>
-                            <button class="registration_button">
-                                <span color-white font-family-Roboto text-align-center (click)="openDialogPhoneNumber()"> Registration</span>
-                            </button>
-                        </div>
-                    </div>
+                <div class="sign_up_content" position-relative (clickOutside)="onClickedOutsideLoginMenu($event)"
+                    *ngIf="!signUpService.isAuthorized">
+                    <p class="type" font-family-Roboto cursor-pointer (click)="showLogin()">{{'login' | translate}}/</p>
+                    <p class="type" font-family-Roboto cursor-pointer (click)="openDialogPhoneNumber()">
+                        {{'registration' | translate}}</p>
                 </div>
-
-                <div class="sign_up" *ngIf="signUpService.isAuthorized" width-75 margin-auto display-flex (click)="logOut()">
-                    <i class="material-icons">
-                        exit_to_app
-                    </i>
-                    <p class="sign_up_text" font-family-Roboto >sign up</p>
-                </div>
-
-
             </div>
-
         </div>
-
-        <div class="top_menu" full-width display-flex>
-            <div class="menu_content" width-75 margin-auto>
-                <div display-flex align-items-center (click)="navToPage('/home')">
-                    <i class="material-icons">
-                        home
-                    </i>
-                    <div display-flex>
-                        <p class="home_text" font-family-Open-Sans margin-auto>HOME</p>
-                    </div>
-
-                </div>
-                <div class="contact_content" display-flex (click)="navToPage('/contact')">
-                    <i class="material-icons">
-                        contacts
-                    </i>
-                    <div display-flex>
-                        <p class="contact_text" font-family-Open-Sans margin-auto>CONTACT</p>
-                    </div>
-                </div>
-                <div class="user_profile" *ngIf="signUpService.isAuthorized">
-                    <div class="line"full-width></div>
-                    <div class="profile_content" display-flex (click)="navToPage('/profile')">
+        <div class="menu_content">
+            <nav class="nav">
+                <ul>
+                    <li *ngFor="let item of menuItem">
+                        <i class="material-icons">
+                            {{item.icon}}
+                        </i>
+                        <a class="link" routerLink="{{item.routerLink}}"
+                            (click)="closeMenu()">{{item.link | translate}}</a>
+                    </li>
+                    <li *ngIf="signUpService.isAuthorized">
                         <i class="material-icons">
                             person
                         </i>
-                        <p  class="profile_text" font-family-Open-Sans >User profile</p>
-                    </div>
-                    <div class="notifications_content" display-flex >
+                        <a class="link" (click)="navToPage('/profile')">{{'user_profile' | translate}}</a>
+                    </li>
+                    <li *ngIf="signUpService.isAuthorized">
                         <i class="material-icons">
                             notifications_active
                         </i>
-                        <p  class="profile_text" font-family-Open-Sans >Notification</p>
-                    </div>
-                </div>
-
-            </div>
-
+                        <a class="link" (click)="navToPage('/notification')">{{'notification' | translate}}</a>
+                    </li>
+                    <li *ngIf="signUpService.isAuthorized">
+                        <i class="material-icons">
+                            exit_to_app
+                        </i>
+                        <a class="link" (click)="logOut()">{{'log_out' | translate}}</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </div>
-
-</div>
+</section>
