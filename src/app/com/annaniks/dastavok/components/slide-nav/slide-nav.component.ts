@@ -94,7 +94,7 @@ export class SlideNawComponent implements OnInit {
         this._cookieService.remove('refreshToken');
         this._cookieService.remove('token');
         this.menuService.closeMenu();
-        this.roter.navigate(['/home'])
+        this.roter.navigate(['/'])
         this.signUpService.isAuthorized=false;
     }
 
