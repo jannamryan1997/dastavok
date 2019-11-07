@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject, OnDestroy } from "@angular/core"
 import { ActivatedRoute, Router } from "@angular/router";
 import { ProductTypesService } from "./product-types.service";
-import { ServerResponse, GoodType, Restaurant } from "../../../../models/models";
+import { ServerResponse, GoodType, Restaurant, Good } from "../../../../models/models";
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
 
@@ -21,10 +21,9 @@ export class ProductTypesView implements OnInit, OnDestroy {
     public page: number = 1;
     public count: number = 0;
     public pageLength: number = 0;
-
+    public sliderProducts: Good[] = []
 
     constructor(
-        @Inject("FILE_URL") private _fileUrl: string,
         @Inject("COMPANY_ID") public companyId: number,
         private _router: Router,
         private _activatedRoute: ActivatedRoute,
@@ -33,7 +32,16 @@ export class ProductTypesView implements OnInit, OnDestroy {
 
     ngOnInit() {
         this._getGoodTypes(this.companyId);
+        this._getSliderProducts();
         this._getRestaurant();
+    }
+
+    private _getSliderProducts(): void {
+        this._productTypesService.getSliderProducts(this.companyId)
+            .pipe(takeUntil(this._unsubscribe$))
+            .subscribe((data) => {
+                this.sliderProducts = data.data.data.goods;
+            })
     }
 
     private _getGoodTypes(companyId: number): void {
@@ -41,9 +49,9 @@ export class ProductTypesView implements OnInit, OnDestroy {
         this._productTypesService.getGoodTypes(companyId)
             .pipe(takeUntil(this._unsubscribe$))
             .subscribe((data: ServerResponse<Array<GoodType>>) => {
-                setTimeout(()=>{
+                setTimeout(() => {
                     this.loading = false;
-                },5000)
+                }, 5000)
                 this.goodTypes = data.data;
             })
     }

@@ -6,7 +6,7 @@
         <app-menu></app-menu>
         <div class="product_type_conteiner">
             <div class="slider_contnet">
-                <app-slider class="slider" [sliderMode]="2"></app-slider>
+                <app-slider class="slider" [sliderMode]="2" [items]="sliderProducts"></app-slider>
             </div>
             <app-goodType-list>
                 <app-goodType-list-item *ngFor="let item of goodTypes" [goodTypeInfo]="item"
