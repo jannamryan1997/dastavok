@@ -17,5 +17,25 @@
                 </div>
             </div>
         </div>
+        <table *ngSwitchCase="'card'">
+            <tr>
+                <th class="th_type"></th>
+                <th class="th_type"></th>
+                <th class="th_type price_type"></th>
+                <th class="th_type"></th>
+                <th class="th_type"></th>
+            </tr>
+            <tr>
+                <td class="td_type">
+                    <div class="image product_image" [ngStyle]="{'background-image':'url('+fileUrl+itemImage+')'}">
+                    </div>
+                </td>
+                <td class="td_type"></td>
+                <td class="td_type price_type"></td>
+                <td class="td_type"></td>
+                <td class="td_type"></td>
+            </tr>
+
+        </table>
     </div>
 </div>

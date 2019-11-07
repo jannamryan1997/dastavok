@@ -31,9 +31,9 @@ export class SignUpService extends Utility {
         return this._httpClient.post("freeclient/phone/verify", body, { headers: headers })
     }
 
-    public signUpClient(body) {
+    public signUpClient(body, param?: string) {
         let headers = new HttpHeaders({
-            'token': this._cookieService.get('verificationtoken') || ''
+            'token': this._cookieService.get((param && param == 'fast_reg') ? 'token' : 'verificationtoken') || ''
         })
         return this._httpClient.post("client", body, { headers })
     }
