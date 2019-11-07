@@ -42,11 +42,21 @@
             .information_content {
                 .title {
                     @include text(#191919, 9px);
+                    width: 100%;
                 }
             }
-            .type{
-                @include text(#191919, 9px);   
+            .description_content{
+                .type{
+                    @include text(#191919, 10px);   
+                    width: 80%;
+                }
+                .price_type {
+                    @include text(#444444, 9px);   
+                    text-align: end;
+                }
+            
             }
+            
         }
 
     }
