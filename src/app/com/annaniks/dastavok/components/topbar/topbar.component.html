@@ -1,21 +1,20 @@
-<div class="topbar_wrapper" full-width>
-    <div class="topbar_container" display-flex align-items-center>
-        <a class="topbar_item" display-flex cursor-pointer *ngFor="let item of menuItemsService.getMenuItems()"
-            routerLink="{{item.routerLink}}" routerLinkActive="topbar_item_active"
-            [routerLinkActiveOptions]="{ exact: true }">
-            <p class="item_label" font-weight-bold margin-auto font-family-Open-Sans>{{item.label | translate}}</p>
-        </a>
-    </div>
-    <div class="topbar_middle" (clickOutside)="onClickedOutside($event)">
-        <div display-flex class="container">
-            <i class="material-icons icon_shopping" margin-auto (click)="openFiltersMenu()">
+<header full-width>
+    <div class="header_content">
+        <div class="toolbar_content">
+            <a class="topbar_item" display-flex cursor-pointer *ngFor="let item of menuItemsService.getMenuItems()"
+                routerLink="{{item.routerLink}}" routerLinkActive="topbar_item_active"
+                [routerLinkActiveOptions]="{ exact: true }">
+                <p class="type" font-weight-bold margin-auto font-family-Open-Sans>{{item.label | translate}}</p>
+            </a>
+        </div>
+        <div class="topbar_middle" (clickOutside)="onClickedOutside($event)">
+            <i class="material-icons" margin-auto (click)="openFiltersMenu()">
                 near_me
             </i>
-            <i class="material-icons icon_shopping" margin-auto>
+            <i class="material-icons" margin-auto>
                 shopping_cart
             </i>
+            <app-filters-list></app-filters-list>
         </div>
-        <app-filters-list></app-filters-list>
     </div>
-
-</div>
+</header>

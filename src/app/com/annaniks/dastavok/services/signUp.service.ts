@@ -31,9 +31,9 @@ export class SignUpService extends Utility {
         return this._httpClient.post("freeclient/phone/verify", body, { headers: headers })
     }
 
-    public signUpClient(body) {
+    public signUpClient(body, param?: string) {
         let headers = new HttpHeaders({
-            'token': this._cookieService.get('verificationtoken') || ''
+            'token': this._cookieService.get((param && param == 'fast_reg') ? 'token' : 'verificationtoken') || ''
         })
         return this._httpClient.post("client", body, { headers })
     }
@@ -65,7 +65,6 @@ export class SignUpService extends Utility {
     public getUserInfo() {
         return this._httpClient.get("client", { params: this._setAuthorizedParams() }).pipe(
             map((data: ServerResponse<User>) => {
-                console.log(data);
                 this.userInfo = data.data;
                 if (data.data.image !== null) {
                     data.data.image = this._fileUrl + "client/image/" + data.data.image;

@@ -6,29 +6,29 @@
                     <div class="logo">
                         <img class="image" src="assets/images/logo.png" full-width>
                     </div>
-
                     <div class="search">
-                        <input class="search_input" placeholder="{{'search_product_hear' | translate}}" [(ngModel)]="search">
-                        <button class="search_btn" display-flex (click)="onClickSearch()">
+                        <form>
+                            <input class="search_input" placeholder="{{'search_product_hear' | translate}}"
+                                [formControl]="searchControl">
+                            <button type="submit" class="search_btn" display-flex (click)="onClickSearch()">
                                 <i class="material-icons" margin-auto color-white>
                                     search
                                 </i>
                             </button>
-                        <div class="trash">
+                        </form>
+                        <div class="trash" *ngIf="isAuthorized">
                             <i class="material-icons" cursor-pointer>
-                                            shopping_cart
-                                        </i>
+                                shopping_cart
+                            </i>
                             <p class="title">({{signUpService.userInfo.chartOrdersCount}})</p>
                             <i class="material-icons icon" cursor-pointer routerLink="/basket">
-                                                keyboard_arrow_down
-                                            </i>
+                                keyboard_arrow_down
+                            </i>
                         </div>
-
                     </div>
                 </div>
             </header>
         </div>
-
     </div>
     <router-outlet></router-outlet>
 </section>
