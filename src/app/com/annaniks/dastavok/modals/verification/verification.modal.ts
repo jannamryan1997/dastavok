@@ -104,7 +104,6 @@ export class VerificationModal implements OnInit {
                 (data: any) => {
                     this.loading = false;
                     this.verificationForm.enable();
-                    console.log(data);
                     this.cookieService.put("verificationtoken", data.data.token)
                     this._signUpService.isAuthorized = true;
                     this.openSignUpModalModal();

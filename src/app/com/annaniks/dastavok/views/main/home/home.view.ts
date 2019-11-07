@@ -4,6 +4,7 @@ import { SignUpService } from "../../../services/signUp.service";
 import { Router, NavigationEnd, ActivatedRoute } from "@angular/router";
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
+import { FormControl } from "@angular/forms";
 
 @Component({
     selector: "app-home",
@@ -13,7 +14,7 @@ import { takeUntil } from "rxjs/operators";
 export class HomeView implements OnInit, OnDestroy {
     private _unsubscribe$: Subject<void> = new Subject<void>();
     public chooseBarVisiblity: boolean = true;
-    public search: string;
+    public searchControl: FormControl = new FormControl();
 
     constructor(
         public menuItemsService: MenuItemsService,
@@ -33,10 +34,10 @@ export class HomeView implements OnInit, OnDestroy {
             .pipe(takeUntil(this._unsubscribe$))
             .subscribe((params) => {
                 if (params && params.search && this._router.url.includes('/search?search=')) {
-                    this.search = params.search;
+                    this.searchControl.patchValue(params.search);
                 }
                 else {
-                    this.search = '';
+                    this.searchControl.patchValue('');
                 }
             })
     }
@@ -52,7 +53,8 @@ export class HomeView implements OnInit, OnDestroy {
     }
 
     public onClickSearch(): void {
-        this._router.navigate(['/search'], { queryParams: { search: this.search } })
+
+        this._router.navigate(['/search'], { queryParams: { search: this.searchControl.value } })
     }
 
     get isAuthorized(): boolean {
