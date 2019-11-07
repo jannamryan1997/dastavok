@@ -54,10 +54,14 @@
   }
 }
 
+table{
+  width: 100%;
+}
+
 .skeleton {
   .image,
   span,
-  p {
+  p,.td_type,.th_type {
     background: #f6f7f8;
     background-image: -webkit-linear-gradient(right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
     background-repeat: no-repeat;
@@ -67,6 +71,12 @@
   span {
     display: block;
     height: 22px;
+  }
+  .td_type {
+    height: 100px;
+  }
+  .th_type{
+    height: 30px;
   }
 
   p {

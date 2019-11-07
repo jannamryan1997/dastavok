@@ -1,9 +1,9 @@
-.content {
-    padding: 20px;
-    .conteiner {
-        .error {
-            color: red;
-            font-size: 16px;
-        }
-    }
+.error_container {
+  padding: 20px;
+  .error_message {
+    color: red;
+    font-size: 16px;
+    text-align: center;
+    margin: 0;
+  }
 }

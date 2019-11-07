@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, Inject } from "@angular/core"
-import { ServerResponse, Card, CardGoods } from "../../../models/models";
+import { Card, CardGoods } from "../../../models/models";
 import { BasketService } from "../../../views/main/home/basket/basket.service";
 
 @Component({

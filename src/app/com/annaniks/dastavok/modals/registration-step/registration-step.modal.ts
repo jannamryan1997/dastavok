@@ -4,7 +4,7 @@ import { SignUpService } from "../../services/signUp.service";
 import { CookieService } from "ngx-cookie";
 import { ServerResponse, PhoneVerification, Verification } from "../../models/models";
 import { MatDialogRef } from "@angular/material";
-import { Subject, timer, interval, Subscription } from "rxjs";
+import { Subject, interval, Subscription } from "rxjs";
 import { takeUntil } from "rxjs/operators";
 
 @Component({
@@ -78,13 +78,13 @@ export class RegistrationStep implements OnInit {
         })
     }
 
-    private _formBuilder() {
+    private _formBuilder(): void {
         this.phoneNumberForm = this._fb.group({
             phonenumber: ["", Validators.required]
         })
     }
 
-    private _formBuilderVerification() {
+    private _formBuilderVerification(): void {
         this.verificationForm = this._fb.group({
             control_1: ["", [Validators.required, Validators.maxLength(1), Validators.minLength(1)]],
             control_2: ["", [Validators.required, Validators.maxLength(1), Validators.minLength(1)]],
@@ -93,7 +93,7 @@ export class RegistrationStep implements OnInit {
         })
     }
 
-    private _formBuilderSignUpForm() {
+    private _formBuilderSignUpForm(): void {
         this.signUpForm = this._fb.group({
             user_name: [null, Validators.required],
             full_name: [null, Validators.required],
@@ -120,15 +120,19 @@ export class RegistrationStep implements OnInit {
 
     public back(): void {
         if (this.tab == 2) {
+            this.tab = this.tab = 1;
+            this._intervalSubscription.unsubscribe();
             this._clientVerificationSubscription.unsubscribe();
         }
         if (this.tab == 3) {
+            this.tab = 1;
+            this._intervalSubscription.unsubscribe();
             this._signUpClientSubscription.unsubscribe();
+            return;
         }
-        this.tab = this.tab - 1;
     }
 
-    private _clientPhoneNumber() {
+    private _clientPhoneNumber(): void {
         this.loading = true;
         this.phoneNumberForm.disable();
         this._signUpService.clientPhoneNumber({
@@ -154,7 +158,7 @@ export class RegistrationStep implements OnInit {
 
     private _clientVerification() {
         this.loading = true;
-        this.phoneNumberForm.disable();
+        this.verificationForm.disable();
         this.controlsItems = this.verificationForm.value.control_1 + this.verificationForm.value.control_2 +
             this.verificationForm.value.control_3 + this.verificationForm.value.control_4;
         this._clientVerificationSubscription = this._signUpService.clientVerification({
@@ -164,43 +168,45 @@ export class RegistrationStep implements OnInit {
             .pipe(takeUntil(this._unsubscribe$))
             .subscribe((data: ServerResponse<Verification>) => {
                 this.loading = false;
-                this.phoneNumberForm.enable();
+                this.verificationForm.enable();
                 this._cookieService.put("refreshToken", data.data.refreshToken);
                 this._cookieService.put('token', data.data.token);
                 this._formBuilderSignUpForm();
                 this._signUpService.isAuthorized = true;
                 this.tab = this.tab + 1;
-                this.error="";
+                this.error = "";
             },
                 err => {
                     this.error = err.error.error;
                     this.loading = false;
-                    this.phoneNumberForm.enable();
+                    this.verificationForm.enable();
                 }
             )
 
     }
 
-    private _signUpClient() {
+    private _signUpClient(): void {
         this.loading = true;
-        this.phoneNumberForm.disable();
+        this.signUpForm.disable();
         this._signUpClientSubscription = this._signUpService.signUpClient({
             "userName": this.signUpForm.value.user_name,
             "fullName": this.signUpForm.value.full_name,
             "password": this.signUpForm.value.password,
-        })
+        }, 'fast_reg')
             .pipe(takeUntil(this._unsubscribe$))
-            .subscribe((data) => {
-                this.loading = false;
-                this.phoneNumberForm.enable();
-                this.dialogRef.close();
-                this.error="";
-            }),
-            err => {
-                this.error = err.error.error;
-                this.loading = false;
-                this.phoneNumberForm.enable();
-            }
+            .subscribe(
+                (data) => {
+                    this.loading = false;
+                    this.signUpForm.enable();
+                    this.dialogRef.close();
+                    this.error = "";
+                },
+                (err) => {
+                    this.error = err.error.error;
+                    this.loading = false;
+                    this.signUpForm.enable();
+                }
+            )
     }
 
     public checkIsValid(controlName: string): boolean {
