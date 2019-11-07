@@ -198,7 +198,7 @@ export interface Card {
     count: string;
 }
 
-interface CardGoods {
+export interface CardGoods {
     count: number;
     name: string;
     orderGoodId: number;
