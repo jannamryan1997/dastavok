@@ -22,10 +22,8 @@
                         class="material-icons">
                         keyboard_arrow_down
                     </i></button>
-                <div class="quarity_count">
-                    <p class="type" margin-auto>{{cardGoodsInfo?.count}}</p>
-                </div>
-
+               
+                    <input class="input" margin-auto value="{{cardGoodsInfo?.count}}" disabled>
                 <button class=" quarity_btn add" font-family-Roboto cursor-pointer (click)="countIncrement()">
                     <i class="material-icons">
                         keyboard_arrow_up

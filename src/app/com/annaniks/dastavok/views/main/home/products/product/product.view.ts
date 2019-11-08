@@ -31,6 +31,7 @@ export class ProductView implements OnInit, OnDestroy {
     public pageLength: number = 10;
     public loading: boolean = true;
     private _unsubcribe$: Subject<void> = new Subject<void>();
+    public quarityCount:string;
 
     constructor(
         private _router: Router,
