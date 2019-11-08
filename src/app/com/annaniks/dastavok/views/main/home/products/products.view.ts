@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, OnDestroy } from "@angular/core"
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Good, ServerResponse, Paginator, GoodsResponse } from "src/app/com/annaniks/dastavok/models/models";
 import { ProductsService } from "./products.service";
 import { Subject } from "rxjs";
@@ -18,26 +18,32 @@ export class ProductsView implements OnInit, OnDestroy {
     public count: number;
     public goodTypeImage: string = '';
     public loading: boolean = false;
+    public page: number = 1;
     private _unsubscribe$: Subject<void> = new Subject<void>();
 
     constructor(
         @Inject("COMPANY_ID") private _companyId: number,
         @Inject("ADMIN_FILE_URL") public fileUrl: string,
-        private activatedRoute: ActivatedRoute,
-        private _productsService: ProductsService
+        private _activatedRoute: ActivatedRoute,
+        private _productsService: ProductsService,
+        private _router: Router
     ) {
-        this.activatedRoute.params.subscribe((params) => {
-            this._goodTypeId = params.goodTypeId;
-        })
+        this._checkRouteParams();
     }
 
-    ngOnInit() {
-        this._getGoods(this._companyId, this._goodTypeId, 1, this.pageLength);
-        console.log(this.pageLength);
-        
+    ngOnInit() { }
+
+    private _checkRouteParams(): void {
+        this._goodTypeId = +this._activatedRoute.snapshot.paramMap.get('goodTypeId');
+        this._activatedRoute.queryParams
+            .pipe(takeUntil(this._unsubscribe$))
+            .subscribe((params) => {
+                this.page = params.page || 1;
+                this._getGoods(this._companyId, this._goodTypeId, this.page, this.pageLength);
+            })
     }
 
-    private _getGoods(companyId: number, goodTypeId: number, page, count): void {
+    private _getGoods(companyId: number, goodTypeId: number, page: number, count: number): void {
         this.loading = true;
         this._productsService.getGoods(companyId, goodTypeId, page, count)
             .pipe(takeUntil(this._unsubscribe$))
@@ -50,7 +56,7 @@ export class ProductsView implements OnInit, OnDestroy {
     }
 
     public paginate($event): void {
-        this._getGoods(this._companyId, this._goodTypeId, $event.pageNumber, this.pageLength);
+        this._router.navigate([], { relativeTo: this._activatedRoute, queryParams: { page: $event.pageNumber } })
     }
 
     ngOnDestroy() {

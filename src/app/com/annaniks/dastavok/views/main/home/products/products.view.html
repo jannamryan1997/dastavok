@@ -2,10 +2,9 @@
     <img class="goods_main" full-width [src]="goodTypeImage" />
     <div full-width class="good">
         <app-goods-list full-width display-flex justify-content-space-between>
-            <app-goods-list-item *ngFor="let item of goodsInfo" [goodInfo]="item" [routerLink]="item.id"
-                [goodsImage]="item.images"></app-goods-list-item>
+            <app-goods-list-item *ngFor="let item of goodsInfo" [goodInfo]="item" [routerLink]="item.id" [goodsImage]="item.images"></app-goods-list-item>
         </app-goods-list>
-        <app-skeletion-list *ngIf="loading"  full-width display-flex justify-content-space-between>
+        <app-skeletion-list *ngIf="loading" full-width display-flex justify-content-space-between>
             <app-skeletion-list-item [type]="'good'"></app-skeletion-list-item>
             <app-skeletion-list-item [type]="'good'"></app-skeletion-list-item>
             <app-skeletion-list-item [type]="'good'"></app-skeletion-list-item>
@@ -13,6 +12,6 @@
             <app-skeletion-list-item [type]="'good'"></app-skeletion-list-item>
             <app-skeletion-list-item [type]="'good'"></app-skeletion-list-item>
         </app-skeletion-list>
-        <app-paginator [count]="count" [pageLength]="pageLength" (paginate)="paginate($event)"></app-paginator>
+        <app-paginator [count]="count" [page]="page" [pageLength]="pageLength" (paginate)="paginate($event)"></app-paginator>
     </div>
 </div>
