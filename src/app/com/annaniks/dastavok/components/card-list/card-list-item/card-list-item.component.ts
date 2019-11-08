@@ -16,15 +16,15 @@ export class CardListItemComponent implements OnInit {
     @Output() deleted: EventEmitter<boolean> = new EventEmitter()
     public image: Array<string>;
     public itemImage: string;
+    public productLink: string;
 
     constructor(@Inject("FILE_URL") public fileUrl: string, private _basketService: BasketService) { }
 
     ngOnInit() {
+        this.productLink = `/${this.cardGoodsInfo.goodTypeId}/products/${this.cardGoodsInfo.goodId}`;
         if (this.cardGoodsImageItem != null) {
             this.image = this.cardGoodsImageItem.split(",")
-            for (var i = 0; i < this.image.length; i++) {
-                this.itemImage = this.image[1];
-            }
+            this.itemImage = this.cardGoodsInfo.thumbnail;
         }
     }
 
