@@ -68,6 +68,7 @@
     "sad_not_result":"SAD NOT RESULT",
     "sign_in":"Sign In",
     "sign_up":"Sign Up",
-    "notification":"Notification"
+    "notification":"Notification",
+    "email_validation":"Email Validation"
   
 }
