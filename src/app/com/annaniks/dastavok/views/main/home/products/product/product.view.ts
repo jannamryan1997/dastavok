@@ -31,6 +31,7 @@ export class ProductView implements OnInit, OnDestroy {
     public pageLength: number = 10;
     public loading: boolean = true;
     private _unsubcribe$: Subject<void> = new Subject<void>();
+    public quarityCount:string;
 
     constructor(
         private _router: Router,
@@ -39,6 +40,7 @@ export class ProductView implements OnInit, OnDestroy {
         private _dialog: MatDialog,
         private _signUpService: SignUpService,
         private _messageService: MessageService,
+     
 
 
         @Inject('FILE_URL') public fileUrl: string,
