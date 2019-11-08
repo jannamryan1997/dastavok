@@ -30,7 +30,6 @@ import { InputPrefixDirective, OnlyNumber, FocusNextInputDriective } from "../di
 import { NgxMaskModule } from 'ngx-mask';
 import { SlicetextPipe } from "../pipe/slicetext.pipe";
 
-
 @NgModule({
   declarations: [
     TopbarComponent,
@@ -91,7 +90,7 @@ import { SlicetextPipe } from "../pipe/slicetext.pipe";
     FocusNextInputDriective,
     SkeletionListComponent,
     SkeletionListItemComponent,
-    EmptyResultComponent
+    EmptyResultComponent,
   ],
   providers: []
 })

@@ -157,8 +157,7 @@ export class ProductView implements OnInit, OnDestroy {
             }
         }).subscribe((data) => {
             this._router.navigate(['/basket']);
-            this._messageService.add({ severity: 'Сообщение', detail: 'Успешно добавлен в корзину' });
-
+            this._messageService.add({ severity: 'success', summary: 'Сообщение', detail: 'Успешно добавлен в корзину' });
         })
 
     }
