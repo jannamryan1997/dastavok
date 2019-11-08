@@ -9,7 +9,6 @@ import {
   FiltersListComponent,
   GoodsListComponent,
   GoodsListItemComponent,
-  LeftMenuComponent,
   ErrorComponent,
   SliderComponent,
   SkeletionListComponent,
@@ -29,6 +28,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { InputPrefixDirective, OnlyNumber, FocusNextInputDriective } from "../directives";
 import { NgxMaskModule } from 'ngx-mask';
 import { SlicetextPipe } from "../pipe/slicetext.pipe";
+import { Ng5SliderModule } from 'ng5-slider';
 
 
 @NgModule({
@@ -42,7 +42,6 @@ import { SlicetextPipe } from "../pipe/slicetext.pipe";
     FiltersListComponent,
     GoodsListComponent,
     GoodsListItemComponent,
-    LeftMenuComponent,
     ErrorComponent,
     SliderComponent,
     InputPrefixDirective,
@@ -65,9 +64,9 @@ import { SlicetextPipe } from "../pipe/slicetext.pipe";
     TranslateModule.forChild(),
     NgxMaskModule.forRoot(),
     NgxChartsModule,
+    Ng5SliderModule
   ],
   exports: [
-    LeftMenuComponent,
     TopbarComponent,
     CommonModule,
     FormsModule,

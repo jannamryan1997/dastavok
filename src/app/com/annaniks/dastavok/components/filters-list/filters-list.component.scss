@@ -1,55 +1,155 @@
 .filters_content {
-    width: 289px;
-    border-radius: 4px;
-    background-color: #444444;
-    z-index: 10000;
-    height: calc(100vh - 141px);
+  width: 289px;
+  border-radius: 4px;
+  background-color: #444444;
+  z-index: 10000;
+  .filters_list {
+    &_item {
+      padding: 10px 20px;
+      .price_input_container {
+        display: flex;
+        justify-content: space-between;
+      }
+      .filter_name {
+        color: white;
+      }
+    }
+    .buttons {
+      padding: 10px 20px;
+
+      .show_variants {
+        margin-top: 8px;
+        width: 100%;
+        background-color: #87bd3c;
+        border: 1px solid white;
+        border-radius: 0;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        -khtml-border-radius: 0px;
+        -webkit-appearance: none;
+        padding: 4px 0;
+        color:white;
+        cursor: pointer;
+        transition: all 0.5s;
+        span {
+          font-size: 13px;
+          line-height: 29px;
+          color: white;
+          text-transform: uppercase;
+        }
+        &:hover {
+          background-color: white;
+          border: 1px solid#87bd3c;
+          span {
+            color: #87bd3c !important;
+          }
+        }
+      }
+      .clear_filters {
+        margin: 8px 0;
+        width: 100%;
+        background-color: white;
+        border: 1px solid #87bd3c;
+        border-radius: 0;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        -khtml-border-radius: 0px;
+        -webkit-appearance: none;
+        padding: 4px 0;
+        cursor: pointer;
+        span {
+          font-size: 13px;
+          line-height: 29px;
+          color: #87bd3c;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}
+
+::ng-deep {
+  .price_slider .ng5-slider .ng5-slider-bar {
+    background: #ffe4d1;
+    height: 2px;
+  }
+  .price_slider .ng5-slider .ng5-slider-selection {
+    background: #87bd3c;
+  }
+
+  .price_slider .ng5-slider .ng5-slider-pointer {
+    width: 8px;
+    height: 16px;
+    top: auto; /* to remove the default positioning */
+    bottom: 0;
+    background-color: white;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+
+  .price_slider .ng5-slider .ng5-slider-pointer:after {
+    display: none;
+  }
+
+  .price_slider .ng5-slider .ng5-slider-bubble {
+    color: white !important;
+    bottom: 14px;
+  }
+
+  .price_slider .ng5-slider .ng5-slider-limit {
+    font-weight: bold;
+    color: #87bd3c;
+  }
+
+  .price_slider .ng5-slider .ng5-slider-tick {
+    width: 1px;
+    height: 10px;
+    margin-left: 4px;
+    border-radius: 0;
+    background: #ffe4d1;
+    top: -1px;
+  }
+
+  .price_slider .ng5-slider .ng5-slider-tick.ng5-slider-selected {
+    background: #87bd3c;
+  }
+}
+
+.price_input_container {
+  margin: 15px 0;
+  label {
+    display: flex;
+    flex-direction: column;
+    input {
+      height: 28px;
+      width: 107px;
+      text-align: center;
+      font-size: 15px;
+      border: 1px solid #e1d7d7;
+    }
+    span {
+      font-size: 13px;
+      text-align: center;
+      margin-bottom: 5px;
+      color: white;
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .filters_content {
     overflow: auto;
     position: fixed;
     top: 142px;
+    height: calc(100vh - 141px);
     transition: right 0.5s;
-    .left-menu {
-        width: 287px;
-        object-fit: contain;
-        border-radius: 4px;
-        margin-bottom: 23px;
-        //min-height: 100%;
-        background-color: #444444;
-        border-radius: 4px;
-        margin-top: 18px;
-      //  min-height: 100%;
-        .menu_content {
-            .menu_item {
-                padding-top: 25.5px;
-                margin-left: 26.5px;
-                object-fit: contain;
-                justify-content: space-between;
-                cursor: pointer;
-                &:first-child {
-                    padding-top: 46px;
-                }
-                &:last-child {
-                    padding-bottom: 46px;
-                }
-                .restaurant_name {
-                    margin-left: 40px;
-                    font-size: 15px;
-                    font-style: normal;
-                    font-stretch: normal;
-                    line-height: 1.33;
-                    letter-spacing: normal;
-                    text-align: left;
-                    color: #c5c5c5;
-                }
-            }
-        }
-    }
+  }
 }
 
 .open {
-    right: 0;
+  right: 0;
 }
 
 .close {
-    right: -100%;
+  right: -100%;
 }
