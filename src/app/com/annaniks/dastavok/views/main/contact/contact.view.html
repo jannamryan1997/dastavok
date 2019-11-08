@@ -21,10 +21,11 @@
                     <div class="form_group">
                         <label class="label" [ngClass]="{'color':checkIsValid('email')}">{{'email' | translate}}</label>
                         <input class="input" placeholder="{{'email' | translate}}" full-width font-family-Roboto formControlName="email" [ngClass]="{'border':checkIsValid('email')}">
+                        <label  class="label color" *ngIf="userForm.get('email').hasError('pattern') && userForm.get('email').touched">{{'email_validation' | translate}}</label>
                     </div>
                     <div class="form_group">
                         <label class="label" [ngClass]="{'color':checkIsValid('phoneNumber')}">{{'phone_number' | translate}}</label>
-                        <input class="input" placeholder="{{'phone_number' | translate}}" full-width font-family-Roboto formControlName="phoneNumber" [ngClass]="{'border':checkIsValid('phoneNumber')}">
+                        <input class="input" placeholder="{{'phone_number' | translate}}" full-width font-family-Roboto formControlName="phoneNumber" [ngClass]="{'border':checkIsValid('phoneNumber')}" prefix="+7" mask="(000) 000 00 00">
                     </div>
                     <div class="form_group">
                         <label class="label" [ngClass]="{'color':checkIsValid('messages')}">{{'messages' | translate}}</label>
