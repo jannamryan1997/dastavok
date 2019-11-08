@@ -146,6 +146,7 @@ export class RegistrationStep implements OnInit {
                 this.tab = this.tab + 1;
                 this._startTimer();
                 this._cookieService.put('phone_token', data.data.token);
+                this.error="";
             },
                 err => {
                     this.error = err.error.error;
