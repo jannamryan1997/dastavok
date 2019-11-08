@@ -1,13 +1,13 @@
 <div class="card_content">
         <p class="type" font-family-Roboto>{{cardInfo?.companyName}}</p>
-        <p class="tite" font-family-Roboto>{{'Cost_of_delivery' | translate}}<b class="delivery_title">3$</b></p>
+        <p class="tite" font-family-Roboto>{{'Cost_of_delivery' | translate}}<b class="delivery_title">3₽</b></p>
         <p class="title" font-family-Roboto>{{'Product_detalis' | translate}}</p>
             <div class="product_item">
              <ng-content full-width></ng-content>
         </div>
         <div class="total_coast">
                 <p class="type" font-family-Roboto font-weight-bold>{{'Total_cost' | translate}}</p>
-                <p class="type type_amout" font-family-Roboto font-weight-bold>{{cardInfo?.totalAmount}}$</p>
+                <p class="type type_amout" font-family-Roboto font-weight-bold>{{cardInfo?.totalAmount}}₽</p>
         </div>
 
         <button class="button" display-flex margin-auto (click)="navToPayment()">

@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Inject } from "@angular/core"
-import { GoodType } from "../../../models/models";
 
 @Component({
     selector: "app-goodType-list-item",
