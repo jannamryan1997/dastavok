@@ -24,13 +24,6 @@ export class OrdersTabComponent implements OnInit {
         this._profileService.clientOrderDriver()
             .subscribe((data: ServerResponse<OrderHistory[]>) => {
                 this.orderInfo = data.data;
-                if (this.orderInfo && this.orderInfo.length == 0) {
-                    this.isEmpty = true;
-                }
-                else {
-                    this.isEmpty = false;
-                }
-
             })
     }
 }
