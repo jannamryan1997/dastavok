@@ -1,3 +1,4 @@
+@import "../../../../../../assets/scss/global";
 .container {
     .search {
         display: flex;
@@ -13,15 +14,10 @@
             padding-left: 12px;
             color: #b5b5b5;
         }
-
         .button {
-            width: 46.5px;
-            background-color: #87bd3c;
-            border: none;
-            box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-
-            i {
-                font-size: 26px;
+            @include button(#87bd3c, 10px 10px, #ffffff);
+            i{
+                font-size: 20px;
             }
         }
     }
