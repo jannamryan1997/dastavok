@@ -30,7 +30,6 @@ import { NgxMaskModule } from 'ngx-mask';
 import { SlicetextPipe } from "../pipe/slicetext.pipe";
 import { Ng5SliderModule } from 'ng5-slider';
 
-
 @NgModule({
   declarations: [
     TopbarComponent,
@@ -90,7 +89,7 @@ import { Ng5SliderModule } from 'ng5-slider';
     FocusNextInputDriective,
     SkeletionListComponent,
     SkeletionListItemComponent,
-    EmptyResultComponent
+    EmptyResultComponent,
   ],
   providers: []
 })
