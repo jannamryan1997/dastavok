@@ -1,5 +1,4 @@
 export * from "src/app/com/annaniks/dastavok/components/topbar/topbar.component";
-export * from "src/app/com/annaniks/dastavok/components/left-menu/left-menu.component";
 export * from "src/app/com/annaniks/dastavok/components/slider/slider.component";
 export * from "src/app/com/annaniks/dastavok/components/toolbar/toolbar.component";
 export * from "src/app/com/annaniks/dastavok/components/notification-list/notification-list.component";
@@ -36,4 +35,4 @@ export * from "src/app/com/annaniks/dastavok/components/error/error.component";
 export * from "src/app/com/annaniks/dastavok/components/good-tabs/reviw-chart/reviw-chart.component";
 export * from './skeletion-list/skeletion-list-item/skeletion-list-item.component';
 export * from './skeletion-list/skeletion-list.component';
-export *from './empty-result/empti-result.component';
+export * from './empty-result/empti-result.component';

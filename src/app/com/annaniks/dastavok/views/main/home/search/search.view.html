@@ -1,6 +1,6 @@
 <section full-width>
     <div class="search_content">
-        <app-menu></app-menu>
+        <app-filters-list></app-filters-list>
         <div class="search_container">
             <app-goods-list *ngIf="!loading">
                 <a class="goods-list-item" [routerLink]="'/'+companyId+'/products/'+item.id" *ngFor="let item of goods" full-width>
