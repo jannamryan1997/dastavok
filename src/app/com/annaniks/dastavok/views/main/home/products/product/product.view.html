@@ -5,8 +5,7 @@
             <div class="image main_images" [ngStyle]="{'background-image':'url('+activeImage+')'}"></div>
             <div class="product_images_item">
                 <div class="goods_image" *ngFor="let item of goodImage">
-                    <div class="image image_item" [ngStyle]="{'background-image':'url('+ fileUrl + item +')'}"
-                        (click)="setActiveImage(item)"></div>
+                    <div class="image image_item" [ngStyle]="{'background-image':'url('+ fileUrl + item +')'}" (click)="setActiveImage(item)"></div>
                 </div>
             </div>
 
@@ -24,8 +23,7 @@
                 <div class="quarity_content" display-flex justify-content-space-between>
                     <p class="description_title" font-family-Roboto>{{'quarity' | translate}}</p>
                     <div class="quarity_item">
-                        <button class="quarity_btn remove" font-family-Roboto cursor-pointer
-                            (click)="countDecrement()"><i class="material-icons">
+                        <button class="quarity_btn remove" font-family-Roboto cursor-pointer (click)="countDecrement()"><i class="material-icons">
                                 keyboard_arrow_down
                             </i></button>
                     

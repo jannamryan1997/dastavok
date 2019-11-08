@@ -26,6 +26,7 @@ export class HomeView implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
+        this._handleSearchChanges();
         this._checkWindowSize();
     }
 
@@ -52,8 +53,15 @@ export class HomeView implements OnInit, OnDestroy {
         }
     }
 
-    public onClickSearch(): void {
+    private _handleSearchChanges():void{
+        this.searchControl.valueChanges.subscribe((value:string)=>{
+            if(value.length === 0 && this._router.url.includes('/search?search=')){
+                this.onClickSearch();
+            }
+        })
+    }
 
+    public onClickSearch(): void {
         this._router.navigate(['/search'], { queryParams: { search: this.searchControl.value } })
     }
 
