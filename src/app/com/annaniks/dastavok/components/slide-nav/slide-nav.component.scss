@@ -1,4 +1,7 @@
-.slide_naw_content {
+@import "../../../../../../assets/scss/mixin";
+@import "../../../../../../assets/scss/global";
+
+section {
     background-color: white;
     position: absolute;
     z-index: 1000;
@@ -6,271 +9,78 @@
     transition: left 250ms;
     width: 100%;
     height: 100%;
-    .slide_top {
-        height: 180px;
+
+    .top_content {
         box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
         background-color: #87bd3c;
-        .conteiner {
-            margin-top: 16px;
-            .lenguage {
-                i {
-                    color: #444444;
-                    font-size: 24px;
-                }
-                justify-content: flex-end;
-                .flag_img {
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    background-image: url("/assets/images/english.png");
-                    width: 27px;
-                    height: 15px;
-                }
-                .lenguage_name {
-                    font-size: 20px;
-                    font-weight: bold;
-                    font-style: normal;
-                    font-stretch: normal;
-                    line-height: 1.2;
-                    letter-spacing: normal;
-                    text-align: left;
-                    color: #444444;
-                    margin-top: 0px;
-                    margin-bottom: 0px;
-                }
-            }
-            .language_menu {
-                .language_menu_content {
-                    width: 178px;
-                    height: 140px;
-                    box-shadow: -4px 4px 6px 0 rgba(0, 0, 0, 0.16);
-                    background-color: white;
-                    z-index: 1;
-                    top: 0px;
-                    right: 0px;
-                    bottom: 0px;
-                    .language_menu_top {
-                        .language_item {
-                            margin-top: 20px;
-                            .flag_img {
-                                background-position: center;
-                                background-repeat: no-repeat;
-                                background-size: cover; 
-                                width: 27px;
-                                height: 15px;
-                            }
-                            .lenguage_name {
-                                font-size: 20px;
-                                font-weight: bold;
-                                font-style: normal;
-                                font-stretch: normal;
-                                line-height: 1.2;
-                                letter-spacing: normal;
-                                text-align: left;
-                                color: #444444;
-                                margin-top: 0px;
-                                margin-bottom: 0px;
-                            }
-                            .line {
-                                color: #707070;
-                                margin-top: 10px;
-                                border: 1px solid #707070;
-                            }
-                        }
-                    }
-                }
-            }
-            .radius {
-                width: 78px;
-                height: 78px;
-                border-radius: 50%;
-                background: whitesmoke;
-            }
-            .img_content{
-                width: 78px;
-                height: 78px;
-                border-radius: 50%;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-            }
-            .user_name{
-                width: 129px;
-                font-size: 20px;
-                font-style: normal;
-                font-stretch: normal;
-                line-height: 1.35;
-                letter-spacing: normal;
-                text-align: left;  
-               display: block;
-                word-wrap:break-word;
-                margin-bottom: 0px;
-            }
-            .login_menu {
-                .login_text {
-                    font-size: 20px;
-                    font-weight: normal;
-                    font-style: normal;
-                    font-stretch: normal;
-                    line-height: 1.2;
-                    letter-spacing: normal;
-                    text-align: left;
-                    color: #191919;
-                }
-                .top_login {
-                    width: 202px;
-                    height: 250px;
-                    box-shadow: -4px 4px 6px 0 rgba(0, 0, 0, 0.16);
-                    background-color: white;
-                    top: 0px;
-                    bottom: 0px;
-                    left: 0px;
-                    right: 0px;
-                    .button_item{
-                        .login_button{
-                            width: 143.8px;
-                            height: 42px;
-                            border-radius: 4px;
-                            background-color: #87bd3c;
-                            font-size: 12px;
-                            font-weight: bold;
-                            font-style: normal;
-                            font-stretch: normal;
-                            line-height: 1.17;
-                            letter-spacing: normal;
-                            border: none;
-                            cursor: pointer;
-                            z-index: 1;
-                        }
-                        .registration_button{
-                            width: 143.8px;
-                            height: 42px;
-                            border-radius: 4px;
-                            background-color: #ff6f00;
-                            font-size: 12px;
-                            font-weight: bold;
-                            font-style: normal;
-                            font-stretch: normal;
-                            line-height: 1.17;
-                            letter-spacing: normal;
-                            border: none;
-                            margin-top: 42px;
-                            cursor: pointer;
-                        }
-                    }
-                }
-            }
-           .sign_up {
-            margin-top: 19px;
-                font-size: 20px;
-                font-weight: normal;
-                font-style: normal;
-                font-stretch: normal;
-                line-height: 1.2;
-                letter-spacing: normal;
-                text-align: left;
-                color: #191919;
-                i{
-                    color: #191919;
-                    font-size: 20px;
-                }
-                .sign_up_text{
-                 margin-top: 0px;
-                margin-bottom: 0px;
+
+        .slide_nav_container {
+            width: 100%;
+            padding: 20px 20px;
+
+            .user_data_content {
+                display: flex;
+
+                .type {
+                    @include text(#444444, 20px);
+                    margin-left: 20px;
+                    width: 50%;
                 }
 
-                
+                .radius {
+                    width: 78px;
+                    height: 78px;
+                    border-radius: 50%;
+                    background: whitesmoke;
+                }
+
+                .image {
+                    width: 78px;
+                    height: 78px;
+                    border-radius: 50%;
+                }
             }
+
+            .sign_up_content {
+                display: flex;
+
+                .type {
+                    @include text(#444444, 15px);
+                }
+            }
+
         }
     }
-    .top_menu {
-        margin-top: 65px;
-        .menu_content {
-            i {
-                font-size: 34px;
-                color: #444444;
-            }
-            .home_text {
-                font-size: 20px;
-                font-weight: bold;
-                font-style: normal;
-                font-stretch: normal;
-                line-height: 1.35;
-                letter-spacing: normal;
-                text-align: left;
-                color: #444444;
-                margin-left: 25px;
-            }
-            .contact_content {
-                margin-top: 34px;
+
+    .menu_content {
+        width: 100%;
+
+        .nav {
+            padding: 20px 20px;
+
+            li {
+                display: flex;
+                align-items: center;
+                padding: 10px 0;
+                border-bottom: 1px solid #c5c3c3;
+
+              
+
+
                 i {
                     font-size: 34px;
                     color: #444444;
                 }
-                .contact_text {
-                    font-size: 20px;
-                    font-weight: bold;
-                    font-style: normal;
-                    font-stretch: normal;
-                    line-height: 1.35;
-                    letter-spacing: normal;
-                    text-align: left;
-                    color: #444444;
-                    margin-left: 25px;
-                }
-            }
-            .user_profile{
-                .line{
-                    border:1px solid #c5c3c3;
-                    margin-top: 27px;
-                }
-                .profile_content{
-                    margin-top: 23px;
-                    font-size: 20px;
-                    font-weight: bold;
-                    font-style: normal;
-                    font-stretch: normal;
-                    line-height: 1.35;
-                    letter-spacing: normal;
-                    text-align: left;
-                    color: #444444;
-                    i{
-                        font-size: 34px;
-                    color: #444444;
-                    }
-                    .profile_text{
-                        margin-bottom: 0px;
-                       margin-top: 0px;
-                       margin-left: 18px;
-                      padding: 5px;
-}
-                    }
-                    .notifications_content{
-                        margin-top: 23px;
-                        font-size: 20px;
-                        font-weight: bold;
-                        font-style: normal;
-                        font-stretch: normal;
-                        line-height: 1.35;
-                        letter-spacing: normal;
-                        text-align: left;
-                        color: #444444;
-                        i{
-                            font-size: 34px;
-                        color: #444444;
-                        }
-                        .profile_text{
-                            margin-bottom: 0px;
-                           margin-top: 0px;
-                           margin-left: 18px;
-                          padding: 5px;
-    }
-                    }
+
+                .link {
+                    @include text(#444444, 20px);
+                    margin-left: 20px;
+                    cursor: pointer;
                 }
             }
         }
     }
-
+}
 
 .open {
     left: 0;
@@ -280,25 +90,14 @@
     left: -100%;
 }
 
-.showLanguage {
-    opacity: 1;
-    z-index: 1;
-    top: 25px !important;
-    transition: top 0.5s, opacity 0.5s !important;
-}
-
-.hideLanguage {
-    opacity: 0;
-    z-index: -1 !important;
-    user-select: none;
-}
-.showLogin{
+.showLogin {
     opacity: 1;
     z-index: 1;
     top: 43px !important;
-    transition: top 0.5s,opacity 0.5s !important;
+    transition: top 0.5s, opacity 0.5s !important;
 }
-.hideLogin{
+
+.hideLogin {
     opacity: 0;
     z-index: -1;
     user-select: none;

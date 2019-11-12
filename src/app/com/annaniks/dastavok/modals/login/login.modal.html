@@ -1,8 +1,9 @@
 <form [formGroup]="loginForm">
-        <app-error [error]="error"></app-error>
     <div class="container">
         <div class="form_conteiner" full-width>
+                <app-error [error]="error"></app-error>
             <div class="form" full-width>
+
                 <label class="label" [ngClass]="{'color':checkIsValid('userName')}">{{'user_name' | translate}}</label>
                 <div class="form_content" full-height display-flex [ngClass]="{'border':checkIsValid('userName')}">
                     <i class="material-icons" margin-auto>

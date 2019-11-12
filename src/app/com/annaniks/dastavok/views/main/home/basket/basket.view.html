@@ -1,23 +1,29 @@
-
 <!-- <div class="total" display-flex>
         <app-total-cost [totalAmoutSum]="totalSum" (byAll)="byAllEvent($event)"></app-total-cost>
     </div> -->
 
 <section class="basket_section" full-width>
     <div class="basket_container">
-    <div class="basket_content" *ngIf="cardInfo.length>0">
-        <app-card-list *ngFor="let item of cardInfo" [cardInfo]="item" (deleted)="deletedOrder($event)">
-            <app-card-list-item full-width *ngFor="let good of item.goods" [cardInfo]="item" [cardGoodsInfo]="good"
-                [cardGoodsImageItem]="good.images" [cardInfoOrderGoodId]="good.orderGoodId"
-                (deleted)="deletedOrder($event)"></app-card-list-item>
-        </app-card-list>
-    </div>
-    <div class="message" *ngIf="cardInfo.length==0 && loading==false">
+        <div class="basket_content" *ngIf="cardInfo.length>0">
+            <app-card-list *ngFor="let item of cardInfo" [cardInfo]="item" (deleted)="deletedOrder($event)">
+                <app-card-list-item full-width *ngFor="let good of item.goods" [cardInfo]="item" [cardGoodsInfo]="good"
+                    [cardGoodsImageItem]="good.images" [cardInfoOrderGoodId]="good.orderGoodId"
+                    (deleted)="deletedOrder($event)"></app-card-list-item>
+            </app-card-list>
+        </div>
+        <app-skeletion-list *ngIf="loading">
+            <app-skeletion-list-item [type]="'card'"></app-skeletion-list-item>
+            <app-skeletion-list-item [type]="'card'"></app-skeletion-list-item>
+            <app-skeletion-list-item [type]="'card'"></app-skeletion-list-item>
+            <app-skeletion-list-item [type]="'card'"></app-skeletion-list-item>
+            <app-skeletion-list-item [type]="'card'"></app-skeletion-list-item>
+            <app-skeletion-list-item [type]="'card'"></app-skeletion-list-item>
+        </app-skeletion-list>
+        <div class="message" *ngIf="cardInfo.length==0 && loading==false">
             <p class="type" font-family-Open-Sans>{{'your_chart_is_empty' | translate}}</p>
-            <button class="button" display-flex margin-auto   routerLink="/">
-                    <p margin-auto>{{'go_main_page' | translate}}</p>
-                </button>
-           
+            <button class="button" display-flex margin-auto routerLink="/">
+                <p margin-auto>{{'go_main_page' | translate}}</p>
+            </button>
         </div>
-        </div>
+    </div>
 </section>

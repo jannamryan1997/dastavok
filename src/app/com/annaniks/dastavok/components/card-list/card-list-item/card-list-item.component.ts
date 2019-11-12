@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, Inject } from "@angular/core"
-import { ServerResponse, Card } from "../../../models/models";
+import { Card, CardGoods } from "../../../models/models";
 import { BasketService } from "../../../views/main/home/basket/basket.service";
 
 @Component({
@@ -11,20 +11,20 @@ import { BasketService } from "../../../views/main/home/basket/basket.service";
 export class CardListItemComponent implements OnInit {
     @Input() cardInfo: Card = {} as Card;
     @Input() cardInfoOrderGoodId: number;
-    @Input() cardGoodsInfo: ServerResponse<Card>;
+    @Input() cardGoodsInfo: CardGoods;
     @Input() cardGoodsImageItem: string;
     @Output() deleted: EventEmitter<boolean> = new EventEmitter()
     public image: Array<string>;
     public itemImage: string;
+    public productLink: string;
 
     constructor(@Inject("FILE_URL") public fileUrl: string, private _basketService: BasketService) { }
 
     ngOnInit() {
+        this.productLink = `/${this.cardGoodsInfo.goodTypeId}/products/${this.cardGoodsInfo.goodId}`;
         if (this.cardGoodsImageItem != null) {
             this.image = this.cardGoodsImageItem.split(",")
-            for (var i = 0; i < this.image.length; i++) {
-                this.itemImage = this.image[1];
-            }
+            this.itemImage = this.cardGoodsInfo.thumbnail;
         }
     }
 
@@ -38,6 +38,17 @@ export class CardListItemComponent implements OnInit {
                 this._deletecardGoodItems();
             })
 
+    }
+
+    public countDecrement(): void {
+        if (this.cardGoodsInfo.count == 1) {
+            return;
+        }
+        this.cardGoodsInfo.count--;
+    }
+
+    public countIncrement(): void {
+        this.cardGoodsInfo.count++;
     }
 
     private _deletecardGoodItems() {

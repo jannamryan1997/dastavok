@@ -2,6 +2,11 @@ export interface MenuItem {
     label: string,
     routerLink: string;
 }
+export interface SlideItem {
+    icon: string,
+    link: string,
+    routerLink: string;
+}
 
 export interface ServerResponse<T> {
     data: T;
@@ -198,7 +203,11 @@ export interface Card {
     count: string;
 }
 
-interface CardGoods {
+export interface CardGoods {
+    goodDescription: string;
+    thumbnail: string;
+    goodId: number;
+    goodTypeId: number;
     count: number;
     name: string;
     orderGoodId: number;

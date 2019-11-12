@@ -1,5 +1,6 @@
 <app-notification-list>
     <app-notification-list-item *ngFor="let item of notifications" [label]="item.data.title" [data]="item.createdAt"></app-notification-list-item>
 </app-notification-list>
+<empty-result *ngIf="notifications.length==0"></empty-result>
 <app-empty *ngIf="isEmpty"></app-empty>
 <app-paginator [count]="count" [pageLength]="pageLength" (paginate)="paginate($event)"></app-paginator>

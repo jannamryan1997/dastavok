@@ -1,4 +1,4 @@
 <app-order-list>
     <app-order-list-item *ngFor="let item of orderInfo" [orderInfo]="item"></app-order-list-item>
 </app-order-list>
-<app-empty *ngIf="isEmpty"></app-empty>
+<empty-result *ngIf="orderInfo.length==0"></empty-result>

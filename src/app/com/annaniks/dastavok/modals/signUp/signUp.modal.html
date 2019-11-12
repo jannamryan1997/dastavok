@@ -1,8 +1,7 @@
 <form [formGroup]="signUpForm">
     <div class="container">
-            <app-error [error]="error"></app-error>
         <div class="form_conteiner" full-width>
-
+                <app-error [error]="error"></app-error>
             <div class="form" full-width>
                 <label class="label" [ngClass]="{'color':checkIsValid('user_name')}">{{'user_name' | translate}}</label>
                 <div class="form_content" full-height display-flex [ngClass]="{'border':checkIsValid('user_name')}">
@@ -44,9 +43,6 @@
                     <input class="input" placeholder="{{'confirm_password' | translate}}" type="password" formControlName="confirm_password" [type]="showConfirmPassword ? 'text' : 'password'">
                 </div>
 
-            </div>
-            <div position-relative>
-                <!-- <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading> -->
             </div>
             <div class="button_item" width-50 margin-auto>
                 <button type="button" class="button back" display-flex  (click)="backVerificationModal()">

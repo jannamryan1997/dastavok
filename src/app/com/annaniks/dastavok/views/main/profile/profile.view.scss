@@ -44,6 +44,8 @@
     margin: auto !important;
     .client_image{
         margin: auto !important;
+        width: 120px !important;
+        height: 120px !important;
     }
 }
 .tabs_content{
@@ -51,6 +53,12 @@
     .notification{
         width: 100% !important;
     }
+}
+.label{
+    font-size: 15px !important;
+}
+.button{
+    padding: 20px 50px !important;
 }
 
 }

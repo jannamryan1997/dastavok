@@ -20,19 +20,20 @@ section {
                 display: flex;
                 width: 100%;
 
-                .goods_image{
+                .goods_image {
                     width: 33.333333%;
                     padding: 1.2em;
+
                     .image_item {
                         width: 100%;
                         height: 78px;
                         border-radius: 4px;
                         box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
                         cursor: pointer;
-    
+
                     }
                 }
-                
+
             }
         }
 
@@ -57,84 +58,92 @@ section {
                 &::before {
                     @include after-before(20px 0px 0px 0px, 1px solid #c7c5c5)
                 }
-                .quarity_content{
+
+                .quarity_content {
                     padding: 10px 0;
-                    .description_title{
+
+                    .description_title {
                         margin-top: 0px;
                         margin-bottom: 0px;
                     }
-                    .quarity_item{
+
+                    .quarity_item {
                         display: flex;
                         justify-content: space-between;
-                        .quarity_btn{
-                         border: none;
-                         padding: 0;
-                         display: flex;
-                         cursor: pointer;
-                         background-color: transparent;
-                         border: 1px solid #d0d6dc;
-                         height: 30px;
-                         i{
-                          margin: auto;
-                         font-size: 18px;
-                         color: #444444;
-                         }
-                     }
-                    .quarity_count{
-                      height: 30px;
-                     width: 35px;
-                     border: 1px solid #d0d6dc;
-                     border-radius: 0;
-                     margin: 0 8px;
-                     text-align: center;
-                     color: #444444;
-                     display: flex;
-                     
+
+                        .quarity_btn {
+                            border: none;
+                            padding: 0;
+                            display: flex;
+                            cursor: pointer;
+                            background-color: transparent;
+                            border: 1px solid #d0d6dc;
+                            height: 30px;
+
+                            i {
+                                margin: auto;
+                                font-size: 18px;
+                                color: #444444;
+                            }
+                        }
+
+                        .input {
+                            border: 1px solid #d0d6dc;
+                            border-radius: 0;
+                            margin: 0 8px;
+                            text-align: center;
+                            color: #444444;
+                            display: flex;
+                            align-items: center;
+                            background: #ffffff;
+                            height: 30px;
+                            width: 60px;
+                        }
+
                     }
-                    }
-                }
             }
+        }
 
-            .description_title {
-                @include text(#191919, 20px);
-
-            }
-
-            .button_item {
-                justify-content: space-between;
-                display: flex;
-                width: fit-content;
-                margin: 20px 0;
-
-                .back {
-                    @include button(#87bd3c, 20px 50px, #ffffff);
-                }
-
-                .next {
-                    @include button(#ff6f00, 20px 50px, #ffffff);
-                }
-            }
+        .description_title {
+            @include text(#191919, 20px);
 
         }
 
+        .button_item {
+            justify-content: space-between;
+            display: flex;
+            width: fit-content;
+            margin: 20px 0;
 
-    }
+            .back {
+                @include button(#87bd3c, 20px 50px, #ffffff);
+            }
 
-    .tab_content {
-        border-radius: 4px;
-        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-
-        .tab_item {
-            @include text(#444444,20px);
-            width: 33.333333%;
-            cursor: pointer;
-            transition: 1s;
-            padding: 20px 0;
+            .next {
+                @include button(#ff6f00, 20px 50px, #ffffff);
+            }
         }
+
     }
+
+
 }
 
-@media only screen and (max-width:1400px){
+.tab_content {
+    border-radius: 4px;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
+
+    .tab_item {
+        @include text(#444444, 20px);
+        width: 33.333333%;
+        cursor: pointer;
+        transition: 1s;
+        padding: 20px 0;
+    }
+}
+}
+
+@media only screen and (max-width:1400px) {
     .product_content {
         flex-direction: column !important;
 
@@ -143,30 +152,33 @@ section {
             width: 100% !important;
             margin: auto !important;
         }
-    }  
-    .tab{
+    }
+
+    .tab {
         width: 100% !important;
         margin: auto;
     }
-  
-}
-
-@media only screen and (max-width:1400px) and (min-width:475px)  {
 
 }
+
+@media only screen and (max-width:1400px) and (min-width:475px) {}
 
 @media only screen and (max-width:900px) {
-    .button{
+    .button {
         padding: 20px 20px !important;
         font-size: 10px !important;
     }
-    .tab_item{
+
+    .tab_item {
         font-size: 10px !important;
+    }
+    .main_images{
+        height: 150px !important;
     }
 }
 
-@media only screen and (max-width:475px){
-    .goods_image{
+@media only screen and (max-width:475px) {
+    .goods_image {
         width: 50% !important;
     }
 }

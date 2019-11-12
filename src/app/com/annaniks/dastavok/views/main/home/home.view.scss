@@ -1,61 +1,69 @@
 @import "../../../../../../../assets/scss/mixin";
 
-.home_container{
-margin-top: 20px;
-.heder_content{
-@include  flex-spase-between();
-padding: 20px 0;
-border-radius: 4px;
-.logo{
-    width: 170px;
-    display: block;
-}
-.search{
-    display: flex;
-    justify-content: space-between;
-    height: 40px;
-    margin: auto 0;
-    width: calc(100% - 220px);
-    margin-left: 50px;
-}
-    .search_input{
-     width: calc(100% - 46.5px);
-     border-radius: 4px;
-     background-color: #e5e5e5;
-     border: none;
-     padding-left: 16px;
-     color: #b5b5b5;
+.home_container {
+  margin-top: 20px;
+  .heder_content {
+    @include flex-spase-between();
+    padding: 20px 0;
+    border-radius: 4px;
+    .logo {
+      width: 170px;
+      display: block;
     }
-    .search_btn{
-        width: 46.5px;
-         background-color: #87bd3c;
-         border-radius: 4px;
-         font-size: 26px;
-         cursor: pointer;
-         border: none;
-    }
-    .trash{
+    .search {
+      display: flex;
+      justify-content: space-between;
+      height: 40px;
+      margin: auto 0;
+      width: calc(100% - 220px);
+      margin-left: 50px;
+      form {
+        width: 100%;
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        padding: 0 10px;
-        color: #444444;
-        .title{
-            @include text(#444444,18px);
-        }
+      }
     }
-}
-}
-@media only screen and (max-width:900px){
-    .container{
-        width:100% !important;
-    
-    .logo{
-        display: none !important;
+    .search_input {
+      width: calc(100% - 46.5px);
+      border-radius: 4px;
+      background-color: #e5e5e5;
+      border: none;
+      padding-left: 16px;
+      color: #b5b5b5;
     }
-    .search{
-        width:100% !important;
-        margin-left: 0px !important;
+    .search_btn {
+      width: 46.5px;
+      background-color: #87bd3c;
+      border-radius: 4px;
+      font-size: 26px;
+      cursor: pointer;
+      border: none;
+    }
+    .trash {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10px;
+      color: #444444;
+      .title {
+        @include text(#444444, 18px);
+      }
+    }
+  }
 }
-}
+@media only screen and (max-width: 900px) {
+  .container {
+    width: 100% !important;
+
+    .logo {
+      display: none !important;
+    }
+    .search {
+      width: 100% !important;
+      margin-left: 0px !important;
+    }
+  }
+  .trash {
+    display: none !important;
+  }
 }

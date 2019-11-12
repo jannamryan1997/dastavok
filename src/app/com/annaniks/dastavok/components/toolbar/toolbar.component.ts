@@ -92,7 +92,7 @@ export class ToolbarComponent implements OnInit {
 
     public openSearchGoodsModale(): void {
         const dialogRef = this.dialog.open(SearchGoodsModals, {
-            width: "686px",
+            width: "400px",
             height: "240px",
             panelClass: ['no-padding']
         })

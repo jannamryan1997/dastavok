@@ -1,32 +1,30 @@
 <table>
     <tr>
         <th class="th_type">{{'Product_detalis' | translate}}</th>
-        <th class="th_type">{{cardGoodsInfo?.name}}</th>
+        <th class="th_type"><a [routerLink]="productLink">{{cardGoodsInfo?.name}}</a></th>
         <th class="th_type price_type">{{'price' | translate}}</th>
         <th class="th_type">{{'quarity' | translate}}</th>
-        <th  class="th_type">   <i class="material-icons close" (click)="onClickDelete()" cursor-pointer>
-            close
-        </i></th>
+        <th class="th_type"> <i class="material-icons close" (click)="onClickDelete()" cursor-pointer>
+                close
+            </i></th>
     </tr>
     <tr>
         <td class="td_type">
-            <div class="image product_image" [ngStyle]="{'background-image':'url('+fileUrl+itemImage+')'}"></div>
+            <a [routerLink]="productLink">
+                <div class="image product_image" [ngStyle]="{'background-image':'url('+fileUrl+itemImage+')'}"></div>
+            </a>
         </td>
-        <td class="td_type">{{'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur,
-        aspernatur mollitia magnam architecto consequatur blanditiis quia nisi repellat, a beatae eius nemo eos
-        magni molestiae suscipit, accusamus nesciunt repellendus asperiores.' | slicetextPipe }}</td>
-        <td class="td_type price_type">{{cardGoodsInfo?.price}}$</td>
+        <td class="td_type">{{cardGoodsInfo?.goodDescription | slicetextPipe }}</td>
+        <td class="td_type price_type">{{cardGoodsInfo?.price}}₽</td>
         <td class="td_type">
             <div class="quarity">
-                <button class="quarity_btn remove" font-family-Roboto cursor-pointer (click)="countremove()"><i
+                <button class="quarity_btn remove" font-family-Roboto cursor-pointer (click)="countDecrement()"><i
                         class="material-icons">
                         keyboard_arrow_down
                     </i></button>
-                <div class="quarity_count">
-                    <p class="type" margin-auto>{{cardGoodsInfo?.count}}</p>
-                </div>
 
-                <button class=" quarity_btn add" font-family-Roboto cursor-pointer (click)="countadd()">
+                <input class="input" margin-auto value="{{cardGoodsInfo?.count}}" disabled>
+                <button class=" quarity_btn add" font-family-Roboto cursor-pointer (click)="countIncrement()">
                     <i class="material-icons">
                         keyboard_arrow_up
                     </i>

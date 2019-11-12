@@ -4,7 +4,7 @@
     margin-top: 50px;
     @include flex-spase-between();
     .product_type_conteiner{
-        width: calc(100% - 240px);
+        width: calc(100% - 350px);
         margin-left: 50px;
         .slider_contnet{
             @include flex-spase-between();

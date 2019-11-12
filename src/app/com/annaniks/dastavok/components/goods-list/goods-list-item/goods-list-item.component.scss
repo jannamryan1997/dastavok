@@ -26,6 +26,7 @@
         .title {
             @include text(#706f6f, 10px);
             width: 80%;
+            height: 60px;
         }
 
         .money_text {
@@ -35,4 +36,9 @@
     }
 
 
+}
+@media only screen and (max-width:900px){
+    .title{
+height: fit-content !important;
+    }
 }

@@ -126,7 +126,12 @@ export class CheckoutTabComponent implements OnInit {
             (data);
 
         });
-        error=>{
+        err=>{
+            console.log(err,"hgggggggggggggg");
+            if(err && err.error && err.error.error[0]){
+                this.error= err.error.error[0];
+            }
+          
             this.loading = false;
             this.paymentForm.enable();
         }
@@ -179,7 +184,11 @@ export class CheckoutTabComponent implements OnInit {
 
         },
         err=>{
-            this.error=err.error.error;
+            console.log(err,"hgggggggggggggg");
+            
+            if(err && err.error && err.error.error[0]){
+                this.error= err.error.error[0];
+            }
             this.loading=false;
             this.paymentForm.enable();
         }

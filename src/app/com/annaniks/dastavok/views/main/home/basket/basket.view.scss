@@ -15,6 +15,14 @@
             }
         }
     }
-}
+    .button {
+      @include button(#ff6f00, 20px 50px, #ffffff);
+    }
+    
+  }
+  app-skeletion-list-item{
+      width: 100%;
+  }
+
 
  

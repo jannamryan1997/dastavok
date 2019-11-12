@@ -1,7 +1,7 @@
 <form [formGroup]="phoneNumberForm">
     <div class="container">
-        <app-error [error]="error"></app-error>
         <div class="form_conteiner" full-width>
+                <app-error [error]="error"></app-error>
             <div class="form" full-width>
                 <label class="label" [ngClass]="{'color':checkIsValid('phonenumber')}">{{'phonenumber' | translate}}</label>
                 <div class="form_content" full-height display-flex [ngClass]="{'border':checkIsValid('phonenumber')}">

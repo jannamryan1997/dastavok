@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core"
+import { Component, OnInit, Input, Inject } from "@angular/core"
 import { NgxCarousel } from 'ngx-carousel';
 @Component({
     selector: "app-slider",
@@ -10,18 +10,11 @@ export class SliderComponent implements OnInit {
     @Input() public sliderMode: string;
     public carouselConfig: NgxCarousel;
     public carouselConfig2: NgxCarousel;
-    public items: object[] = [];
+    @Input('items') public items: object[] = [];
     public starCount: number = 4;
-    public items_star: Array<any> =
-        [
-            { label: "" },
-            { label: "" },
-            { label: "" },
-            { label: "" },
-            { label: "" },
-        ]
 
-    constructor() {
+    constructor(@Inject('FILE_URL') public fileUrl: string) {
+
         this.items = [
             {
                 title: "/assets/images/slider.jpg",
@@ -47,7 +40,7 @@ export class SliderComponent implements OnInit {
                 text: "Contrary to popular beelife"
 
             },
-            
+
             {
                 title: "/assets/images/slider5.jpg",
                 label: "Burger",
@@ -75,21 +68,19 @@ export class SliderComponent implements OnInit {
             touch: true
         }
         this.carouselConfig2 = {
-            grid: { xs: 2, sm: 2, md: 2, lg: 4, all:0 },
+            grid: { xs: 2, sm: 2, md: 2, lg: 4, all: 0 },
             slide: 1,
             speed: 400,
             interval: 2000,
             point: {
                 visible: false,
             },
-            loop: true,
+            loop:true,
             touch: true
         }
 
 
     }
 
-    ngOnInit() {
-
-    }
+    ngOnInit() {}
 }
