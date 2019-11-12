@@ -30,7 +30,7 @@
         }
 
         .money_text {
-            @include text(#191919, 15px);
+            @include text(#191919, 14px);
             word-break: unset;
         }
     }

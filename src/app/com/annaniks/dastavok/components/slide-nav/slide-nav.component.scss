@@ -68,12 +68,12 @@ section {
 
 
                 i {
-                    font-size: 34px;
+                    font-size: 26px;
                     color: #444444;
                 }
 
                 .link {
-                    @include text(#444444, 20px);
+                    @include text(#444444, 14px);
                     margin-left: 20px;
                     cursor: pointer;
                 }
