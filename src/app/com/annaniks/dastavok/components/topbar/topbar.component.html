@@ -4,7 +4,7 @@
             <a class="topbar_item" display-flex cursor-pointer *ngFor="let item of menuItemsService.getMenuItems()"
                 routerLink="{{item.routerLink}}" routerLinkActive="topbar_item_active"
                 [routerLinkActiveOptions]="{ exact: true }">
-                <p class="type" font-weight-bold margin-auto font-family-Open-Sans>{{item.label | translate}}</p>
+                <p class="type" font-weight-bold margin-auto >{{item.label | translate}}</p>
             </a>
         </div>
         <div class="topbar_middle" (clickOutside)="onClickedOutside($event)">

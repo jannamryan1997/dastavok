@@ -1,18 +1,18 @@
 <div class="deliver_items" full-width>
     <div class="container" width-75 margin-auto>
         <div class="order_info">
-            <p class="company_name" font-family-Roboto>{{orderData?.orderdata?.name}}</p>
+            <p class="company_name">{{orderData?.orderdata?.name}}</p>
             <div class="price_info">
                 <div>
-                    <p font-family-Roboto font-weight-bold>Cost of delivery</p>
-                    <p font-family-Roboto font-weight-bold>the price of goodes</p>
-                    <p font-family-Roboto font-weight-bold>Total Coast</p>
+                    <p font-weight-bold>Cost of delivery</p>
+                    <p font-weight-bold>the price of goodes</p>
+                    <p font-weight-bold>Total Coast</p>
                 </div>
 
                 <div>
-                    <p font-family-Roboto>3₽</p>
-                    <p font-family-Roboto>30₽</p>
-                    <p font-family-Roboto>{{orderData?.orderdata?.totalAmount}}₽</p>
+                    <p>3₽</p>
+                    <p>30₽</p>
+                    <p>{{orderData?.orderdata?.totalAmount}}₽</p>
                 </div>
 
             </div>
@@ -20,7 +20,7 @@
         <div class="track_info">
             <div class="points">
                 <div class="point">
-                    <p class="text_step_item" font-family-Roboto>Restaurant</p>
+                    <p class="text_step_item">Restaurant</p>
                     <div class="circle" display-flex  [ngClass]="{'activeOrderData':orderData?.orderdata?.status=='new'|| orderData?.orderdata?.status=='seen'||orderData?.orderdata?.status=='start'|| orderData?.orderdata?.status=='accepted'|| orderData?.orderdata?.status=='maked'}">
                         <div class="start_point" margin-auto [ngClass]="{'activeOrderDataCircl':orderData?.orderdata?.status=='new'|| orderData?.orderdata?.status=='seen'||orderData?.orderdata?.status=='start'|| orderData?.orderdata?.status=='accepted'|| orderData?.orderdata?.status=='maked'}"  >
 
@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div class="point">
-                    <p class="text_step_item" font-family-Roboto>Driver</p>
+                    <p class="text_step_item">Driver</p>
                     <div class="circle" display-flex [ngClass]="{'activeOrderData':orderData?.orderdata?.status=='onway'}">
                         <div class="start_point" margin-auto  [ngClass]="{'activeOrderDataCircl':orderData?.orderdata?.status=='onway'}" >
 
@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div class="point">
-                    <p class="text_step_item" font-family-Roboto>Customer</p>
+                    <p class="text_step_item">Customer</p>
                     <div class="circle" float-right display-flex [ngClass]="{'activeOrderData':orderData?.orderdata?.status=='completed'}">
                         <div class="start_point" margin-auto [ngClass]="{'activeOrderDataCircl':orderData?.orderdata?.status=='completed'}">
 
@@ -48,7 +48,7 @@
         </div>
 
         <div class="button_content" display-flex (click)="showMap()">
-            <button class="button" display-flex><span font-family-Roboto margin-auto>view more detalis</span></button>
+            <button class="button" display-flex><span margin-auto>view more detalis</span></button>
         </div>
 
         <div class="line" full-width></div>

@@ -30,7 +30,7 @@
                     <div class="image slider_image" [ngStyle]="{'background-image':'url('+fileUrl+item.thumbnail+')'}">
                     </div>
                     <div class="information_content">
-                        <p class="title" font-weight-bold font-family-Roboto>{{item?.name}}</p>
+                        <p class="title" font-weight-bold>{{item?.name}}</p>
                         <div class="description_content" display-flex justify-content-space-between >
                                 <p class="type" >{{item?.description | slicetextPipe : 50}} </p>
                                     <p class="type price_type">10000₽</p>
@@ -38,7 +38,7 @@
                         </div>
                        
                     </div>
-                    <p class="type" ont-weight-bold font-family-Roboto>{{item?.text}}</p>
+                    <p class="type" ont-weight-bold>{{item?.text}}</p>
                     <!-- <app-rating [currentIndex]="starCount" [changeRating]="false" [starSize]="7" ></app-rating> -->
                 </div>
             </ngx-item>

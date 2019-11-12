@@ -7,12 +7,12 @@
             <div class="payment_tab">
                 <div class="tab_content" display-flex justify-content-space-between full-width>
                     <div class="tab_item" full-height display-flex [ngClass]="{'active_tab':tab==1}">
-                        <span margin-auto font-family-Open-Sans (click)="changeTab(1)" [ngClass]="{'active_tab_text':tab==1}"
+                        <span margin-auto  (click)="changeTab(1)" [ngClass]="{'active_tab_text':tab==1}"
                             font-weight-bold>{{'checkout' | translate}}</span></div>
                     <div class="tab_item" full-height display-flex [ngClass]="{'active_tab':tab==2}"><span
-                            margin-auto font-family-Open-Sans font-weight-bold [ngClass]="{'active_tab_text':tab==2}">{{'payment' | translate}}</span></div>
+                            margin-auto  font-weight-bold [ngClass]="{'active_tab_text':tab==2}">{{'payment' | translate}}</span></div>
                     <div class="tab_item" full-height display-flex [ngClass]="{'active_tab':tab==3}"><span margin-auto
-                            [ngClass]="{'active_tab_text':tab==3}" font-weight-bold font-family-Open-Sans>{{'done' | translate}}</span></div>
+                            [ngClass]="{'active_tab_text':tab==3}" font-weight-bold >{{'done' | translate}}</span></div>
                 </div>
 
             </div>

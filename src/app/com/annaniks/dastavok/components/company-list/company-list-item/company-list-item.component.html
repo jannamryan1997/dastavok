@@ -2,8 +2,8 @@
     <div class="company_content">
         <div class="company_image" [ngStyle]="{'background-image':'url('+localImage+')'}"></div>
         <div class="company_info">
-            <p class="company_name" font-family-Roboto font-weight-bold>{{companyItem?.name}}</p>
-            <p class="company_description" font-family-Roboto font-weight-bold>{{companyItem?.description}}</p>
+            <p class="company_name" font-weight-bold>{{companyItem?.name}}</p>
+            <p class="company_description" font-weight-bold>{{companyItem?.description}}</p>
             <app-rating [currentIndex]="companyItem?.review-1" [changeRating]="false"></app-rating>
         </div>
     </div>
