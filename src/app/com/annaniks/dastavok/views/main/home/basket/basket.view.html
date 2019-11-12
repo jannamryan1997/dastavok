@@ -2,7 +2,7 @@
         <app-total-cost [totalAmoutSum]="totalSum" (byAll)="byAllEvent($event)"></app-total-cost>
     </div> -->
 
-<section full-width>
+<section class="basket_section" full-width>
     <div class="basket_container">
         <div class="basket_content" *ngIf="cardInfo.length>0">
             <app-card-list *ngFor="let item of cardInfo" [cardInfo]="item" (deleted)="deletedOrder($event)">

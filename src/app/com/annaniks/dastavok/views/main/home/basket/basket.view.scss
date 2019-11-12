@@ -1,10 +1,19 @@
 @import "../../../../../../../../assets/scss/mixin";
 
-.basket_container {
-  .message {
-    .type {
-      @include text(#ff6f00, 30px);
-      text-align: center;
+.basket_section {
+    overflow-x: auto;
+
+    .basket_container {
+        .message {
+            .type {
+                @include text(#ff6f00, 30px);
+                text-align: center;
+            }
+
+            .button {
+                @include button(#ff6f00, 20px 50px, #ffffff);
+            }
+        }
     }
     .button {
       @include button(#ff6f00, 20px 50px, #ffffff);
@@ -14,4 +23,6 @@
   app-skeletion-list-item{
       width: 100%;
   }
-}
+
+
+ 

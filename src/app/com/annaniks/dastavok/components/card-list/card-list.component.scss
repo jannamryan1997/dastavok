@@ -2,6 +2,7 @@
 
 .card_content {
     width: 100%;
+    min-width: 650px;
 
     .type {
         @include text(#444444, 22px);
@@ -38,5 +39,6 @@
     .button {
         @include button(#ff6f00, 20px 50px, #ffffff);
         margin-right: 0;
+        margin-bottom: 20px;
     }
 }
