@@ -45,3 +45,13 @@
         }
     }
 }
+
+
+@media only screen and (max-width:900px){
+    .title,i{
+        font-size: 15px !important;
+    }
+    .input{
+        width: 30px !important;
+    }
+}
