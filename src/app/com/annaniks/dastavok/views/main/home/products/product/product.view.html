@@ -4,7 +4,7 @@
         <div class="product_images">
             <div class="image main_images" [ngStyle]="{'background-image':'url('+activeImage+')'}"></div>
             <div class="product_images_item">
-                <div class="goods_image" *ngFor="let item of goodImage">
+                <div class="image goods_image" *ngFor="let item of goodImage">
                     <div class="image image_item" [ngStyle]="{'background-image':'url('+ fileUrl + item +')'}" (click)="setActiveImage(item)"></div>
                 </div>
             </div>
