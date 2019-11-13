@@ -7,25 +7,25 @@
                 <div class="redius_top" display-flex>
                     <div class="radius"></div>
                 </div>
-                <span class="text" font-family-Roboto>{{userData.fullName}}</span>
+                <span class="text">{{userData.fullName}}</span>
             </div>
             <div class="data_address" display-flex>
                 <i class="material-icons">
                     place
                 </i>
-                <span class="text" font-family-Roboto>{{userData.address.text}}</span>
+                <span class="text">{{userData.address.text}}</span>
             </div>
             <div class="data_phone"  display-flex>
                 <i class="material-icons">
                     local_phone
                 </i>
-                <span class="text" font-family-Roboto >{{userData.phoneNumber}}</span>
+                <span class="text" >{{userData.phoneNumber}}</span>
             </div>
             <div class="edit" display-flex>
                 <i class="material-icons" (click)="openAddressModal(userData)">
                     edit
                 </i>
-                <span class="text" font-family-Roboto >Edit</span>
+                <span class="text" >Edit</span>
             </div>
         </div>
     </div>
@@ -33,15 +33,15 @@
         <i class="material-icons add_icon">
             add
         </i>
-        <p font-family-Roboto class="text_new_address">Add new address</p>
+        <p class="text_new_address">Add new address</p>
 
     </div>
     <div class="line" full-width></div>
     <div class="card_tab" display-flex>
         <input type="checkbox" name="vehicle" value="Bike" (click)="showPayment()">
-        <p class="card_text" font-family-Roboto>Card</p>
+        <p class="card_text">Card</p>
         <input type="checkbox" name="vehicl" value="Bik" class="chackbox_cash" (click)="closePayment()">
-        <p class="cash_text" font-family-Roboto>Pay in cash</p>
+        <p class="cash_text">Pay in cash</p>
 
     </div>
     <div class="top_content" width-75>
@@ -51,18 +51,18 @@
 
         <div class="input_form">
             <div class="form_group">
-                <span class="form_text" font-family-Roboto font-weight-bold>Card number</span>
+                <span class="form_text" font-weight-bold>Card number</span>
                 <input class="input_card_number" display-flex full-width>
             </div>
             <div>
             <div class="form_group_item"  display-flex justify-content-space-between>
                 <div class="form_group">
-                    <span class="form_text_varieble" font-family-Roboto font-weight-bold>Varieble</span>
+                    <span class="form_text_varieble" font-weight-bold>Varieble</span>
                     <input class="input_card_varieble" display-flex>
                 </div>
 
                 <div class="form_group">
-                    <span class="form_text_security" font-family-Roboto font-weight-bold>Security</span>
+                    <span class="form_text_security" font-weight-bold>Security</span>
                     <input class="input_card_security" display-flex>
                 </div>
 
@@ -70,11 +70,11 @@
         </div>
             <div  class="form_group_item" display-flex justify-content-space-between>
                 <div class="form_group">
-                    <span class="form_text_cardowner" font-family-Roboto font-weight-bold>Cardowner</span>
+                    <span class="form_text_cardowner" font-weight-bold>Cardowner</span>
                     <input class="input_card_cardowner" display-flex>
                 </div>
                 <div class="form_group">
-                    <span class="form_text_cardowner" font-family-Roboto font-weight-bold>Cardowner</span>
+                    <span class="form_text_cardowner" font-weight-bold>Cardowner</span>
                     <input class="input_card_cardowner" display-flex>
                 </div>
             </div>
@@ -83,12 +83,12 @@
             <div display-flex>
 
                 <input type="checkbox" name="vehicle" value="Bike">
-                <p class="save_text" font-family-Roboto>Save the card</p>
+                <p class="save_text">Save the card</p>
             </div>
             <div class="line_content" full-width></div>
 
             <div class="button" display-flex (click)="openDone()">
-                <button class="button_confirm" display-flex><span margin-auto color-white font-family-Roboto
+                <button class="button_confirm" display-flex><span margin-auto color-white
                         font-weight-bold>Confirm and pey</span></button>
             </div>
         </div>

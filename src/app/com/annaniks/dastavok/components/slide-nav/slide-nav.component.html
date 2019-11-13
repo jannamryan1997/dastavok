@@ -10,8 +10,8 @@
                 </div>
                 <div class="sign_up_content" position-relative (clickOutside)="onClickedOutsideLoginMenu($event)"
                     *ngIf="!signUpService.isAuthorized">
-                    <p class="type" font-family-Roboto cursor-pointer (click)="showLogin()">{{'login' | translate}}/</p>
-                    <p class="type" font-family-Roboto cursor-pointer (click)="openDialogPhoneNumber()">
+                    <p class="type" cursor-pointer (click)="showLogin()">{{'login' | translate}}/</p>
+                    <p class="type" cursor-pointer (click)="openDialogPhoneNumber()">
                         {{'registration' | translate}}</p>
                 </div>
             </div>

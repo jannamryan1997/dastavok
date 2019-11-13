@@ -22,15 +22,15 @@
                             <i class="material-icons">
                                 person
                             </i>
-                            <span font-weight-bold font-family-Roboto>{{'login'| translate}}/{{'registration'| translate}}</span>
+                            <span font-weight-bold>{{'login'| translate}}/{{'registration'| translate}}</span>
                         </div>
                         <div class="login right-0" position-absolute display-flex *ngIf="showlogin">
                             <div class="buttons_items" margin-auto width-75 >
                                 <button class="login_button" text-align-center (click)="openLoginModal()">
-                                    <span color-white font-weight-bold font-family-Roboto>{{'login'| translate}}</span>
+                                    <span color-white font-weight-bold>{{'login'| translate}}</span>
                                 </button>
                                 <button class="registration_button"  text-align-center (click)="openPhoneNumberModal()">
-                                    <span color-white font-weight-bold font-family-Roboto>{{'registration'| translate}}</span>
+                                    <span color-white font-weight-bold>{{'registration'| translate}}</span>
                                 </button>
                             </div>
                         </div>
@@ -39,7 +39,7 @@
                         (clickOutside)="onClickedOutsideUserProfile($event)">
                         <div class="image user_image" [ngStyle]="{'background-image':'url('+signUpService.userImage+')'}"></div>
                         <div display-flex align-items-center>
-                            <p class="user_name" display-flex  align-items-center font-weight-bold font-family-Roboto>{{signUpService?.userInfo.fullName}}
+                            <p class="user_name" display-flex  align-items-center font-weight-bold>{{signUpService?.userInfo.fullName}}
 
                                 <i class="material-icons" (click)="showUserProfile()">
                                     keyboard_arrow_down
@@ -49,9 +49,9 @@
                         </div>
                         <div class="user_profile" position-absolute *ngIf="showUserProfileDisplay">
                             <div class="user_singIn">
-                                <p class="type" font-family-Roboto font-weight-bold routerLink="/profile"
+                                <p class="type" font-weight-bold routerLink="/profile"
                                     cursor-pointer>{{'user_profile' | translate}}</p>
-                                <p  class="title" font-family-Roboto font-weight-bold (click)="onClickLogOut()"
+                                <p  class="title" font-weight-bold (click)="onClickLogOut()"
                                     cursor-pointer>{{'log_out' | translate}}</p>
                             </div>
 

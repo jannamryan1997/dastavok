@@ -20,7 +20,7 @@
             <app-skeletion-list-item [type]="'card'"></app-skeletion-list-item>
         </app-skeletion-list>
         <div class="message" *ngIf="cardInfo.length==0 && loading==false">
-            <p class="type" font-family-Open-Sans>{{'your_chart_is_empty' | translate}}</p>
+            <p class="type" >{{'your_chart_is_empty' | translate}}</p>
             <button class="button" display-flex margin-auto routerLink="/">
                 <p margin-auto>{{'go_main_page' | translate}}</p>
             </button>

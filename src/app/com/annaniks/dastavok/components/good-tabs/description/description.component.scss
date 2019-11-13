@@ -1,14 +1,20 @@
 @import "../../../../../../../assets/scss/mixin";
 
 .description_content {
-    @include text(#706f6f,20px);
-    margin-top: 48px;
-    color: #706f6f;
-    .description_text {
-    //    width: 707px;
+    margin-top: 50px;
+
+    .type {
+        @include text(#706f6f, 20px);
         margin-bottom: 0px;
         margin-top: 0px;
         display: block;
-    word-wrap: break-word;
+        word-wrap: break-word;
     }
+}
+
+@media only screen and (max-width:900px) {
+    .type {
+        font-size: 14px !important;
+    }
+
 }

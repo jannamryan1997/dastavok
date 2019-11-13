@@ -5,17 +5,17 @@
         .contact_type {
             margin-top: 73px;
             .type {
-                @include text(30px, #444444);
+                @include text(#444444,30px);
             }
             .title {
-                @include text(18px, #707070);
+                @include text(#707070,18px);
             }
         }
         .form_content {
             .form_group {
                 margin-top: 26.5px;
                 .label {
-                    @include text(17px, #848181);
+                    @include text(#848181,17px);
                 }
                 .input {
                     width: 100%;
@@ -46,10 +46,10 @@
         .type_content {
             margin-top: 73px;
             .type {
-                @include text(30px, #444444);
+                @include text(#444444,30px);
             }
             .title {
-                @include text(18px, #707070);
+                @include text(#707070,18px);
             }
         }
         .customer_info {
@@ -61,7 +61,7 @@
             .data {
                 margin-left: 16px;
                 .data_title {
-                    @include text(20px, #707070);
+                    @include text(#707070,20px);
                     text-align: left;
                     margin-bottom: 0;
                 }
@@ -74,8 +74,8 @@
                     height: 84px;
                     width: 84px;
                 }
-                .contact_text {
-                    @include text(18px, #707070);
+                .contact_title {
+                    @include text(#707070,18px);
                     margin-left: 16px;
                 }
             }
@@ -111,5 +111,11 @@
     .left_content {
         width: 100% !important;
         margin-left: 0 !important;
+    }
+    .type{
+        font-size: 20px !important;
+    }
+    .title,.data_title{
+        font-size: 14px !important;
     }
 }

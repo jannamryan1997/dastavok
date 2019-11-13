@@ -11,25 +11,25 @@
 
         </div>
         <div class="prodict_description">
-            <p class="type" font-family-Roboto font-weight-bold>{{good?.name}}</p>
+            <p class="type" font-weight-bold>{{good?.name}}</p>
 
             <app-rating [currentIndex]="good?.review-1" [changeRating]="false"></app-rating>
-            <p class="title" font-family-Roboto>{{good?.description}}</p>
+            <p class="title">{{good?.description}}</p>
             <div class="price_content" display-flex justify-content-space-between>
-                <p class="description_title" font-family-Roboto>{{'price' | translate}}</p>
-                <p class="after_title description_title" font-family-Roboto>{{good?.price}}₽</p>
+                <p class="description_title">{{'price' | translate}}</p>
+                <p class="after_title description_title">{{good?.price}}₽</p>
             </div>
             <div class="quarity">
                 <div class="quarity_content" display-flex justify-content-space-between>
-                    <p class="description_title" font-family-Roboto>{{'quarity' | translate}}</p>
+                    <p class="description_title">{{'quarity' | translate}}</p>
                     <div class="quarity_item">
-                        <button class="quarity_btn remove" font-family-Roboto cursor-pointer (click)="countDecrement()"><i class="material-icons">
+                        <button class="quarity_btn remove" cursor-pointer (click)="countDecrement()"><i class="material-icons">
                                 keyboard_arrow_down
                             </i></button>
                     
-                            <input class="input" font-family-Roboto margin-auto  value="{{countSum}}" disabled> 
+                            <input class="input" margin-auto  value="{{countSum}}" disabled> 
 
-                        <button class=" quarity_btn add" font-family-Roboto cursor-pointer (click)="countIncrement()">
+                        <button class=" quarity_btn add" cursor-pointer (click)="countIncrement()">
                             <i class="material-icons">
                                 keyboard_arrow_up
                             </i>
@@ -53,14 +53,14 @@
     <div [ngSwitch]="tab" class="tab" full-width>
         <div class="tab_content" display-flex justify-content-space-between>
             <div class="tab_item" display-flex (click)="changeTab(1)" [ngClass]="{'active_tab':tab==1}">
-                <p margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==1}">{{'description'| translate}}
+                <p margin-auto  [ngClass]="{'text_active_tab':tab==1}">{{'description'| translate}}
                 </p>
             </div>
             <div class="tab_item" display-flex (click)="changeTab(2)" [ngClass]="{'active_tab':tab==2}">
-                <p margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==2}">{{'review'| translate}}</p>
+                <p margin-auto  [ngClass]="{'text_active_tab':tab==2}">{{'review'| translate}}</p>
             </div>
             <div class="tab_item" display-flex (click)="changeTab(3)" [ngClass]="{'active_tab':tab==3}">
-                <p margin-auto font-family-Open-Sans [ngClass]="{'text_active_tab':tab==3}">{{'ingredient'| translate}}
+                <p margin-auto  [ngClass]="{'text_active_tab':tab==3}">{{'ingredient'| translate}}
                 </p>
             </div>
         </div>

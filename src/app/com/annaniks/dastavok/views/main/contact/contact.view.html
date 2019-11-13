@@ -2,8 +2,8 @@
     <div class="contact_conteiner" display-flex margin-auto>
         <div class="left_content">
             <div class="contact_type">
-                <h2 class="type" font-weight-bold font-family-Open-Sans>{{'reach_out_to_us' | translate}}</h2>
-                <span class="title" font-weight-bold font-family-Roboto>Lorem ipsum dolor sit, amet consectetur
+                <h2 class="type" font-weight-bold>{{'reach_out_to_us' | translate}}</h2>
+                <span class="title" font-weight-bold>Lorem ipsum dolor sit, amet consectetur
                     adipisicing elit. Tempora autem
                     labore reiciendis corporis impedit facere saepe enim, vero porro quas, neque molestiae. Placeat
                     asperiores magnam iste blanditiis facere culpa quis.</span>
@@ -12,35 +12,35 @@
                 <form [formGroup]="userForm">
                     <div class="form_group">
                         <label class="label" [ngClass]="{'color':checkIsValid('firstName')}">{{'first_name' | translate}}</label>
-                        <input class="input" placeholder="{{'first_name' | translate}}" full-width font-family-Roboto formControlName="firstName" [ngClass]="{'border':checkIsValid('firstName')}">
+                        <input class="input" placeholder="{{'first_name' | translate}}" full-width formControlName="firstName" [ngClass]="{'border':checkIsValid('firstName')}">
                     </div>
                     <div class="form_group">
                         <label class="label" [ngClass]="{'color':checkIsValid('lastName')}">{{'last_name' | translate}}</label>
-                        <input class="input" placeholder="{{'last_name' | translate}}" full-width font-family-Roboto formControlName="lastName" [ngClass]="{'border':checkIsValid('lastName')}">
+                        <input class="input" placeholder="{{'last_name' | translate}}" full-width formControlName="lastName" [ngClass]="{'border':checkIsValid('lastName')}">
                     </div>
                     <div class="form_group">
                         <label class="label" [ngClass]="{'color':checkIsValid('email')}">{{'email' | translate}}</label>
-                        <input class="input" placeholder="{{'email' | translate}}" full-width font-family-Roboto formControlName="email" [ngClass]="{'border':checkIsValid('email')}">
+                        <input class="input" placeholder="{{'email' | translate}}" full-width formControlName="email" [ngClass]="{'border':checkIsValid('email')}">
                         <label  class="label color" *ngIf="userForm.get('email').hasError('pattern') && userForm.get('email').touched">{{'email_validation' | translate}}</label>
                     </div>
                     <div class="form_group">
                         <label class="label" [ngClass]="{'color':checkIsValid('phoneNumber')}">{{'phone_number' | translate}}</label>
-                        <input class="input" placeholder="{{'phone_number' | translate}}" full-width font-family-Roboto formControlName="phoneNumber" [ngClass]="{'border':checkIsValid('phoneNumber')}" prefix="+7" mask="(000) 000 00 00">
+                        <input class="input" placeholder="{{'phone_number' | translate}}" full-width formControlName="phoneNumber" [ngClass]="{'border':checkIsValid('phoneNumber')}" prefix="+7" mask="(000) 000 00 00">
                     </div>
                     <div class="form_group">
                         <label class="label" [ngClass]="{'color':checkIsValid('messages')}">{{'messages' | translate}}</label>
-                        <textarea class="input messages_input" placeholder="{{'messages' | translate}}" full-width font-family-Roboto formControlName="messages" [ngClass]="{'border':checkIsValid('messages')}"></textarea>
+                        <textarea class="input messages_input" placeholder="{{'messages' | translate}}" full-width formControlName="messages" [ngClass]="{'border':checkIsValid('messages')}"></textarea>
                     </div>
                     <button class="button" text-align-center display-flex [disabled]="userForm.invalid" (click)="contact()">
-                        <span color-white font-family-Open-Sans font-weight-bold margin-auto [ngClass]="{'disable':userForm.invalid}">{{'submit' | translate}}</span>
+                        <span color-white  font-weight-bold margin-auto [ngClass]="{'disable':userForm.invalid}">{{'submit' | translate}}</span>
                     </button>
                 </form>
             </div>
         </div>
         <div class="right_content">
             <div class="type_content">
-                <h2 class="type" font-weight-bold font-family-Open-Sans>{{'reach_out_to_us' | translate}}</h2>
-                <span class="title" font-weight-bold font-family-Roboto>Lorem ipsum dolor sit, amet consectetur
+                <h2 class="type" font-weight-bold >{{'reach_out_to_us' | translate}}</h2>
+                <span class="title" font-weight-bold>Lorem ipsum dolor sit, amet consectetur
                     adipisicing elit. Tempora autem
                     labore reiciendis corporis impedit facere saepe enim, vero porro quas, neque molestiae. Placeat
                     asperiores magnam iste blanditiis facere culpa quis.</span>
@@ -50,9 +50,9 @@
                     <img class="img" src="assets/images/user.png" full-width full-height>
                 </div>
                 <div class="data">
-                    <p class="data_title" font-family-Open-Sans font-weight-bold>klara</p>
-                    <p class="data_title" font-family-Roboto>klara klara</p>
-                    <p class="data_title" font-weight-bold font-family-Roboto>+3745454545</p>
+                    <p class="data_title"  font-weight-bold>klara</p>
+                    <p class="data_title">klara klara</p>
+                    <p class="data_title" font-weight-bold>+3745454545</p>
 
                 </div>
 
@@ -60,15 +60,15 @@
             </div>
 
             <div class="type_content">
-                <h2 class="type" font-family-Open-Sans font-weight-bold>{{'Others_ways_to_connect' | translate}}</h2>
+                <h2 class="type"  font-weight-bold>{{'Others_ways_to_connect' | translate}}</h2>
             </div>
             <div class="contact">
                 <div class="contact_descriptiont" display-flex lign-items-center>
                     <div class="img_contact">
                         <img src="assets/images/fb.png" full-height>
                     </div>
-                    <div class="contact_type">
-                        <span class="type" font-family-Roboto>Lorem ipsum dolor sit amet consectetur
+                    <div class="contact_title">
+                        <span class="title">Lorem ipsum dolor sit amet consectetur
                             adipisicing
                             elit. Ipsum nisi
                             explicabo modi, impedit eos iure vel exercitationem repellat consequatur obcaecati nobis
