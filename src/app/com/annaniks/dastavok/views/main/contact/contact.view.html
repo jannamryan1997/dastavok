@@ -47,7 +47,7 @@
             </div>
             <div class="customer_info" display-flex align-items-center>
                 <div class="img_info">
-                    <img class="img" src="assets/images/user.png" full-width full-height>
+                    <img class="image" src="assets/images/userimages.png" full-width full-height>
                 </div>
                 <div class="data">
                     <p class="data_title"  font-weight-bold>klara</p>
@@ -63,16 +63,12 @@
                 <h2 class="type"  font-weight-bold>{{'Others_ways_to_connect' | translate}}</h2>
             </div>
             <div class="contact">
-                <div class="contact_descriptiont" display-flex lign-items-center>
+                <div class="contact_descriptiont" display-flex lign-items-center *ngFor="let item of contactItem">
                     <div class="img_contact">
-                        <img src="assets/images/fb.png" full-height>
+                        <img class="image" src="{{item.image}}" full-height>
                     </div>
                     <div class="contact_title">
-                        <span class="title">Lorem ipsum dolor sit amet consectetur
-                            adipisicing
-                            elit. Ipsum nisi
-                            explicabo modi, impedit eos iure vel exercitationem repellat consequatur obcaecati nobis
-                            laudantium nihil, praesentium libero sed doloribus aperiam adipisci ratione?</span>
+                        <span class="title">{{item.title}}</span>
                     </div>
                 </div>
             </div>
