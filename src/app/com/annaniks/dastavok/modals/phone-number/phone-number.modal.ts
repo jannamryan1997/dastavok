@@ -68,13 +68,12 @@ export class PhoneNumberModal implements OnInit, OnDestroy {
                     this.cookieService.put('phone_token', data.data.token);
                     this.openVerificationModal('registration');
                 },
-                    err => {
-                        this.error = err.error.error;
-                        this.loading = false;
-                        this.phoneNumberForm.enable();
-                        this.error = err.error.error;
-                    })
-        }
+                err => {
+                    this.error = err.error.error;
+                    this.loading = false;
+                    this.phoneNumberForm.enable();
+                })
+            }
         if (this.data.key === 'forgot_password') {
             this.signUpService.forgetPasswordPhoneNumber({
                 "phoneNumber": this.phoneNumberForm.value.phonenumber
@@ -93,6 +92,7 @@ export class PhoneNumberModal implements OnInit, OnDestroy {
                         this.phoneNumberForm.enable();
 
                     })
+
         }
 
     }
