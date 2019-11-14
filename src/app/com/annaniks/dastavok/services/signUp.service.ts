@@ -55,7 +55,10 @@ export class SignUpService extends Utility {
     }
 
     public forgetPasswordVerification(body) {
-        return this._httpClient.post("freeclient/forget/steptwo", body)
+        let headers = new HttpHeaders({
+            'token': this._cookieService.get('forgot_token') || ''
+        })
+        return this._httpClient.post("freeclient/forget/steptwo", body, { headers })
     }
 
     public newPassword(body) {

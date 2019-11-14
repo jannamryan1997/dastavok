@@ -16,12 +16,10 @@
                                 </ng5-slider>
                         </div>
 
-                        <div class="filters_list_item" *ngFor="let item of filterControls?.controls;let ind = index">
-                                <label class="checkbox_container">
-                                        <input type="checkbox" [formControl]="item">
-                                        <span class="checkmark"></span>
-                                </label>
-                                <span class="filter_name">filter {{ind}}</span>
+                        <div class="filters_list_item">
+                                <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'100%'}" [suggestions]="results"
+                                        (completeMethod)="search($event)" [multiple]="true"></p-autoComplete>
+
                         </div>
                         <div class="buttons">
                                 <button type="submit" class="show_variants" (click)="onClickFilter()">

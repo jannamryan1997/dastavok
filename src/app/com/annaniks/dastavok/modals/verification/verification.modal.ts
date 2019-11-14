@@ -78,7 +78,6 @@ export class VerificationModal implements OnInit {
         })
         dialoRef.afterClosed().subscribe((data) => {
             this._signUpService.getUserInfo().subscribe((data) => {
-                console.log(data);
                 this.dialog.closeAll()
             });
         })
