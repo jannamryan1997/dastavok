@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms"
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from "@angular/material";
 import { SignUpService } from "../../services/signUp.service";
 import { MessageService } from "primeng/api";
-import { PhoneNumberModal } from "..";
+import { PhoneNumberModal } from "../phone-number/phone-number.modal";
 
 export interface DialogData {
     animal: string;

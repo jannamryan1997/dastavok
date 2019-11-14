@@ -72,9 +72,8 @@ export class PhoneNumberModal implements OnInit, OnDestroy {
                     this.error = err.error.error;
                     this.loading = false;
                     this.phoneNumberForm.enable();
-                    this.error = err.error.error;
                 })
-
+            }
             if (this.data.key === 'forgot_password') {
                 this.signUpService.forgetPasswordPhoneNumber({
                     "phoneNumber": this.phoneNumberForm.value.phonenumber
@@ -94,7 +93,8 @@ export class PhoneNumberModal implements OnInit, OnDestroy {
 
                     })
             }
-        }
+        
+
 
     }
 

@@ -6,8 +6,8 @@ import { SignUpService } from "../../services/signUp.service";
 import { CookieService } from "ngx-cookie";
 import { NewPasswordModals } from "../new-password/new-password.modal";
 import { ProfileService } from "../../views/main/profile/profile.service";
-import { PhoneVerification, ServerResponse } from "../../models/models";
 import { Subscription, interval } from "rxjs";
+import { PhoneVerification, ServerResponse } from "../../models/models";
 
 @Component({
     selector: "app-verification",
