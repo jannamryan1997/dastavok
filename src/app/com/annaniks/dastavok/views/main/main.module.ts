@@ -23,6 +23,7 @@ import { PaymentService } from "./payment/payment.service";
 import { AuthGuard } from "../../guards/authguard.service";
 import { MenuService } from "../../services/menu.service";
 import { MessageService } from "primeng/api";
+import { MainService } from "./main.service";
 
 @NgModule({
     declarations: [
@@ -46,6 +47,7 @@ import { MessageService } from "primeng/api";
         ToastModule
     ],
     providers: [
+        MainService,
         MenuItemsService,
         ProfileService,
         PaymentService,

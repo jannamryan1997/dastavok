@@ -61,8 +61,8 @@ export class PhoneNumberModal implements OnInit, OnDestroy {
             this.signUpService.clientPhoneNumber({
                 "phoneNumber": this.phoneNumberForm.value.phonenumber
             })
-            .pipe(takeUntil(this._unsubscribe$))
-            .subscribe((data: ServerResponse<PhoneVerification>) => {
+                .pipe(takeUntil(this._unsubscribe$))
+                .subscribe((data: ServerResponse<PhoneVerification>) => {
                     this.loading = false;
                     this.phoneNumberForm.enable();
                     this.cookieService.put('phone_token', data.data.token);
@@ -74,10 +74,10 @@ export class PhoneNumberModal implements OnInit, OnDestroy {
                     this.phoneNumberForm.enable();
                 })
             }
-            if (this.data.key === 'forgot_password') {
-                this.signUpService.forgetPasswordPhoneNumber({
-                    "phoneNumber": this.phoneNumberForm.value.phonenumber
-                })
+        if (this.data.key === 'forgot_password') {
+            this.signUpService.forgetPasswordPhoneNumber({
+                "phoneNumber": this.phoneNumberForm.value.phonenumber
+            })
                 .pipe(takeUntil(this._unsubscribe$))
                 .subscribe((data: ServerResponse<PhoneVerification>) => {
                     this.loading = false;
@@ -92,9 +92,8 @@ export class PhoneNumberModal implements OnInit, OnDestroy {
                         this.phoneNumberForm.enable();
 
                     })
-            }
-        
 
+        }
 
     }
 

@@ -4,6 +4,8 @@ import { FormGroup, FormBuilder, FormControl, FormArray } from "@angular/forms";
 import { Subscription } from "rxjs";
 import { Router } from "@angular/router";
 import { MenuService } from "../../services/menu.service";
+import { MainService } from "../../views/main/main.service";
+import { map } from "rxjs/operators";
 
 @Component({
     selector: "app-filters-list",
@@ -24,7 +26,8 @@ export class FiltersListComponent implements OnInit, OnDestroy {
     constructor(
         private _fb: FormBuilder,
         private _router: Router,
-        private _menuService: MenuService
+        private _menuService: MenuService,
+        private _mainService: MainService
     ) { }
 
     ngOnInit() {
@@ -64,6 +67,10 @@ export class FiltersListComponent implements OnInit, OnDestroy {
         })
     }
 
+    private _searchFilters(query: string) {
+        return this._mainService.searchFilters(query)
+    }
+
     public onClickFilter(): void {
         this._router.navigate(['/search', { queryParams: { search: '' } }])
     }
@@ -73,6 +80,12 @@ export class FiltersListComponent implements OnInit, OnDestroy {
         this.priceGroup.get('startPrice').setValue(0, { emitEvent: false });
         this.priceGroup.get('endPrice').setValue(this.highValue, { emitEvent: false });
         this._filterForm.get('filters').reset();
+    }
+
+    public search($event): void {
+        this._searchFilters($event.query).subscribe((data) => {
+            console.log(data);
+        })
     }
 
 

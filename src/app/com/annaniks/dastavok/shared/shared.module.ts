@@ -29,6 +29,8 @@ import { InputPrefixDirective, OnlyNumber, FocusNextInputDriective } from "../di
 import { NgxMaskModule } from 'ngx-mask';
 import { SlicetextPipe } from "../pipe/slicetext.pipe";
 import { Ng5SliderModule } from 'ng5-slider';
+import {AutoCompleteModule} from 'primeng/autocomplete';
+
 
 @NgModule({
   declarations: [
@@ -63,7 +65,8 @@ import { Ng5SliderModule } from 'ng5-slider';
     TranslateModule.forChild(),
     NgxMaskModule.forRoot(),
     NgxChartsModule,
-    Ng5SliderModule
+    Ng5SliderModule,
+    AutoCompleteModule
   ],
   exports: [
     TopbarComponent,
