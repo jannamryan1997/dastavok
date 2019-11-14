@@ -120,7 +120,7 @@ export class RegistrationStep implements OnInit {
 
     public back(): void {
         if (this.tab == 2) {
-            this.tab = this.tab = 1;
+            this.tab = 1;
             this._intervalSubscription.unsubscribe();
             this._clientVerificationSubscription.unsubscribe();
         }

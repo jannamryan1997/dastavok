@@ -68,14 +68,14 @@
             }
         }
         .contact {
-            margin-top: 47.5px;
             .contact_descriptiont {
+                padding: 20px 0;
                 .img_contact {
                     height: 84px;
                     width: 84px;
                 }
                 .contact_title {
-                    @include text(#707070,18px);
+                    @include text(#707070,15px);
                     margin-left: 16px;
                 }
             }
@@ -117,5 +117,9 @@
     }
     .title,.data_title{
         font-size: 14px !important;
+    }
+    .image{
+        width: 60px !important;
+        height: 60px !important;
     }
 }

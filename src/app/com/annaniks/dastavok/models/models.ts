@@ -365,3 +365,7 @@ export interface Review {
     updatedAt: string;
     metaData: MetaData;
 }
+export interface ContacItem{
+    image:string;
+    title:string;
+}

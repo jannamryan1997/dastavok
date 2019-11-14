@@ -4,9 +4,7 @@
             <ngx-item *ngFor="let item of items" NgxCarouselItem>
                 <div class="image slider_container" [ngStyle]="{'background-image':'url('+item.title+')'}">
                 </div>
-
             </ngx-item>
-
             <div NgxCarouselPrev class="leftRs" color-white>
                 <i class="material-icons">
                     keyboard_arrow_left
@@ -19,7 +17,7 @@
     </div>
     <div *ngSwitchCase="2" class="second_slider">
         <ngx-carousel [inputs]="carouselConfig2">
-            <div NgxCarouselPrev class="leftRs_config">
+            <div NgxCarouselPrev class="leftRs leftRs_config">
                 <i class="material-icons">
                     keyboard_arrow_left
                 </i>
@@ -53,7 +51,4 @@
 
         </ngx-carousel>
     </div>
-
-
-
 </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from "@angular/core"
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { ContactService } from "./contact.service";
-import { User } from "../../../models/models";
+import { User, ContacItem } from "../../../models/models";
 import { MessageService } from 'primeng/api';
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
@@ -15,6 +15,10 @@ export class ContactView implements OnInit, OnDestroy {
     public userForm: FormGroup;
     public userInfo: User;
     private _unsubscribe$: Subject<void> = new Subject<void>();
+    public contactItem:ContacItem[]=[
+        {image:"assets/images/fb.png",title:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum nisi explicabo modi, impedit eos iure vel exercitationem repellat consequatur obcaecati nobislaudantium nihil, praesentium libero sed doloribus aperiam adipisci ratione?"},
+        {image:"assets/images/tv.png",title:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum nisi explicabo modi, impedit eos iure vel exercitationem repellat consequatur obcaecati nobislaudantium nihil, praesentium libero sed doloribus aperiam adipisci ratione?"}
+    ]
     constructor(
         private _contactService: ContactService,
         private _fb: FormBuilder,
@@ -49,6 +53,7 @@ export class ContactView implements OnInit, OnDestroy {
             )
             .subscribe(() => {
                 this._messageService.add({ severity: 'success', summary: 'Summary Text', detail: 'Detail Text' });
+                this.userForm.reset();
             },
                 err => {
                     this._messageService.add({ severity: 'error', summary: 'Summary Text', detail: 'Detail Text' });

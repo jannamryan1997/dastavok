@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms"
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from "@angular/material";
 import { SignUpService } from "../../services/signUp.service";
 import { MessageService } from "primeng/api";
+import { PhoneNumberModal } from "..";
 
 export interface DialogData {
     animal: string;
@@ -24,7 +25,9 @@ export class SignUpModal implements OnInit {
         @Inject(MAT_DIALOG_DATA) public data: DialogData,
         private _signUpService: SignUpService,
         private _dialog: MatDialog,
-        private _messageService: MessageService) { }
+        private _messageService: MessageService,
+        private _dialogRef:MatDialog,
+        ) { }
 
     ngOnInit() {
         this._formBuilder()
@@ -56,6 +59,10 @@ export class SignUpModal implements OnInit {
 
     public backVerificationModal() {
         this.dialogRef.close();
+        this._dialog.open(PhoneNumberModal,{
+            width: "686px",
+            maxWidth: '100vw',
+        })
     }
 
     public signUpClient(): void {

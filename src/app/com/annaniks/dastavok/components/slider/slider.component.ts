@@ -73,9 +73,9 @@ export class SliderComponent implements OnInit {
             speed: 400,
             interval: 2000,
             point: {
-                visible: false,
+                visible:false,
             },
-            loop:false,
+            loop:true,
             touch: true
         }
 
