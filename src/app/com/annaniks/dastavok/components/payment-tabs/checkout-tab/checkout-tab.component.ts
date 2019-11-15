@@ -173,7 +173,7 @@ export class CheckoutTabComponent implements OnInit {
                     lng: this._longitude,
                     text: this.paymentForm.value.address,
                 },
-                domaphone: true,
+                domaphore: true,
                 lift: false,
                 apartment: +this.paymentForm.value.apartment,
             }
