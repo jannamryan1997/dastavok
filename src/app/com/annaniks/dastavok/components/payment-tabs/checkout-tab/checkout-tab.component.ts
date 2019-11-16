@@ -2,7 +2,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { Validators, FormBuilder, FormGroup } from "@angular/forms"
 import { PaymentService } from "../../../views/main/payment/payment.service";
 import { Router, ActivatedRoute } from "@angular/router";
-import { PARAMETERS } from "@angular/core/src/util/decorators";
 import { OrderInfo } from "../../../models/models";
 
 
@@ -127,7 +126,6 @@ export class CheckoutTabComponent implements OnInit {
 
         });
         err=>{
-            console.log(err,"hgggggggggggggg");
             if(err && err.error && err.error.error[0]){
                 this.error= err.error.error[0];
             }

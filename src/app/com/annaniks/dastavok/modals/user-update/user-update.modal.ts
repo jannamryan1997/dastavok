@@ -7,6 +7,8 @@ import { SignUpService } from "../../services/signUp.service";
 import { User } from "../../models/models";
 
 
+declare var google;
+
 
 @Component({
     selector: "app-userUpdate",
@@ -23,6 +25,13 @@ export class UserUpdateModal implements OnInit {
     public clientData: User;
     public error: string;
 
+    private _map;
+    private _marker;
+    private _latitude: number;
+    private _longitude: number;
+    public directionsService = new google.maps.DirectionsService();
+    public directionsDisplay = new google.maps.DirectionsRenderer();
+
     constructor(@Inject(MAT_DIALOG_DATA) private data: any, private _profileService: ProfileService, private _dialogRef: MatDialogRef<UserUpdateModal>, private _signUpService: SignUpService) { }
 
     ngOnInit() {
@@ -30,15 +39,57 @@ export class UserUpdateModal implements OnInit {
         this.clientData = this.data.clientData;
         this._setUserUpdateValue();
         (this.clientData.image);
+        this._initMap();
+        this._calcRoute();
+    }
+
+    private _initMap() {
+        this._map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: -34.397, lng: 150.644 },
+            zoom: 8
+        });
+
+        google.maps.event.addListener(this._map, 'click', (event) => {
+            this._latitude = event.latLng.lat();
+            this._longitude = event.latLng.lng();
+            this._addMarker(event.latLng)
+        });
+        this.directionsDisplay.setMap(this._map)
+
 
     }
+
+    private _addMarker(location) {
+        if (this._marker && this._marker.setMap) {
+            this._marker.setMap(null);
+        }
+        this._marker = new google.maps.Marker({
+            position: location,//tex@ nshvac
+            map: this._map,
+        });
+    }
+
+   private  _calcRoute() {
+        var origin = new google.maps.LatLng(40.177200, 44.503490);
+        var destination = new google.maps.LatLng(40.7942, 43.84528);
+        var request = {
+            origin: origin,
+            destination: destination,
+            travelMode: google.maps.TravelMode['DRIVING']
+        };
+        this.directionsService.route(request, (response, status) => {
+            if (status == 'OK') {
+                this.directionsDisplay.setDirections(response);
+            }
+        });
+    }
+
 
 
     private _formBuilder() {
         this.userUpdateGroup = new FormBuilder().group({
             full_name: ["", Validators.required],
-            location: ["", Validators.required],
-            // phone_number: ["", Validators.required]
+            // location: ["", Validators.required],
         })
     }
     private _setUserUpdateValue() {
@@ -56,8 +107,7 @@ export class UserUpdateModal implements OnInit {
         this.userUpdateGroup.disable();
         return this._profileService.updateClient({
             "fullName": this.userUpdateGroup.value.full_name,
-             "location": this.userUpdateGroup.value.location,
-            "phoneNumber": this.userUpdateGroup.value.phone_number,
+             "location": this._latitude,
         })
     }
 

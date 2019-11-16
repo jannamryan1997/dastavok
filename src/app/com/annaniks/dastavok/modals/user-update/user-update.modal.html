@@ -16,13 +16,15 @@
                 </div>
 
                 <div class="form" full-width>
-                        <label class="label" [ngClass]="{'color':checkIsValid('location')}">{{'location' | translate}}</label>
+                        <label class="label" >{{'location' | translate}}</label>
+                        <!-- <label class="label" [ngClass]="{'color':checkIsValid('location')}">{{'location' | translate}}</label>
                         <div class="form_content" full-height display-flex [ngClass]="{'border':checkIsValid('location')}">
                             <i class="material-icons" margin-auto>
                                     place
                                 </i>
                             <input class="input" placeholder="{{'location' | translate}}" formControlName="location" >
-                        </div>
+                        </div> -->
+                        <div id="map"></div>
         
                     </div>
                     <div position-relative>
