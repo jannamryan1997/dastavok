@@ -55,7 +55,8 @@
                 </div>
 
                 <div class="text_content" margin-auto justify-content-flex-end display-flex>
-                    <p class="type">{{'Enter_the_verification_code' | translate}} <b color-orange>{{time}}</b></p>
+                    <p class="type"  [ngClass]="{'display_none':time=='00:00'}">{{'Enter_the_verification_code' | translate}} <b color-orange>{{time}}</b></p>
+                    <p class="message_type type" [ngClass]="{'display_block':time=='00:00'}">{{'your_time_is_over' | translate}}</p>
                 </div>
                 <div position-relative>
                     <app-loading class="loading" [loading]="loading" [height]="50" [width]="50"></app-loading>

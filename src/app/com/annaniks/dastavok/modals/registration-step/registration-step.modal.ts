@@ -40,6 +40,8 @@ export class RegistrationStep implements OnInit {
 
     ngOnInit() {
         this._formBuilder();
+     
+        
     }
 
     private matchingPasswords(passwordKey: string, confirmPasswordKey: string) {
@@ -183,6 +185,7 @@ export class RegistrationStep implements OnInit {
                     this.verificationForm.enable();
                 }
             )
+            console.log(this.time,"hghgfhgfh");
 
     }
 

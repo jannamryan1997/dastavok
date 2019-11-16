@@ -66,6 +66,10 @@
         .type {
             @include text(#aeaeae, 12px);
             margin: 13px auto;
+            display: block;
+        }
+        .message_type{
+            display: none;
         }
 
         .button_item {
@@ -106,4 +110,11 @@
 
 .stepThreeGradient {
     background-image: linear-gradient(to right, #ff6f00, #ff6f00, #ff6f00) !important;
+}
+
+.display_none{
+    display: none !important;
+}
+.display_block{
+    display: block !important;
 }
