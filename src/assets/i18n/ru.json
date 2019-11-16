@@ -73,5 +73,13 @@
     "show_variants": "Показать варианты",
     "clear_filters": "Сбросить фильтры",
     "your_time_is_over":"ваш время закончилось",
-    "address":"адрес"
+    "address":"адрес",
+    "card_number":"Номер карты",
+    "Security":"Безопасность",
+    "Varieble":"Переменная",
+    "Cardowner":"Владелец карточки",
+    "save_the_card":"Сохранить карту",
+    "card":"Карта",
+    "pay_in_cash":"Платить наличными",
+    "confirm_and_pey":"Подтвердите и подскажите"
 }

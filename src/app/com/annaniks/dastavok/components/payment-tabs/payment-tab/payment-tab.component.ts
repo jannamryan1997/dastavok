@@ -17,9 +17,9 @@ export class PaymentTabComponent implements OnInit {
 
 
     public cardItem: Array<object> = [
-        { image: "assets/images/mastercard.png" },
-        { image: "assets/images/Visa.svg.png" },
-        { image: "assets/images/maestro.png" },
+        { image: "assets/images/MasterCard.png" },
+        { image: "assets/images/visa.png" },
+        { image: "assets/images/maestro.jpg" },
         { image: "assets/images/jcb.png" }
     ]
 

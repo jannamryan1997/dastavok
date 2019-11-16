@@ -1,185 +1,31 @@
+
+@import "../../../../../../../../src/assets/scss/mixin";
 .payment_content {
-    // width: 994px;
-    margin-top: 72px;
-    .payment_data {
-        width: 303px;
-        height: 197px;
-        border-radius: 4px;
-        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-        border: solid 1px grey;
-        background-color: white;
-        .data_top {
-            width: 0;
-            height: 0;
-            border-top: 44px solid #87bd3c;
-            border-right: 42px solid transparent; // box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-            i {
-                color: white;
-            }
-        }
-        .top_conteiner {
-            margin-top: 5px;
-            width: 75%;
-            margin: auto;
-            .data_name {
-                .redius_top {
-                    width: 17.5px;
-                    height: 17.5px;
-                    border-radius: 50%;
-                    border: 1px solid #8b8b8b;
-                    .radius {
-                        width: 50%;
-                        height: 50%;
-                        border-radius: 50%;
-                        margin: auto;
-                        background: #87bd3c;
-                    }
-                }
-                .text {
-                    font-size: 15px;
-                    font-weight: normal;
-                    font-style: normal;
-                    font-stretch: normal;
-                    line-height: 1.2;
-                    letter-spacing: normal;
-                    text-align: left;
-                    color: #444444;
-                    margin-left: 42px;
-                }
-            }
-            .data_address {
-                margin-top: 17px;
-                i {
-                    color: #444444;
-                    font-size: 17px;
-                }
-                .text {
-                    font-size: 15px;
-                    font-weight: normal;
-                    font-style: normal;
-                    font-stretch: normal;
-                    line-height: 1.2;
-                    letter-spacing: normal;
-                    text-align: left;
-                    color: #444444;
-                    margin-left: 42px;
-                }
-            }
-            .data_phone {
-                margin-top: 17px;
-                i {
-                    color: #444444;
-                    font-size: 17px;
-                }
-                .text {
-                    font-size: 15px;
-                    font-weight: normal;
-                    font-style: normal;
-                    font-stretch: normal;
-                    line-height: 1.2;
-                    letter-spacing: normal;
-                    text-align: left;
-                    color: #444444;
-                    margin-left: 42px;
-                }
-            }
-            .edit {
-                margin-top: 36px;
-                i {
-                    font-size: 17px;
-                    color: #87bd3c;
-                    cursor: pointer;
-                }
-                .text {
-                    font-size: 15px;
-                    font-weight: normal;
-                    font-style: normal;
-                    font-stretch: normal;
-                    line-height: 1.2;
-                    letter-spacing: normal;
-                    text-align: left;
-                    color: #444444;
-                    margin-left: 42px;
-                }
-            }
-        }
-        .right_content {
-            margin-left: 39px;
-            .text_name,
-            .text_room,
-            .text_call,
-            .text_edit {
-                margin-top: 0px;
-                margin-bottom: 0px;
-                font-size: 15px;
-                font-weight: normal;
-                font-style: normal;
-                font-stretch: normal;
-                line-height: 1.2;
-                letter-spacing: normal;
-                text-align: left;
-                color: #444444;
-            }
-            .text_room,
-            .text_call,
-            .text_edit {
-                margin-top: 20px;
-            }
-            .text_edit {
-                margin-top: 32px;
-            }
-        }
-    }
     .paynment_middle {
-        margin-top: 25px;
-        .add_icon {
-            font-size: 18px;
-            color: #ff6f00;
-            cursor: pointer;
-        }
-        .text_new_address {
-            margin-top: 0px;
-            margin-bottom: 0px;
-            font-size: 15px;
-            font-weight: normal;
-            font-style: normal;
-            font-stretch: normal;
-            line-height: 1.2;
-            letter-spacing: normal;
-            text-align: left;
-            color: #444444;
-        }
-    }
-    .line {
-        // width: 994px;
-        height: 0;
-        border: solid 1px grey;
-        margin-top: 68px;
-    }
-    .card_tab {
-        margin-top: 54px;
-        .card_text,
-        .cash_text {
-            font-size: 20px;
-            font-weight: normal;
-            font-style: normal;
-            font-stretch: normal;
-            line-height: 1.2;
-            letter-spacing: normal;
-            text-align: left;
-            color: #8b8b8b;
+        display: flex;
+        margin: 50px 0;
+
+        .type {
+            @include text(#8b8b8b, 20px);
             margin-top: 0px;
             margin-bottom: 0px;
         }
+
         .chackbox_cash {
-            margin-left: 107px;
+            margin-left: 70px;
         }
     }
-    .card_item {
-        margin-top: 30px;
-        .item {
-            width: 33.3%;
-            height: 64px;
+
+    .cart_content {
+        border: 1px solid red($color: #000000);
+        margin: 50px 0;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+
+        .cart_item {
+            width: 20%;
+            height: 80px;
             border-radius: 4px;
             box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
             border: solid 1px var grey;
@@ -187,117 +33,68 @@
             background-size: cover;
             background-repeat: no-repeat;
             margin-left: 34px;
+
             &:first-child {
                 margin-left: 0px;
             }
         }
     }
-    .input_form {
-        .form_group_item {
-            //  width: 489px;
-            justify-content: space-around;
-        }
-        .form_group {
-            margin-top: 25px;
-        }
-        margin-top: 60px;
-        .form_text {
-            font-size: 20px;
-            font-style: normal;
-            font-stretch: normal;
-            line-height: 1.2;
-            letter-spacing: normal;
-            text-align: left;
-            color: #444444;
-        }
-        .input_card_number {
-            //width: 489px;
-            height: 42px;
-            border-radius: 4px;
-            box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-            border: solid 1px grey;
-            background-color: white;
-            margin-top: 25px;
-        }
-        .form_text_varieble,
-        .form_text_security,
-        .form_text_cardowner {
-            font-size: 20px;
-            font-style: normal;
-            font-stretch: normal;
-            line-height: 1.2;
-            letter-spacing: normal;
-            text-align: left;
-            color: #444444;
-            margin-top: 25px;
-        }
-        .input_card_varieble,
-        .input_card_security,
-        .input_card_cardowner {
-            width: 202px;
-            height: 42px;
-            border-radius: 4px;
-            box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-            border: solid 1px grey;
-            background-color: white;
-            margin-top: 25px;
-        }
-    }
-    .save_content {
-        margin-top: 61px;
-        .save_text {
-            font-size: 20px;
-            font-weight: normal;
-            font-style: normal;
-            font-stretch: normal;
-            line-height: 1.2;
-            letter-spacing: normal;
-            text-align: left;
-            color: #8b8b8b;
-            margin-top: 0px;
-            margin-bottom: 0px;
-        }
-        .line_content {
-            //width: 994px;
-            height: 0;
-            border: solid 1px grey;
-            margin-top: 54px;
-        }
-        .button {
-            margin-top: 116px;
-            justify-content: flex-end;
-            .button_confirm {
-                width: 287px;
-                height: 65px;
-                border-radius: 4px;
-                box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-                background-color: #ff6f00;
-                font-size: 20px;
-                font-style: normal;
-                font-stretch: normal;
-                line-height: 1.15;
-                letter-spacing: normal;
-                border: none;
-                cursor: pointer;
+
+    .form_content {
+        .form_content {
+            border: 1px solid #444444;
+
+            .input {
+                width: 100%;
+
             }
         }
+        .label {
+            font-weight: bold;
+            color: #444444;
+        }
+
+    }
+    .save_content{
+        margin: 30px 0;
+        .type {
+            @include text(#8b8b8b, 20px);
+            margin-top: 0px;
+            margin-bottom: 0px;
+            width: 100%;
+        } 
+    }
+    .button {
+        @include button(#ff6f00, 20px 50px, #ffffff);
+        font-weight: bold;
     }
 }
 
-@media only screen and (max-width: 900px) {
-    .input_card_varieble {
-        width: 125px !important;
+@media only screen and (max-width:900px){
+    .paymeny_form{
+        flex-direction: column !important;
+        .paymeny_form_item{
+            width: 100% !important;
+        }
     }
-    .input_card_security {
-        width: 125px !important;
+    .type{
+        font-size: 12px !important;
     }
-    .input_card_cardowner {
-        width: 125px !important;
+    .cart_item{
+        width: 15% !important;
+        height: 60px !important;
     }
-     .item {
-        height: 40px !important;
+
+}
+
+.save_content{
+    .type::after{
+     
+        @include after-before(20px 0,1px solid #707070);
+        width: 100%;
     }
-    .top_content{
-        width: 100% !important;
-    }
+}
+.payment_content::before{
+    @include after-before(20px 0,1px solid #707070);
+    width: 100%;
 }

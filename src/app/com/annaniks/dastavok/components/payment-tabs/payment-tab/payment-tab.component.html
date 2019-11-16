@@ -1,4 +1,4 @@
-<div class="payment_content" margin-auto width-75>
+<!-- <div class="payment_content" margin-auto width-75>
     <div class="payment_data">
         <div class="data_top">
         </div>
@@ -95,4 +95,73 @@
     </div>
 
 
-</div>
+</div> -->
+
+<section>
+    <div class="container">
+        <div class="payment_content">
+            <div class="paynment_middle">
+                <input type="checkbox" name="vehicle" value="Bike" (click)="showPayment()">
+                <p class="type">{{'card' | translate}}</p>
+                <input type="checkbox" name="vehicl" value="Bik" class="chackbox_cash" (click)="closePayment()">
+                <p class="type">{{'pay_in_cash' | translate}}</p>
+            </div>
+            <div class="cart_content" *ngIf="cardPayment">
+                <div class="cart_item" *ngFor="let item of cardItem"
+                    [ngStyle]="{'background-image':'url('+item.image+')'}"></div>
+            </div>
+
+            <form class="form_content">
+                <div class="container">
+                    <div class="form_conteiner" full-width>
+                        <div class="form" full-width>
+                            <label class="label">{{'card_number' | translate}}</label>
+                            <div class="form_content" full-height display-flex>
+                                <input class="input" placeholder="{{'card_number' | translate}}">
+                            </div>
+                        </div>
+                        <div class="form_conteiner paymeny_form" full-width display-flex justify-content-space-between>
+                            <div class="form paymeny_form_item" width-40>
+                                <label class="label">{{'Varieble' | translate}}</label>
+                                <div class="form_content" full-height display-flex>
+                                    <input class="input" placeholder="{{'Varieble' | translate}}">
+                                </div>
+                            </div>
+                            <div class="form  paymeny_form_item" width-40>
+                                <label class="label">{{'Security' | translate}}</label>
+                                <div class="form_content" full-height display-flex>
+                                    <input class="input" placeholder="{{'Security' | translate}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form_conteiner paymeny_form" full-width display-flex justify-content-space-between>
+                            <div class="form  paymeny_form_item" width-40>
+                                <label class="label">{{'Cardowner' | translate}}</label>
+                                <div class="form_content" full-height display-flex>
+                                    <input class="input" placeholder="{{'Cardowner' | translate}}">
+                                </div>
+                            </div>
+                            <div class="form  paymeny_form_item" width-40>
+                                <label class="label">{{'Cardowner' | translate}}</label>
+                                <div class="form_content" full-height display-flex>
+                                    <input class="input" placeholder="{{'Cardowner' | translate}}">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+            <div class="save_content" full-width display-flex>
+                <input type="checkbox" name="vehicle" value="Bike" (click)="showPayment()">
+                <p class="type">{{'save_the_card' | translate}}</p>
+
+            </div>
+     
+                    <button class="button" display-flex margin-auto (click)="openDone()">
+                            <span margin-auto>{{'confirm_and_pey' | translate}}</span>
+                        </button>
+            
+        </div>
+    </div>
+</section>
