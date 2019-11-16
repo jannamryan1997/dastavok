@@ -72,5 +72,6 @@
     "email_validation":"Проверка электронной почты",
     "show_variants": "Показать варианты",
     "clear_filters": "Сбросить фильтры",
-    "your_time_is_over":"ваш время закончилось"
+    "your_time_is_over":"ваш время закончилось",
+    "address":"адрес"
 }
