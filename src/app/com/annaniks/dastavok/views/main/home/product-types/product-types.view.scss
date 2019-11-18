@@ -11,10 +11,10 @@
             .slider{
                 width: 100%;
                 &::after{
-                    @include after-before(30px 0,solid 2px #c5c3c3)
+                    @include after-before(30px 0,solid 1px #c5c3c3)
                  }
                  &::before{
-                     @include after-before(30px 0,solid 2px #c5c3c3)
+                     @include after-before(30px 0,solid 1px #c5c3c3)
                   }
             }
            

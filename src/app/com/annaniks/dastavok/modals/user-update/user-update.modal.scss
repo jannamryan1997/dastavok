@@ -1,7 +1,10 @@
 
 @import "../../../../../../assets/scss/mixin.scss";
 @import "../../../../../../assets/scss/global.scss";
-
+#map {
+    height: 300px;
+    width: 100%;
+}
 
 .form_conteiner {
     .image {
@@ -11,6 +14,7 @@
         border: solid 3px #aeaeae;
         border-radius: 50%;
     }
+   
         .button {
             margin: 50px auto;
             @include button(#87bd3c, 20px 50px, #ffffff);

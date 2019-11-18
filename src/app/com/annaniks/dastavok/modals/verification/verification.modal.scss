@@ -22,6 +22,10 @@
     .type {
         @include text(#aeaeae, 12px);
         margin: 13px auto;
+        display: block;
+    }
+    .message_type{
+        display: none;
     }
 
     .button_item {
@@ -38,4 +42,11 @@
     .next {
         @include button(#87bd3c, 20px 50px, #ffffff);
     }
+}
+
+.display_none{
+    display: none !important;
+}
+.display_block{
+    display: block !important;
 }

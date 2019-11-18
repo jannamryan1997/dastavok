@@ -69,6 +69,8 @@
     "sign_in":"Sign In",
     "sign_up":"Sign Up",
     "notification":"Notification",
-    "email_validation":"Email Validation"
+    "email_validation":"Email Validation",
+    "your_time_is_over":"your time is over",
+    "address":"address"
   
 }
