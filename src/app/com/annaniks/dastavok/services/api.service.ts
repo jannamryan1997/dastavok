@@ -25,7 +25,6 @@ export class ApiService extends Utility {
                     return true;
                 }),
                 catchError((err) => {
-                    console.log('dd');
                     this._cookieService.removeAll();
                     this._signUpService.isAuthorized = false;
                     return of(true);

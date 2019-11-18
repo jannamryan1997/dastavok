@@ -5,7 +5,7 @@ import { Injectable } from "@angular/core";
 export class MenuService {
 
     public isOpen: boolean;
-    public isOpenFilter: boolean = true;
+    public isOpenFilter: boolean = false;
 
     constructor() { }
 

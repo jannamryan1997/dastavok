@@ -23,7 +23,7 @@ export class ProfileView implements OnInit, OnDestroy {
     public pageLength = 10;
     public count: number = 0;
     public notifications: Array<object> = [];
-    public clientImage: string = "/assets/images/userimages.png";
+    public clientImage: string;
     public clientId: number;
     private _unsubscribe$: Subject<void> = new Subject<void>();
 
@@ -64,12 +64,8 @@ export class ProfileView implements OnInit, OnDestroy {
             .subscribe((data: ServerResponse<User>) => {
                 this.clientData = data.data;
                 this.clientId = data.data.id;
-                if (data.data.image !== null) {
-                    this.clientImage = data.data.image;
-                }
+                this.clientImage = data.data.image;
             })
-
-
     }
 
     private _clientOrdersProcessing(): void {

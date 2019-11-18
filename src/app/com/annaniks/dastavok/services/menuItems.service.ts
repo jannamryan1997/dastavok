@@ -9,7 +9,7 @@ export class MenuItemsService {
         { label: "contact", routerLink: "/contact" },
     ]
 
-    constructor(private _translateService:TranslateService) { }
+    constructor() { }
 
     public getMenuItems(): Array<MenuItem> {
         return this._menuItems;

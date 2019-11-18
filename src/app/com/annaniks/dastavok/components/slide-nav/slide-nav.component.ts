@@ -85,6 +85,7 @@ export class SlideNawComponent implements OnInit {
     private _getUserInfo() {
         this.signUpService.getUserInfo().subscribe();
     }
+    
     public navToPage(route: string) {
         this.menuService.closeMenu();
         this.roter.navigate([route])

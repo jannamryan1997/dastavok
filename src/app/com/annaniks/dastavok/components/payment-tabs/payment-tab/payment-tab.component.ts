@@ -36,7 +36,7 @@ export class PaymentTabComponent implements OnInit {
 
     }
 
-  
+
 
     public openAddressModal(userData): void {
 
@@ -45,15 +45,13 @@ export class PaymentTabComponent implements OnInit {
             height: "444px",
             panelClass: ['no-padding'],
             data: {
-                userData:userData,
+                userData: userData,
             }
         });
-        dialogRef.afterClosed().subscribe((data)=>{
-         this._signUpService.getUserInfo().subscribe((data)=>{
-             this.userData=data.data;
-             (data);
-             
-         });
+        dialogRef.afterClosed().subscribe((data) => {
+            this._signUpService.getUserInfo().subscribe((data) => {
+                this.userData = data.data;            
+            });
         })
     }
 

@@ -70,11 +70,11 @@ export class SignUpService extends Utility {
         return this._httpClient.get("client", { params: this._setAuthorizedParams() }).pipe(
             map((data: ServerResponse<User>) => {
                 this.userInfo = data.data;
-                if (data.data.image !== null) {
-                    data.data.image = this._fileUrl + "client/image/" + data.data.image;
+                if(!this.userInfo.userName){
+                    this.userInfo.userName = 'no data';
                 }
-                else {
-                    data.data.image = "/assets/images/userimages.png";
+                if(!this.userInfo.address){
+                    this.userInfo.address = 'no data';
                 }
                 this.userImage = data.data.image;
                 this._setImage(data);

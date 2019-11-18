@@ -21,26 +21,26 @@ export class UserUpdateModal implements OnInit {
     public userUpdateGroup: FormGroup;
     public loading: boolean = false;
     public serivceImage: string;
-    public localImage: string = "assets/images/userimages.png";
     public clientData: User;
     public error: string;
-
+    public localImage: string;
     private _map;
     private _marker;
     private _latitude: number;
     private _longitude: number;
-    public directionsService = new google.maps.DirectionsService();
-    public directionsDisplay = new google.maps.DirectionsRenderer();
+    public geocoder = new google.maps.Geocoder();
 
-    constructor(@Inject(MAT_DIALOG_DATA) private data: any, private _profileService: ProfileService, private _dialogRef: MatDialogRef<UserUpdateModal>, private _signUpService: SignUpService) { }
+    constructor(
+        @Inject(MAT_DIALOG_DATA) private data: any,
+        private _profileService: ProfileService,
+        private _dialogRef: MatDialogRef<UserUpdateModal>,
+    ) { }
 
     ngOnInit() {
         this._formBuilder();
         this.clientData = this.data.clientData;
         this._setUserUpdateValue();
-        (this.clientData.image);
         this._initMap();
-        this._calcRoute();
     }
 
     private _initMap() {
@@ -48,15 +48,12 @@ export class UserUpdateModal implements OnInit {
             center: { lat: -34.397, lng: 150.644 },
             zoom: 8
         });
-
         google.maps.event.addListener(this._map, 'click', (event) => {
             this._latitude = event.latLng.lat();
             this._longitude = event.latLng.lng();
+            this.codeAddress({ location: event.latLng })
             this._addMarker(event.latLng)
         });
-        this.directionsDisplay.setMap(this._map)
-
-
     }
 
     private _addMarker(location) {
@@ -64,50 +61,54 @@ export class UserUpdateModal implements OnInit {
             this._marker.setMap(null);
         }
         this._marker = new google.maps.Marker({
-            position: location,//tex@ nshvac
+            position: location,
             map: this._map,
         });
     }
 
-   private  _calcRoute() {
-        var origin = new google.maps.LatLng(40.177200, 44.503490);
-        var destination = new google.maps.LatLng(40.7942, 43.84528);
-        var request = {
-            origin: origin,
-            destination: destination,
-            travelMode: google.maps.TravelMode['DRIVING']
-        };
-        this.directionsService.route(request, (response, status) => {
-            if (status == 'OK') {
-                this.directionsDisplay.setDirections(response);
-            }
-        });
-    }
-
-
-
     private _formBuilder() {
         this.userUpdateGroup = new FormBuilder().group({
             full_name: ["", Validators.required],
-            // location: ["", Validators.required],
+            location: ["", Validators.required],
+        })
+        this.userUpdateGroup.get('location').valueChanges.subscribe((value) => {
+            if (value) {
+                this.codeAddress({ address: value })
+            }
         })
     }
+
     private _setUserUpdateValue() {
         this.userUpdateGroup.patchValue({
             full_name: this.clientData.fullName,
             phone_number: this.clientData.phoneNumber,
         })
         if (this.clientData.image !== null) {
-            this.localImage =  this.clientData.image;
+            this.localImage = this.clientData.image;
         }
     }
+
+    public codeAddress(request: { address?: string, location?: any }): void {
+        this.geocoder.geocode(request, (results, status) => {
+            if (status == 'OK') {
+                this._map.setCenter(results[0].geometry.location);
+                if (request.address) {
+                    this._addMarker(results[0].geometry.location);
+                }
+                if (request.location) {
+                    this.userUpdateGroup.get('location').patchValue(results[0].formatted_address, { emitEvent: false })
+                }
+            }
+        });
+    }
+
 
     private _updateClient() {
         this.loading = true;
         this.userUpdateGroup.disable();
         return this._profileService.updateClient({
             "fullName": this.userUpdateGroup.value.full_name,
-             "location": this._latitude,
+            "location": this.userUpdateGroup.value.location
         })
     }
 
@@ -148,9 +149,6 @@ export class UserUpdateModal implements OnInit {
                 this.loading = false;
                 this.userUpdateGroup.enable();
                 this._dialogRef.close();
-                (data);
-                (data);
-
             },
                 err => {
                     this.error = err.error.error;

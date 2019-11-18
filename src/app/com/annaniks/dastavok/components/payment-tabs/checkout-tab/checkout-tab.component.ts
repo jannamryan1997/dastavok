@@ -20,12 +20,11 @@ export class CheckoutTabComponent implements OnInit {
     private _marker;
     private _latitude: number;
     private _longitude: number;
-    public directionsService = new google.maps.DirectionsService();
-    public directionsDisplay = new google.maps.DirectionsRenderer();
     public ordersParams: OrderInfo;
     public domaphoneValue: boolean;
     public loading: boolean = false;
-    public error:string;
+    public error: string;
+    public geocoder = new google.maps.Geocoder();
     @Input() paymentTab: number;
     @Output() changeTab: EventEmitter<number> = new EventEmitter<number>();
     @Output() addressValue: EventEmitter<string> = new EventEmitter<string>();
@@ -41,7 +40,6 @@ export class CheckoutTabComponent implements OnInit {
     ngOnInit() {
         this._formBuilder();
         this._initMap();
-        this.calcRoute();
         this._getOrderProcessing();
     }
 
@@ -49,33 +47,52 @@ export class CheckoutTabComponent implements OnInit {
         this.paymentForm = new FormBuilder().group({
             address: [null, Validators.required],
             apartment: [null, Validators.required],
-            domaphone: [false,Validators.required],
-            lift: [false,Validators.required],
+            domaphone: [false, Validators.required],
+            lift: [false, Validators.required],
             comment: [null]
         })
-    } 
+
+        this.paymentForm.get('address').valueChanges.subscribe((value) => {
+            if (value) {
+                this.codeAddress({ address: value });
+            }
+        })
+    }
+
+    public codeAddress(request: { address?: string, location?: any }): void {
+        this.geocoder.geocode(request, (results, status) => {
+            if (status == 'OK') {
+                this._map.setCenter(results[0].geometry.location);
+                if (request.address) {
+                    this._addMarker(results[0].geometry.location);
+                }
+                if (request.location) {
+                    this.paymentForm.get('address').patchValue(results[0].formatted_address, { emitEvent: false })
+                }
+            }
+        });
+    }
 
     public openPayment() {
         this.changeTab.emit(this.paymentTab);
     }
+
     public getAddresValue() {
         this.addressValue.emit(this.paymentForm.value.address);
     }
 
     private _initMap() {
         this._map = new google.maps.Map(document.getElementById('map'), {
-            center: { lat: -34.397, lng: 150.644 },
-            zoom: 8
+            center: { lat: 60.1351877, lng: 62.3736493 },
+            zoom: 2
         });
 
         google.maps.event.addListener(this._map, 'click', (event) => {
             this._latitude = event.latLng.lat();
             this._longitude = event.latLng.lng();
-            this._addMarker(event.latLng)
+            this._addMarker(event.latLng);
+            this.codeAddress({ location: event.latLng });
         });
-        this.directionsDisplay.setMap(this._map)
-
-
     }
 
     private _addMarker(location) {
@@ -88,23 +105,8 @@ export class CheckoutTabComponent implements OnInit {
         });
     }
 
-    calcRoute() {
-        var origin = new google.maps.LatLng(40.177200, 44.503490);
-        var destination = new google.maps.LatLng(40.7942, 43.84528);
-        var request = {
-            origin: origin,
-            destination: destination,
-            travelMode: google.maps.TravelMode['DRIVING']
-        };
-        this.directionsService.route(request, (response, status) => {
-            if (status == 'OK') {
-                this.directionsDisplay.setDirections(response);
-            }
-        });
-    }
-
     private _createOrder(): void {
-        this.loading=true;
+        this.loading = true;
         this.paymentForm.disable();
         this._paymentService.createOrder({
             name: "payment",
@@ -125,11 +127,11 @@ export class CheckoutTabComponent implements OnInit {
             (data);
 
         });
-        err=>{
-            if(err && err.error && err.error.error[0]){
-                this.error= err.error.error[0];
+        err => {
+            if (err && err.error && err.error.error[0]) {
+                this.error = err.error.error[0];
             }
-          
+
             this.loading = false;
             this.paymentForm.enable();
         }
@@ -145,8 +147,7 @@ export class CheckoutTabComponent implements OnInit {
     }
 
     private _getOrderProcessing() {
-        
-        this.loading=true;
+        this.loading = true;
         this.paymentForm.disable();
         this._paymentService.getOrderProcessing()
             .subscribe((data) => {
@@ -161,7 +162,7 @@ export class CheckoutTabComponent implements OnInit {
     }
 
     private _changeOrderStatus(): void {
-        this.loading=true;
+        this.loading = true;
         this.paymentForm.disable();
         this._paymentService.putOrders(
             {
@@ -176,26 +177,24 @@ export class CheckoutTabComponent implements OnInit {
                 apartment: +this.paymentForm.value.apartment,
             }
         ).subscribe((data) => {
-            this.loading=false;
+            this.loading = false;
             this.paymentForm.enable();
             this.openPayment();
 
         },
-        err=>{
-            console.log(err,"hgggggggggggggg");
-            
-            if(err && err.error && err.error.error[0]){
-                this.error= err.error.error[0];
+            err => {
+                if (err && err.error && err.error.error[0]) {
+                    this.error = err.error.error[0];
+                }
+                this.loading = false;
+                this.paymentForm.enable();
             }
-            this.loading=false;
-            this.paymentForm.enable();
-        }
         )
-    ;
-       
+            ;
+
     }
 
-    public checkIsValid(controlName:string):boolean{
+    public checkIsValid(controlName: string): boolean {
         return this.paymentForm.get(controlName).hasError('required') && this.paymentForm.get(controlName).touched;
     }
 

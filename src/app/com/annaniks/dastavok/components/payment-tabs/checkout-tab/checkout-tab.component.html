@@ -1,61 +1,65 @@
-<section full-width> 
-<div class="checkout_content">
+<section full-width>
+    <div class="checkout_content">
         <app-error [error]="error"></app-error>
-    <p class="type" >{{'please_fill_in_the_shipping_address' | translate}}</p>
-    <div id="map"></div>
-    <form [formGroup]="paymentForm">
+        <p class="type">{{'please_fill_in_the_shipping_address' | translate}}</p>
+        <div id="map"></div>
+        <form [formGroup]="paymentForm">
             <div class="form_conteiner" full-width>
+                <div class="form" full-width>
+                    <label class="label" [ngClass]="{'color':checkIsValid('address')}">{{'address' | translate}}</label>
+                    <div class="form_content" full-height display-flex [ngClass]="{'border':checkIsValid('address')}">
+                        <i class="material-icons" margin-auto>
+                            person
+                        </i>
+                        <input class="input" placeholder="{{'address' | translate}}" formControlName="address">
+                    </div>
+                </div>
+                <div class="form" full-width>
+                    <label class="label"
+                        [ngClass]="{'color':checkIsValid('apartment')}">{{'apartment' | translate}}</label>
+                    <div class="form_content" full-height display-flex [ngClass]="{'border':checkIsValid('apartment')}">
+                        <i class="material-icons" margin-auto>
+                            person
+                        </i>
+                        <input class="input" placeholder="{{'apartment' | translate}}" formControlName="apartment"
+                            OnlyNumber="true">
+                    </div>
+                </div>
+                <div display-flex>
                     <div class="form" full-width>
-                            <label class="label" [ngClass]="{'color':checkIsValid('address')}">{{'address' | translate}}</label>
-                            <div class="form_content" full-height display-flex [ngClass]="{'border':checkIsValid('address')}">
-                                <i class="material-icons" margin-auto>
-                                    person
-                                </i>
-                                <input class="input" placeholder="{{'address' | translate}}" formControlName="address" >
-                            </div>
+                        <label class="label">{{'domaphone' | translate}}</label>
+                        <div full-height display-flex [ngClass]="{'border':checkIsValid('domaphone')}">
+                            <input type="checkbox" class="input_checkbox" checked="checked" formControlName="domaphone">
                         </div>
-                        <div class="form" full-width>
-                                <label class="label" [ngClass]="{'color':checkIsValid('apartment')}">{{'apartment' | translate}}</label>
-                                <div class="form_content" full-height display-flex [ngClass]="{'border':checkIsValid('apartment')}">
-                                    <i class="material-icons" margin-auto>
-                                        person
-                                    </i>
-                                    <input class="input" placeholder="{{'apartment' | translate}}" formControlName="apartment" OnlyNumber="true">
-                                </div>
-                            </div>
-                            <div display-flex>
-                            <div class="form" full-width>
-                                    <label class="label">{{'domaphone' | translate}}</label>
-                                    <div full-height display-flex [ngClass]="{'border':checkIsValid('domaphone')}">
-                                    <input type="checkbox" class="input_checkbox" checked="checked"  formControlName="domaphone">
-                                        </div>
-                                    </div>
-                                    <div class="form" full-width>
-                                            <label class="label">{{'lift' | translate}}</label>
-                                            <div full-height display-flex [ngClass]="{'border':checkIsValid('lift')}">
-                                            <input type="checkbox" class="input_checkbox" checked="checked"  formControlName="lift">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    <div class="form" full-width>
-                                            <label class="label" [ngClass]="{'color':checkIsValid('comment')}">{{'comment' | translate}}</label>
-                                            <div class="form_content" full-height display-flex [ngClass]="{'border':checkIsValid('comment')}">
-                                                <i class="material-icons" margin-auto>
-                                                    person
-                                                </i>
-                                                <input class="input" placeholder="{{'comment' | translate}}" formControlName="comment" >
-                                            </div>
-                                        </div>
+                    </div>
+                    <div class="form" full-width>
+                        <label class="label">{{'lift' | translate}}</label>
+                        <div full-height display-flex [ngClass]="{'border':checkIsValid('lift')}">
+                            <input type="checkbox" class="input_checkbox" checked="checked" formControlName="lift">
+                        </div>
+                    </div>
+                </div>
+                <div class="form" full-width>
+                    <label class="label" [ngClass]="{'color':checkIsValid('comment')}">{{'comment' | translate}}</label>
+                    <div class="form_content" full-height display-flex [ngClass]="{'border':checkIsValid('comment')}">
+                        <i class="material-icons" margin-auto>
+                            person
+                        </i>
+                        <input class="input" placeholder="{{'comment' | translate}}" formControlName="comment">
+                    </div>
+                </div>
 
-                                        <div class="button_item">
-                                                <button type="button" class="button back" display-flex  (click)="onClickSave()"  [disabled]="paymentForm.invalid || loading " [ngClass]="{'opacity':paymentForm.invalid || loading}">
-                                                            <span margin-auto>{{'save' | translate}}</span>
-                                                        </button>
-                                                <button type="submit" class="button next" display-flex  routerLink="/">
-                                                        <span margin-auto>{{'cancel' | translate}}</span>
-                                                    </button>
-                                            </div>
+                <div class="button_item">
+                    <button type="button" class="button back" display-flex (click)="onClickSave()"
+                        [disabled]="paymentForm.invalid || loading "
+                        [ngClass]="{'opacity':paymentForm.invalid || loading}">
+                        <span margin-auto>{{'save' | translate}}</span>
+                    </button>
+                    <button type="submit" class="button next" display-flex routerLink="/">
+                        <span margin-auto>{{'cancel' | translate}}</span>
+                    </button>
+                </div>
             </div>
         </form>
-</div>
+    </div>
 </section>
