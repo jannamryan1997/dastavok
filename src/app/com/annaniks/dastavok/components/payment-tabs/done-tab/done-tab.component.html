@@ -1,14 +1,16 @@
-<div class="done_content">
-    <div class="done_conteiner">
-        <p class="done_text" font-weight-bold>Your Order has been successfully
-            completed</p>
-        <div class="button_item" display-flex>
-            <div margin-left-auto>
-                <button class="go_main" display-flex routerLink="/home/information"><span color-white font-weight-bold
-                        margin-auto>Go main page</span></button>
-                <button class="go_more" display-flex routerLink="/profile"><span color-white font-weight-bold
-                        margin-auto>Go more detalis</span></button>
-            </div>
+<section>
+    <div class="container">
+        <div class="done_content">
+            <p class="type">{{'Your_order_has_been_successfully_completed' | translate}}</p>
+          
         </div>
+        <div class="button_item" width-50 margin-auto>
+                <button type="button" class="button back" display-flex routerLink="/">
+                    <span margin-auto>{{'go_main_page' | translate}}</span>
+                </button>
+                <button type="submit" class="button next" display-flex routerLink="/profile">
+                    <span margin-auto>{{'go_more_details' | translate}}</span>
+                </button>
+            </div>
     </div>
-</div>
+</section>

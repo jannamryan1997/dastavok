@@ -1,61 +1,30 @@
-.done_content {
-    .done_conteiner {
-        .done_text {
-            margin-top: 191px;
-            margin-bottom: 0px;
-            font-size: 30px;
-            font-style: normal;
-            font-stretch: normal;
-            line-height: 1.23;
-            letter-spacing: normal;
-            text-align: center;
-            color: #ff6f00;
-        }
-        .button_item {
-            margin-top: 374px;
-            padding-bottom: 61px;
-            .go_main {
-                width: 287px;
-                height: 65px;
-                box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-                background-color: #87bd3c;
-                border: none;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 20px;
-                font-style: normal;
-                font-stretch: normal;
-                line-height: 1.2;
-                letter-spacing: normal;
-                cursor: pointer;
-            }
-            .go_more {
-                width: 287px;
-                height: 65px;
-                box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.23);
-                background-color: #ff6f00;
-                border: none;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 20px;
-                font-style: normal;
-                font-stretch: normal;
-                line-height: 1.2;
-                letter-spacing: normal;
-                cursor: pointer;
-            }
-        }
+@import "../../../../../../../assets/scss/mixin";
+.container{
+    padding: 50px 0;
+.done_content{
+align-items: center;
+text-align: center;
+margin: auto;
+
+.type {
+    @include text(#ff6f00, 30px);
+}
+
+}
+.button_item{
+    .back{
+        @include button(#ffffff,20px 50px, #000000);
+    }
+    .next {
+        @include button(#ff6f00, 20px 50px, #ffffff);
     }
 }
-@media only screen and (max-width: 900px) {
-.go_main{
-width: 143px !important;
-font-size: 14px !important;
+
 }
-.go_more{
-    width: 143px !important;
-    font-size: 14px !important;
-}
+
+
+@media only screen and (max-width:900px){
+    .type{
+font-size: 15px !important;
+    }
 }
